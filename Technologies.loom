@@ -60,7 +60,7 @@
         "sortDir": "default",
         "isVisible": true,
         "width": "96px",
-        "type": "number",
+        "type": "text",
         "numberPrefix": "",
         "numberSuffix": "",
         "numberSeparator": "",
@@ -185,14 +185,14 @@
         "index": 0,
         "sourceId": null,
         "creationDateTime": "2023-11-16T18:36:42.328Z",
-        "lastEditedDateTime": "2023-11-16T18:46:51.804Z",
+        "lastEditedDateTime": "2023-11-16T20:08:33.417Z",
         "cells": [
           {
             "id": "2005132f-5077-4ee5-b624-932c62867e1c",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Bulk Purchase]]",
+            "content": "[[Bulk Purchase]]![[res/icons/shop_cart.png|shop_cart]]",
             "tagIds": []
           },
           {
@@ -248,14 +248,14 @@
         "index": 1,
         "sourceId": null,
         "creationDateTime": "2023-11-16T18:47:34.624Z",
-        "lastEditedDateTime": "2023-11-16T18:49:49.936Z",
+        "lastEditedDateTime": "2023-11-16T20:09:07.840Z",
         "cells": [
           {
             "id": "0f5f9b15-156b-4b64-80ab-32b5aabe2404",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Modules (Research)|Modules]]",
+            "content": "[[Modules (Research)|Modules]]![[res/icons/cubes.png|cubes]]",
             "tagIds": []
           },
           {
@@ -301,8 +301,8 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "17b16d0a-b746-4332-bdd1-5a869add16d5",
-              "56e05225-7cfb-403e-aab9-e1a37f616be0"
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "17b16d0a-b746-4332-bdd1-5a869add16d5"
             ]
           }
         ]
@@ -370,13 +370,74 @@
             ]
           }
         ]
+      },
+      {
+        "id": "877bb706-c60a-425c-83e4-eda6835086bc",
+        "index": 3,
+        "sourceId": null,
+        "creationDateTime": "2023-11-16T20:09:24.919Z",
+        "lastEditedDateTime": "2023-11-16T20:10:39.543Z",
+        "cells": [
+          {
+            "id": "e7e9fbea-a80e-428e-8b4c-1d200fbc3a92",
+            "isExternalLink": false,
+            "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
+            "dateTime": null,
+            "content": "[[GadgetDeals.com]]![[res/icons/money.png|money]]",
+            "tagIds": []
+          },
+          {
+            "id": "aa2648b3-d958-4a79-9517-8b8a85e7ade3",
+            "isExternalLink": false,
+            "columnId": "cb1684e7-d2ab-480d-bb72-9ca7205f3f2a",
+            "dateTime": null,
+            "content": "",
+            "tagIds": [
+              "cb08e5d6-769d-4590-b8f0-ca13393a65a4"
+            ]
+          },
+          {
+            "id": "17e894e1-53cd-4e3d-b676-554104200bf5",
+            "isExternalLink": false,
+            "columnId": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
+            "dateTime": null,
+            "content": "10000\n(1e4)",
+            "tagIds": []
+          },
+          {
+            "id": "aeb9b5f7-e709-4583-a892-2dedc857b295",
+            "isExternalLink": false,
+            "columnId": "7caba6e3-43b6-4571-a48f-c385396558cd",
+            "dateTime": null,
+            "content": "",
+            "tagIds": [
+              "f3599547-7dea-4bfb-ae99-16632e62513e"
+            ]
+          },
+          {
+            "id": "e32f30f4-436a-499b-b55a-0aa1082d2f92",
+            "isExternalLink": false,
+            "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          },
+          {
+            "id": "a7d80856-b360-45a4-a04d-6d8e2a0f78a8",
+            "isExternalLink": false,
+            "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          }
+        ]
       }
     ],
     "filters": [],
     "sources": [],
     "settings": {
       "numFrozenColumns": 1,
-      "showCalculationRow": true
+      "showCalculationRow": false
     },
     "externalRowOrder": []
   },
