@@ -39,22 +39,6 @@
             }
           }
         ]
-      },
-      {
-        "id": "f89fd0a964b3cb66",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "137d3728aab51d03",
-            "type": "leaf",
-            "state": {
-              "type": "dataloom",
-              "state": {
-                "file": "Technologies.loom"
-              }
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -120,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Technologies.loom",
+                "file": "Full index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,7 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Technologies.loom",
+                "file": "Full index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -160,7 +144,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Technologies.loom"
+                "file": "Full index.md"
               }
             }
           }
@@ -185,10 +169,11 @@
       "obsidian-livesync:Show Customization sync": false
     }
   },
-  "active": "137d3728aab51d03",
+  "active": "2525cba27e343ca6",
   "lastOpenFiles": [
-    "Full index.md",
     "Technologies.loom",
+    "Full index.md",
+    "Untitled.loom",
     "template/Research.md",
     "Untitled 1.loom",
     "res/silicon_textlogo_flat.png",
@@ -208,7 +193,6 @@
     "res/bgm/Null.mp3",
     "res/bgm/Grounded.mp3",
     "res/bgm/Fragments.mp3",
-    "res/bgm",
     "Shaper.md",
     "[SPECIAL] Module Specialization.md"
   ]

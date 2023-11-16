@@ -86,7 +86,7 @@
 		- [[Power Field]]
 		- [[Electronics Field]]
 - [[Research]]
-	- [[Technologies]]
+	- [[Technologies]] ([[Technologies.loom]])
 		- [[Tier 1]]
 			- [[Bulk Purchase]]
 			- [[Modules (Research)]]
