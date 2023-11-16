@@ -88,8 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 205.5
   },
   "right": {
     "id": "ac8d34095297afff",
@@ -170,7 +169,7 @@
       "obsidian-livesync:Show Customization sync": false
     }
   },
-  "active": "2525cba27e343ca6",
+  "active": "30700124e686baec",
   "lastOpenFiles": [
     "Full index.md",
     "Technologies.loom",
