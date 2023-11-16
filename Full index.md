@@ -86,11 +86,11 @@
 		- [[Power Field]]
 		- [[Electronics Field]]
 - [[Research]]
-	- [[Technologies]] ([[Technologies.loom]])
+	- [[Technologies]] ([[Technologies.loom|Technologies Table]])
 		- [[Tier 1]]
 			- [[Bulk Purchase]]
-			- [[Modules (Research)]]
-			- [[Overclocking (Research)]]
+			- [[Modules (Research)|Modules]]
+			- [[Overclocking (Research)|Overclocking]]
 			- [[GadgetDeals.com]]
 			- [[Photovoltaics]]
 			- [[Kludge]]
