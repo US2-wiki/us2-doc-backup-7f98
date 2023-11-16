@@ -59,7 +59,7 @@
         "id": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
         "sortDir": "default",
         "isVisible": true,
-        "width": "96px",
+        "width": "82px",
         "type": "text",
         "numberPrefix": "",
         "numberSuffix": "",
@@ -113,7 +113,7 @@
         "id": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
         "sortDir": "default",
         "isVisible": true,
-        "width": "277px",
+        "width": "182px",
         "type": "text",
         "numberPrefix": "",
         "numberSuffix": "",
@@ -180,6 +180,11 @@
             "id": "f6d4ea51-fef0-4dc7-9509-9c5872673d4a",
             "content": "SF/Overclocker",
             "color": "blue"
+          },
+          {
+            "id": "6ec81b89-4cb2-4f3c-9667-343d11221f63",
+            "content": "SF/Modules",
+            "color": "light gray"
           }
         ],
         "calculationType": "none",
@@ -505,7 +510,7 @@
         "index": 4,
         "sourceId": null,
         "creationDateTime": "2023-11-16T20:22:53.873Z",
-        "lastEditedDateTime": "2023-11-16T20:29:16.922Z",
+        "lastEditedDateTime": "2023-11-16T20:34:01.150Z",
         "cells": [
           {
             "id": "21c8fa7b-ee82-429a-92cc-23b78ec3af5e",
@@ -568,7 +573,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "",
+            "content": "[[Overclocking (Research)|Overclocking]]",
             "tagIds": []
           }
         ]
@@ -578,14 +583,14 @@
         "index": 5,
         "sourceId": null,
         "creationDateTime": "2023-11-16T20:29:52.726Z",
-        "lastEditedDateTime": "2023-11-16T20:30:45.505Z",
+        "lastEditedDateTime": "2023-11-16T20:37:01.508Z",
         "cells": [
           {
             "id": "5c18666a-fa2e-4a86-8318-082ca758699a",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Kludge]]![[res/icons/helices.png|helices]]",
+            "content": "[[Kludge]] ![[res/icons/bulb.png|bulb]]",
             "tagIds": []
           },
           {
@@ -621,7 +626,7 @@
             "isExternalLink": false,
             "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
             "dateTime": null,
-            "content": "Unlocks the use of wind turbines as a power source",
+            "content": "Modules can have an additional attribute",
             "tagIds": []
           },
           {
@@ -633,7 +638,8 @@
             "tagIds": [
               "56e05225-7cfb-403e-aab9-e1a37f616be0",
               "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
-              "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
+              "17b16d0a-b746-4332-bdd1-5a869add16d5",
+              "6ec81b89-4cb2-4f3c-9667-343d11221f63"
             ]
           },
           {
@@ -641,7 +647,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "",
+            "content": "[[Modules (Research)|Modules]]",
             "tagIds": []
           }
         ]
