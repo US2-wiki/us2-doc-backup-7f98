@@ -5,7 +5,7 @@
         "id": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
         "sortDir": "default",
         "isVisible": true,
-        "width": "140px",
+        "width": "123px",
         "type": "text",
         "numberPrefix": "",
         "numberSuffix": "",
@@ -29,7 +29,7 @@
         "id": "cb1684e7-d2ab-480d-bb72-9ca7205f3f2a",
         "sortDir": "default",
         "isVisible": true,
-        "width": "82px",
+        "width": "69px",
         "type": "tag",
         "numberPrefix": "",
         "numberSuffix": "",
@@ -59,7 +59,7 @@
         "id": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
         "sortDir": "default",
         "isVisible": true,
-        "width": "82px",
+        "width": "64px",
         "type": "text",
         "numberPrefix": "",
         "numberSuffix": "",
@@ -83,7 +83,7 @@
         "id": "7caba6e3-43b6-4571-a48f-c385396558cd",
         "sortDir": "default",
         "isVisible": true,
-        "width": "109px",
+        "width": "93px",
         "type": "tag",
         "numberPrefix": "",
         "numberSuffix": "",
@@ -113,12 +113,36 @@
         "id": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
         "sortDir": "default",
         "isVisible": true,
-        "width": "182px",
+        "width": "216px",
         "type": "text",
         "numberPrefix": "",
         "numberSuffix": "",
         "numberSeparator": "",
         "content": "Description",
+        "numberFormat": "number",
+        "currencyType": "USD",
+        "dateFormat": "mmddyyyy",
+        "dateFormatSeparator": "-",
+        "hour12": true,
+        "includeTime": false,
+        "shouldWrapOverflow": true,
+        "tags": [],
+        "calculationType": "none",
+        "aspectRatio": "unset",
+        "horizontalPadding": "unset",
+        "verticalPadding": "unset",
+        "frontmatterKey": null
+      },
+      {
+        "id": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+        "sortDir": "default",
+        "isVisible": true,
+        "width": "110px",
+        "type": "text",
+        "numberPrefix": "",
+        "numberSuffix": "",
+        "numberSeparator": "",
+        "content": "Required",
         "numberFormat": "number",
         "currencyType": "USD",
         "dateFormat": "mmddyyyy",
@@ -192,30 +216,6 @@
         "horizontalPadding": "unset",
         "verticalPadding": "unset",
         "frontmatterKey": null
-      },
-      {
-        "id": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
-        "sortDir": "default",
-        "isVisible": true,
-        "width": "140px",
-        "type": "text",
-        "numberPrefix": "",
-        "numberSuffix": "",
-        "numberSeparator": "",
-        "content": "Required",
-        "numberFormat": "number",
-        "currencyType": "USD",
-        "dateFormat": "mmddyyyy",
-        "dateFormatSeparator": "-",
-        "hour12": true,
-        "includeTime": false,
-        "shouldWrapOverflow": true,
-        "tags": [],
-        "calculationType": "none",
-        "aspectRatio": "unset",
-        "horizontalPadding": "unset",
-        "verticalPadding": "unset",
-        "frontmatterKey": null
       }
     ],
     "rows": [
@@ -271,6 +271,14 @@
             "tagIds": []
           },
           {
+            "id": "eaaccc2a-eb39-4652-b3bd-6bfec01b6232",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          },
+          {
             "id": "2add2276-2085-4c2d-a48f-7d0b34607c86",
             "isExternalLink": false,
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
@@ -279,14 +287,6 @@
             "tagIds": [
               "feee6666-cd1e-4d2d-a557-01e34cca14b0"
             ]
-          },
-          {
-            "id": "eaaccc2a-eb39-4652-b3bd-6bfec01b6232",
-            "isExternalLink": false,
-            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
-            "dateTime": null,
-            "content": "",
-            "tagIds": []
           }
         ]
       },
@@ -342,6 +342,14 @@
             "tagIds": []
           },
           {
+            "id": "cdf54fbf-f998-4ecd-bf71-ffcd98e0b828",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          },
+          {
             "id": "e20d7ef4-a670-4b88-b60a-3a04cf941e2c",
             "isExternalLink": false,
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
@@ -351,14 +359,6 @@
               "56e05225-7cfb-403e-aab9-e1a37f616be0",
               "17b16d0a-b746-4332-bdd1-5a869add16d5"
             ]
-          },
-          {
-            "id": "cdf54fbf-f998-4ecd-bf71-ffcd98e0b828",
-            "isExternalLink": false,
-            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
-            "dateTime": null,
-            "content": "",
-            "tagIds": []
           }
         ]
       },
@@ -414,6 +414,14 @@
             "tagIds": []
           },
           {
+            "id": "fb93f9ee-c8b2-45da-8dca-987765c02736",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          },
+          {
             "id": "cb37fdee-d4f4-4909-86b1-89f2f9eb7a9d",
             "isExternalLink": false,
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
@@ -423,14 +431,6 @@
               "fef7ac0e-9f63-41bb-9c15-5142acdcc815",
               "56e05225-7cfb-403e-aab9-e1a37f616be0"
             ]
-          },
-          {
-            "id": "fb93f9ee-c8b2-45da-8dca-987765c02736",
-            "isExternalLink": false,
-            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
-            "dateTime": null,
-            "content": "",
-            "tagIds": []
           }
         ]
       },
@@ -486,6 +486,14 @@
             "tagIds": []
           },
           {
+            "id": "f5cc4758-0526-483e-8e16-fea237866cf6",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "[[Bulk Purchase]]",
+            "tagIds": []
+          },
+          {
             "id": "a7d80856-b360-45a4-a04d-6d8e2a0f78a8",
             "isExternalLink": false,
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
@@ -494,14 +502,6 @@
             "tagIds": [
               "feee6666-cd1e-4d2d-a557-01e34cca14b0"
             ]
-          },
-          {
-            "id": "f5cc4758-0526-483e-8e16-fea237866cf6",
-            "isExternalLink": false,
-            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
-            "dateTime": null,
-            "content": "[[Bulk Purchase]]",
-            "tagIds": []
           }
         ]
       },
@@ -557,6 +557,14 @@
             "tagIds": []
           },
           {
+            "id": "fa6c531e-cfbe-4791-9244-6d0db78103fa",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "[[Overclocking (Research)|Overclocking]]",
+            "tagIds": []
+          },
+          {
             "id": "042f9aa0-a9ca-4353-b10c-aba767ae04c8",
             "isExternalLink": false,
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
@@ -567,14 +575,6 @@
               "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
               "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
             ]
-          },
-          {
-            "id": "fa6c531e-cfbe-4791-9244-6d0db78103fa",
-            "isExternalLink": false,
-            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
-            "dateTime": null,
-            "content": "[[Overclocking (Research)|Overclocking]]",
-            "tagIds": []
           }
         ]
       },
@@ -630,6 +630,14 @@
             "tagIds": []
           },
           {
+            "id": "93c92c4a-2eaa-46fd-91e4-cbdb274b6ab9",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "[[Modules (Research)|Modules]]",
+            "tagIds": []
+          },
+          {
             "id": "d7647035-66e3-49cf-90cd-1ea458cb5868",
             "isExternalLink": false,
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
@@ -641,14 +649,6 @@
               "17b16d0a-b746-4332-bdd1-5a869add16d5",
               "6ec81b89-4cb2-4f3c-9667-343d11221f63"
             ]
-          },
-          {
-            "id": "93c92c4a-2eaa-46fd-91e4-cbdb274b6ab9",
-            "isExternalLink": false,
-            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
-            "dateTime": null,
-            "content": "[[Modules (Research)|Modules]]",
-            "tagIds": []
           }
         ]
       },
@@ -704,6 +704,14 @@
             "tagIds": []
           },
           {
+            "id": "95d2ca9b-9d06-4bac-8a86-8e208d932ef5",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "[[Photovoltaics]]\n[[Overclocking (Research)|Overclocking]]",
+            "tagIds": []
+          },
+          {
             "id": "b5bb674d-33bb-4c57-aae5-58ebdbb2336d",
             "isExternalLink": false,
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
@@ -714,14 +722,6 @@
               "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
               "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
             ]
-          },
-          {
-            "id": "95d2ca9b-9d06-4bac-8a86-8e208d932ef5",
-            "isExternalLink": false,
-            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
-            "dateTime": null,
-            "content": "[[Photovoltaics]]\n[[Overclocking (Research)|Overclocking]]",
-            "tagIds": []
           }
         ]
       }
