@@ -170,8 +170,42 @@
             "id": "fef7ac0e-9f63-41bb-9c15-5142acdcc815",
             "content": "Core Feature",
             "color": "orange"
+          },
+          {
+            "id": "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+            "content": "Sub Feature",
+            "color": "orange"
+          },
+          {
+            "id": "f6d4ea51-fef0-4dc7-9509-9c5872673d4a",
+            "content": "SF/Overclocker",
+            "color": "blue"
           }
         ],
+        "calculationType": "none",
+        "aspectRatio": "unset",
+        "horizontalPadding": "unset",
+        "verticalPadding": "unset",
+        "frontmatterKey": null
+      },
+      {
+        "id": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+        "sortDir": "default",
+        "isVisible": true,
+        "width": "140px",
+        "type": "text",
+        "numberPrefix": "",
+        "numberSuffix": "",
+        "numberSeparator": "",
+        "content": "Required",
+        "numberFormat": "number",
+        "currencyType": "USD",
+        "dateFormat": "mmddyyyy",
+        "dateFormatSeparator": "-",
+        "hour12": true,
+        "includeTime": false,
+        "shouldWrapOverflow": true,
+        "tags": [],
         "calculationType": "none",
         "aspectRatio": "unset",
         "horizontalPadding": "unset",
@@ -240,6 +274,14 @@
             "tagIds": [
               "feee6666-cd1e-4d2d-a557-01e34cca14b0"
             ]
+          },
+          {
+            "id": "eaaccc2a-eb39-4652-b3bd-6bfec01b6232",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
           }
         ]
       },
@@ -304,6 +346,14 @@
               "56e05225-7cfb-403e-aab9-e1a37f616be0",
               "17b16d0a-b746-4332-bdd1-5a869add16d5"
             ]
+          },
+          {
+            "id": "cdf54fbf-f998-4ecd-bf71-ffcd98e0b828",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
           }
         ]
       },
@@ -368,6 +418,14 @@
               "fef7ac0e-9f63-41bb-9c15-5142acdcc815",
               "56e05225-7cfb-403e-aab9-e1a37f616be0"
             ]
+          },
+          {
+            "id": "fb93f9ee-c8b2-45da-8dca-987765c02736",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
           }
         ]
       },
@@ -376,7 +434,7 @@
         "index": 3,
         "sourceId": null,
         "creationDateTime": "2023-11-16T20:09:24.919Z",
-        "lastEditedDateTime": "2023-11-16T20:12:17.135Z",
+        "lastEditedDateTime": "2023-11-16T20:32:27.704Z",
         "cells": [
           {
             "id": "e7e9fbea-a80e-428e-8b4c-1d200fbc3a92",
@@ -431,6 +489,14 @@
             "tagIds": [
               "feee6666-cd1e-4d2d-a557-01e34cca14b0"
             ]
+          },
+          {
+            "id": "f5cc4758-0526-483e-8e16-fea237866cf6",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "[[Bulk Purchase]]",
+            "tagIds": []
           }
         ]
       },
@@ -439,14 +505,14 @@
         "index": 4,
         "sourceId": null,
         "creationDateTime": "2023-11-16T20:22:53.873Z",
-        "lastEditedDateTime": "2023-11-16T20:23:53.050Z",
+        "lastEditedDateTime": "2023-11-16T20:29:16.922Z",
         "cells": [
           {
             "id": "21c8fa7b-ee82-429a-92cc-23b78ec3af5e",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Photovoltaics]]",
+            "content": "[[Photovoltaics]]![[res/icons/solar_panel.png|solar_panel]]",
             "tagIds": []
           },
           {
@@ -455,14 +521,16 @@
             "columnId": "cb1684e7-d2ab-480d-bb72-9ca7205f3f2a",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "cb08e5d6-769d-4590-b8f0-ca13393a65a4"
+            ]
           },
           {
             "id": "a8177333-5c9c-42f5-a709-74069673b8dc",
             "isExternalLink": false,
             "columnId": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
             "dateTime": null,
-            "content": "",
+            "content": "1000000\n(1e6)",
             "tagIds": []
           },
           {
@@ -471,20 +539,107 @@
             "columnId": "7caba6e3-43b6-4571-a48f-c385396558cd",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "f3599547-7dea-4bfb-ae99-16632e62513e"
+            ]
           },
           {
             "id": "621933c5-5c3b-4936-9347-a0ba745bcc98",
             "isExternalLink": false,
             "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
             "dateTime": null,
-            "content": "",
+            "content": "Unlocks the use of solar panels as a power source",
             "tagIds": []
           },
           {
             "id": "042f9aa0-a9ca-4353-b10c-aba767ae04c8",
             "isExternalLink": false,
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
+            "dateTime": null,
+            "content": "",
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
+            ]
+          },
+          {
+            "id": "fa6c531e-cfbe-4791-9244-6d0db78103fa",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          }
+        ]
+      },
+      {
+        "id": "1788c41d-0d07-4533-9dd9-37aa90030072",
+        "index": 5,
+        "sourceId": null,
+        "creationDateTime": "2023-11-16T20:29:52.726Z",
+        "lastEditedDateTime": "2023-11-16T20:30:45.505Z",
+        "cells": [
+          {
+            "id": "5c18666a-fa2e-4a86-8318-082ca758699a",
+            "isExternalLink": false,
+            "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
+            "dateTime": null,
+            "content": "[[Kludge]]![[res/icons/helices.png|helices]]",
+            "tagIds": []
+          },
+          {
+            "id": "57741cdf-f6e2-41eb-a8ab-a82fa646e40b",
+            "isExternalLink": false,
+            "columnId": "cb1684e7-d2ab-480d-bb72-9ca7205f3f2a",
+            "dateTime": null,
+            "content": "",
+            "tagIds": [
+              "cb08e5d6-769d-4590-b8f0-ca13393a65a4"
+            ]
+          },
+          {
+            "id": "18250c30-64dc-4668-b9a5-2840a2cdb84f",
+            "isExternalLink": false,
+            "columnId": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
+            "dateTime": null,
+            "content": "1e8",
+            "tagIds": []
+          },
+          {
+            "id": "82f46f38-0c05-4e91-9dcb-1b90f43c327c",
+            "isExternalLink": false,
+            "columnId": "7caba6e3-43b6-4571-a48f-c385396558cd",
+            "dateTime": null,
+            "content": "",
+            "tagIds": [
+              "f3599547-7dea-4bfb-ae99-16632e62513e"
+            ]
+          },
+          {
+            "id": "4414e275-d285-4c1a-a41e-84fe17015f93",
+            "isExternalLink": false,
+            "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
+            "dateTime": null,
+            "content": "Unlocks the use of wind turbines as a power source",
+            "tagIds": []
+          },
+          {
+            "id": "d7647035-66e3-49cf-90cd-1ea458cb5868",
+            "isExternalLink": false,
+            "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
+            "dateTime": null,
+            "content": "",
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
+            ]
+          },
+          {
+            "id": "93c92c4a-2eaa-46fd-91e4-cbdb274b6ab9",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
             "content": "",
             "tagIds": []

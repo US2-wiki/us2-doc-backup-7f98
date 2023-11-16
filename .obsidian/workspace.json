@@ -18,14 +18,6 @@
             }
           },
           {
-            "id": "bc051f15846c70f9",
-            "type": "leaf",
-            "state": {
-              "type": "log-log",
-              "state": {}
-            }
-          },
-          {
             "id": "ee7022f98bbf013a",
             "type": "leaf",
             "state": {
@@ -88,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 205.5
+    "width": 205.5,
+    "collapsed": true
   },
   "right": {
     "id": "ac8d34095297afff",
@@ -169,10 +162,11 @@
       "obsidian-livesync:Show Customization sync": false
     }
   },
-  "active": "30700124e686baec",
+  "active": "2525cba27e343ca6",
   "lastOpenFiles": [
     "Full index.md",
     "Technologies.loom",
+    "res/data",
     "Untitled.loom",
     "template/Research.md",
     "Untitled 1.loom",
@@ -192,7 +186,6 @@
     "res/New folder",
     "res/bgm/Null.mp3",
     "res/bgm/Grounded.mp3",
-    "res/bgm/Fragments.mp3",
     "Shaper.md",
     "[SPECIAL] Module Specialization.md"
   ]
