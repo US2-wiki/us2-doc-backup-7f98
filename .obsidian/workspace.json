@@ -1,0 +1,172 @@
+{
+  "main": {
+    "id": "64897476f0a124c1",
+    "type": "split",
+    "children": [
+      {
+        "id": "a21942134db2d2ad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2525cba27e343ca6",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "33b5fc3799b3e58f",
+    "type": "split",
+    "children": [
+      {
+        "id": "c9c6582800831d28",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "30700124e686baec",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7b16763e87b0e7e6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0ccb6f5f5d7b8540",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ac8d34095297afff",
+    "type": "split",
+    "children": [
+      {
+        "id": "ce0c3646cc2e430f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d1f92f32d4432d9b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7414e98c166ff5a0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a768d508bf923d87",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "fc495938acad1f68",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "notion-like-tables:Create loom": false,
+      "obsidian-livesync:Replicate": false,
+      "obsidian-livesync:Show log": false,
+      "obsidian-livesync:Show Customization sync": false
+    }
+  },
+  "active": "2525cba27e343ca6",
+  "lastOpenFiles": [
+    "res/silicon_textlogo_flat.png",
+    "template/Research.md",
+    "Full index.md",
+    "template",
+    "template",
+    "res/silicon_textlogo.png",
+    "res/uploadsimsi.png",
+    "res/icon.png",
+    "res/wallpapers/classic.jpg",
+    "res/particles/star_07.png",
+    "res/particles/flare_26.png",
+    "res/particles/random_glow.png",
+    "res/particles/circle_01.png",
+    "res/particles/01.png",
+    "res/sfx",
+    "res/New folder",
+    "res/bgm/Null.mp3",
+    "res/bgm/Grounded.mp3",
+    "res/bgm/Fragments.mp3",
+    "res/bgm",
+    "res/wallpapers/pc/silicon.jpg.import",
+    "res/wallpapers/pc/riverside.jpg.import",
+    "Shaper.md",
+    "[SPECIAL] Module Specialization.md"
+  ]
+}
