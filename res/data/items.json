@@ -1,0 +1,107 @@
+{
+	"speed_boost":{
+		"name": "item_speed_boost",
+		"icon": "speed.png",
+		"script": "",
+		"description": "item_speed_boost_desc",
+		"requirement": "",
+		"refresh": true,
+		"price": 120,
+		"buff":{
+			"attribute": "speed",
+			"amount": 1,
+			"duration": 1800
+		}
+	},
+	"battery_boost":{
+		"name": "item_battery_boost",
+		"icon": "battery.png",
+		"script": "",
+		"description": "item_battery_boost_desc",
+		"requirement": "",
+		"refresh": true,
+		"price": 100,
+		"buff":{
+			"attribute": "battery_recharge",
+			"amount": 0.5,
+			"duration": 1200
+		}
+	},
+	"luck_boost":{
+		"name": "item_luck_boost",
+		"icon": "star.png",
+		"script": "",
+		"description": "item_luck_boost_desc",
+		"requirement": "",
+		"refresh": true,
+		"price": 100,
+		"buff":{
+			"attribute": "luck",
+			"amount": 0.5,
+			"duration": 1200
+		}
+	},
+	"credits":{
+		"name": "item_credits",
+		"icon": "credits.png",
+		"script": "",
+		"description": "item_credits_desc",
+		"requirement": "",
+		"refresh": false,
+		"price": 60
+	},
+	"wire":{
+		"name": "resource_wire",
+		"icon": "wire.png",
+		"script": "",
+		"description": "item_resource_desc",
+		"requirement": "modules",
+		"refresh": false,
+		"price": 20
+	},
+	"transistor":{
+		"name": "resource_transistor",
+		"icon": "transistor.png",
+		"script": "",
+		"description": "item_resource_desc",
+		"requirement": "modules",
+		"refresh": false,
+		"price": 10
+	},
+	"wafer":{
+		"name": "resource_wafer",
+		"icon": "wafer.png",
+		"script": "",
+		"description": "item_resource_desc",
+		"requirement": "modules",
+		"refresh": false,
+		"price": 100
+	},
+	"pcb":{
+		"name": "resource_pcb",
+		"icon": "pcb.png",
+		"script": "",
+		"description": "item_resource_desc",
+		"requirement": "modules",
+		"refresh": false,
+		"price": 200
+	},
+	"upgrade_reset":{
+		"name": "item_upgrade_reset",
+		"icon": "reputation.png",
+		"script": "",
+		"description": "item_upgrade_reset_desc",
+		"requirement": "",
+		"refresh": false,
+		"price": 240
+	},
+	"hack_reset":{
+		"name": "item_hack_reset",
+		"icon": "hack.png",
+		"script": "",
+		"description": "item_hack_reset_desc",
+		"requirement": "",
+		"refresh": false,
+		"price": 240
+	}
+}

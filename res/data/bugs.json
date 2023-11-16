@@ -1,0 +1,23 @@
+{
+	"credits":{
+		"icon": "credits.png",
+		"script": "BugAttribute.gd",
+		"attributes": {
+			"/mining": 1
+		}
+	},
+	"battery":{
+		"icon": "battery.png",
+		"script": "BugAttribute.gd",
+		"attributes": {
+			"/battery_recharge": 1
+		}
+	},
+	"disconnection":{
+		"icon": "disconnect.png",
+		"script": "BugAttribute.gd",
+		"attributes": {
+			"signal": -1
+		}
+	}
+}

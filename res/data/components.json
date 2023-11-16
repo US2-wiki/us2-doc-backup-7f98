@@ -1,0 +1,61 @@
+{
+	"network":{
+		"name": "network",
+		"names": [
+			"network_radio_transceiver1",
+			"network_radio_transceiver2",
+			"network_2g",
+			"network_2.5g",
+			"network_3g",
+			"network_3.5g",
+			"network_dial_up1",
+			"network_dial_up2",
+			"network_dsl1",
+			"network_dsl2",
+			"network_4g",
+			"network_4.5g",
+			"network_satellite1",
+			"network_satellite2",
+			"network_5g",
+			"network_6g",
+			"network_fiber1",
+			"network_fiber2",
+			"network_fiber3",
+			"network_entangloporter"
+		],
+		"icon": "network.png",
+		"icons": [
+			"radio.png",
+			"radio.png",
+			"2g.png",
+			"2g.png",
+			"antenna_medium.png",
+			"antenna_medium.png",
+			"phone.png",
+			"phone.png",
+			"router.png",
+			"router.png",
+			"antenna_medium.png",
+			"antenna_medium.png",
+			"satellite.png",
+			"satellite.png",
+			"big_antenna.png",
+			"big_antenna.png",
+			"fiber.png",
+			"fiber.png",
+			"fiber.png",
+			"entangloporter.png"
+		],
+		"description": "network_desc"
+	},
+	"gpu":{
+		"name": "gpu",
+		"icon": "gpu.png",
+		"description": "gpu_desc"
+	},
+	"cpu":{
+		"name": "cpu",
+		"icon": "cpu.png",
+		"description": "cpu_desc"
+	}
+}

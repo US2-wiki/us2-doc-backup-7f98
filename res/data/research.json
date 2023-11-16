@@ -1,0 +1,491 @@
+{
+	"bulk_purchase":{
+		"name": "research_bulk_purchase",
+		"icon": "shop_cart.png",
+		"script": "ResearchTech.gd",
+		"description": "research_bulk_purchase_desc",
+		"tier": 1,
+		"requirement": "",
+		"price": 1,
+		"price_e": 1,
+		"attributes":{
+		}
+	},
+	"modules":{
+		"name": "research_modules",
+		"icon": "cubes.png",
+		"script": "ResearchTech.gd",
+		"description": "research_modules_desc",
+		"tier": 1,
+		"requirement": "",
+		"price": 1,
+		"price_e": 2,
+		"attributes":{
+			"resources": 1
+		}
+	},
+	"overclocker":{
+		"name": "research_overclocker",
+		"icon": "overclock.png",
+		"script": "ResearchTech.gd",
+		"description": "research_overclocker_desc",
+		"tier": 1,
+		"requirement": "",
+		"price": 1,
+		"price_e": 3,
+		"attributes":{
+		}
+	},
+	"gadget_deals":{
+		"name": "research_gadget_deals",
+		"icon": "money.png",
+		"script": "ResearchTech.gd",
+		"description": "research_gadget_deals_desc",
+		"tier": 1,
+		"requirement": "bulk_purchase",
+		"price": 1,
+		"price_e": 4,
+		"attributes":{
+		}
+	},
+	"photovoltaics":{
+		"name": "research_photovoltaics",
+		"icon": "solar_panel.png",
+		"script": "ResearchTech.gd",
+		"description": "research_photovoltaics_desc",
+		"tier": 1,
+		"requirement": "overclocker",
+		"price": 1,
+		"price_e": 6,
+		"attributes":{
+		}
+	},
+	"kludge":{
+		"name": "research_kludge",
+		"icon": "bulb.png",
+		"script": "ResearchTech.gd",
+		"description": "research_kludge_desc",
+		"tier": 1,
+		"requirement": "modules",
+		"price": 1,
+		"price_e": 8,
+		"attributes":{
+			"module_attributes": 1
+		}
+	},
+	"wind_power":{
+		"name": "research_wind_power",
+		"icon": "helices.png",
+		"script": "ResearchTech.gd",
+		"description": "research_wind_power_desc",
+		"tier": 1,
+		"requirement": "photovoltaics",
+		"price": 1,
+		"price_e": 9,
+		"attributes":{
+		}
+	},
+	"coal_power":{
+		"name": "research_coal_power",
+		"icon": "coal.png",
+		"script": "ResearchTech.gd",
+		"description": "research_coal_power_desc",
+		"tier": 1,
+		"requirement": "overclocker",
+		"price": 1,
+		"price_e": 11,
+		"attributes":{
+		}
+	},
+	"moore_law":{
+		"name": "research_moore_law",
+		"icon": "server.png",
+		"script": "ResearchTech.gd",
+		"description": "research_moore_law_desc",
+		"tier": 1,
+		"requirement": "overclocker",
+		"price": 1,
+		"price_e": 13,
+		"attributes":{
+		}
+	},
+	"steam":{
+		"name": "research_steam",
+		"icon": "steam.png",
+		"script": "ResearchTech.gd",
+		"description": "research_steam_desc",
+		"tier": 1,
+		"requirement": "wind_power",
+		"price": 1,
+		"price_e": 15,
+		"attributes":{
+		}
+	},
+	"manufactory":{
+		"name": "research_manufactory",
+		"icon": "robot_arm.png",
+		"script": "ResearchTech.gd",
+		"description": "research_manufactory_desc",
+		"tier": 1,
+		"requirement": "moore_law",
+		"price": 1,
+		"price_e": 17,
+		"attributes":{
+		}
+	},
+	"fission":{
+		"name": "research_fission",
+		"icon": "radiation.png",
+		"script": "ResearchTech.gd",
+		"description": "research_fission_desc",
+		"tier": 1,
+		"requirement": "coal_power",
+		"price": 1,
+		"price_e": 24,
+		"attributes":{
+		}
+	},
+	"injection":{
+		"name": "research_injection",
+		"icon": "shuffle.png",
+		"script": "ResearchTech.gd",
+		"description": "research_injection_desc",
+		"tier": 1,
+		"requirement": "manufactory",
+		"price": 1,
+		"price_e": 29,
+		"attributes":{
+		}
+	},
+	"fusion":{
+		"name": "research_fusion",
+		"icon": "fusion.png",
+		"script": "ResearchTech.gd",
+		"description": "research_fusion_desc",
+		"tier": 1,
+		"requirement": "fission",
+		"price": 1,
+		"price_e": 35,
+		"attributes":{
+		}
+	},
+	"tier2":{
+		"name": "research_tier2",
+		"icon": "atom.png",
+		"script": "ResearchTech.gd",
+		"description": "research_tier2_desc",
+		"tier": 1,
+		"requirement": "manufactory",
+		"price": 1,
+		"price_e": 50,
+		"attributes":{
+		}
+	},
+	"field_modulation":{
+		"name": "research_field_modulation",
+		"icon": "layers.png",
+		"script": "ResearchTech.gd",
+		"description": "research_field_modulation_desc",
+		"tier": 2,
+		"requirement": "tier2",
+		"price": 1,
+		"price_e": 0,
+		"attributes":{
+			"flux_base": 1
+		}
+	},
+	"async_uploads":{
+		"name": "research_async_uploads",
+		"icon": "speed.png",
+		"script": "ResearchTech.gd",
+		"description": "research_async_uploads_desc",
+		"tier": 2,
+		"requirement": "tier2",
+		"price": 1,
+		"price_e": 3,
+		"attributes":{
+			"slot_boost": 1
+		}
+	},
+	"dyson_sphere":{
+		"name": "research_dyson_sphere",
+		"icon": "sphere.png",
+		"script": "ResearchTech.gd",
+		"description": "research_dyson_sphere_desc",
+		"tier": 2,
+		"requirement": "tier2",
+		"price": 1,
+		"price_e": 6,
+		"attributes":{
+		}
+	},
+	"turbo":{
+		"name": "research_turbo",
+		"icon": "energy.png",
+		"script": "ResearchTech.gd",
+		"description": "research_turbo_desc",
+		"tier": 2,
+		"requirement": "field_modulation",
+		"price": 1,
+		"price_e": 9,
+		"attributes":{
+		}
+	},
+	"cryogenics":{
+		"name": "research_cryogenics",
+		"icon": "cooling.png",
+		"script": "ResearchTech.gd",
+		"description": "research_cryogenics_desc",
+		"tier": 2,
+		"requirement": "dyson_sphere",
+		"price": 1,
+		"price_e": 10,
+		"attributes":{
+		}
+	},
+	"drivers":{
+		"name": "research_drivers",
+		"icon": "disc.png",
+		"script": "ResearchTech.gd",
+		"description": "research_drivers_desc",
+		"tier": 2,
+		"requirement": "field_modulation",
+		"price": 1,
+		"price_e": 12,
+		"attributes":{
+		}
+	},
+	"robotics":{
+		"name": "research_robotics",
+		"icon": "robot.png",
+		"script": "ResearchTech.gd",
+		"description": "research_robotics_desc",
+		"tier": 2,
+		"requirement": "field_modulation",
+		"price": 1,
+		"price_e": 15,
+		"attributes":{
+		}
+	},
+	"advanced_lab":{
+		"name": "research_advanced_laboratory",
+		"icon": "advanced_lab.png",
+		"script": "ResearchTech.gd",
+		"description": "research_advanced_laboratory_desc",
+		"tier": 2,
+		"requirement": "robotics",
+		"price": 1,
+		"price_e": 18,
+		"attributes":{
+		}
+	},
+	"tier3":{
+		"name": "research_tier3",
+		"icon": "frame.png",
+		"script": "ResearchTech.gd",
+		"description": "research_tier3_desc",
+		"tier": 2,
+		"requirement": "advanced_lab",
+		"price": 1,
+		"price_e": 50,
+		"attributes":{
+		}
+	},
+	"space_shaper":{
+		"name": "research_space_shaper",
+		"icon": "atom2.png",
+		"script": "ResearchTech.gd",
+		"description": "research_space_shaper_desc",
+		"tier": 3,
+		"requirement": "tier3",
+		"price": 1,
+		"price_e": 0,
+		"attributes":{
+			"graviton_production": 1,
+		}
+	},
+	"enhance":{
+		"name": "research_enhance",
+		"icon": "belt_lane.png",
+		"script": "ResearchTech.gd",
+		"description": "research_enhance_desc",
+		"tier": 3,
+		"requirement": "tier3",
+		"price": 1,
+		"price_e": 3,
+		"attributes":{
+		}
+	},
+	"engineer_robot":{
+		"name": "research_engineer_robot",
+		"icon": "robot.png",
+		"script": "ResearchTech.gd",
+		"description": "research_engineer_robot_desc",
+		"tier": 3,
+		"requirement": "enhance",
+		"price": 1,
+		"price_e": 9,
+		"attributes":{
+		}
+	},
+	"passives":{
+		"name": "research_passives",
+		"icon": "shine.png",
+		"script": "ResearchTech.gd",
+		"description": "research_passives_desc",
+		"tier": 3,
+		"requirement": "tier3",
+		"price": 1,
+		"price_e": 6,
+		"attributes":{
+			"passive_points": 1
+		}
+	},
+	"space_warp":{
+		"name": "research_space_warp",
+		"icon": "galaxy.png",
+		"script": "ResearchTech.gd",
+		"description": "research_space_warp_desc",
+		"tier": 3,
+		"requirement": "tier3",
+		"price": 1,
+		"price_e": 10,
+		"attributes":{
+		}
+	},
+	"physicist_robot":{
+		"name": "research_physicist_robot",
+		"icon": "robot.png",
+		"script": "ResearchTech.gd",
+		"description": "research_physicist_robot_desc",
+		"tier": 3,
+		"requirement": "space_shaper",
+		"price": 1,
+		"price_e": 15,
+		"attributes":{
+		}
+	},
+	"perpetual_motion":{
+		"name": "research_perpetual_motion",
+		"icon": "field.png",
+		"script": "ResearchTech.gd",
+		"description": "research_perpetual_motion_desc",
+		"tier": 3,
+		"requirement": "space_shaper",
+		"price": 1,
+		"price_e": 20,
+		"attributes":{
+		}
+	},
+	"builder_robot":{
+		"name": "research_builder_robot",
+		"icon": "robot.png",
+		"script": "ResearchTech.gd",
+		"description": "research_builder_robot_desc",
+		"tier": 3,
+		"requirement": "perpetual_motion",
+		"price": 1,
+		"price_e": 24,
+		"attributes":{
+		}
+	},
+	"hack_specialist":{
+		"name": "research_hack_specialist",
+		"icon": "hack.png",
+		"script": "ResearchHackSpec.gd",
+		"description": "research_hack_specialist_desc",
+		"tier": 3,
+		"requirement": "space_warp",
+		"price": 60,
+		"price_e": 0,
+		"attributes":{
+			"battery_recharge": 1
+		}
+	},
+	"hack_mastery":{
+		"name": "research_hack_mastery",
+		"icon": "hack.png",
+		"script": "ResearchHackSpec.gd",
+		"description": "research_hack_mastery_desc",
+		"tier": 3,
+		"requirement": "hack_specialist",
+		"price": 100,
+		"price_e": 0,
+		"attributes":{
+			"battery": 1
+		}
+	},
+	"module_specialist":{
+		"name": "research_module_specialist",
+		"icon": "cubes.png",
+		"script": "ResearchModuleSpec.gd",
+		"description": "research_module_specialist_desc",
+		"tier": 3,
+		"requirement": "space_warp",
+		"price": 1000,
+		"price_e": 0,
+		"attributes":{
+			"module_slots": 1
+		}
+	},
+	"ultimate_lab":{
+		"name": "research_ultimate_lab",
+		"icon": "ultimate_lab.png",
+		"script": "ResearchTech.gd",
+		"description": "research_ultimate_lab_desc",
+		"tier": 3,
+		"requirement": "space_warp",
+		"price": 1,
+		"price_e": 30,
+		"attributes":{
+		}
+	},
+	"tier4":{
+		"name": "research_tier4",
+		"icon": "dna.png",
+		"script": "ResearchTech.gd",
+		"description": "research_tier4_desc",
+		"tier": 3,
+		"requirement": "ultimate_lab",
+		"price": 1,
+		"price_e": 50,
+		"attributes":{
+		}
+	},
+	"infinity_milestones":{
+		"name": "research_infinity_milestones",
+		"icon": "infinity.png",
+		"script": "ResearchTech.gd",
+		"description": "research_infinity_milestones_desc",
+		"tier": 4,
+		"requirement": "tier4",
+		"price": 1,
+		"price_e": 0,
+		"attributes":{
+		}
+	},
+	"temporal_robot":{
+		"name": "research_temporal_robot",
+		"icon": "robot.png",
+		"script": "ResearchTech.gd",
+		"description": "research_temporal_robot_desc",
+		"tier": 4,
+		"requirement": "tier4",
+		"price": 1,
+		"price_e": 10,
+		"attributes":{
+		}
+	},
+	"uber_lab":{
+		"name": "research_uber_lab",
+		"icon": "space_station.png",
+		"script": "ResearchTech.gd",
+		"description": "research_uber_lab_desc",
+		"tier": 4,
+		"requirement": "tier4",
+		"price": 1,
+		"price_e": 100,
+		"attributes":{
+		}
+	}
+}

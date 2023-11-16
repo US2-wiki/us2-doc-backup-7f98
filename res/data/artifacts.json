@@ -1,0 +1,58 @@
+{
+	"credits":{
+		"icon": "credits.png",
+		"script": "CreditArtifact.gd",
+		"requirement": "",
+		"attribute_requirement": "mining",
+		"weight": 1
+	},
+	"superspeed":{
+		"icon": "speed.png",
+		"script": "SuperSpeedArtifact.gd",
+		"requirement": "",
+		"attribute_requirement": "",
+		"weight": 1
+	},
+	"battery":{
+		"icon": "battery_full.png",
+		"script": "BatteryArtifact.gd",
+		"requirement": "",
+		"attribute_requirement": "",
+		"weight": 1
+	},
+	"supercharge":{
+		"icon": "battery.png",
+		"script": "SuperChargeArtifact.gd",
+		"requirement": "",
+		"attribute_requirement": "",
+		"weight": 1
+	},
+	"request":{
+		"icon": "star.png",
+		"script": "RequestArtifact.gd",
+		"requirement": "",
+		"attribute_requirement": "",
+		"weight": 0.2
+	},
+	"virus":{
+		"icon": "virus.png",
+		"script": "VirusArtifact.gd",
+		"requirement": "",
+		"attribute_requirement": "",
+		"weight": 0
+	},
+	"electronics":{
+		"icon": "electronics.png",
+		"script": "ElectronicsArtifact.gd",
+		"requirement": "manufactory",
+		"attribute_requirement": "production",
+		"weight": 1
+	},
+	"energy":{
+		"icon": "energy.png",
+		"script": "EnergyArtifact.gd",
+		"requirement": "overclocker",
+		"attribute_requirement": "generation",
+		"weight": 1
+	}
+}

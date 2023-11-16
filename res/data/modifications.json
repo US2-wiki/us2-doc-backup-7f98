@@ -1,0 +1,54 @@
+{
+	"optimize":{
+		"name": "modification_optimize",
+		"icon": "conveyor_belt.png",
+		"description": "modification_optimize_desc",
+		"requirement": "manufactory",
+		"space": 1,
+		"attributes":{
+			"production": 0.2
+		}
+	},
+	"recycler":{
+		"name": "modification_recycler",
+		"icon": "electronics.png",
+		"description": "modification_recycler_desc",
+		"requirement": "manufactory",
+		"space": 2,
+		"attributes":{
+			"production_artifact": 2,
+		}
+	},
+	"injection":{
+		"name": "modification_injection",
+		"icon": "shuffle.png",
+		"description": "modification_injection_desc",
+		"requirement": "injection",
+		"space": 3,
+		"attributes":{
+			"production": 1,
+			"/mining": 1
+		}
+	},
+	"turbo":{
+		"name": "modification_turbo",
+		"icon": "energy.png",
+		"description": "modification_turbo_desc",
+		"requirement": "turbo",
+		"space": 5,
+		"attributes":{
+			"production_x2": 1,
+			"generation_x0.5": 1
+		}
+	},
+	"upgrade":{
+		"name": "modification_upgrade",
+		"icon": "belt_lane.png",
+		"description": "modification_upgrade_desc",
+		"requirement": "enhance",
+		"space": 6,
+		"attributes":{
+			"production_x2": 1
+		}
+	}
+}

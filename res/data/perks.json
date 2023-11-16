@@ -1,0 +1,181 @@
+{
+	"mining_power":{
+		"name": "perk_mining_power",
+		"icon": "credits.png",
+		"script": "",
+		"currency": "points",
+		"tier": 1,
+		"limit": 25,
+		"price": 1,
+		"price_e": 0,
+		"price_inc": 100,
+		"requirement": "",
+		"base": 2,
+		"attributes":{
+			"mining_x2": 1
+		}
+	},
+	"speed":{
+		"name": "perk_speed",
+		"icon": "speed.png",
+		"script": "",
+		"currency": "points",
+		"tier": 1,
+		"limit": 25,
+		"price": 1,
+		"price_e": 0,
+		"price_inc": 100,
+		"requirement": "",
+		"base": 2,
+		"attributes":{
+			"speed_x2": 1
+		}
+	},
+	"clock":{
+		"name": "perk_clock_speed",
+		"icon": "server.png",
+		"script": "PerkPercentage.gd",
+		"currency": "points",
+		"tier": 1,
+		"limit": 10,
+		"price": 1,
+		"price_e": 13,
+		"price_inc": 100,
+		"requirement": "moore_law",
+		"base": 1,
+		"attributes":{
+			"clock_increase": 1
+		}
+	},
+	"flux":{
+		"name": "perk_flux",
+		"icon": "flow.png",
+		"script": "",
+		"currency": "points2",
+		"tier": 2,
+		"limit": 25,
+		"price": 1,
+		"price_e": 3,
+		"price_inc": 100,
+		"requirement": "field_modulation",
+		"base": 2,
+		"attributes":{
+			"flux_x2": 1
+		}
+	},
+	"graviton":{
+		"name": "perk_graviton",
+		"icon": "atom2.png",
+		"script": "",
+		"currency": "science_c",
+		"tier": 3,
+		"limit": 25,
+		"price": 1,
+		"price_e": 3,
+		"price_inc": 100,
+		"requirement": "tier3",
+		"base": 2,
+		"attributes":{
+			"graviton_x2": 1
+		}
+	},
+	"passive_points":{
+		"name": "perk_passive_points",
+		"icon": "shine.png",
+		"script": "PerkPlus.gd",
+		"currency": "science_c",
+		"tier": 3,
+		"limit": 3,
+		"price": 4,
+		"price_e": 14,
+		"price_inc": 100000000,
+		"requirement": "passives",
+		"base": 1,
+		"attributes":{
+			"passive_points": 1
+		}
+	},
+	"infinity_milestones":{
+		"name": "perk_infinity_milestones",
+		"icon": "infinity.png",
+		"script": "PerkPlus.gd",
+		"currency": "science_d",
+		"tier": 4,
+		"limit": 0,
+		"price": 1,
+		"price_e": 0,
+		"price_inc": 100000,
+		"requirement": "infinity_milestones",
+		"base": 1,
+		"attributes":{
+			"mining_x2": 1,
+			"speed_x2": 1,
+			"flux_x2": 1,
+			"graviton_x2": 1
+		}
+	},
+	"infinity_mining_power":{
+		"name": "perk_infinity_mining_power",
+		"icon": "credits.png",
+		"script": "PerkInfinity.gd",
+		"currency": "points",
+		"tier": 4,
+		"limit": 0,
+		"price": 1,
+		"price_e": 0,
+		"price_inc": 10000000000,
+		"requirement": "infinity_milestones",
+		"base": 2,
+		"attributes":{
+			"mining_x2": 1
+		}
+	},
+	"infinity_speed":{
+		"name": "perk_infinity_speed",
+		"icon": "speed.png",
+		"script": "PerkInfinity.gd",
+		"currency": "points",
+		"tier": 4,
+		"limit": 0,
+		"price": 1,
+		"price_e": 0,
+		"price_inc": 10000000000,
+		"requirement": "infinity_milestones",
+		"base": 2,
+		"attributes":{
+			"speed_x2": 1
+		}
+	},
+	"infinity_flux":{
+		"name": "perk_infinity_flux",
+		"icon": "flow.png",
+		"script": "PerkInfinity.gd",
+		"currency": "points2",
+		"tier": 4,
+		"limit": 0,
+		"price": 1,
+		"price_e": 0,
+		"price_inc": 10000000000,
+		"requirement": "infinity_milestones",
+		"base": 2,
+		"attributes":{
+			"flux_x2": 1
+		}
+	},
+	"infinity_graviton":{
+		"name": "perk_infinity_graviton",
+		"icon": "atom2.png",
+		"script": "PerkInfinity.gd",
+		"currency": "science_c",
+		"tier": 4,
+		"limit": 0,
+		"price": 1,
+		"price_e": 0,
+		"price_inc": 10000000000,
+		"requirement": "infinity_milestones",
+		"base": 2,
+		"attributes":{
+			"graviton_x2": 1
+		}
+	}
+}

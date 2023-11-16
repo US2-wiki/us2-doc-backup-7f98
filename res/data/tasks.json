@@ -1,0 +1,151 @@
+{
+	"first_steps":{
+		"name": "task_first_steps",
+		"icon": "exclamation.png",
+		"script": "TaskTutorial.gd",
+		"description": "",
+		"has_progress": true,
+		"daily": false,
+		"goal": 5,
+		"next": ""
+	},
+	"hacking":{
+		"name": "task_printing",
+		"icon": "hack.png",
+		"script": "TaskStatistic.gd",
+		"description": "task_printing_desc",
+		"has_progress": true,
+		"daily": false,
+		"statistic": "hacks",
+		"goal": 25,
+		"next": "hacking_basics"
+	},
+	"hacking_basics":{
+		"name": "task_hacking_basics",
+		"icon": "hack.png",
+		"script": "TaskHackingBasics.gd",
+		"description": "",
+		"has_progress": false,
+		"daily": false,
+		"goal": 2,
+		"next": ""
+	},
+	"artifacts":{
+		"name": "task_artifacts",
+		"icon": "star.png",
+		"script": "TaskStatistic.gd",
+		"description": "task_artifacts_desc",
+		"has_progress": true,
+		"daily": false,
+		"statistic": "artifacts",
+		"goal": 5,
+		"next": "disconnections"
+	},
+	"disconnections":{
+		"name": "task_disconnections",
+		"icon": "disconnect.png",
+		"script": "TaskStatistic.gd",
+		"description": "task_disconnections_desc",
+		"has_progress": true,
+		"daily": false,
+		"statistic": "disconnections_avoided",
+		"goal": 5,
+		"next": ""
+	},
+	"downloads_images":{
+		"name": "task_downloads_image",
+		"icon": "image.png",
+		"script": "TaskDownload.gd",
+		"description": "task_downloads_image_desc",
+		"has_progress": true,
+		"daily": true,
+		"type": 0,
+		"goal": 400,
+		"next": ""
+	},
+	"downloads_musics":{
+		"name": "task_downloads_music",
+		"icon": "music.png",
+		"script": "TaskDownload.gd",
+		"description": "task_downloads_music_desc",
+		"has_progress": true,
+		"daily": true,
+		"type": 1,
+		"goal": 200,
+		"next": ""
+	},
+	"downloads_videos":{
+		"name": "task_downloads_video",
+		"icon": "video.png",
+		"script": "TaskDownload.gd",
+		"description": "task_downloads_video_desc",
+		"has_progress": true,
+		"daily": true,
+		"type": 2,
+		"goal": 100,
+		"next": ""
+	},
+	"downloads_games":{
+		"name": "task_downloads_game",
+		"icon": "game.png",
+		"script": "TaskDownload.gd",
+		"description": "task_downloads_game_desc",
+		"has_progress": true,
+		"daily": true,
+		"type": 3,
+		"goal": 50,
+		"next": ""
+	},
+	"downloads_requests":{
+		"name": "task_downloads_request",
+		"icon": "star.png",
+		"script": "TaskDownload.gd",
+		"description": "task_downloads_request_desc",
+		"has_progress": true,
+		"daily": true,
+		"type": 4,
+		"goal": 1,
+		"next": ""
+	},
+	"artifacts_daily":{
+		"name": "task_artifacts_daily",
+		"icon": "star.png",
+		"script": "TaskArtifact.gd",
+		"description": "task_artifacts_daily_desc",
+		"has_progress": true,
+		"daily": true,
+		"goal": 50,
+		"next": ""
+	},
+	"destroy_viruses":{
+		"name": "task_destroy_viruses",
+		"icon": "virus.png",
+		"script": "TaskDestroyArtifact.gd",
+		"description": "task_destroy_viruses_desc",
+		"has_progress": true,
+		"daily": true,
+		"type": "virus",
+		"goal": 20,
+		"next": ""
+	},
+	"hack":{
+		"name": "task_use_battery",
+		"icon": "hack.png",
+		"script": "TaskBatteryUse.gd",
+		"description": "task_use_battery_desc",
+		"has_progress": true,
+		"daily": true,
+		"goal": 5000,
+		"next": ""
+	},
+	"play":{
+		"name": "task_play",
+		"icon": "hourglass.png",
+		"script": "TaskPlayTime.gd",
+		"description": "task_play_desc",
+		"has_progress": true,
+		"daily": true,
+		"goal": 1200,
+		"next": ""
+	}
+}

@@ -1,0 +1,122 @@
+{
+	"bot_gpu":{
+		"name": "bot_gpu",
+		"icon": "gpu.png",
+		"requirement": "robotics",
+		"type": "tech",
+		"work_time": 30,
+		"emit": "automate_gpu",
+		"buff":{
+		}
+	},
+	"bot_network":{
+		"name": "bot_network",
+		"icon": "network.png",
+		"requirement": "robotics",
+		"type": "tech",
+		"work_time": 30,
+		"emit": "automate_network",
+		"buff":{
+		}
+	},
+	"bot_cpu":{
+		"name": "bot_cpu",
+		"icon": "server.png",
+		"requirement": "robotics",
+		"type": "tech",
+		"work_time": 30,
+		"emit": "automate_cpu",
+		"buff":{
+		}
+	},
+	"bot_overclocker":{
+		"name": "bot_overclocker",
+		"icon": "overclock.png",
+		"requirement": "robotics",
+		"type": "industrial",
+		"work_time": 60,
+		"emit": "automate_overclocker",
+		"buff":{
+		}
+	},
+	"bot_builder":{
+		"name": "bot_builder",
+		"icon": "bars.png",
+		"requirement": "builder_robot",
+		"type": "industrial",
+		"work_time": 60,
+		"emit": "automate_generators",
+		"buff":{
+		}
+	},
+	"bot_overclock_gpu":{
+		"name": "bot_overclock_gpu",
+		"icon": "energy.png",
+		"requirement": "robotics",
+		"type": "tech",
+		"work_time": 60,
+		"emit": "automate_overclock_gpu",
+		"buff":{
+		}
+	},
+	"bot_overclock_network":{
+		"name": "bot_overclock_network",
+		"icon": "energy.png",
+		"requirement": "robotics",
+		"type": "tech",
+		"work_time": 60,
+		"emit": "automate_overclock_network",
+		"buff":{
+		}
+	},
+	"bot_manufactory":{
+		"name": "bot_manufactory",
+		"icon": "laser_machine.png",
+		"requirement": "robotics",
+		"type": "industrial",
+		"work_time": 90,
+		"emit": "automate_manufactory",
+		"buff":{
+		}
+	},
+	"bot_engineer":{
+		"name": "bot_engineer",
+		"icon": "tools.png",
+		"requirement": "engineer_robot",
+		"type": "industrial",
+		"work_time": 60,
+		"emit": "automate_modifications",
+		"buff":{
+		}
+	},
+	"bot_clicker":{
+		"name": "bot_clicker",
+		"icon": "star.png",
+		"requirement": "robotics",
+		"type": "utility",
+		"work_time": 90,
+		"emit": "automate_artifacts",
+		"buff":{
+		}
+	},
+	"bot_physicist":{
+		"name": "bot_physicist",
+		"icon": "layers.png",
+		"requirement": "physicist_robot",
+		"type": "science",
+		"work_time": 120,
+		"emit": "automate_field",
+		"buff":{
+		}
+	},
+	"bot_temporal":{
+		"name": "bot_temporal",
+		"icon": "atom2.png",
+		"requirement": "temporal_robot",
+		"type": "science",
+		"work_time": 180,
+		"emit": "automate_machines",
+		"buff":{
+		}
+	}
+}

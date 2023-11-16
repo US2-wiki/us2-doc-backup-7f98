@@ -1,0 +1,90 @@
+{
+	"credits":{
+		"name": "passive_credits",
+		"icon": "credits.png",
+		"description": "passive_credits_desc",
+		"attributes":{
+			"mining": 1
+		}
+	},
+	"speed":{
+		"name": "passive_speed",
+		"icon": "speed.png",
+		"description": "passive_speed_desc",
+		"attributes":{
+			"speed": 1
+		}
+	},
+	"energy":{
+		"name": "passive_energy",
+		"icon": "energy.png",
+		"description": "passive_energy_desc",
+		"attributes":{
+			"generation": 1
+		}
+	},
+	"production":{
+		"name": "passive_production",
+		"icon": "electronics.png",
+		"description": "passive_production_desc",
+		"attributes":{
+			"production": 1
+		}
+	},
+	"battery_recharge":{
+		"name": "passive_battery_recharge",
+		"icon": "battery.png",
+		"description": "passive_battery_recharge_desc",
+		"attributes":{
+			"battery_recharge": 0.5
+		}
+	},
+	"battery":{
+		"name": "passive_battery",
+		"icon": "battery_full.png",
+		"description": "passive_battery_desc",
+		"attributes":{
+			"battery": 0.75
+		}
+	},
+	"artifacts":{
+		"name": "passive_artifacts",
+		"icon": "star.png",
+		"description": "passive_artifacts_desc",
+		"attributes":{
+			"artifacts": 1
+		}
+	},
+	"artifact_duration":{
+		"name": "passive_sustain",
+		"icon": "star.png",
+		"description": "passive_sustain_desc",
+		"attributes":{
+			"artifact_duration": 5
+		}
+	},
+	"offline_ratio":{
+		"name": "passive_offline_ratio",
+		"icon": "sleep_mode.png",
+		"description": "passive_offline_ratio_desc",
+		"attributes":{
+			"offline_ratio": 0.5
+		}
+	},
+	"signal":{
+		"name": "passive_defect",
+		"icon": "disconnect.png",
+		"description": "passive_defect_desc",
+		"attributes":{
+			"signal": -2
+		}
+	},
+	"compression":{
+		"name": "passive_compression",
+		"icon": "data.png",
+		"description": "passive_compression_desc",
+		"attributes":{
+			"upload_level": -1
+		}
+	}
+}

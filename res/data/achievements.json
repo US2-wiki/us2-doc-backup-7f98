@@ -1,0 +1,660 @@
+{
+	"innovation_journey":{
+		"name": "achievement_innovation_journey",
+		"icon": "exclamation.png",
+		"description": "achievement_innovation_journey_desc",
+		"script": "AchievementTask.gd",
+		"task": "first_steps",
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"back_on_the_job":{
+		"name": "achievement_back_on_the_job",
+		"icon": "jump.png",
+		"description": "achievement_back_on_the_job_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "sessions",
+		"statistic_value": 2,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"for_science":{
+		"name": "achievement_for_science",
+		"icon": "virus.png",
+		"description": "achievement_for_science_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "viruses",
+		"statistic_value": 1,
+		"gp_id": "",
+		"steam_id": "for_science",
+		"reward": "+#%",
+		"reward_value": 2,
+		"reward_icon": "credits.png",
+		"attributes":{
+			"mining": 0.02
+		}
+	},
+	"delivered":{
+		"name": "achievement_delivered",
+		"icon": "star.png",
+		"description": "achievement_delivered_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "requests",
+		"statistic_value": 1,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "+#%",
+		"reward_value": 5,
+		"reward_icon": "credits.png",
+		"attributes":{
+			"mining": 0.05
+		}
+	},
+	"active_user":{
+		"name": "achievement_active_user",
+		"icon": "star.png",
+		"description": "achievement_active_user_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "daily_tasks",
+		"statistic_value": 3,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"innovator":{
+		"name": "achievement_innovator",
+		"icon": "potion.png",
+		"description": "achievement_innovator_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "reboots",
+		"statistic_value": 1,
+		"gp_id": "",
+		"steam_id": "innovator",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"newbie_player":{
+		"name": "achievement_newbie",
+		"icon": "hourglass.png",
+		"description": "achievement_time_desc",
+		"script": "AchievementStatisticTime.gd",
+		"statistic": "time_played",
+		"statistic_value": 43200,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"veteran_player":{
+		"name": "achievement_veteran",
+		"icon": "hourglass.png",
+		"description": "achievement_time_desc",
+		"script": "AchievementStatisticTime.gd",
+		"statistic": "time_played",
+		"statistic_value": 86400,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"experienced_player":{
+		"name": "achievement_experienced",
+		"icon": "hourglass.png",
+		"description": "achievement_time_desc",
+		"script": "AchievementStatisticTime.gd",
+		"statistic": "time_played",
+		"statistic_value": 129600,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"advanced_player":{
+		"name": "achievement_advanced",
+		"icon": "hourglass.png",
+		"description": "achievement_time_desc",
+		"script": "AchievementStatisticTime.gd",
+		"statistic": "time_played",
+		"statistic_value": 172800,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"ftl":{
+		"name": "achievement_ftl",
+		"icon": "entangloporter.png",
+		"description": "achievement_ftl_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "highest_network",
+		"statistic_value": 19,
+		"gp_id": "",
+		"steam_id": "ftl",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"eco_friendly":{
+		"name": "achievement_eco_friendly",
+		"icon": "solar_panel.png",
+		"description": "achievement_eco_friendly_desc",
+		"script": "AchievementOverclockers.gd",
+		"overclocker": "solar",
+		"overclocker_count": 25,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "+#%",
+		"reward_value": 2,
+		"reward_icon": "energy.png",
+		"attributes":{
+			"generation": 0.02
+		}
+	},
+	"eco_unfriendly":{
+		"name": "achievement_eco_unfriendly",
+		"icon": "coal.png",
+		"description": "achievement_eco_unfriendly_desc",
+		"script": "AchievementOverclockers.gd",
+		"overclocker": "coal",
+		"overclocker_count": 10,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"absolute_zero":{
+		"name": "achievement_absolute_zero",
+		"icon": "cooling.png",
+		"description": "achievement_absolute_zero_desc",
+		"script": "AchievementAttributeN.gd",
+		"attribute": "heat",
+		"attribute_value": -2.7,
+		"gp_id": "",
+		"steam_id": "absolute_zero",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"ngnt":{
+		"name": "achievement_ngnt",
+		"icon": "radiation.png",
+		"description": "achievement_ngnt_desc",
+		"script": "AchievementOverclockers.gd",
+		"overclocker": "fission",
+		"overclocker_count": 10,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"sun_harvester":{
+		"name": "achievement_sun_harvester",
+		"icon": "sphere.png",
+		"description": "achievement_sun_harvester_desc",
+		"script": "AchievementOverclockers.gd",
+		"overclocker": "dyson",
+		"overclocker_count": 1,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"perfectly_balanced":{
+		"name": "achievement_perfectly_balanced",
+		"icon": "energy.png",
+		"description": "achievement_perfectly_balanced_desc",
+		"script": "AchievementBalanced.gd",
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "+#%",
+		"reward_value": 5,
+		"reward_icon": "energy.png",
+		"attributes":{
+			"generation": 0.05
+		}
+	},
+	"expert_engineer":{
+		"name": "achievement_expert_engineer",
+		"icon": "tools.png",
+		"description": "achievement_expert_engineer_desc",
+		"script": "AchievementEngineer.gd",
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"hackerman":{
+		"name": "achievement_hackerman",
+		"icon": "hack.png",
+		"description": "achievement_hackerman_desc",
+		"script": "AchievementHackerman.gd",
+		"gp_id": "",
+		"steam_id": "hackerman",
+		"reward": "+#%",
+		"reward_value": 10,
+		"reward_icon": "battery_full.png",
+		"attributes":{
+			"battery": 0.01
+		}
+	},
+	"prodigious":{
+		"name": "achievement_prodigious",
+		"icon": "hack.png",
+		"description": "achievement_prodigious_desc",
+		"script": "AchievementProdigious.gd",
+		"gp_id": "",
+		"steam_id": "prodigious",
+		"reward": "+#%",
+		"reward_value": 10,
+		"reward_icon": "battery_full.png",
+		"attributes":{
+			"battery": 0.01
+		}
+	},
+	"quick_thinker":{
+		"name": "achievement_quick_thinker",
+		"icon": "signal.png",
+		"description": "achievement_quick_thinker_desc",
+		"script": "AchievementQuickThinker.gd",
+		"gp_id": "",
+		"steam_id": "quick_thinker",
+		"reward": "+#%",
+		"reward_value": 5,
+		"reward_icon": "credits.png",
+		"attributes":{
+			"mining": 0.05
+		}
+	},
+	"specialtyy":{
+		"name": "achievement_specialty",
+		"icon": "cubes.png",
+		"description": "achievement_specialty_desc",
+		"script": "AchievementGlobalProperty.gd",
+		"property": "module_score",
+		"property_value": 1000,
+		"gp_id": "",
+		"steam_id": "specialty",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"optimizerr":{
+		"name": "achievement_optimizer",
+		"icon": "cubes.png",
+		"description": "achievement_optimizer_desc",
+		"script": "AchievementOptimizer.gd",
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"fully_modded":{
+		"name": "achievement_fully_modded",
+		"icon": "cubes.png",
+		"description": "achievement_fully_modded_desc",
+		"script": "AchievementFullyModded.gd",
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"fine_craftsmanship":{
+		"name": "achievement_fine_craftsmanship",
+		"icon": "cubes.png",
+		"description": "achievement_fine_craftsmanship_desc",
+		"script": "AchievementCraftsmanship.gd",
+		"gp_id": "CgkIw7O36KoUEAIQCA",
+		"steam_id": "fine_craftsmanship",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"unlimited_power":{
+		"name": "achievement_unlimited_power",
+		"icon": "battery_full.png",
+		"description": "achievement_unlimited_power_desc",
+		"script": "AchievementAttribute.gd",
+		"attribute": "battery",
+		"attribute_value": 500,
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"overpowered":{
+		"name": "achievement_overpowered",
+		"icon": "battery_full.png",
+		"description": "achievement_overpowered_desc",
+		"script": "AchievementOverpowered.gd",
+		"gp_id": "",
+		"steam_id": "overpowered",
+		"reward": "+#%",
+		"reward_value": 2,
+		"reward_icon": "battery.png",
+		"attributes":{
+			"battery": 0.02
+		}
+	},
+	"247":{
+		"name": "achievement_247",
+		"icon": "disconnect.png",
+		"description": "achievement_247_desc",
+		"script": "Achievement247.gd",
+		"statistic": "disconnections_avoided",
+		"statistic_value": 5,
+		"gp_id": "CgkIw7O36KoUEAIQDQ",
+		"steam_id": "247",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"procrastinator":{
+		"name": "achievement_procrastinator",
+		"icon": "star.png",
+		"description": "achievement_procrastinator_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "active_artifacts",
+		"statistic_value": 10,
+		"gp_id": "CgkIw7O36KoUEAIQDA",
+		"steam_id": "procrastinator",
+		"reward": "+#%",
+		"reward_value": 5,
+		"reward_icon": "star.png",
+		"attributes":{
+			"luck": 0.05
+		}
+	},
+	"system_cleansing":{
+		"name": "achievement_cleansing",
+		"icon": "virus.png",
+		"description": "achievement_cleansing_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "viruses_eliminated",
+		"statistic_value": 100,
+		"gp_id": "",
+		"steam_id": "system_cleansing",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"epic_moment":{
+		"name": "achievement_epic_moment",
+		"icon": "star.png",
+		"description": "achievement_epic_moment_desc",
+		"script": "AchievementEpicMoment.gd",
+		"gp_id": "CgkIw7O36KoUEAIQCw",
+		"steam_id": "epic_moment",
+		"reward": "+#%",
+		"reward_value": 5,
+		"reward_icon": "star.png",
+		"attributes":{
+			"luck": 0.05
+		}
+	},
+	"artist":{
+		"name": "achievement_artist",
+		"icon": "image.png",
+		"description": "achievement_artist_desc",
+		"script": "AchievementUploadProgress.gd",
+		"gp_id": "",
+		"steam_id": "",
+		"type": "0",
+		"reward": "+#%",
+		"reward_value": 10,
+		"reward_icon": "credits.png",
+		"attributes":{
+			"mining": 0.1
+		}
+	},
+	"composer":{
+		"name": "achievement_composer",
+		"icon": "music.png",
+		"description": "achievement_composer_desc",
+		"script": "AchievementUploadProgress.gd",
+		"gp_id": "",
+		"steam_id": "",
+		"type": "1",
+		"reward": "+#%",
+		"reward_value": 10,
+		"reward_icon": "credits.png",
+		"attributes":{
+			"mining": 0.1
+		}
+	},
+	"cinephile":{
+		"name": "achievement_cinephile",
+		"icon": "video.png",
+		"description": "achievement_cinephile_desc",
+		"script": "AchievementUploadProgress.gd",
+		"gp_id": "",
+		"steam_id": "",
+		"type": "2",
+		"reward": "+#%",
+		"reward_value": 10,
+		"reward_icon": "credits.png",
+		"attributes":{
+			"mining": 0.1
+		}
+	},
+	"gamer":{
+		"name": "achievement_gamer",
+		"icon": "game.png",
+		"description": "achievement_gamer_desc",
+		"script": "AchievementUploadProgress.gd",
+		"gp_id": "",
+		"steam_id": "",
+		"type": "3",
+		"reward": "+#%",
+		"reward_value": 10,
+		"reward_icon": "credits.png",
+		"attributes":{
+			"mining": 0.1
+		}
+	},
+	"royal":{
+		"name": "achievement_royal",
+		"icon": "star.png",
+		"description": "achievement_royal_desc",
+		"script": "AchievementUploadProgress.gd",
+		"gp_id": "CgkIw7O36KoUEAIQCg",
+		"steam_id": "royal",
+		"type": "4",
+		"reward": "+#%",
+		"reward_value": 10,
+		"reward_icon": "credits.png",
+		"attributes":{
+			"mining": 0.1
+		}
+	},
+	"great_automation":{
+		"name": "achievement_great_automation",
+		"icon": "cubes.png",
+		"description": "achievement_great_automation_desc",
+		"script": "AchievementGlobalProperty.gd",
+		"property": "active_robots",
+		"property_value": 1000,
+		"gp_id": "",
+		"steam_id": "great_automation",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"variety_uploader":{
+		"name": "achievement_variety_uploader",
+		"icon": "bulb.png",
+		"description": "achievement_variety_uploader_desc",
+		"script": "AchievementVariety.gd",
+		"gp_id": "CgkIw7O36KoUEAIQCQ",
+		"steam_id": "variety_uploader",
+		"reward": "+#%",
+		"reward_value": 10,
+		"reward_icon": "credits.png",
+		"attributes":{
+			"mining": 0.1
+		}
+	},
+	"crypto_denial":{
+		"name": "achievement_crypto_denial",
+		"icon": "credits.png",
+		"description": "achievement_crypto_denial_desc",
+		"script": "AchievementCryptoDenial.gd",
+		"gp_id": "",
+		"steam_id": "",
+		"reward": "+#%",
+		"reward_value": 10,
+		"reward_icon": "speed.png",
+		"attributes":{
+			"speed": 0.1
+		}
+	},
+	"pointless_effort":{
+		"name": "achievement_pointless_effort",
+		"icon": "layers.png",
+		"description": "achievement_pointless_effort_desc",
+		"script": "AchievementPointlessEffort.gd",
+		"gp_id": "",
+		"steam_id": "pointless_effort",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"field_scientist":{
+		"name": "achievement_field_scientist",
+		"icon": "layers.png",
+		"description": "achievement_field_scientist_desc",
+		"script": "AchievementFieldScientist.gd",
+		"gp_id": "",
+		"steam_id": "field_scientist",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"visionary":{
+		"name": "achievement_visionary",
+		"icon": "atom.png",
+		"description": "achievement_visionary_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "hard_reboots",
+		"statistic_value": 1,
+		"gp_id": "",
+		"steam_id": "visionary",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"monumental":{
+		"name": "achievement_monumental",
+		"icon": "frame.png",
+		"description": "achievement_monumental_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "resets",
+		"statistic_value": 1,
+		"gp_id": "",
+		"steam_id": "monumental",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"endgame":{
+		"name": "achievement_endgame",
+		"icon": "dna.png",
+		"description": "achievement_endgame_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "hard_resets",
+		"statistic_value": 1,
+		"gp_id": "",
+		"steam_id": "endgame",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"laplace":{
+		"name": "achievement_laplace",
+		"icon": "wormhole.png",
+		"description": "achievement_laplace_desc",
+		"script": "AchievementStatistic.gd",
+		"statistic": "warps",
+		"statistic_value": 1,
+		"gp_id": "",
+		"steam_id": "laplace",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	}
+}

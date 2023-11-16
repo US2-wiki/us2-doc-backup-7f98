@@ -1,0 +1,32 @@
+{
+	"collider":{
+		"name": "machine_collider",
+		"icon": "atom2.png",
+		"description": "machine_collider_desc",
+		"requirement": "",
+		"price": 2.5,
+		"price_e": 1,
+		"price_inc": 2,
+		"up_price_inc": 3,
+	},
+	"space_warper":{
+		"name": "machine_space_warper",
+		"icon": "hourglass.png",
+		"description": "machine_space_warper_desc",
+		"requirement": "",
+		"price": 1,
+		"price_e": 2,
+		"price_inc": 2,
+		"up_price_inc": 3,
+	},
+	"space_condenser":{
+		"name": "machine_space_condenser",
+		"icon": "galaxy.png",
+		"description": "machine_space_condenser_desc",
+		"requirement": "space_warp",
+		"price": 5,
+		"price_e": 12,
+		"price_inc": 2,
+		"up_price_inc": 3,
+	}
+}

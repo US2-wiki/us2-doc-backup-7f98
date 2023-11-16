@@ -1,0 +1,33 @@
+{
+	"wire":{
+		"name": "resource_wire",
+		"icon": "wire.png",
+		"cost":{
+		},
+		"weight": 39
+	},
+	"transistor":{
+		"name": "resource_transistor",
+		"icon": "transistor.png",
+		"cost":{
+		},
+		"weight": 50
+	},
+	"wafer":{
+		"name": "resource_wafer",
+		"icon": "wafer.png",
+		"cost":{
+		},
+		"weight": 8
+	},
+	"pcb":{
+		"name": "resource_pcb",
+		"icon": "pcb.png",
+		"cost":{
+			"wire": 4,
+			"transistor": 6,
+			"wafer": 1
+		},
+		"weight": 3
+	}
+}

@@ -1,0 +1,275 @@
+{
+	"mining":{
+		"name": "upgrade_power",
+		"icon": "credits.png",
+		"description": "upgrade_power_desc",
+		"reputation": 1,
+		"requirement": "",
+		"limit": 0,
+		"cost": 1,
+		"attributes":{
+			"mining": 0.2
+		},
+		"multiplier": true
+	},
+	"speed":{
+		"name": "upgrade_speed",
+		"icon": "speed.png",
+		"description": "upgrade_speed_desc",
+		"reputation": 1,
+		"requirement": "",
+		"limit": 0,
+		"cost": 1,
+		"attributes":{
+			"speed": 0.2
+		},
+		"multiplier": true
+	},
+	"quality":{
+		"name": "upgrade_quality",
+		"icon": "signal.png",
+		"description": "upgrade_quality_desc",
+		"reputation": 2,
+		"requirement": "",
+		"limit": 10,
+		"cost": 1,
+		"attributes":{
+			"quality": 0.1
+		},
+		"multiplier": true
+	},
+	"signal":{
+		"name": "upgrade_signal",
+		"icon": "disconnect.png",
+		"description": "upgrade_signal_desc",
+		"reputation": 3,
+		"requirement": "",
+		"limit": 5,
+		"cost": 2,
+		"attributes":{
+			"signal": 0.2
+		},
+		"multiplier": true
+	},
+	"download_slots":{
+		"name": "upgrade_slots",
+		"icon": "bars.png",
+		"description": "upgrade_slots_desc",
+		"reputation": 5,
+		"requirement": "",
+		"limit": 7,
+		"cost": 2,
+		"attributes":{
+			"slots": 1
+		},
+		"multiplier": false
+	},
+	"offline_time":{
+		"name": "upgrade_offline_time",
+		"icon": "stop_watch.png",
+		"description": "upgrade_offline_time_desc",
+		"reputation": 8,
+		"requirement": "",
+		"limit": 5,
+		"cost": 2,
+		"attributes":{
+			"offline_time": 8
+		},
+		"multiplier": false
+	},
+	"offline_ratio":{
+		"name": "upgrade_offline_ratio",
+		"icon": "sleep_mode.png",
+		"description": "upgrade_offline_ratio_desc",
+		"reputation": 10,
+		"requirement": "",
+		"limit": 5,
+		"cost": 2,
+		"attributes":{
+			"offline_ratio": 0.1
+		},
+		"multiplier": true
+	},
+	"battery_recharge":{
+		"name": "upgrade_battery_recharge",
+		"icon": "battery.png",
+		"description": "upgrade_battery_recharge_desc",
+		"reputation": 12,
+		"requirement": "",
+		"limit": 10,
+		"cost": 1,
+		"attributes":{
+			"battery_recharge": 0.2
+		},
+		"multiplier": true
+	},
+	"battery_increase":{
+		"name": "upgrade_battery_increase",
+		"icon": "battery_full.png",
+		"description": "upgrade_battery_increase_desc",
+		"reputation": 14,
+		"requirement": "",
+		"limit": 10,
+		"cost": 2,
+		"attributes":{
+			"battery": 0.25
+		},
+		"multiplier": true
+	},
+	"anti_virus":{
+		"name": "upgrade_anti_virus",
+		"icon": "virus.png",
+		"description": "upgrade_anti_virus_desc",
+		"reputation": 16,
+		"requirement": "",
+		"limit": 1,
+		"cost": 5,
+		"attributes":{
+			"virus_protection": 1
+		},
+		"multiplier": false
+	},
+	"hack_slots":{
+		"name": "upgrade_hack_slots",
+		"icon": "hack.png",
+		"description": "upgrade_hack_slots_desc",
+		"reputation": 18,
+		"requirement": "",
+		"limit": 2,
+		"cost": 5,
+		"attributes":{
+			"hack_slots": 1
+		},
+		"multiplier": false
+	},
+	"luck":{
+		"name": "upgrade_luck",
+		"icon": "star.png",
+		"description": "upgrade_luck_desc",
+		"reputation": 20,
+		"requirement": "",
+		"limit": 10,
+		"cost": 2,
+		"attributes":{
+			"luck": 0.1
+		},
+		"multiplier": true
+	},
+	"module_slots":{
+		"name": "upgrade_module_slots",
+		"icon": "cubes.png",
+		"description": "upgrade_module_slots_desc",
+		"reputation": 0,
+		"requirement": "modules",
+		"limit": 3,
+		"cost": 5,
+		"attributes":{
+			"module_slots": 1
+		},
+		"multiplier": false
+	},
+	"crafting_speed":{
+		"name": "upgrade_crafting_speed",
+		"icon": "pcb.png",
+		"description": "upgrade_crafting_speed_desc",
+		"reputation": 0,
+		"requirement": "modules",
+		"limit": 10,
+		"cost": 2,
+		"attributes":{
+			"resources": 0.02
+		},
+		"multiplier": true
+	},
+	"discount":{
+		"name": "upgrade_discount",
+		"icon": "money.png",
+		"description": "upgrade_discount_desc",
+		"reputation": 23,
+		"requirement": "",
+		"limit": 10,
+		"cost": 2,
+		"attributes":{
+			"discount": 0.02
+		},
+		"multiplier": true
+	},
+	"compression":{
+		"name": "upgrade_compression",
+		"icon": "data.png",
+		"description": "upgrade_compression_desc",
+		"reputation": 27,
+		"requirement": "",
+		"limit": 10,
+		"cost": 2,
+		"attributes":{
+			"compression": 0.02
+		},
+		"multiplier": true
+	},
+	"energy":{
+		"name": "upgrade_energy",
+		"icon": "energy.png",
+		"description": "upgrade_energy_desc",
+		"reputation": 0,
+		"requirement": "overclocker",
+		"limit": 0,
+		"cost": 1,
+		"attributes":{
+			"generation": 0.2
+		},
+		"multiplier": true
+	},
+	"cooling":{
+		"name": "upgrade_cooling",
+		"icon": "cooling.png",
+		"description": "upgrade_cooling_desc",
+		"reputation": 0,
+		"requirement": "overclocker",
+		"limit": 10,
+		"cost": 2,
+		"attributes":{
+			"cooling": 0.2
+		},
+		"multiplier": true
+	},
+	"production":{
+		"name": "upgrade_production",
+		"icon": "electronics.png",
+		"description": "upgrade_production_desc",
+		"reputation": 0,
+		"requirement": "manufactory",
+		"limit": 0,
+		"cost": 1,
+		"attributes":{
+			"production": 0.2
+		},
+		"multiplier": true
+	},
+	"robots":{
+		"name": "upgrade_robots",
+		"icon": "robot.png",
+		"description": "upgrade_robots_desc",
+		"reputation": 0,
+		"requirement": "robotics",
+		"limit": 0,
+		"cost": 2,
+		"attributes":{
+			"robots": 1
+		},
+		"multiplier": false
+	},
+	"graviton_production":{
+		"name": "upgrade_graviton_production",
+		"icon": "atom2.png",
+		"description": "upgrade_graviton_production_desc",
+		"reputation": 0,
+		"requirement": "space_shaper",
+		"limit": 0,
+		"cost": 1,
+		"attributes":{
+			"graviton_production": 0.2
+		},
+		"multiplier": true
+	}
+}

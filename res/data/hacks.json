@@ -1,0 +1,625 @@
+{
+	"farm":{
+		"name": "hack_farm",
+		"icon": "credits.png",
+		"script": "Farm.gd",
+		"reputation": 0,
+		"requirement": "",
+		"energy": 1,
+		"power": 1,
+		"duration": 0,
+		"experience": 1,
+		"hold": false,
+		"description": "hack_farm_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 2,
+				"attributes":{
+					"cost_reduction": -0.25
+				}
+			},
+			"power":{
+				"name": "hack_upgrade_power",
+				"icon": "hack.png",
+				"description": "hack_upgrade_power_desc",
+				"limit": 10,
+				"attributes":{
+					"effectiveness": 1,
+					"cost_multiplier": 1
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_alt2_desc",
+				"limit": 1,
+				"attributes":{
+					"cost_multiplier": 1,
+					"auto": true
+				}
+			}
+		}
+	},
+	"overheat":{
+		"name": "hack_overheat",
+		"icon": "fire.png",
+		"script": "Overheat.gd",
+		"reputation": 0,
+		"requirement": "",
+		"energy": 1,
+		"power": 1,
+		"duration": 0,
+		"experience": 1,
+		"hold": true,
+		"description": "hack_overheat_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 2,
+				"attributes":{
+					"cost_reduction": -0.25
+				}
+			},
+			"power":{
+				"name": "hack_upgrade_power",
+				"icon": "hack.png",
+				"description": "hack_upgrade_power_desc",
+				"limit": 2,
+				"attributes":{
+					"effectiveness": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"quicken":{
+		"name": "hack_quicken",
+		"icon": "fast_forward.png",
+		"script": "Quicken.gd",
+		"reputation": 3,
+		"requirement": "",
+		"energy": 2,
+		"power": 1,
+		"duration": 0,
+		"experience": 2,
+		"hold": true,
+		"description": "hack_quicken_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 2,
+				"attributes":{
+					"cost_reduction": -0.25
+				}
+			},
+			"power":{
+				"name": "hack_upgrade_power",
+				"icon": "hack.png",
+				"description": "hack_upgrade_power_desc",
+				"limit": 2,
+				"attributes":{
+					"effectiveness": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"skip":{
+		"name": "hack_skip",
+		"icon": "skip.png",
+		"script": "Skip.gd",
+		"reputation": 6,
+		"requirement": "",
+		"energy": 20,
+		"power": 1,
+		"duration": 0,
+		"experience": 20,
+		"hold": false,
+		"description": "hack_skip_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 2,
+				"attributes":{
+					"cost_reduction": -0.25
+				}
+			},
+			"power":{
+				"name": "hack_upgrade_power",
+				"icon": "hack.png",
+				"description": "hack_upgrade_power_desc",
+				"limit": 2,
+				"attributes":{
+					"effectiveness": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_alt_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"protect":{
+		"name": "hack_protect",
+		"icon": "shield.png",
+		"script": "Protect.gd",
+		"reputation": 6,
+		"requirement": "",
+		"energy": 30,
+		"power": 1,
+		"duration": 30,
+		"experience": 30,
+		"hold": false,
+		"description": "hack_protect_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 2,
+				"attributes":{
+					"cost_reduction": -0.25
+				}
+			},
+			"duration":{
+				"name": "hack_upgrade_duration",
+				"icon": "stop_watch.png",
+				"description": "hack_upgrade_duration_desc",
+				"limit": 2,
+				"attributes":{
+					"duration": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_alt_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"recharge":{
+		"name": "hack_recharge",
+		"icon": "battery.png",
+		"script": "Recharge.gd",
+		"reputation": 12,
+		"requirement": "",
+		"energy": 0,
+		"power": 1,
+		"duration": 0,
+		"experience": 1,
+		"hold": true,
+		"description": "hack_recharge_desc",
+		"upgrades":{
+			"power":{
+				"name": "hack_upgrade_power",
+				"icon": "hack.png",
+				"description": "hack_upgrade_power_alt_desc",
+				"limit": 4,
+				"attributes":{
+					"effectiveness": 0.25
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"optimize":{
+		"name": "hack_optimize",
+		"icon": "tools.png",
+		"script": "Optimize.gd",
+		"reputation": 12,
+		"requirement": "",
+		"energy": 60,
+		"power": 1,
+		"duration": 15,
+		"experience": 60,
+		"hold": false,
+		"description": "hack_optimize_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 2,
+				"attributes":{
+					"cost_reduction": -0.25
+				}
+			},
+			"power":{
+				"name": "hack_upgrade_power",
+				"icon": "hack.png",
+				"description": "hack_upgrade_power_desc",
+				"limit": 2,
+				"attributes":{
+					"effectiveness": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"duration":{
+				"name": "hack_upgrade_duration",
+				"icon": "stop_watch.png",
+				"description": "hack_upgrade_duration_desc",
+				"limit": 2,
+				"attributes":{
+					"duration": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_alt_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"scan":{
+		"name": "hack_scan",
+		"icon": "scan.png",
+		"script": "Scan.gd",
+		"reputation": 16,
+		"requirement": "",
+		"energy": 10,
+		"power": 1,
+		"duration": 0,
+		"experience": 10,
+		"hold": true,
+		"description": "hack_scan_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 2,
+				"attributes":{
+					"cost_reduction": -0.25
+				}
+			},
+			"power":{
+				"name": "hack_upgrade_power",
+				"icon": "hack.png",
+				"description": "hack_upgrade_power_desc",
+				"limit": 2,
+				"attributes":{
+					"effectiveness": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"neutralize":{
+		"name": "hack_neutralize",
+		"icon": "target.png",
+		"script": "Neutralize.gd",
+		"reputation": 16,
+		"requirement": "",
+		"energy": 180,
+		"power": 0,
+		"duration": 0,
+		"experience": 180,
+		"hold": false,
+		"description": "hack_neutralize_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 4,
+				"attributes":{
+					"cost_reduction": -0.1
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_alt_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"reveal":{
+		"name": "hack_reveal",
+		"icon": "search.png",
+		"script": "Reveal.gd",
+		"reputation": 16,
+		"requirement": "",
+		"energy": 300,
+		"power": 0,
+		"duration": 0,
+		"experience": 300,
+		"hold": false,
+		"description": "hack_reveal_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 4,
+				"attributes":{
+					"cost_reduction": -0.1
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_alt_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"trigger":{
+		"name": "hack_trigger",
+		"icon": "jump.png",
+		"script": "Trigger.gd",
+		"reputation": 16,
+		"requirement": "",
+		"energy": 1,
+		"power": 0,
+		"duration": 0,
+		"experience": 1,
+		"hold": true,
+		"description": "hack_trigger_desc",
+		"upgrades":{
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_alt2_desc",
+				"limit": 1,
+				"attributes":{
+					"cost_multiplier": 1,
+					"auto": true
+				}
+			}
+		}
+	},
+	"panic_recharge":{
+		"name": "hack_panic_recharge",
+		"icon": "panic.png",
+		"script": "PanicRecharge.gd",
+		"reputation": 24,
+		"requirement": "",
+		"energy": 120,
+		"power": 0.5,
+		"duration": 0,
+		"experience": 120,
+		"hold": false,
+		"description": "hack_panic_recharge_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 4,
+				"attributes":{
+					"cost_reduction": -0.05
+				}
+			}
+		}
+	},
+	"amplify":{
+		"name": "hack_amplify",
+		"icon": "charge.png",
+		"script": "Amplify.gd",
+		"reputation": 30,
+		"requirement": "",
+		"energy": 50,
+		"power": 1,
+		"duration": 5,
+		"experience": 50,
+		"hold": false,
+		"description": "hack_amplify_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 2,
+				"attributes":{
+					"cost_reduction": -0.25
+				}
+			},
+			"power":{
+				"name": "hack_upgrade_power",
+				"icon": "hack.png",
+				"description": "hack_upgrade_power_desc",
+				"limit": 2,
+				"attributes":{
+					"effectiveness": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"duration":{
+				"name": "hack_upgrade_duration",
+				"icon": "stop_watch.png",
+				"description": "hack_upgrade_duration_desc",
+				"limit": 2,
+				"attributes":{
+					"duration": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_alt_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"bulk_print":{
+		"name": "hack_bulk_print",
+		"icon": "money.png",
+		"script": "Print.gd",
+		"reputation": 50,
+		"requirement": "",
+		"energy": 0,
+		"power": 1.08,
+		"duration": 0,
+		"experience": 0,
+		"hold": false,
+		"description": "hack_bulk_print_desc",
+		"upgrades":{
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_alt_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"overcharge":{
+		"name": "hack_overcharge",
+		"icon": "energy.png",
+		"script": "Overcharge.gd",
+		"reputation": 0,
+		"requirement": "overclocker",
+		"energy": 4,
+		"power": 1,
+		"duration": 0,
+		"experience": 4,
+		"hold": true,
+		"description": "hack_overcharge_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 2,
+				"attributes":{
+					"cost_reduction": -0.25
+				}
+			},
+			"power":{
+				"name": "hack_upgrade_power",
+				"icon": "hack.png",
+				"description": "hack_upgrade_power_desc",
+				"limit": 2,
+				"attributes":{
+					"effectiveness": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	},
+	"augment":{
+		"name": "hack_augment",
+		"icon": "cogwheel.png",
+		"script": "Augment.gd",
+		"reputation": 0,
+		"requirement": "manufactory",
+		"energy": 6,
+		"power": 1,
+		"duration": 0,
+		"experience": 6,
+		"hold": true,
+		"description": "hack_augment_desc",
+		"upgrades":{
+			"economy":{
+				"name": "hack_upgrade_economy",
+				"icon": "leaf.png",
+				"description": "hack_upgrade_economy_desc",
+				"limit": 2,
+				"attributes":{
+					"cost_multiplier": -0.25
+				}
+			},
+			"power":{
+				"name": "hack_upgrade_power",
+				"icon": "hack.png",
+				"description": "hack_upgrade_power_desc",
+				"limit": 2,
+				"attributes":{
+					"effectiveness": 0.5,
+					"cost_multiplier": 0.5
+				}
+			},
+			"auto":{
+				"name": "hack_upgrade_automation",
+				"icon": "cogwheel.png",
+				"description": "hack_upgrade_automation_desc",
+				"limit": 1,
+				"attributes":{
+					"auto": true
+				}
+			}
+		}
+	}
+}

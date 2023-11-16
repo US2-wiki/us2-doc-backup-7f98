@@ -1,0 +1,10 @@
+{
+	"dark":{
+		"name": "theme_dark",
+		"file": "main.tres"
+	},
+	"classic":{
+		"name": "theme_classic",
+		"file": "classic.tres"
+	}
+}

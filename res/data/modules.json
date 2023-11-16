@@ -1,0 +1,351 @@
+{
+	"rgb":{
+		"name": "module_rgb",
+		"icon": "led.png",
+		"description": "module_rgb_desc",
+		"script": "",
+		"scene": "RGB.tscn",
+		"limit": 5,
+		"requirement": "",
+		"cost":{
+			"wire": 5,
+			"transistor": 2
+		},
+		"attributes":{
+			"performance": [0.1, 0.2, 0.3, 0.4, 0.5]
+		}
+	},
+	"breadboard":{
+		"name": "module_breadboard",
+		"icon": "circuit.png",
+		"description": "module_breadboard_desc",
+		"script": "",
+		"scene": "",
+		"limit": 5,
+		"requirement": "",
+		"cost":{
+			"wire": 6,
+			"transistor": 3
+		},
+		"attributes":{
+			"resources": [0.1, 0.2, 0.3, 0.4, 0.5]
+		}
+	},
+	"battery":{
+		"name": "module_battery",
+		"icon": "battery_full.png",
+		"description": "module_battery_desc",
+		"script": "",
+		"scene": "",
+		"limit": 5,
+		"requirement": "",
+		"cost":{
+			"wire": 6,
+			"wafer": 1
+		},
+		"attributes":{
+			"battery": [0.15, 0.3, 0.45, 0.6, 0.75]
+		}
+	},
+	"charger":{
+		"name": "module_charger",
+		"icon": "charger.png",
+		"description": "module_charger_desc",
+		"script": "",
+		"scene": "",
+		"limit": 5,
+		"requirement": "",
+		"cost":{
+			"wire": 8,
+			"transistor": 2
+		},
+		"attributes":{
+			"battery_recharge": [0.1, 0.2, 0.3, 0.4, 0.5]
+		}
+	},
+	"filter":{
+		"name": "module_lens",
+		"icon": "search.png",
+		"description": "module_lens_desc",
+		"script": "",
+		"scene": "",
+		"limit": 5,
+		"requirement": "",
+		"cost":{
+			"wire": 4,
+			"transistor": 12,
+			"wafer": 1
+		},
+		"attributes":{
+			"luck": [0.1, 0.2, 0.3, 0.4, 0.5]
+		}
+	},
+	"zip_license":{
+		"name": "module_zip_license",
+		"icon": "zip.png",
+		"description": "module_zip_license_desc",
+		"script": "",
+		"scene": "",
+		"limit": 5,
+		"requirement": "",
+		"cost":{
+			"transistor": 16
+		},
+		"attributes":{
+			"compression": [0.05, 0.1, 0.15, 0.2, 0.25]
+		}
+	},
+	"ram":{
+		"name": "module_ram",
+		"icon": "ram.png",
+		"description": "module_ram_desc",
+		"script": "",
+		"scene": "",
+		"limit": 2,
+		"requirement": "",
+		"cost":{
+			"wire": 4,
+			"transistor": 12,
+			"wafer": 2
+		},
+		"attributes":{
+			"slots": [1, 2]
+		}
+	},
+	"autoclicker":{
+		"name": "module_autoclicker",
+		"icon": "tap.png",
+		"description": "module_autoclicker_desc",
+		"script": "",
+		"scene": "ModuleAutoClicker.tscn",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 8,
+			"transistor": 12,
+			"pcb": 1
+		},
+		"attributes":{
+		}
+	},
+	"packager":{
+		"name": "module_packager",
+		"icon": "box.png",
+		"description": "module_packager_desc",
+		"script": "ModulePackager.gd",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"transistor": 24,
+			"pcb": 1
+		},
+		"attributes":{
+			"speed": [1]
+		}
+	},
+	"eliminator":{
+		"name": "module_eliminator",
+		"icon": "gun.png",
+		"description": "module_eliminator_desc",
+		"script": "",
+		"scene": "ModuleEliminator.tscn",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 6,
+			"transistor": 6,
+			"wafer": 2,
+			"pcb": 1
+		},
+		"attributes":{
+		}
+	},
+	"discharger":{
+		"name": "module_discharger",
+		"icon": "energy.png",
+		"description": "module_discharger_desc",
+		"script": "ModuleDischarger.gd",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 5,
+			"transistor": 15,
+			"wafer": 3
+		},
+		"attributes":{
+		}
+	},
+	"infected_charger":{
+		"name": "module_infected_charger",
+		"icon": "virus.png",
+		"description": "module_infected_charger_desc",
+		"script": "",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 16,
+			"wafer": 2,
+			"pcb": 1
+		},
+		"attributes":{
+			"battery_recharge": [1],
+			"virus_protection": [-1]
+		}
+	},
+	"heavy_battery":{
+		"name": "module_heavy_battery",
+		"icon": "car_battery.png",
+		"description": "module_heavy_battery_desc",
+		"script": "",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 21,
+			"wafer": 1,
+			"pcb": 1
+		},
+		"attributes":{
+			"battery": [1.5],
+			"/battery_recharge": [1]
+		}
+	},
+	"corrupted_lens":{
+		"name": "module_corrupted_lens",
+		"icon": "target.png",
+		"description": "module_corrupted_lens_desc",
+		"script": "ModuleCorruptedLens.gd",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 16,
+			"wafer": 2,
+			"pcb": 1
+		},
+		"attributes":{
+			"luck": [1]
+		}
+	},
+	"midas":{
+		"name": "module_midas",
+		"icon": "gold.png",
+		"description": "module_midas_desc",
+		"script": "ModuleMidas.gd",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"transistor": 16,
+			"wafer": 2,
+			"pcb": 1
+		},
+		"attributes":{
+		}
+	},
+	"charge_booster":{
+		"name": "module_charge_booster",
+		"icon": "power_supply.png",
+		"description": "module_charge_booster_desc",
+		"script": "",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 10,
+			"wafer": 3,
+			"pcb": 1
+		},
+		"attributes":{
+			"performance_booster": [1],
+			"/battery": [1]
+		}
+	},
+	"greed":{
+		"name": "module_greed",
+		"icon": "money.png",
+		"description": "module_greed_desc",
+		"script": "ModuleGreed.gd",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 10,
+			"wafer": 3,
+			"pcb": 1
+		},
+		"attributes":{
+			"battery_recharge": [1]
+		}
+	},
+	"power_lens":{
+		"name": "module_power_lens",
+		"icon": "power_search.png",
+		"description": "module_power_lens_desc",
+		"script": "ModulePowerLens.gd",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 4,
+			"transistor": 10,
+			"wafer": 3,
+			"pcb": 1
+		},
+		"attributes":{
+			"luck": [1]
+		}
+	},
+	"equalizer":{
+		"name": "module_equalizer",
+		"icon": "cubes.png",
+		"description": "module_equalizer_desc",
+		"script": "ModuleEqualizer.gd",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 5,
+			"transistor": 12,
+			"pcb": 2
+		},
+		"attributes":{
+		}
+	},
+	"hack_equalizer":{
+		"name": "module_hack_equalizer",
+		"icon": "hack.png",
+		"description": "module_hack_equalizer_desc",
+		"script": "ModuleHackEqualizer.gd",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 5,
+			"transistor": 12,
+			"pcb": 2
+		},
+		"attributes":{
+		}
+	},
+	"idlelizer":{
+		"name": "module_idlelizer",
+		"icon": "sleep_mode.png",
+		"description": "module_idlelizer_desc",
+		"script": "ModuleIdlelizer.gd",
+		"scene": "",
+		"limit": 1,
+		"requirement": "",
+		"cost":{
+			"wire": 5,
+			"transistor": 12,
+			"pcb": 2
+		},
+		"attributes":{
+			"performance": [5]
+		}
+	}
+}
