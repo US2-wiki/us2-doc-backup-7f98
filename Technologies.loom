@@ -731,7 +731,7 @@
         "id": "ceecca44-f59e-4f9b-87bf-397588c40cb6",
         "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
         "operator": "or",
-        "isEnabled": true,
+        "isEnabled": false,
         "type": "text",
         "condition": "is-empty",
         "text": ""
@@ -740,7 +740,7 @@
         "id": "12cf1d73-9238-4f97-8a33-6ffac3b307a7",
         "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
         "operator": "or",
-        "isEnabled": true,
+        "isEnabled": false,
         "type": "text",
         "condition": "is-empty",
         "text": ""
@@ -749,7 +749,7 @@
         "id": "ebdbcffd-68f0-48a9-9f69-ea9ca8e1e21c",
         "columnId": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
         "operator": "or",
-        "isEnabled": true,
+        "isEnabled": false,
         "type": "text",
         "condition": "is-empty",
         "text": ""
