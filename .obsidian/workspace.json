@@ -11,12 +11,9 @@
             "id": "2525cba27e343ca6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "dataloom",
               "state": {
-                "file": "Full index.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
+                "file": "Technologies.loom"
               }
             }
           },
@@ -99,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Full index.md",
+                "file": "Technologies.loom",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Full index.md",
+                "file": "Technologies.loom",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +136,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Full index.md"
+                "file": "Technologies.loom"
               }
             }
           }
@@ -147,7 +144,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -163,8 +161,8 @@
   },
   "active": "2525cba27e343ca6",
   "lastOpenFiles": [
-    "Technologies.loom",
     "Full index.md",
+    "Technologies.loom",
     "tur.md",
     "res/data/wallpapers.json",
     "res/data/upgrades.json",
