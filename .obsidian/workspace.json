@@ -11,12 +11,9 @@
             "id": "ee7022f98bbf013a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "dataloom",
               "state": {
-                "file": "Full index.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
+                "file": "Technologies.loom"
               }
             }
           }
@@ -86,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Full index.md",
+                "file": "Technologies.loom",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Full index.md",
+                "file": "Technologies.loom",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Full index.md"
+                "file": "Technologies.loom"
               }
             }
           }
@@ -151,8 +148,10 @@
   },
   "active": "ee7022f98bbf013a",
   "lastOpenFiles": [
-    "2023-11-17.md",
+    "Q&A/Transfer save between Android and PC.md",
     "Full index.md",
+    "Q&A",
+    "2023-11-17.md",
     "Technologies.loom",
     "tur.md",
     "res/data/wallpapers.json",
@@ -163,7 +162,6 @@
     "res/data/resources.json",
     "res/data/research.json",
     "res/data/perks.json",
-    "res/data/passives.json",
     "Modules (Research).md",
     "template/Research.md",
     "res/silicon_textlogo_flat.png",
