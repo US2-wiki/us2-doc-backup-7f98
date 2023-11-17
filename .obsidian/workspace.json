@@ -8,25 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2525cba27e343ca6",
+            "id": "ee7022f98bbf013a",
             "type": "leaf",
             "state": {
               "type": "dataloom",
               "state": {
                 "file": "Technologies.loom"
-              }
-            }
-          },
-          {
-            "id": "ee7022f98bbf013a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Full index.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
               }
             }
           }
@@ -159,7 +146,7 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "2525cba27e343ca6",
+  "active": "ee7022f98bbf013a",
   "lastOpenFiles": [
     "Full index.md",
     "Technologies.loom",

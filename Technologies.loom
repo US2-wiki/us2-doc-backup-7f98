@@ -209,6 +209,11 @@
             "id": "6ec81b89-4cb2-4f3c-9667-343d11221f63",
             "content": "SF/Modules",
             "color": "light gray"
+          },
+          {
+            "id": "a4d1db2e-b697-4cfd-8673-f735a77f9ed5",
+            "content": "SF/Milestones",
+            "color": "brown"
           }
         ],
         "calculationType": "none",
@@ -803,14 +808,14 @@
         "index": 8,
         "sourceId": null,
         "creationDateTime": "2023-11-17T17:37:33.289Z",
-        "lastEditedDateTime": "2023-11-17T17:37:53.593Z",
+        "lastEditedDateTime": "2023-11-17T17:40:00.895Z",
         "cells": [
           {
             "id": "f0b9fd7e-31b0-499d-a57e-65a6228e6459",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Moore's Law]]",
+            "content": "[[Moore's Law]] ![[res/icons/server.png|server]]",
             "tagIds": []
           },
           {
@@ -846,7 +851,7 @@
             "isExternalLink": false,
             "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
             "dateTime": null,
-            "content": "",
+            "content": "Unlocks a milestone that increases the performance boost granted by the CPU component",
             "tagIds": []
           },
           {
@@ -854,7 +859,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "",
+            "content": "[[Overclocking (Research)|Overclocking]]",
             "tagIds": []
           },
           {
@@ -863,7 +868,12 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "a4d1db2e-b697-4cfd-8673-f735a77f9ed5",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815"
+            ]
           }
         ]
       }
