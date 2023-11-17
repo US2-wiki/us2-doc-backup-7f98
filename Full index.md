@@ -136,6 +136,7 @@
 			- [[Curiosity]]
 			- [[Power]]
 		- [[Teleport]] (in development -> expected v1.5 feature via translation)
+			- [[Universe]] (in development, expected concept word from v1.5 via translation)
 	- [[Milestones]]
 		- [[Tier 1]]
 			- [[Mining Power x2]]
