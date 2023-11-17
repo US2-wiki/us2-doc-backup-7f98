@@ -135,8 +135,6 @@
 		- [[New Game+]]
 			- [[Curiosity]]
 			- [[Power]]
-		- [[Teleport]] (in development -> expected v1.5 feature via translation)
-			- [[Universe]] (in development, expected concept word from v1.5 via translation)
 	- [[Milestones]]
 		- [[Tier 1]]
 			- [[Mining Power x2]]
@@ -256,6 +254,64 @@
 	- [[Upgrade Refund]]
 	- [[Hack Reset]]
 - [[Tutorial]]
+- Other
+	- [[Achievement List|Achievement]]
+		- [[Journey to Innovation]] 
+		- [[Back on the Job]]
+		- [[For Science!]]
+		- [[You're Welcome]]
+		- [[Active User]]
+		- Online Time
+			- [[Innovator]]
+			- [[Upload Newbie]]
+			- [[Experienced Uploader]]
+			- [[Advanced Uploader]]
+		- [[Faster Than Light]]
+		- Power Generator
+			- [[Eco-Friendly]]
+			- [[Eco-Unfriendly]]
+			- [[Absolute Zero]]
+			- [[Not Great, Not Terrible]]
+			- [[Sun Harvester]]
+			- [[Perfectly Balanced]]
+		- [[Expert Engineer]]
+		- Hack
+			- [[Hackerman]]
+			- [[Prodigious]]
+		- [[Quick Thinker]]
+		- Modules
+			- [[Specialty]]
+			- [[Optimizer]]
+			- [[Fully Modded]]
+			- [[Fine Craftsmanship]]
+		- Battery
+			- [[Unlimited Power]]
+			- [[Overpowered]]
+		- [[24/7 Uploader]]
+		- [[Procrastinator]]
+		- [[System Cleansing]]
+		- [[Mom Get the Camera!]]
+		- Upload
+			- [[Artist]]
+			- [[Composer]]
+			- [[Cinephile]]
+			- [[Gamer]]
+			- [[Royal]]
+		- [[Grand Automation]]
+		- [[Variety Uploader]]
+		- [[Crypto Denialer]]
+		- Field
+			- [[Pointless Effort]]
+			- [[Field Scientist]]
+		- Research
+			- [[Visionary Breakthrough]]
+			- [[Monumental Breakthrough]]
+			- [[Endgame]]
+		- Endgame
+			- [[Laplace's Demon]]
+	- [[Statistic]]
+	- [[Teleport]] (in development -> expected v1.5 feature via translation)
+		- [[Universe]] (in development, expected concept word from v1.5 via translation)
 - [[Q&A]]
 - Table of content
 	- [[Technologies.loom]]
