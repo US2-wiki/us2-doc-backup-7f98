@@ -135,6 +135,7 @@
 		- [[New Game+]]
 			- [[Curiosity]]
 			- [[Power]]
+		- [[Teleport]] (in development -> expected v1.5 feature via translation)
 	- [[Milestones]]
 		- [[Tier 1]]
 			- [[Mining Power x2]]

@@ -11,9 +11,12 @@
             "id": "ee7022f98bbf013a",
             "type": "leaf",
             "state": {
-              "type": "dataloom",
+              "type": "markdown",
               "state": {
-                "file": "Technologies.loom"
+                "file": "Full index.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
               }
             }
           }
@@ -83,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Technologies.loom",
+                "file": "Full index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Technologies.loom",
+                "file": "Full index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Technologies.loom"
+                "file": "Full index.md"
               }
             }
           }
@@ -148,6 +151,7 @@
   },
   "active": "ee7022f98bbf013a",
   "lastOpenFiles": [
+    "2023-11-17.md",
     "Full index.md",
     "Technologies.loom",
     "tur.md",
