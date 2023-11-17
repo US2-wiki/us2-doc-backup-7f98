@@ -657,14 +657,14 @@
         "index": 6,
         "sourceId": null,
         "creationDateTime": "2023-11-16T22:47:04.439Z",
-        "lastEditedDateTime": "2023-11-16T22:50:29.164Z",
+        "lastEditedDateTime": "2023-11-17T17:16:23.740Z",
         "cells": [
           {
             "id": "d7fce194-e2bd-49db-afd3-b9e225e95fed",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Aerodynamics]] ![[res/icons/helices.png|helices]]",
+            "content": "[[Aerodynamics]] ![[res/icons/helices.png|helices]]`",
             "tagIds": []
           },
           {

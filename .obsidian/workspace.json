@@ -11,9 +11,12 @@
             "id": "2525cba27e343ca6",
             "type": "leaf",
             "state": {
-              "type": "dataloom",
+              "type": "markdown",
               "state": {
-                "file": "Technologies.loom"
+                "file": "Full index.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
               }
             }
           },
@@ -96,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Technologies.loom",
+                "file": "Full index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Technologies.loom",
+                "file": "Full index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,17 +139,15 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Technologies.loom"
+                "file": "Full index.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -156,13 +157,14 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "notion-like-tables:Create loom": false
+      "notion-like-tables:Create loom": false,
+      "markdown-importer:Open format converter": false
     }
   },
   "active": "2525cba27e343ca6",
   "lastOpenFiles": [
-    "Full index.md",
     "Technologies.loom",
+    "Full index.md",
     "tur.md",
     "res/data/wallpapers.json",
     "res/data/upgrades.json",
