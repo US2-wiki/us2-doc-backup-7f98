@@ -309,6 +309,7 @@
 			- [[Endgame]]
 		- Endgame
 			- [[Laplace's Demon]]
+			- [[Dimensional Traveler]] (in development, expected term from v1.5 via translation sourced from translation key)
 	- [[Statistic]]
 	- [[Teleport]] (in development -> expected v1.5 feature via translation)
 		- [[Universe]] (in development, expected concept word from v1.5 via translation)
