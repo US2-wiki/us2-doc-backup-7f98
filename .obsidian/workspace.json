@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Q&A/How to reach us.md",
+                "file": "Full index.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -100,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Q&A/How to reach us.md",
+                "file": "Full index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Q&A/How to reach us.md",
+                "file": "Full index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Q&A/How to reach us.md"
+                "file": "Full index.md"
               }
             }
           }
@@ -165,8 +165,8 @@
   },
   "active": "22c99f0795e03cdb",
   "lastOpenFiles": [
-    "Q&A/Transfer save between Android and PC.md",
     "Q&A/How to reach us.md",
+    "Q&A/Transfer save between Android and PC.md",
     "Technologies.loom",
     "Full index.md",
     "2023-11-17.md",

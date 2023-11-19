@@ -314,6 +314,7 @@
 		- [[Universe]] (in development, expected concept word from v1.5 via translation)
 - [[Q&A]]
 	- [[Transfer save between Android and PC]]
+	- [[How to reach us]]
 - Table of content
 	- [[Technologies.loom]]
 		![[Technologies.loom]]
