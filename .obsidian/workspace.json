@@ -45,9 +45,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "ef4f7b990fd1a1fb",
+            "type": "leaf",
+            "state": {
+              "type": "dataloom",
+              "state": {
+                "file": "Technologies.loom"
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -113,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Full index.md",
+                "file": "Technologies.loom",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Full index.md",
+                "file": "Technologies.loom",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Full index.md"
+                "file": "Technologies.loom"
               }
             }
           }
@@ -176,23 +186,27 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "1b1dbbfbcee5f579",
+  "active": "ef4f7b990fd1a1fb",
   "lastOpenFiles": [
-    "Technologies.loom",
     "Full index.md",
+    "Technologies.loom",
+    "res/translation/translation.xlsx",
+    "res/translation/translation.tsv",
+    "res/translation/translation.csv",
+    "res/translation",
+    "Wind Power.md",
+    "Moore's Law.md",
+    "Overclocking (Research).md",
+    "Photovoltaics.md",
+    "res/translation/Untitled spreadsheet - Sheet1.csv",
+    "res/translation/Untitled spreadsheet - Sheet1.tsv",
+    "res/translation/Untitled spreadsheet.xlsx",
+    "res/New folder",
     "2023-11-17.md",
     "Q&A/Transfer save between Android and PC.md",
     "Q&A/How to reach us.md",
     "Q&A",
     "tur.md",
-    "res/data/wallpapers.json",
-    "res/data/upgrades.json",
-    "res/data/themes.json",
-    "res/data/tasks.json",
-    "res/data/robots.json",
-    "res/data/resources.json",
-    "res/data/research.json",
-    "res/data/perks.json",
     "Modules (Research).md",
     "template/Research.md",
     "res/silicon_textlogo_flat.png",
