@@ -8,46 +8,16 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ee7022f98bbf013a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Q&A/Transfer save between Android and PC.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "22c99f0795e03cdb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Full index.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "1b1dbbfbcee5f579",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "dataloom",
               "state": {
-                "file": "2023-11-17.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
+                "file": "Technologies.loom"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -113,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2023-11-17.md",
+                "file": "Technologies.loom",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2023-11-17.md",
+                "file": "Technologies.loom",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2023-11-17.md"
+                "file": "Technologies.loom"
               }
             }
           }
@@ -172,16 +142,19 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "notion-like-tables:Create loom": false,
-      "markdown-importer:Open format converter": false
+      "markdown-importer:Open format converter": false,
+      "notion-like-tables:Create loom": false
     }
   },
   "active": "1b1dbbfbcee5f579",
   "lastOpenFiles": [
-    "Full index.md",
-    "Q&A/Transfer save between Android and PC.md",
+    "Moore's Law.md",
     "Technologies.loom",
+    "Full index.md",
+    "res/ui-assets/check_button.png",
+    "res/uploadsimsi.png",
     "2023-11-17.md",
+    "Q&A/Transfer save between Android and PC.md",
     "Q&A/How to reach us.md",
     "Q&A",
     "tur.md",
@@ -197,14 +170,12 @@
     "template/Research.md",
     "res/silicon_textlogo_flat.png",
     "res/silicon_textlogo.png",
-    "res/uploadsimsi.png",
     "res/icon.png",
     "res/wallpapers/classic.jpg",
     "res/particles/star_07.png",
     "res/particles/flare_26.png",
     "res/particles/random_glow.png",
     "res/particles/circle_01.png",
-    "res/particles/01.png",
     "Shaper.md",
     "[SPECIAL] Module Specialization.md"
   ]
