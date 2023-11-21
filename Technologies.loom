@@ -882,7 +882,7 @@
         "index": 9,
         "sourceId": null,
         "creationDateTime": "2023-11-21T18:00:56.889Z",
-        "lastEditedDateTime": "2023-11-21T20:55:41.210Z",
+        "lastEditedDateTime": "2023-11-21T21:00:04.588Z",
         "cells": [
           {
             "id": "a03a25f4-3e96-406c-9c23-a4eb5688a91a",
@@ -933,7 +933,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "",
+            "content": "[[Wind Power]]",
             "tagIds": []
           },
           {
