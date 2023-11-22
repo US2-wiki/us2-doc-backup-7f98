@@ -1020,7 +1020,7 @@
         "index": 11,
         "sourceId": null,
         "creationDateTime": "2023-11-22T20:27:11.792Z",
-        "lastEditedDateTime": "2023-11-22T20:29:18.830Z",
+        "lastEditedDateTime": "2023-11-22T20:31:20.338Z",
         "cells": [
           {
             "id": "5583b3b2-5563-433e-9f3d-6cf8622206fe",
@@ -1054,7 +1054,9 @@
             "columnId": "7caba6e3-43b6-4571-a48f-c385396558cd",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "f3599547-7dea-4bfb-ae99-16632e62513e"
+            ]
           },
           {
             "id": "0ff554b2-aceb-46ed-a6bb-65b3b678aeb9",
