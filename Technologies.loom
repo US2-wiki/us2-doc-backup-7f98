@@ -882,7 +882,7 @@
         "index": 9,
         "sourceId": null,
         "creationDateTime": "2023-11-21T18:00:56.889Z",
-        "lastEditedDateTime": "2023-11-21T21:01:20.562Z",
+        "lastEditedDateTime": "2023-11-22T20:24:55.319Z",
         "cells": [
           {
             "id": "a03a25f4-3e96-406c-9c23-a4eb5688a91a",
@@ -925,7 +925,7 @@
             "isExternalLink": false,
             "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
             "dateTime": null,
-            "content": "",
+            "content": "Unlocks the use of steam engines as a power source",
             "tagIds": []
           },
           {
@@ -951,7 +951,7 @@
         "index": 10,
         "sourceId": null,
         "creationDateTime": "2023-11-21T20:29:18.265Z",
-        "lastEditedDateTime": "2023-11-22T20:20:08.535Z",
+        "lastEditedDateTime": "2023-11-22T20:26:39.207Z",
         "cells": [
           {
             "id": "cc0443fa-af25-4a74-8834-28883fb7c2f6",
@@ -985,14 +985,16 @@
             "columnId": "7caba6e3-43b6-4571-a48f-c385396558cd",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "f3599547-7dea-4bfb-ae99-16632e62513e"
+            ]
           },
           {
             "id": "2e8bb09c-ba91-424f-a620-be2e5cce9377",
             "isExternalLink": false,
             "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
             "dateTime": null,
-            "content": "",
+            "content": "Unlocks fabricators that can automate the production of components",
             "tagIds": []
           },
           {
