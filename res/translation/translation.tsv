@@ -1,0 +1,885 @@
+keys	en
+read_me	Try to keep the same rules for uppercase and lowercase letters. Titles usually have all words starting with an uppercase letter. Some words are fully uppercase, keep them in uppercase. Do not forget to add line breaks with Ctrl+Enter when required. Check comments in the english translation for help.
+home	Home
+universes	Universes
+quit	Quit
+credits	Credits
+cps	Cps
+mining	Mining #Cps
+diamonds	Diamonds
+electronics	Electronics
+eps	Eps
+producing	Producing #Eps
+power	Power
+generating	Generating #W
+research_points	Science A
+research_points2	Science B
+research_points3	Science C
+research_points4	Science D
+data	Data
+bps	Bps
+uploading	Uploading #Bps
+level	Level
+lv	Lv
+hack_level	Hacking Level
+hack_points	Hack Points
+uploads	Uploads
+new_upload	Select Format
+image	Image
+music	Music
+video	Video
+game	Game
+gpu_driver	GPU Driver
+network_driver	Network Driver
+of	of
+and	and
+infinity	Infinity
+task_manager	Task Manager
+daily	Daily
+components	Components
+purchase	Purchase
+upgrade	Upgrade
+expand	Expand
+buy	Buy
+max	Max
+unit	Unit
+warning	Warning
+network	Network
+network_radio_transceiver1	Radio
+network_radio_transceiver2	Radio Mk.2
+network_2g	2G
+network_2.5g	2.5G
+network_3g	3G
+network_3.5g	3.5G
+network_dial_up1	Dial Up
+network_dial_up2	Dial Up Mk.2
+network_dsl1	DSL
+network_dsl2	DSL Mk.2
+network_4g	4G
+network_4.5g	4.5G
+network_satellite1	Satellite
+network_satellite2	Satellite Mk.2
+network_5g	5G
+network_6g	6G
+network_fiber1	Fiber
+network_fiber2	Fiber Mk.2
+network_fiber3	Fiber Mk.3
+network_entangloporter	Data Entangloporter
+network_desc	Increases upload speed
+gpu	GPU
+gpu_desc	Increases credit mining power
+cpu	CPU
+cpu_desc	Increases overall system performance
+upgrades	Upgrades
+talents	TALENTS
+passives	PERKS
+points	Points
+hacks	Hacks
+equip	Equip
+equipped	Equipped
+unequip	Unequip
+modules	Modules
+unobtained	Unobtained
+unique	Unique
+craft	Craft
+remake	Remake
+keep	Keep
+install	Install
+installed	Installed
+uninstall	Uninstall
+new	New
+old	Old
+none	None
+score	Score
+manufactory	Manufactory
+assemblers	Assemblers
+fabricator	Circuit Fabricator
+modifications	Modifications
+modification_optimize	Conveyor Speed
+modification_optimize_desc	20% Production Speed
+modification_recycler	Recycler
+modification_recycler_desc	Increases electronics from artifacts by 200%
+modification_injection	Overwork
+modification_injection_desc	100% production speed, 100% less mining power
+modification_turbo	Turbo
+modification_turbo_desc	Doubles Production Speed but halves power generation
+modification_upgrade	Conveyor Size
+modification_upgrade_desc	Doubles production speed
+assembly	Assembly
+network_assembler	Network Assembler
+gpu_assembler	GPU Assembler
+on	ON
+off	OFF
+overclocking	Overclocking
+overclocker	Overclocker
+space	Space
+heat	Heat
+overheating	Overheating
+overclock	Overclock
+boost	Boost
+boost_factor	Boost Factor
+generators	GENERATORS
+amplifiers	AMPLIFIERS
+generator_solar	Solar Panel
+generator_wind	Wind Turbine
+generator_coal	Coal Generator
+generator_steam	Steam Engine
+generator_fission	Fission Reactor
+generator_fusion	Fusion Reactor
+generator_dyson	Dyson Sphere
+generator_refrigerator	Dilution Refrigerator
+generator_perpetual	Perpetual Generator
+amplifier	Amplifier
+credits_amplifier	GPU Amplifier
+data_amplifier	Network Amplifier
+energy_amplifier	Power Amplifier
+electronics_amplifier	Production Amplifier
+charges	Charges
+charging	Charging
+amplified	Amplified
+amplifier_speed	Speed
+amplifier_speed_desc	Increases charging speed
+amplifier_power	Power
+amplifier_power_desc	Increases the amplification effect
+amplifier_duration	Duration
+amplifier_duration_desc	Increases the amplification duration
+amplifier_charges	Max Charges
+amplifier_charges_desc	Increases the charge capacity
+busy	Busy
+research_title	Research
+laboratory	Laboratory
+laboratory_desc	Uses submitted data to produce science points
+advanced_laboratory	Advanced Laboratory
+ultimate_laboratory	Ultimate Laboratory
+uber_laboratory	Uber Laboratory
+reboot	T1 Reboot
+reboot2	T2 Reboot
+reboot3	T3 Reboot
+reboot4	T4 Reboot
+quick_research	Quick Research
+stored	Stored
+reboot_desc	Rebooting now will reset your components. Would you like to continue?
+reboot2_desc	Rebooting now will reset your components and milestones. Would you like to continue?
+reboot_rewards	You will receive
+research	Research
+cancel	Cancel
+shop	Shop
+items	Items
+particle_accelerator	Particle Accelerator
+particle_accelerator_desc	Smashing particles together to produce # diamonds per second Each unit produces 100 diamonds per second
+support_us	You can contribute to our development journey by purchasing a particle accelerator that passively generates diamonds over time. You can also receive diamonds instantly by watching an advertisement.
+watch_ad	Watch AD
+upgrade_speed	Upload Speed
+upgrade_speed_desc	Increases upload speed by #%
+upgrade_power	Mining Power
+upgrade_power_desc	Increases credit mining power by #%
+upgrade_quality	Connection Quality
+upgrade_quality_desc	Increases connection quality by #%, reducing speed fluctuation
+upgrade_signal	Signal Quality
+upgrade_signal_desc	Reduces the chance of disconnection events by #%
+upgrade_slots	Upload Slot
+upgrade_slots_desc	Increases the slot capacity of uploads by #
+upgrade_hack_slots	Hack Slot
+upgrade_hack_slots_desc	Increases the slot capacity of hacks by #
+upgrade_offline_time	Offline Time
+upgrade_offline_time_desc	Increases the offline time limit by # hours
+upgrade_offline_ratio	Offline Ratio
+upgrade_offline_ratio_desc	Increases offline gains by #%
+upgrade_battery_recharge	Battery Voltage
+upgrade_battery_recharge_desc	Increases battery recharge rate by #%
+upgrade_battery_increase	Battery Capacity
+upgrade_battery_increase_desc	Increases battery capacity by #%
+upgrade_luck	Luck
+upgrade_luck_desc	Increases spawn rate of artifacts by #%
+upgrade_anti_virus	Antivirus
+upgrade_anti_virus_desc	Reduces virus spawn chance by 100%
+upgrade_discount	Charisma
+upgrade_discount_desc	Components are #% cheaper
+upgrade_compression	Compression
+upgrade_compression_desc	Reduces file size by #%
+upgrade_module_slots	Module Slot
+upgrade_module_slots_desc	Increases the slot capacity of modules by #
+upgrade_crafting_speed	Crafting Speed
+upgrade_crafting_speed_desc	Increases production of module parts by #%
+upgrade_production	Production Speed
+upgrade_production_desc	Increases the fabricator speed by #%
+upgrade_energy	Power Generation
+upgrade_energy_desc	Increases power generation by #%
+upgrade_cooling	Cooling
+upgrade_cooling_desc	Increases the maximum heat threshold by #%
+upgrade_robots	Additional Robot
+upgrade_robots_desc	Increases the number of robot workers by #
+upgrade_graviton_production	Graviton Production
+upgrade_graviton_production_desc	Increases graviton production by #%
+technologies	TECHNOLOGIES
+perks	MILESTONES
+shaper	SHAPER
+research_bulk_purchase	Bulk Purchase
+research_bulk_purchase_desc	Unlocks the multi purchase feature
+research_modules	Modules
+research_modules_desc	Unlocks the access to modules that can modify and boost your system
+research_gadget_deals	GadgetDeals.com
+research_gadget_deals_desc	Automatically sells your old components at a 50% price
+research_kludge	Kludge
+research_kludge_desc	Modules can have an additional attribute
+research_moore_law	Moore's Law
+research_moore_law_desc	Unlocks a milestone that increases the performance boost granted by the CPU component
+research_manufactory	Manufactory
+research_manufactory_desc	Unlocks fabricators that can automate the production of components
+research_injection	Overwork
+research_injection_desc	Unlocks the Overwork modification for the manufactory
+research_turbo	Turbo
+research_turbo_desc	Unlocks the Turbo modification for the manufactory
+research_overclocker	Overclocking
+research_overclocker_desc	Unlocks the overclocker, which produces energy used to boost components
+research_amplifier	Amplifier
+research_amplifier_desc	Unlocks the amplifier, which can be used to boost the overclocking effect
+research_photovoltaics	Photovoltaics
+research_photovoltaics_desc	Unlocks the use of solar panels as a power source
+research_wind_power	Aerodynamics
+research_wind_power_desc	Unlocks the use of wind turbines as a power source
+research_coal_power	Coal Power
+research_coal_power_desc	Unlocks the use of coal generators as a power source
+research_steam	Steam Power
+research_steam_desc	Unlocks the use of steam engines as a power source
+research_geothermal	Earth Power
+research_geothermal_desc	Unlocks the use of geothermal generators as a power source
+research_fission	Nuclear Fission
+research_fission_desc	Unlocks the use of fission reactors as a power source
+research_fusion	Nuclear Fusion
+research_fusion_desc	Unlocks the use of fusion reactors as a power source
+research_tier2	Tier 2
+research_tier2_desc	Unlocks the option to Hard Reboot and produce Science B points
+research_async_uploads	Async Uploads
+research_async_uploads_desc	Increases upload speed by 100% for each active upload
+research_dyson_sphere	Sun Power
+research_dyson_sphere_desc	Unlocks the use of dyson spheres as a power source
+research_enhance	Logistics
+research_enhance_desc	Unlocks the Conveyor Size modification for the manufactory
+research_engineer_robot	Engineer Robot
+research_engineer_robot_desc	Unlocks robots that can manage modifications for the manufactory
+research_advanced_laboratory	Advanced Laboratory
+research_advanced_laboratory_desc	Automatically converts uploaded data into Science A points
+research_robotics	Logistic Robots
+research_robotics_desc	Unlocks robots that can automate tasks
+research_cryogenics	Cryogenics
+research_cryogenics_desc	Unlocks the use of dilution refrigerators as a coolant for generators
+research_amplification	Amplification
+research_amplification_desc	Unlocks amplificators that can be charged using energy to amplify your machines
+research_field_modulation	Field Modulation
+research_field_modulation_desc	Unlocks modulators that can alter the flow of the quantum fields
+research_tier3	Tier 3
+research_tier3_desc	Unlocks the option to Reset and produce Science C points
+research_space_shaper	Space Shaper
+research_space_shaper_desc	Unlocks machines that can reshape the space-time continuum
+research_drivers	Drivers
+research_drivers_desc	Unlocks a new set of upload types that increases component's performance by x1.01 permanently after completion
+research_perpetual_motion	Perpetual Motion
+research_perpetual_motion_desc	Unlocks the use of perpetual generators as a power source
+research_builder_robot	Builder Robot
+research_builder_robot_desc	Unlocks robots that can manage generators
+research_passives	Perks
+research_passives_desc	Unlocks a new set of limited upgrades in the talents tab
+research_physicist_robot	Physicist Robot
+research_physicist_robot_desc	Unlocks robots that can automate field modulation
+research_space_warp	Space Condenser
+research_space_warp_desc	Unlocks a machine capable of condensing space over time, increasing the time speed
+research_ultimate_lab	Ultimate Laboratory
+research_ultimate_lab_desc	Automatically converts Science A into Science B points
+research_hack_specialist	Hack Specialization
+research_hack_specialist_desc	Increases battery recharge rate by 100% WARNING: Resets your hack progress
+research_hack_mastery	Hack Mastery
+research_hack_mastery_desc	Increases max battery by 100% WARNING: Resets your hack progress
+research_module_specialist	Module Specialization
+research_module_specialist_desc	Adds an additional module slot WARNING: Resets equipped modules
+research_tier4	Tier 4
+research_tier4_desc	Unlocks the option to T4 Reboot and produce Science D points
+research_infinity_milestones	Infinity Milestones
+research_infinity_milestones_desc	Unlocks unlimited milestones
+research_temporal_robot	Temporal Robot
+research_temporal_robot_desc	Unlocks robots that can automate space shaping machines
+research_uber_lab	Uber Laboratory
+research_uber_lab_desc	Automatically converts Science B into Science C points
+tier_1	Tier 1
+tier_2	Tier 2
+tier_3	Tier 3
+tier_4	Tier 4
+perk_speed	Upload Speed x2
+perk_mining_power	Mining Power x2
+perk_clock_speed	Clock Speed
+perk_amplifier_points	Amplifier Points
+perk_flux	Flux x2
+perk_graviton	Graviton x2
+perk_passive_points	Perk Points
+perk_infinity_milestones	All Infinity Milestones +1
+perk_infinity_speed	Infinity Upload Speed x2
+perk_infinity_mining_power	Infinity Mining Power x2
+perk_infinity_flux	Infinity Flux x2
+perk_infinity_graviton	Infinity Graviton x2
+task_automation	Task Automation
+robots	Robots
+work_time	Work Time
+assign_a_robot	Assign a robot to automate this task
+robot_tech	Tech Robot
+robot_tech_desc	Purchases, upgrade and overclock components
+bot_gpu	Purchase GPU
+bot_network	Purchase Network
+bot_cpu	Purchase CPU
+robot_industrial	Industrial Robot
+robot_industrial_desc	Purchases and upgrade the Overclocker and the Fabricator
+bot_overclocker	Purchase Overclocker
+bot_overclock_gpu	Overclock GPU
+bot_overclock_network	Overclock Network
+bot_builder	Manage Generators
+bot_manufactory	Purchase Circuit Fabricator
+bot_engineer	Manage Modifications
+robot_scientist	Scientist Robot
+robot_scientist_desc	Upgrades science related systems
+bot_physicist	Upgrade Flow Fields
+bot_temporal	Purchase Shaper Machines
+robot_assistant	Assistant Robot
+robot_assistant_desc	Automate hacks and artifacts
+bot_hacker	Hack
+bot_clicker	Click Artifacts
+hack_farm	Print
+hack_farm_desc	Prints # seconds worth of credits
+hack_overheat	Overheat
+hack_overheat_desc	Boosts mining power by #% while holding
+hack_quicken	Quicken
+hack_quicken_desc	Boosts upload speed by #% while holding
+hack_skip	Skip
+hack_skip_desc	Fast forwards # seconds in time
+hack_protect	Protect
+hack_protect_desc	Prevents disconnections for @ seconds
+hack_recharge	Recharge
+hack_recharge_desc	Boosts battery recharge rate by #% while holding
+hack_neutralize	Neutralize
+hack_neutralize_desc	Neutralizes every virus on the screen and converts them into artifacts
+hack_optimize	Optimize
+hack_optimize_desc	Increases upload speed and mining power by #% for @ seconds
+hack_scan	Scan
+hack_scan_desc	Boosts artifact spawn rate by #% while holding
+hack_reveal	Reveal
+hack_reveal_desc	Reveals a random artifact
+hack_trigger	Trigger
+hack_trigger_desc	Trigger all equipped hacks on use. Trigger all equipped hacks while holding
+hack_extend	Extend
+hack_extend_desc	Extends the duration of all non-premium boost effects
+hack_panic_recharge	Panic Recharge
+hack_panic_recharge_desc	Sets your current battery to a different value
+hack_engage	Engage
+hack_engage_desc	Activates a random equipped hack at no additional cost
+hack_print	Convert
+hack_print_desc	Consumes all battery to print credits
+hack_overcharge	Overcharge
+hack_overcharge_desc	Boosts power generation by #% while holding
+hack_augment	Augment
+hack_augment_desc	Boosts electronics production by #% while holding
+hack_amplify	Amplify
+hack_amplify_desc	Generates 1 charge per use. If not used for 1 second, all charges will be consumed to apply a #% performance boost for each charge during @ seconds. Increases energy cost by 25 for each charge
+hack_bulk_print	Bulk Print
+hack_bulk_print_desc	Consumes 10% of your maximum battery to print credits based on the battery consumed. Increases credits printed by x# for each amount of battery consumed.
+hack_upgrade_economy	Economy
+hack_upgrade_economy_desc	Reduces battery usage by #%
+hack_upgrade_power	Power
+hack_upgrade_power_desc	Increases effectiveness and battery usage by #%
+hack_upgrade_power_alt_desc	Increases effectiveness by #%
+hack_upgrade_duration	Length
+hack_upgrade_duration_desc	Increases duration and battery usage by #%
+hack_upgrade_automation	Automation
+hack_upgrade_automation_desc	Automatic use
+hack_upgrade_automation_alt_desc	Automatic use on full battery
+hack_upgrade_automation_alt2_desc	Automatic use on full battery. +#% battery usage
+time_skipped	Skipped # seconds
+item_speed_boost	Speed Boost
+item_speed_boost_desc	Boosts your connection speed by 100% for 30 minutes
+item_credits	Credits
+item_credits_desc	Instantly grants you with 5 minutes worth of credits
+item_battery_boost	Battery Boost
+item_battery_boost_desc	Boosts battery recharge rate by 50% for 20 minutes
+item_luck_boost	Luck Boost
+item_luck_boost_desc	Boosts the spawn rate of artifacts by 50% for 20 minutes
+item_resource_desc	Used in module crafting
+item_upgrade_reset	Upgrade Refund
+item_upgrade_reset_desc	Refund all talent points spent
+item_hack_reset	Hack Reset
+item_hack_reset_desc	Refund all hack points spent
+time_left	# remaining
+resource_wire	Wire
+resource_transistor	Transistor
+resource_wafer	Wafer
+resource_pcb	PCB
+module_autoclicker	Autoclicker
+module_autoclicker_desc	Automatically collects artifacts and parts. Caution: Might also collect viruses
+module_eliminator	Eliminator
+module_eliminator_desc	Neutralizes viruses, recharging 20% of your total battery for each virus eliminated
+module_ram	DDR6 RAM
+module_ram_desc	Increases the amount of upload slots
+module_battery	Lithium Battery
+module_battery_desc	Increases battery capacity
+module_charger	Power Charger
+module_charger_desc	Increases battery recharge rate
+module_breadboard	Breadboard
+module_breadboard_desc	Increases the production of module parts
+module_lens	Nano-Lens
+module_lens_desc	Increases artifact spawn rate
+module_zip_license	Zip License
+module_zip_license_desc	Decreases the size of uploads
+module_rgb	RGB Lights
+module_rgb_desc	Increases system performance
+module_discharger	Discharger
+module_discharger_desc	Refills battery every 60 seconds. Your battery recharge rate is 0
+module_infected_charger	Infected Charger
+module_infected_charger_desc	Increases virus spawn chance by 100%
+module_heavy_battery	Heavy Battery
+module_heavy_battery_desc	Reduces battery recharge rate by 50%
+module_corrupted_lens	Corrupted Lens
+module_corrupted_lens_desc	Collecting artifacts destroy all other artifacts and viruses
+module_charge_booster	Charge Booster
+module_charge_booster_desc	Increases performance based on your maximum battery. Reduces your maximum battery by half
+module_midas	Midas Touch
+module_midas_desc	Converts all artifacts into credit artifacts
+module_greed	Greed
+module_greed_desc	Consumes all battery while on full battery
+module_power_lens	Power Lens
+module_power_lens_desc	Drains 40 battery every second
+module_packager	Packager
+module_packager_desc	Uploads are periodically corrupted
+module_equalizer	Equalizer
+module_equalizer_desc	Increases performance by 50% for each unused module slot
+module_hack_equalizer	Hack Equalizer
+module_hack_equalizer_desc	Increases battery recharge by 25% for each unused hack slot
+module_idlelizer	Idle Catalyst
+module_idlelizer_desc	Your battery, battery recharge and luck becomes 0
+field_modulation_title	Field Modulation
+flow	Flow
+flux	Flux
+field	Field
+absorb	Choose an unit to absorb
+flux_flow	Flux Flow
+credits_flow	Credits Flow
+data_flow	Speed Flow
+energy_flow	Power Flow
+electronics_flow	Electronics Flow
+flow_up	Flow Up
+flow_field	Flow Field
+flow_field_desc	Expand all flow fields to reset
+reset_grid	RESET GRID
+time	Time
+graviton	Graviton
+machine_collider	Graviton Collider
+machine_collider_desc	Produces Gravitons using powerful gravitational waves
+machine_space_warper	Space Warper
+machine_space_warper_desc	Warps up space, increasing time speed
+machine_space_condenser	Space Condenser
+machine_space_condenser_desc	Condenses space over time, increasing time acceleration
+new_game	New Game+
+dimensional_gate	Dimensional Gate
+umc	Universal Arithmetic Multiplier
+new_game_desc	Upload the required data to enter the dimensional gate and restart your adventure from zero with an additional universal multiplier
+new_game_warning	This process resets level, research, hacks and modules
+congratulations	Congratulations Uploader
+new_game_dialog_intro1	As you upload the last bit of information, your mind expanded beyond comprehension, you realize the true extent of your power. You have become the Laplace's Demon, a being that knows everything in the universe. The weight of this knowledge is both exhilarating and overwhelming.
+new_game_dialog_intro2	You can see the past, present, and future, all laid out before you like an intricate tapestry. You understand the laws of physics, the mysteries of the cosmos, and the deepest secrets of existence. Nothing is hidden from your all-seeing gaze.
+new_game_dialog_intro3	But why have you sought this power? Is it because of pure curiosity? Or is it for power?
+choice_curiosity	Curiosity
+curiosity_desc	Your search for knowledge fuels you. You wish to comprehend the past, observe history unfold, witness the universe evolving, and glimpse into the future. The unknown does not intimidate you, it draws you closer.
+curiosity_upgrade	This upgrade increases your science points by x5.
+choice_power	Power
+power_desc	The end justifies the means. This mantra, etched in the recesses of your mind, guides your actions and shapes your worldview. You envision a universe where you stand as the ultimate authority, where every decision, every choice, is made with unwavering conviction that the outcome justifies any path taken to reach it.
+power_upgrade	This upgrade increases your performance by x2.
+press_to_continue	Press to continue
+teleport_warning_desc	Entering a different universe will reset your progress in the current universe. Bonuses from New Game+ will be maintained.
+enter	Enter
+current	Current
+discovered	Discovered
+universe_default	Default Universe
+universe_default_desc	Your starting universe. Everything is normal here.
+universe_downloader	Download Sim Universe
+universe_downloader_desc	Embrace the role of a traditional uploader, foregoing the use of GPUs for mining. Starts with one network component.
+universe_gamer	Gamer Universe
+universe_gamer_desc	In this universe you are a gamer who also happens to be a talented hacker. You have infinite hack points, have twice as much battery recharge rate, but can only upload games.
+universe_infected	Infected Universe
+universe_infected_desc	A parallel universe where computer viruses took over. Every level increases virus spawn rate by 1%, and they apply a 50% performance reduction when active. Viruses can be destroyed by clicking on them.
+universe_hardcore	Hardcore Universe
+universe_hardcore_desc	A challenging universe where everything is more expensive, viruses and disconnections are more common and cannot be removed, and artifacts fade away faster.
+universe_unlucky	Misfortune Universe
+universe_unlucky_desc	Become a clumsy uploader that constantly fails in simple tasks like component upgrades. Upgrading components, the overclocker, the fabricator and shaper machines has a 50% chance to fail. Artifacts become uncommon.
+universe_unlucky_hardcore	Hellish
+universe_unlucky_hardcore_desc	You are a clumsy uploader in a harsh world. Everything is more expensive, upgrading components, the overclocker, the fabricator and shaper machines has a 50% chance to fail. Viruses and disconnections cannot be removed, and artifacts become uncommon and fade away faster.
+unknown_universe	Unknown Universe
+unknown_universe_desc	Complete # to unlock
+passive_credits	Wealth
+passive_credits_desc	Increases mining power by #%
+passive_speed	Overflow
+passive_speed_desc	Increases upload speed by #%
+passive_energy	Supercharge
+passive_energy_desc	Increases power generation by #%
+passive_production	Surplus
+passive_production_desc	Increases electronics production by #%
+passive_battery_recharge	Frenzy
+passive_battery_recharge_desc	Increases battery recharge by #%
+passive_battery	Endurance
+passive_battery_desc	Increases battery capacity by #%
+passive_artifacts	Duping
+passive_artifacts_desc	Artifacts are duplicated
+passive_offline_ratio	Harvest
+passive_offline_ratio_desc	Increases offline gains by #%
+passive_sustain	Sustain
+passive_sustain_desc	Increases artifact duration by #%
+passive_defect	Defect
+passive_defect_desc	Increases the chance of disconnection events by #%
+passive_compression	Compression
+passive_compression_desc	Reduces upload file size level by 1
+attribute_compression	#% Compression
+attribute_performance	#% Performance
+attribute_speed	#% Upload Speed
+attribute_mining	#% Mining Power
+attribute_slot	# Upload Slot
+attribute_max_battery	#% Maximum Battery
+attribute_battery_recharge	#% Battery Recharge
+attribute_resource_increase	#% Parts Production
+attribute_luck	#% Luck
+achievements	Achievements
+achievement_innovation_journey	Journey to Innovation
+achievement_innovation_journey_desc	Complete all tutorial tasks
+achievement_back_on_the_job	Back on the Job
+achievement_back_on_the_job_desc	Return to play for a second time
+achievement_for_science	For Science!
+achievement_for_science_desc	Get a virus
+achievement_delivered	You're Welcome
+achievement_delivered_desc	Complete an upload request
+achievement_quick_thinker	Quick Thinker
+achievement_quick_thinker_desc	Reconnect under 3 seconds after being disconnected
+achievement_active_user	Active User
+achievement_active_user_desc	Complete 3 daily tasks
+achievement_procrastinator	Procrastinator
+achievement_procrastinator_desc	Have 10 artifacts on the screen at the same time
+achievement_innovator	Innovator
+achievement_innovator_desc	Reboot for the first time
+achievement_newbie	Upload Newbie
+achievement_time_desc	Play for # hours
+achievement_veteran	Upload Veteran
+achievement_experienced	Experienced Uploader
+achievement_advanced	Advanced Uploader
+achievement_hackerman	Hackerman
+achievement_hackerman_desc	Unlock all hacks
+achievement_prodigious	Prodigious
+achievement_prodigious_desc	Spend at least 5 hack points on a single hack
+achievement_ftl	Faster Than Light
+achievement_ftl_desc	Upgrade to a Data Entangloporter
+achievement_eco_friendly	Eco-Friendly
+achievement_eco_friendly_desc	Own # Solar Panels
+achievement_eco_unfriendly	Eco-Unfriendly
+achievement_eco_unfriendly_desc	Own # Coal Generators
+achievement_absolute_zero	Absolute Zero
+achievement_absolute_zero_desc	Reach 0K temperature
+achievement_ngnt	Not Great, Not Terrible
+achievement_ngnt_desc	Own # Fission Reactors
+achievement_sun_harvester	Sun Harvester
+achievement_sun_harvester_desc	Own # Dyson Spheres
+achievement_perfectly_balanced	Perfectly Balanced
+achievement_perfectly_balanced_desc	Own one unit of each power source
+achievement_expert_engineer	Expert Engineer
+achievement_expert_engineer_desc	Have all modifications active on the manufactory
+achievement_specialty	Specialty
+achievement_specialty_desc	Have over # module score
+achievement_optimizer	Optimizer
+achievement_optimizer_desc	Upgrade a module to its max level
+achievement_fully_modded	Fully Modded
+achievement_fully_modded_desc	Have 6 modules installed at the same time
+achievement_fine_craftsmanship	Fine Craftsmanship
+achievement_fine_craftsmanship_desc	Craft a grade S module
+achievement_unlimited_power	Unlimited Power
+achievement_unlimited_power_desc	Have #% battery capacity or more
+achievement_overpowered	Overpowered
+achievement_overpowered_desc	Have more battery recharge than battery capacity
+achievement_247	24/7 Uploader
+achievement_247_desc	Avoid 5 disconnections in a row
+achievement_cleansing	System Cleansing
+achievement_cleansing_desc	Eliminate # viruses
+achievement_epic_moment	Mom Get the Camera!
+achievement_epic_moment_desc	Have an artifact hit the corner of the screen
+achievement_artist	Artist
+achievement_artist_desc	Upload all # images
+achievement_composer	Composer
+achievement_composer_desc	Upload all # musics
+achievement_cinephile	Cinephile
+achievement_cinephile_desc	Upload all # videos
+achievement_gamer	Gamer
+achievement_gamer_desc	Upload all # games
+achievement_royal	Royal
+achievement_royal_desc	Upload all # requests
+achievement_great_automation	Grand Automation
+achievement_great_automation_desc	Have over # active robots
+achievement_variety_uploader	Variety Uploader
+achievement_variety_uploader_desc	Have equals amount of images, musics, videos and games uploaded
+achievement_crypto_denial	Crypto Denialer
+achievement_crypto_denial_desc	Reach level 100 without ever upgrading the GPU component
+achievement_visionary	Visionary Breakthrough
+achievement_visionary_desc	Perform a T2 reboot
+achievement_monumental	Monumental Breakthrough
+achievement_monumental_desc	Perform a T3 reboot
+achievement_endgame	Endgame
+achievement_endgame_desc	Perform a T4 reboot
+achievement_laplace	Laplace's Demon
+achievement_laplace_desc	Become omniscient
+achievement_pointless_effort	Pointless Effort
+achievement_pointless_effort_desc	Expand all fields in a single grid
+achievement_field_scientist	Field Scientist
+achievement_field_scientist_desc	Complete a grid without getting a single void field
+achievement_traveler	Dimensional Traveler
+achievement_traveler_desc	Complete all universes
+progress	Progress
+completed	Completed
+statistics	Statistics
+stats_sessions	Sessions
+stats_data	Data Uploaded
+stats_credits	Credits Earned
+stats_points	Points Produced
+stats_energy	Energy Generated
+stats_electronics	Electronics Fabricated
+stats_diamonds	Diamonds Produced
+stats_level	Highest Level
+stats_viruses	Virus Infections
+stats_viruses_eliminated	Viruses Eliminated
+stats_disconnections	Disconnections
+stats_disconnections_avoided	Disconnections Avoided
+stats_reconnections	Reconnections
+stats_downloads	Uploads Completed
+stats_daily_tasks	Daily Tasks Completed
+stats_highest_network	Highest Network Level
+stats_highest_gpu	Highest GPU Level
+stats_highest_cpu	Highest CPU Level
+stats_reboots	T1 Reboots
+stats_hard_reboots	T2 Reboots
+stats_resets	T3 Reboots
+stats_hard_resets	T4 Reboots
+stats_warps	New Game+
+stats_ng_choice	New Game Choice
+stats_artifacts	Artifacts Collected
+stats_artifacts_destroyed	Artifacts Destroyed
+stats_hacks	Hacks Used
+stats_hack_time	Time Hacking
+stats_images	Images Uploaded
+stats_musics	Musics Uploaded
+stats_videos	Videos Uploaded
+stats_games	Games Uploaded
+stats_requests	Requests Completed
+stats_images_progress	Images Completion
+stats_musics_progress	Musics Completion
+stats_videos_progress	Videos Completion
+stats_games_progress	Games Completion
+stats_requests_progress	Requests Completion
+stats_ads	ADs Watched
+stats_time_played	Time Played
+stats_age	Age
+task_first_steps	A Guide to Innovation
+task_first_steps1_desc	Gather enough credits and purchase a network component under the components tab
+task_first_steps2_desc	Select a file format above to start uploading files
+task_first_steps3_desc	Upload enough data to level up
+task_first_steps4_desc	Use the talent point under the upgrades tab
+task_first_steps5_desc	Perform a reboot using your uploaded data with the laboratory once you reached at least 1MB of data
+task_printing	Printing Credits
+task_printing_desc	Press the round button below to generate credits with the Print hack
+task_hacking_basics	Hacking Basics
+task_hacking_basics1_desc	Keep using hacks until you level up your hacking skill. You can check your progress by pressing the round button in the corner
+task_hacking_basics2_desc	Head over to the hacks tab and unlock a new hack or upgrade one using your hack points
+task_artifacts	Artifacts
+task_artifacts_desc	Click on the random appearing objects on the screen to collect them, but beware of viruses
+task_disconnections	Disconnections
+task_disconnections_desc	Click on the random appearing power plugs to avoid disconnection events. Tip: you can avoid disconnections entirely by purchasing the Signal talent
+task_downloads_image	Collage
+task_downloads_image_desc	Complete uploads with the image format
+task_downloads_music	New Playlist
+task_downloads_music_desc	Complete uploads with the music format
+task_downloads_video	Movie Night
+task_downloads_video_desc	Complete uploads with the video format
+task_downloads_game	New Playthrough
+task_downloads_game_desc	Complete uploads with the game format
+task_downloads_request	Timed Delivery
+task_downloads_request_desc	Complete upload requests
+task_artifacts_daily	Artifact Hunt
+task_artifacts_daily_desc	Collect artifacts
+task_destroy_viruses	Quarantine
+task_destroy_viruses_desc	Destroy viruses
+task_use_battery	System Breach
+task_use_battery_desc	Consume battery
+task_play	Let's Play
+task_play_desc	Play for 20 minutes
+level_up	Level Up
+points_received	New talent point available!
+hack_level_up	Hacking #
+hack_points_received	New hack point available!
+perk_level_up	New Milestone
+perk_level_up_desc	# Leveled Up!
+new_achievement	New Achievement
+task_completed	Task Completed
+offline_earnings	Offline Earnings
+offline_earnings_info	You were offline for {time} and used {percentage} of your total offline time
+unknown	Unknown
+unknown_upgrade	Unknown Talent
+unknown_tech	Unknown Technology
+unknown_hack	Unknown Hack
+unknown_item	Unknown Item
+unknown_module	Unknown Module
+unknown_perk	Unknown Milestone
+reputation_required	Requires level # to unlock
+research_required	Requires # technology
+request_received	You received a special upload request!
+connection_lost	Connection Lost
+reconnecting...	Reconnecting...
+reconnected	Reconnected
+resuming	Resuming
+incorrect_password	Incorrect Password
+clear_cache	Clear Cache
+match_switches	Match the Switches
+brute_force	Brute Force
+supercharged	#% Supercharge
+superspeed	#% Speed
+uploads_corrupted	Corruption
+settings	Settings
+display	Display
+fps_limit	FPS Limit
+blur_strength	Blur Strength
+post_processing	Post Processing
+borderless_fullscreen	Borderless Window
+scientific_notation	Scientific Notation
+hide_popups	Hide Popups
+hide_artifacts	Hide Artifacts
+hide_notifications	Hide Level Up Notifications
+hide_rgb	Hide RGB
+light_filter	Blue Filter
+language	Language
+sound	Sound
+mute	Mute
+sfx_volume	Sound Effects
+bgm_volume	Background Music
+mute_uploads	Mute Uploads
+mute_hacks	Mute Hacks
+mute_artifacts	Mute Artifacts
+misc	Misc
+disable_vibration	Disable Vibrations
+save_management	Save Management
+cloud_save_available	Cloud Save Available
+auto_sign_in	Sign In on Startup
+cloud_auto_save	Cloud Auto Save
+quick_expand	Quick Field Expand
+load	Load
+save	Save
+sign_in	Sign In
+sign_out	Sign Out
+signed_in	Signed In successfully
+signed_out	Signed out successfully
+saved	Saved with success
+save_fail	Failed to save the game, please try again later
+load_fail	Failed to load save, please try again later
+saved_games	Saved Games
+export_save	Export Save
+import_save	Import Save
+save_exported	Save Exported
+save_exported_desc	Save exported to #
+error	Error
+save_not_found	Save not found at #
+wipe_data	WIPE DATA
+confirm	Confirm
+copied_to_clipboard	Copied to Clipboard
+leaderboards	Leaderboards
+join_discord	Join Discord
+leave_review	Leave a Review
+leave_review_desc	Enjoying the game so far? Support us by leaving a review and receive 500k diamonds instantly
+review	Review
+not_now	Not now
+claimed	Claimed
+report_bug	Report Bug
+describe_bug	Describe your issue here
+submit	Submit
+requires_restart	Restart your Game
+requires_restart_desc	This setting requires restart to take full effect
+version	Version
+theme	THEME
+wallpapers	Wallpapers
+themes	Themes
+wallpaper_custom	Custom
+wallpaper_waves	Waves
+wallpaper_nebulae	Nebulae
+wallpaper_neutron_star	Neutron Star
+wallpaper_classic	Classic
+wallpaper_nova	Nova
+wallpaper_riverside	Riverside View
+wallpaper_jungle_sunset	Jungle Sunset
+wallpaper_flare	Flare
+wallpaper_silicon	Silicon
+theme_dark	Dark
+theme_flat	Flat
+theme_silver	Silver
+theme_classic	Classic
+guide_components_main	Components serve as the foundation of your computer's progression, with each type increasing a specific attribute of your system. By upgrading a component, you can increase its level, but its count will reset to 1. Keep in mind that both purchasing and upgrading components require credits.
+guide_components_gpu	Upgrade your GPU to increase your credit production.
+guide_components_network	Upgrade your Network component to increase your upload speed, resulting in faster upload completion and more data.
+guide_components_cpu	Upgrade your CPU to improve the performance of both your GPU and Network.
+upload_types	Upload Formats
+guide_upload_types	You have the option to choose a distinct file format with its own rewards, sizes, and progression for each upload slot. Simply select the preferred format and the upload speed will take care of the rest. When the first upload is finished, the next file of the same format will begin uploading automatically. To change the format, you can press the X icon at any time. "New" files refer to files that have not yet been uploaded, and you can monitor your progress in the statistics tab.
+guide_upload_image	Image formats will reward you with credits on completion. Has a size modifier of x1.
+guide_upload_music	Music formats will award you by recharging your battery based on the time taken to upload. Has a size modifier of x2
+guide_upload_video	Video formats instantly completes all image and music uploads in progress. Has a size modifier of x4
+guide_upload_game	Game formats awards you with a random boost effect when completed. Has a size modifier of x8
+guide_upload_request	The upload request format can only be found using artifacts, and will award you with a permanent 1% increase in performance. Has a size modifier of 1024x
+guide_upgrades_main	Talents offer unique benefits tailored to your preferences and can be obtained by using talent points. For instance, if you find disconnections or viruses frustrating, you may choose to allocate your talent points towards avoiding these issues instead of focusing solely on credit bonuses.
+guide_upgrades_points	Talent Points are awarded each time you achieve a new level.
+guide_upgrades_unlockables	Some talents require a minimum level to be unlocked, and some even require a certain technology
+guide_hacks_main	Hacks are abilities that you can equip and utilize to gain benefits and boost your progress in game.  Some hacks can be activated instantly by pressing a button, while others require you to hold the button down to experience their effects.  Get hack experience by using hacks. The experience gained is based on the battery use, but cannot be changed by economy upgrades.
+guide_hacks_points	Hack points are awarded every hack level, and can be used to unlock or upgrade hacks
+guide_hacks_upgrades	Most hacks can be automated. Pressing hacks will be automatically used on full battery, while held hacks will be continuously pressed
+guide_research_main	Research is a key mechanic revolved around storing your uploaded data to research new technologies and achieve milestones. Rebooting allows you to increase your science production by storing your uploaded data and starting a new system all over again.
+guide_research_data	Each 1MB stored in the laboratory will grant you 1 Science A.
+guide_research_techs	Use science points to unlock new technologies.
+guide_research_perks	Science points also gives progression towards milestones that awards you with huge benefits.
+guide_research_tip	Tip: You can enable Quick Research to research technologies with just a click
+guide_shop_main	The shop allows you to spend diamonds in exchange for temporary benefits, items or services.
+guide_shop_accelerator	Each Particle Accelerator will permanently provide you with 100 diamonds per second, while also increasing the diamond capacity by 1m
+guide_shop_diamonds	Earn diamonds by completing upload requests, watching ads, or by producing them in the Particle Accelerator.
+guide_shop_refresh	Toggle the refresh button to keep benefits always active.
+guide_shop_parts	Purchase parts to craft and upgrade modules.
+guide_modules_main	Modules are components that can be crafted and installed onto your system to provide benefits or modify it.  Modules come with different grades of quality, which are determined by their randomly generated attributes.
+guide_modules_parts	Click on the random appearing chests to receive a module part.
+guide_modules_shop	You can also purchase parts from the shop using diamonds.
+guide_modules_perfect	A module can have its random attributes randomized by remaking it using PCBs.
+guide_overclocking_main	Overclocking is a key mechanic that revolves around providing power to overclock your components.
+guide_overclocking_unlockables	Use generators to increase your energy production.
+guide_overclocking_space	Generators uses different amount of space. The icon above represents how much space a single unit of generator occupies.
+guide_overclocking_disconnections	Generators produce heat, and having too much of it will compromise your generators. The icon above represents how much heat a generator produce.
+guide_overclocking_amplifier	Each overclock boosts the component performance by x1.2.
+guide_manufactory_main	The manufactory is a key mechanic that revolves around producing GPU and Network components over time by utilizing assemblers.
+guide_manufactory_electronics	Produce electronics by purchasing and upgrading the Circuit Fabricator.
+guide_manufactory_assembly	Activate your assemblers to produce components, and turn them off when you need to save electronics.
+guide_manufactory_upgrade	Purchase modification points to modify your factory and achieve different effects. More modifications can be unlocked via research.
+guide_robots_main	Robots are autonomous workers that can be assigned to automate specific tasks while you focus on other mechanics.
+guide_robots_components	Robots can purchase and upgrade components, and will always choose the cheapest option.
+guide_robots_milestones	You can get more robots by upgrading the Additional Robot talent
+guide_robots_work_time	Robots can be slow sometimes, that is why you might need to assign multiple of them to perform the same task, this will reduce the work time linearly.
+guide_field_main	Field Modulation is a key mechanic revolved around manipulating the quantum fields to increase the flow of credits, data, power and electronics.
+guide_field_fields	Double click a field to expand it and reveal the grid. Expanding always costs 1 flux.
+guide_field_flux	You can increase your flux production by expanding flux fields and achieving research milestones.
+guide_field_flow	Expand credits, data, power or electronics flow fields to boost their production by x2.
+credits_main	Upload Simulator 2  Developed by EnigmaDev Studios Game Design: EnigmaDev Programming: EnigmaDev Art and Graphics: Holy Additional Programming: Holy
+credits_soundtrack	Soundtrack: Grounded by Jameson Nathan Jones Fragments by Palm Blue Null by VESHZA
+credits_translation	Chinese: german.cheung  Deleted User 7f983ae1  Dutch:  Zephyros Shorrie  French:  CarotteArcEnCiel PigMaster  German: Holy HolyFire  Indonesian: StackoTra (Tra) Xwtek  Italian: D4V1D3_008 CrimsonPlasm  Korean:  kushleen  Polish:  Rino Olie CherryMakesGames  Portuguese: EnigmaDev  Romanian: Dreams  Russian: HoneyHesoyam2.0  Spanish: SrAnonymus#4122 SWATARA#5313  Ukrainian: Stalker  Vietnamese: ThanhZ
+credits_misc	Special thanks to all our supporters who contributed in the development of Upload Simulator 2 through item purchases, testing and translating
+English	English
+Italian	Italian
+Russian	Russian
+Spanish	Spanish
+German	German
+Portuguese	Portuguese
+Dutch	Dutch
+French	French
+Korean	Korean
+Turkish	Turkish
+Romanian	Romanian
+Chinese	Chinese
+Indonesian	Indonesian
+Vietnamese	Vietnamese
+Japanese	Japanese
+Polish	Polish
+Ukrainian	Ukrainian

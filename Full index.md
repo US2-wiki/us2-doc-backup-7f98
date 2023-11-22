@@ -313,9 +313,14 @@
 	- [[Statistic]]
 	- [[Teleport]] (in development -> expected v1.5 feature via translation)
 		- [[Universe]] (in development, expected concept word from v1.5 via translation)
+			- [[Power/Curiosity]]
+			- [[Permanent Hacks]]
+			- [[10 Upload Slots]]
+			- [[100% Performance]]
 - [[Q&A]]
 	- [[Transfer save between Android and PC]]
 	- [[How to reach us]]
 - Table of content
 	- [[Technologies.loom]]
 		![[Technologies.loom]]
+		
