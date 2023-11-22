@@ -16,8 +16,22 @@
                 "file": "Technologies.loom"
               }
             }
+          },
+          {
+            "id": "bf29b9d281caf2d9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Full index.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -83,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Technologies.loom",
+                "file": "Full index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Technologies.loom",
+                "file": "Full index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Technologies.loom"
+                "file": "Full index.md"
               }
             }
           }
@@ -146,22 +160,22 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "3b6b13b1c55a82cf",
+  "active": "bf29b9d281caf2d9",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "Technologies.loom",
+    "res/translation/translation.xlsx",
+    "res/translation/translation.tsv",
+    "res/translation/translation.csv",
+    "res/translation",
     "Wind Power.md",
     "Photovoltaics.md",
     "Overclocking (Research).md",
     "Moore's Law.md",
     "2023-11-17.md",
     "Q&A/How to reach us.md",
-    "Technologies.loom",
-    "conflict-files-obsidian-git.md",
     "Full index.md",
     "Q&A/Transfer save between Android and PC.md",
-    "res/translation/translation.xlsx",
-    "res/translation/translation.tsv",
-    "res/translation/translation.csv",
-    "res/translation",
     "res/translation/Untitled spreadsheet - Sheet1.csv",
     "res/translation/Untitled spreadsheet - Sheet1.tsv",
     "res/translation/Untitled spreadsheet.xlsx",
