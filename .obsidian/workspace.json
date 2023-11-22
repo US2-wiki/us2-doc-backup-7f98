@@ -50,20 +50,6 @@
             "id": "ef4f7b990fd1a1fb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Full index.md",
-
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ef4f7b990fd1a1fb",
-            "type": "leaf",
-            "state": {
               "type": "dataloom",
               "state": {
                 "file": "Technologies.loom"
@@ -136,7 +122,8 @@
             "type": "leaf",
             "state": {
               "type": "backlink",
-                "file": "Full index.md",
+              "state": {
+                "file": "Technologies.loom",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Full index.md",
+                "file": "Technologies.loom",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -176,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Full index.md"
+                "file": "Technologies.loom"
               }
             }
           }
@@ -201,12 +188,12 @@
   },
   "active": "ef4f7b990fd1a1fb",
   "lastOpenFiles": [
-    "Technologies.loom",
-    "Full index.md",
     "res/translation/translation.xlsx",
     "res/translation/translation.tsv",
     "res/translation/translation.csv",
     "res/translation",
+    "Full index.md",
+    "Technologies.loom",
     "Wind Power.md",
     "Moore's Law.md",
     "Overclocking (Research).md",
