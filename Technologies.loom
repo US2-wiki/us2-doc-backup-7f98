@@ -1020,14 +1020,14 @@
         "index": 11,
         "sourceId": null,
         "creationDateTime": "2023-11-22T20:27:11.792Z",
-        "lastEditedDateTime": "2023-11-22T20:27:11.792Z",
+        "lastEditedDateTime": "2023-11-22T20:29:18.830Z",
         "cells": [
           {
             "id": "5583b3b2-5563-433e-9f3d-6cf8622206fe",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "",
+            "content": "[[Fission]]\n\n![[res/icons/radiation.png|radiation]]",
             "tagIds": []
           },
           {
@@ -1036,7 +1036,9 @@
             "columnId": "cb1684e7-d2ab-480d-bb72-9ca7205f3f2a",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "cb08e5d6-769d-4590-b8f0-ca13393a65a4"
+            ]
           },
           {
             "id": "d0aec8a9-0417-4bb6-a7a1-ec27c19f2788",
