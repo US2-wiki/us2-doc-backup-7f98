@@ -1577,7 +1577,7 @@
         "index": 19,
         "sourceId": null,
         "creationDateTime": "2023-11-24T19:56:56.221Z",
-        "lastEditedDateTime": "2023-11-24T20:31:44.635Z",
+        "lastEditedDateTime": "2023-11-24T20:37:24.443Z",
         "cells": [
           {
             "id": "35b435b5-def5-46df-8591-a52f6e32d8c2",
@@ -1602,7 +1602,7 @@
             "isExternalLink": false,
             "columnId": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
             "dateTime": null,
-            "content": "",
+            "content": "1e10",
             "tagIds": []
           },
           {
@@ -1611,14 +1611,16 @@
             "columnId": "7caba6e3-43b6-4571-a48f-c385396558cd",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "f3599547-7dea-4bfb-ae99-16632e62513e"
+            ]
           },
           {
             "id": "474ce4ce-b5e2-4d7d-8747-24d8e58218d5",
             "isExternalLink": false,
             "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
             "dateTime": null,
-            "content": "",
+            "content": "Unlocks the use of dilution refrigerators as a coolant for generators",
             "tagIds": []
           },
           {
@@ -1626,7 +1628,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "",
+            "content": "[[Dyson Sphere]]\n",
             "tagIds": []
           },
           {
