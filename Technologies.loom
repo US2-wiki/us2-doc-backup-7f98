@@ -1577,7 +1577,7 @@
         "index": 19,
         "sourceId": null,
         "creationDateTime": "2023-11-24T19:56:56.221Z",
-        "lastEditedDateTime": "2023-11-24T19:57:49.473Z",
+        "lastEditedDateTime": "2023-11-24T20:31:44.635Z",
         "cells": [
           {
             "id": "35b435b5-def5-46df-8591-a52f6e32d8c2",
@@ -1593,7 +1593,9 @@
             "columnId": "cb1684e7-d2ab-480d-bb72-9ca7205f3f2a",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "ca7002e8-56cc-4580-a173-5f2220cc377d"
+            ]
           },
           {
             "id": "c3a0391d-97f2-4c41-992d-4a045812f066",
