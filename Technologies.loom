@@ -1232,7 +1232,7 @@
         "index": 14,
         "sourceId": null,
         "creationDateTime": "2023-11-24T19:17:55.596Z",
-        "lastEditedDateTime": "2023-11-24T19:34:30.613Z",
+        "lastEditedDateTime": "2023-11-24T19:36:33.441Z",
         "cells": [
           {
             "id": "6be358b0-89df-4c88-90f4-7a1cf868b9bb",
@@ -1275,7 +1275,7 @@
             "isExternalLink": false,
             "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
             "dateTime": null,
-            "content": "",
+            "content": "Unlocks the option to Hard Reboot and produce Science B points\n",
             "tagIds": []
           },
           {
@@ -1283,11 +1283,78 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "",
+            "content": "[[Tier 2]]",
             "tagIds": []
           },
           {
             "id": "f293fc85-1208-4861-bb14-dcf3f0396331",
+            "isExternalLink": false,
+            "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          }
+        ]
+      },
+      {
+        "id": "e68b382d-7926-4a42-a0ad-917d133abf8b",
+        "index": 15,
+        "sourceId": null,
+        "creationDateTime": "2023-11-24T19:36:38.676Z",
+        "lastEditedDateTime": "2023-11-24T19:37:41.492Z",
+        "cells": [
+          {
+            "id": "1168206c-723c-4046-978e-81ce67186270",
+            "isExternalLink": false,
+            "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
+            "dateTime": null,
+            "content": "[[Field Modulation]]\n![[res/icons/layers.png|layers]]",
+            "tagIds": []
+          },
+          {
+            "id": "de26bafa-8791-4718-b9f2-84af834b16e1",
+            "isExternalLink": false,
+            "columnId": "cb1684e7-d2ab-480d-bb72-9ca7205f3f2a",
+            "dateTime": null,
+            "content": "",
+            "tagIds": [
+              "ca7002e8-56cc-4580-a173-5f2220cc377d"
+            ]
+          },
+          {
+            "id": "13eed704-3f56-4bde-b3e4-402b603c2ed8",
+            "isExternalLink": false,
+            "columnId": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          },
+          {
+            "id": "8a80e551-8d67-4391-9c83-5bc94930a1ce",
+            "isExternalLink": false,
+            "columnId": "7caba6e3-43b6-4571-a48f-c385396558cd",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          },
+          {
+            "id": "a61c60b0-a961-4d55-85bb-e2b0d5fa5540",
+            "isExternalLink": false,
+            "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          },
+          {
+            "id": "36d708fa-baea-47e1-b0e8-82a56f8eb2e8",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "",
+            "tagIds": []
+          },
+          {
+            "id": "a497f528-0da0-432a-a3c3-e9b62844520a",
             "isExternalLink": false,
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
