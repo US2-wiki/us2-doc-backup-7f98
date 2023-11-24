@@ -1227,14 +1227,14 @@
         "index": 14,
         "sourceId": null,
         "creationDateTime": "2023-11-24T19:17:55.596Z",
-        "lastEditedDateTime": "2023-11-24T19:17:55.596Z",
+        "lastEditedDateTime": "2023-11-24T19:31:48.380Z",
         "cells": [
           {
             "id": "6be358b0-89df-4c88-90f4-7a1cf868b9bb",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "",
+            "content": "[[Tier 2]]\n",
             "tagIds": []
           },
           {
