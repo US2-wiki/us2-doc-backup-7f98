@@ -1,14 +1,22 @@
 {
   "main": {
-    "id": "64897476f0a124c1",
+    "id": "d77e65acaa3bc954",
     "type": "split",
     "children": [
       {
-        "id": "a21942134db2d2ad",
+        "id": "2af8a3a72655b07e",
         "type": "tabs",
         "children": [
           {
-            "id": "bf29b9d281caf2d9",
+            "id": "051792fb8017aeb0",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "802231797808644c",
             "type": "leaf",
             "state": {
               "type": "dataloom",
@@ -17,21 +25,22 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "33b5fc3799b3e58f",
+    "id": "0434396e6d4d85a7",
     "type": "split",
     "children": [
       {
-        "id": "c9c6582800831d28",
+        "id": "81f698286caafcf7",
         "type": "tabs",
         "children": [
           {
-            "id": "30700124e686baec",
+            "id": "9228aee8c080a777",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -41,7 +50,7 @@
             }
           },
           {
-            "id": "7b16763e87b0e7e6",
+            "id": "a4349b898bcb9947",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -56,7 +65,7 @@
             }
           },
           {
-            "id": "0ccb6f5f5d7b8540",
+            "id": "9f12694f52f9b514",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -67,18 +76,18 @@
       }
     ],
     "direction": "horizontal",
-    "width": 205.5
+    "width": 300
   },
   "right": {
-    "id": "ac8d34095297afff",
+    "id": "4df369323db88dc3",
     "type": "split",
     "children": [
       {
-        "id": "ce0c3646cc2e430f",
+        "id": "9c04df6b5f69f89a",
         "type": "tabs",
         "children": [
           {
-            "id": "d1f92f32d4432d9b",
+            "id": "4d3db606283a33ad",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -95,7 +104,7 @@
             }
           },
           {
-            "id": "7414e98c166ff5a0",
+            "id": "ddd639806f9b0b11",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -107,7 +116,7 @@
             }
           },
           {
-            "id": "a768d508bf923d87",
+            "id": "1a0f0468261b3e10",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -118,7 +127,7 @@
             }
           },
           {
-            "id": "fc495938acad1f68",
+            "id": "9e79e3c8bf32da0f",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -136,51 +145,21 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "notion-like-tables:Create loom": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "notion-like-tables:Create loom": false,
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "bf29b9d281caf2d9",
+  "active": "802231797808644c",
   "lastOpenFiles": [
-    "Full index.md",
     "conflict-files-obsidian-git.md",
     "Technologies.loom",
-    "res/translation/translation.xlsx",
-    "res/translation/translation.tsv",
-    "res/translation/translation.csv",
-    "res/translation",
-    "Wind Power.md",
-    "Photovoltaics.md",
-    "Overclocking (Research).md",
-    "Moore's Law.md",
-    "2023-11-17.md",
-    "Q&A/How to reach us.md",
-    "Q&A/Transfer save between Android and PC.md",
-    "res/translation/Untitled spreadsheet - Sheet1.csv",
-    "res/translation/Untitled spreadsheet - Sheet1.tsv",
-    "res/translation/Untitled spreadsheet.xlsx",
-    "res/New folder",
-    "Q&A",
-    "tur.md",
-    "Modules (Research).md",
-    "template/Research.md",
-    "res/silicon_textlogo_flat.png",
-    "res/silicon_textlogo.png",
-    "res/uploadsimsi.png",
-    "res/icon.png",
-    "res/wallpapers/classic.jpg",
-    "res/particles/star_07.png",
-    "res/particles/flare_26.png",
-    "res/particles/random_glow.png",
-    "res/particles/circle_01.png",
-    "res/particles/01.png",
-    "Shaper.md",
-    "[SPECIAL] Module Specialization.md"
+    "Full index.md",
+    "2023-11-17.md"
   ]
 }
