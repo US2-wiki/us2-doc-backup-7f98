@@ -251,7 +251,7 @@ research_fusion_desc	Unlocks the use of fusion reactors as a power source
 research_tier2	Tier 2
 research_tier2_desc	Unlocks the option to Hard Reboot and produce Science B points
 research_async_uploads	Async Uploads
-research_async_uploads_desc	Increases upload speed by 100% for each active upload
+research_async_uploads_desc Increases upload speed by 100% for each active upload
 research_dyson_sphere	Sun Power
 research_dyson_sphere_desc	Unlocks the use of dyson spheres as a power source
 research_enhance	Logistics
