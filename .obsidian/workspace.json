@@ -8,14 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "051792fb8017aeb0",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
             "id": "802231797808644c",
             "type": "leaf",
             "state": {
@@ -24,9 +16,21 @@
                 "file": "Technologies.loom"
               }
             }
+          },
+          {
+            "id": "051792fb8017aeb0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Full index.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -157,9 +161,14 @@
   },
   "active": "802231797808644c",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
+    "Moore's Law.md",
     "Technologies.loom",
+    "Aerodynamics.md",
+    "Overclocking (Research).md",
+    "Bulk Purchase.md",
+    "Photovoltaics.md",
     "Full index.md",
+    "conflict-files-obsidian-git.md",
     "2023-11-17.md"
   ]
 }
