@@ -16,6 +16,19 @@
                 "file": "Technologies.loom"
               }
             }
+          },
+          {
+            "id": "490310cb796dd291",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Full index.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ]
       }
@@ -146,8 +159,9 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "30700124e686baec",
+  "active": "c59e635d664caa6e",
   "lastOpenFiles": [
+    "Full index.md",
     "Technologies.loom",
     "Tier 3.md",
     "Photovoltaics.md",
@@ -155,7 +169,6 @@
     "Moore's Law.md",
     "Bulk Purchase.md",
     "Aerodynamics.md",
-    "Full index.md",
     "conflict-files-obsidian-git.md",
     "res/translation/translation.xlsx",
     "res/translation/translation.tsv",

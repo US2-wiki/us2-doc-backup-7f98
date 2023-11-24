@@ -966,14 +966,14 @@
         "index": 10,
         "sourceId": null,
         "creationDateTime": "2023-11-21T20:29:18.265Z",
-        "lastEditedDateTime": "2023-11-22T20:27:06.952Z",
+        "lastEditedDateTime": "2023-11-24T22:14:14.508Z",
         "cells": [
           {
             "id": "cc0443fa-af25-4a74-8834-28883fb7c2f6",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Manufactory]] ![[res/icons/robot_arm.png|robot_arm]]",
+            "content": "[[Manufactory (Research)]] ![[res/icons/robot_arm.png|robot_arm]]",
             "tagIds": []
           },
           {
@@ -1035,14 +1035,14 @@
         "index": 11,
         "sourceId": null,
         "creationDateTime": "2023-11-22T20:27:11.792Z",
-        "lastEditedDateTime": "2023-11-22T20:34:15.341Z",
+        "lastEditedDateTime": "2023-11-24T22:13:20.394Z",
         "cells": [
           {
             "id": "5583b3b2-5563-433e-9f3d-6cf8622206fe",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Fission]]\n\n![[res/icons/radiation.png|radiation]]",
+            "content": "[[Nuclear Fission]]\n\n![[res/icons/radiation.png|radiation]]",
             "tagIds": []
           },
           {
@@ -1173,14 +1173,14 @@
         "index": 13,
         "sourceId": null,
         "creationDateTime": "2023-11-22T20:38:46.059Z",
-        "lastEditedDateTime": "2023-11-24T17:21:26.156Z",
+        "lastEditedDateTime": "2023-11-24T22:13:30.477Z",
         "cells": [
           {
             "id": "5a67ea4e-f0e2-45d3-93a0-ff6febebb617",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Fusion]]\n![[res/icons/fusion.png|fusion]]",
+            "content": "[[Nuclear Fusion]]\n![[res/icons/fusion.png|fusion]]",
             "tagIds": []
           },
           {
