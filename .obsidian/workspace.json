@@ -1,32 +1,19 @@
 {
   "main": {
-    "id": "d77e65acaa3bc954",
+    "id": "64897476f0a124c1",
     "type": "split",
     "children": [
       {
-        "id": "2af8a3a72655b07e",
+        "id": "dd23a4e6b88ad0ee",
         "type": "tabs",
         "children": [
           {
-            "id": "802231797808644c",
+            "id": "e10743f4f780e157",
             "type": "leaf",
             "state": {
               "type": "dataloom",
               "state": {
                 "file": "Technologies.loom"
-              }
-            }
-          },
-          {
-            "id": "051792fb8017aeb0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Full index.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
               }
             }
           }
@@ -36,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "0434396e6d4d85a7",
+    "id": "33b5fc3799b3e58f",
     "type": "split",
     "children": [
       {
-        "id": "81f698286caafcf7",
+        "id": "c9c6582800831d28",
         "type": "tabs",
         "children": [
           {
-            "id": "9228aee8c080a777",
+            "id": "30700124e686baec",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -54,7 +41,7 @@
             }
           },
           {
-            "id": "a4349b898bcb9947",
+            "id": "7b16763e87b0e7e6",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -69,7 +56,7 @@
             }
           },
           {
-            "id": "9f12694f52f9b514",
+            "id": "0ccb6f5f5d7b8540",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -80,18 +67,18 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 205.5
   },
   "right": {
-    "id": "4df369323db88dc3",
+    "id": "ac8d34095297afff",
     "type": "split",
     "children": [
       {
-        "id": "9c04df6b5f69f89a",
+        "id": "ce0c3646cc2e430f",
         "type": "tabs",
         "children": [
           {
-            "id": "4d3db606283a33ad",
+            "id": "d1f92f32d4432d9b",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -108,7 +95,7 @@
             }
           },
           {
-            "id": "ddd639806f9b0b11",
+            "id": "7414e98c166ff5a0",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -120,7 +107,7 @@
             }
           },
           {
-            "id": "1a0f0468261b3e10",
+            "id": "a768d508bf923d87",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -131,7 +118,7 @@
             }
           },
           {
-            "id": "9e79e3c8bf32da0f",
+            "id": "fc495938acad1f68",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -149,17 +136,17 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "notion-like-tables:Create loom": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
+      "notion-like-tables:Create loom": false,
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "802231797808644c",
+  "active": "e10743f4f780e157",
   "lastOpenFiles": [
     "Full index.md",
     "Technologies.loom",
@@ -167,9 +154,39 @@
     "Moore's Law.md",
     "Aerodynamics.md",
     "Overclocking (Research).md",
+    "Moore's Law.md",
     "Bulk Purchase.md",
-    "Photovoltaics.md",
+    "Aerodynamics.md",
+    "Technologies.loom",
+    "Full index.md",
     "conflict-files-obsidian-git.md",
-    "2023-11-17.md"
+    "res/translation/translation.xlsx",
+    "res/translation/translation.tsv",
+    "res/translation/translation.csv",
+    "res/translation",
+    "Wind Power.md",
+    "2023-11-17.md",
+    "Q&A/How to reach us.md",
+    "Q&A/Transfer save between Android and PC.md",
+    "res/translation/Untitled spreadsheet - Sheet1.csv",
+    "res/translation/Untitled spreadsheet - Sheet1.tsv",
+    "res/translation/Untitled spreadsheet.xlsx",
+    "res/New folder",
+    "Q&A",
+    "tur.md",
+    "Modules (Research).md",
+    "template/Research.md",
+    "res/silicon_textlogo_flat.png",
+    "res/silicon_textlogo.png",
+    "res/uploadsimsi.png",
+    "res/icon.png",
+    "res/wallpapers/classic.jpg",
+    "res/particles/star_07.png",
+    "res/particles/flare_26.png",
+    "res/particles/random_glow.png",
+    "res/particles/circle_01.png",
+    "res/particles/01.png",
+    "Shaper.md",
+    "[SPECIAL] Module Specialization.md"
   ]
 }
