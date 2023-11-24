@@ -301,7 +301,7 @@
 		"price": 1,
 		"price_e": 0,
 		"attributes":{
-			"graviton_production": 1,
+			"graviton_production": 1
 		}
 	},
 	"enhance":{
