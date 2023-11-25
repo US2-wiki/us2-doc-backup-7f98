@@ -68,28 +68,28 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       if (null == s || null == r) throw new Error("Null input. (diff_main)");
       if (s == r) if (s) return [ new diff_match_patch2.Diff(0, s) ]; else return [];
       if ("undefined" == typeof o) o = true;
-      var m = o, _ = this.diff_commonPrefix(s, r), b = s.substring(0, _);
-      s = s.substring(_);
-      r = r.substring(_);
-      _ = this.diff_commonSuffix(s, r);
-      var w = s.substring(s.length - _);
-      s = s.substring(0, s.length - _);
-      r = r.substring(0, r.length - _);
-      var E = this.diff_compute_(s, r, m, g);
+      var _ = o, m = this.diff_commonPrefix(s, r), b = s.substring(0, m);
+      s = s.substring(m);
+      r = r.substring(m);
+      m = this.diff_commonSuffix(s, r);
+      var w = s.substring(s.length - m);
+      s = s.substring(0, s.length - m);
+      r = r.substring(0, r.length - m);
+      var E = this.diff_compute_(s, r, _, g);
       if (b) E.unshift(new diff_match_patch2.Diff(0, b));
       if (w) E.push(new diff_match_patch2.Diff(0, w));
       this.diff_cleanupMerge(E);
       return E;
     };
     diff_match_patch2.prototype.diff_compute_ = function(s, r, u, g) {
-      var m;
+      var _;
       if (!s) return [ new diff_match_patch2.Diff(1, r) ];
       if (!r) return [ new diff_match_patch2.Diff(o, s) ];
-      var _ = s.length > r.length ? s : r, b = s.length > r.length ? r : s, w = _.indexOf(b);
+      var m = s.length > r.length ? s : r, b = s.length > r.length ? r : s, w = m.indexOf(b);
       if (-1 != w) {
-        m = [ new diff_match_patch2.Diff(1, _.substring(0, w)), new diff_match_patch2.Diff(0, b), new diff_match_patch2.Diff(1, _.substring(w + b.length)) ];
-        if (s.length > r.length) m[0][0] = m[2][0] = o;
-        return m;
+        _ = [ new diff_match_patch2.Diff(1, m.substring(0, w)), new diff_match_patch2.Diff(0, b), new diff_match_patch2.Diff(1, m.substring(w + b.length)) ];
+        if (s.length > r.length) _[0][0] = _[2][0] = o;
+        return _;
       }
       if (1 == b.length) return [ new diff_match_patch2.Diff(o, s), new diff_match_patch2.Diff(1, r) ];
       var E = this.diff_halfMatch_(s, r);
@@ -103,27 +103,27 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       var g = this.diff_linesToChars_(s, r);
       s = g.chars1;
       r = g.chars2;
-      var m = g.lineArray, _ = this.diff_main(s, r, false, u);
-      this.diff_charsToLines_(_, m);
-      this.diff_cleanupSemantic(_);
-      _.push(new diff_match_patch2.Diff(0, ""));
-      for (var b = 0, w = 0, E = 0, S = "", L = ""; b < _.length; ) {
-        switch (_[b][0]) {
+      var _ = g.lineArray, m = this.diff_main(s, r, false, u);
+      this.diff_charsToLines_(m, _);
+      this.diff_cleanupSemantic(m);
+      m.push(new diff_match_patch2.Diff(0, ""));
+      for (var b = 0, w = 0, E = 0, S = "", L = ""; b < m.length; ) {
+        switch (m[b][0]) {
          case 1:
           E++;
-          L += _[b][1];
+          L += m[b][1];
           break;
 
          case o:
           w++;
-          S += _[b][1];
+          S += m[b][1];
           break;
 
          case 0:
           if (w >= 1 && E >= 1) {
-            _.splice(b - w - E, w + E);
+            m.splice(b - w - E, w + E);
             b = b - w - E;
-            for (var O = this.diff_main(S, L, false, u), D = O.length - 1; D >= 0; D--) _.splice(b, 0, O[D]);
+            for (var O = this.diff_main(S, L, false, u), D = O.length - 1; D >= 0; D--) m.splice(b, 0, O[D]);
             b += O.length;
           }
           E = 0;
@@ -134,36 +134,36 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         }
         b++;
       }
-      _.pop();
-      return _;
+      m.pop();
+      return m;
     };
     diff_match_patch2.prototype.diff_bisect_ = function(s, r, u) {
-      for (var g = s.length, m = r.length, _ = Math.ceil((g + m) / 2), b = _, w = 2 * _, E = new Array(w), S = new Array(w), L = 0; L < w; L++) {
+      for (var g = s.length, _ = r.length, m = Math.ceil((g + _) / 2), b = m, w = 2 * m, E = new Array(w), S = new Array(w), L = 0; L < w; L++) {
         E[L] = -1;
         S[L] = -1;
       }
       E[b + 1] = 0;
       S[b + 1] = 0;
-      for (var O = g - m, D = O % 2 != 0, k = 0, C = 0, T = 0, I = 0, A = 0; A < _ && !((new Date).getTime() > u); A++) {
+      for (var O = g - _, D = O % 2 != 0, k = 0, C = 0, T = 0, I = 0, A = 0; A < m && !((new Date).getTime() > u); A++) {
         for (var x = -A + k; x <= A - C; x += 2) {
           var R = b + x;
           if (x == -A || x != A && E[R - 1] < E[R + 1]) V = E[R + 1]; else V = E[R - 1] + 1;
-          for (var P = V - x; V < g && P < m && s.charAt(V) == r.charAt(P); ) {
+          for (var P = V - x; V < g && P < _ && s.charAt(V) == r.charAt(P); ) {
             V++;
             P++;
           }
           E[R] = V;
-          if (V > g) C += 2; else if (P > m) k += 2; else if (D) if ((F = b + O - x) >= 0 && F < w && -1 != S[F]) if (V >= (B = g - S[F])) return this.diff_bisectSplit_(s, r, V, P, u);
+          if (V > g) C += 2; else if (P > _) k += 2; else if (D) if ((F = b + O - x) >= 0 && F < w && -1 != S[F]) if (V >= (B = g - S[F])) return this.diff_bisectSplit_(s, r, V, P, u);
         }
         for (var N = -A + T; N <= A - I; N += 2) {
           var B, F = b + N;
           if (N == -A || N != A && S[F - 1] < S[F + 1]) B = S[F + 1]; else B = S[F - 1] + 1;
-          for (var M = B - N; B < g && M < m && s.charAt(g - B - 1) == r.charAt(m - M - 1); ) {
+          for (var M = B - N; B < g && M < _ && s.charAt(g - B - 1) == r.charAt(_ - M - 1); ) {
             B++;
             M++;
           }
           S[F] = B;
-          if (B > g) I += 2; else if (M > m) T += 2; else if (!D) if ((R = b + O - N) >= 0 && R < w && -1 != E[R]) {
+          if (B > g) I += 2; else if (M > _) T += 2; else if (!D) if ((R = b + O - N) >= 0 && R < w && -1 != E[R]) {
             var V;
             P = b + (V = E[R]) - R;
             if (V >= (B = g - B)) return this.diff_bisectSplit_(s, r, V, P, u);
@@ -173,55 +173,55 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       return [ new diff_match_patch2.Diff(o, s), new diff_match_patch2.Diff(1, r) ];
     };
     diff_match_patch2.prototype.diff_bisectSplit_ = function(s, r, o, u, g) {
-      var m = s.substring(0, o), _ = r.substring(0, u), b = s.substring(o), w = r.substring(u), E = this.diff_main(m, _, false, g), S = this.diff_main(b, w, false, g);
+      var _ = s.substring(0, o), m = r.substring(0, u), b = s.substring(o), w = r.substring(u), E = this.diff_main(_, m, false, g), S = this.diff_main(b, w, false, g);
       return E.concat(S);
     };
     diff_match_patch2.prototype.diff_linesToChars_ = function(s, r) {
       var o = [], u = {};
       o[0] = "";
       function diff_linesToCharsMunge_(s) {
-        for (var r = "", m = 0, _ = -1, b = o.length; _ < s.length - 1; ) {
-          if (-1 == (_ = s.indexOf("\n", m))) _ = s.length - 1;
-          var w = s.substring(m, _ + 1);
+        for (var r = "", _ = 0, m = -1, b = o.length; m < s.length - 1; ) {
+          if (-1 == (m = s.indexOf("\n", _))) m = s.length - 1;
+          var w = s.substring(_, m + 1);
           if (u.hasOwnProperty ? u.hasOwnProperty(w) : void 0 !== u[w]) r += String.fromCharCode(u[w]); else {
             if (b == g) {
-              w = s.substring(m);
-              _ = s.length;
+              w = s.substring(_);
+              m = s.length;
             }
             r += String.fromCharCode(b);
             u[w] = b;
             o[b++] = w;
           }
-          m = _ + 1;
+          _ = m + 1;
         }
         return r;
       }
-      var g = 4e4, m = diff_linesToCharsMunge_(s);
+      var g = 4e4, _ = diff_linesToCharsMunge_(s);
       g = 65535;
       return {
-        chars1: m,
+        chars1: _,
         chars2: diff_linesToCharsMunge_(r),
         lineArray: o
       };
     };
     diff_match_patch2.prototype.diff_charsToLines_ = function(s, r) {
       for (var o = 0; o < s.length; o++) {
-        for (var u = s[o][1], g = [], m = 0; m < u.length; m++) g[m] = r[u.charCodeAt(m)];
+        for (var u = s[o][1], g = [], _ = 0; _ < u.length; _++) g[_] = r[u.charCodeAt(_)];
         s[o][1] = g.join("");
       }
     };
     diff_match_patch2.prototype.diff_commonPrefix = function(s, r) {
       if (!s || !r || s.charAt(0) != r.charAt(0)) return 0;
-      for (var o = 0, u = Math.min(s.length, r.length), g = u, m = 0; o < g; ) {
-        if (s.substring(m, g) == r.substring(m, g)) m = o = g; else u = g;
+      for (var o = 0, u = Math.min(s.length, r.length), g = u, _ = 0; o < g; ) {
+        if (s.substring(_, g) == r.substring(_, g)) _ = o = g; else u = g;
         g = Math.floor((u - o) / 2 + o);
       }
       return g;
     };
     diff_match_patch2.prototype.diff_commonSuffix = function(s, r) {
       if (!s || !r || s.charAt(s.length - 1) != r.charAt(r.length - 1)) return 0;
-      for (var o = 0, u = Math.min(s.length, r.length), g = u, m = 0; o < g; ) {
-        if (s.substring(s.length - g, s.length - m) == r.substring(r.length - g, r.length - m)) m = o = g; else u = g;
+      for (var o = 0, u = Math.min(s.length, r.length), g = u, _ = 0; o < g; ) {
+        if (s.substring(s.length - g, s.length - _) == r.substring(r.length - g, r.length - _)) _ = o = g; else u = g;
         g = Math.floor((u - o) / 2 + o);
       }
       return g;
@@ -232,13 +232,13 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       if (o > u) s = s.substring(o - u); else if (o < u) r = r.substring(0, o);
       var g = Math.min(o, u);
       if (s == r) return g;
-      for (var m = 0, _ = 1; ;) {
-        var b = s.substring(g - _), w = r.indexOf(b);
-        if (-1 == w) return m;
-        _ += w;
-        if (0 == w || s.substring(g - _) == r.substring(0, _)) {
-          m = _;
-          _++;
+      for (var _ = 0, m = 1; ;) {
+        var b = s.substring(g - m), w = r.indexOf(b);
+        if (-1 == w) return _;
+        m += w;
+        if (0 == w || s.substring(g - m) == r.substring(0, m)) {
+          _ = m;
+          m++;
         }
       }
     };
@@ -248,100 +248,100 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       if (o.length < 4 || 2 * u.length < o.length) return null;
       var g = this;
       function diff_halfMatchI_(s, r, o) {
-        for (var u, m, _, b, w = s.substring(o, o + Math.floor(s.length / 4)), E = -1, S = ""; -1 != (E = r.indexOf(w, E + 1)); ) {
+        for (var u, _, m, b, w = s.substring(o, o + Math.floor(s.length / 4)), E = -1, S = ""; -1 != (E = r.indexOf(w, E + 1)); ) {
           var L = g.diff_commonPrefix(s.substring(o), r.substring(E)), O = g.diff_commonSuffix(s.substring(0, o), r.substring(0, E));
           if (S.length < O + L) {
             S = r.substring(E - O, E) + r.substring(E, E + L);
             u = s.substring(0, o - O);
-            m = s.substring(o + L);
-            _ = r.substring(0, E - O);
+            _ = s.substring(o + L);
+            m = r.substring(0, E - O);
             b = r.substring(E + L);
           }
         }
-        if (2 * S.length >= s.length) return [ u, m, _, b, S ]; else return null;
+        if (2 * S.length >= s.length) return [ u, _, m, b, S ]; else return null;
       }
-      var m, _, b, w, E, S = diff_halfMatchI_(o, u, Math.ceil(o.length / 4)), L = diff_halfMatchI_(o, u, Math.ceil(o.length / 2));
-      if (!S && !L) return null; else if (!L) m = S; else if (!S) m = L; else m = S[4].length > L[4].length ? S : L;
+      var _, m, b, w, E, S = diff_halfMatchI_(o, u, Math.ceil(o.length / 4)), L = diff_halfMatchI_(o, u, Math.ceil(o.length / 2));
+      if (!S && !L) return null; else if (!L) _ = S; else if (!S) _ = L; else _ = S[4].length > L[4].length ? S : L;
       if (s.length > r.length) {
-        _ = m[0];
-        b = m[1];
-        w = m[2];
-        E = m[3];
+        m = _[0];
+        b = _[1];
+        w = _[2];
+        E = _[3];
       } else {
-        w = m[0];
-        E = m[1];
-        _ = m[2];
-        b = m[3];
+        w = _[0];
+        E = _[1];
+        m = _[2];
+        b = _[3];
       }
-      return [ _, b, w, E, m[4] ];
+      return [ m, b, w, E, _[4] ];
     };
     diff_match_patch2.prototype.diff_cleanupSemantic = function(s) {
-      for (var r = false, u = [], g = 0, m = null, _ = 0, b = 0, w = 0, E = 0, S = 0; _ < s.length; ) {
-        if (0 == s[_][0]) {
-          u[g++] = _;
+      for (var r = false, u = [], g = 0, _ = null, m = 0, b = 0, w = 0, E = 0, S = 0; m < s.length; ) {
+        if (0 == s[m][0]) {
+          u[g++] = m;
           b = E;
           w = S;
           E = 0;
           S = 0;
-          m = s[_][1];
+          _ = s[m][1];
         } else {
-          if (1 == s[_][0]) E += s[_][1].length; else S += s[_][1].length;
-          if (m && m.length <= Math.max(b, w) && m.length <= Math.max(E, S)) {
-            s.splice(u[g - 1], 0, new diff_match_patch2.Diff(o, m));
+          if (1 == s[m][0]) E += s[m][1].length; else S += s[m][1].length;
+          if (_ && _.length <= Math.max(b, w) && _.length <= Math.max(E, S)) {
+            s.splice(u[g - 1], 0, new diff_match_patch2.Diff(o, _));
             s[u[g - 1] + 1][0] = 1;
             g--;
-            _ = --g > 0 ? u[g - 1] : -1;
+            m = --g > 0 ? u[g - 1] : -1;
             b = 0;
             w = 0;
             E = 0;
             S = 0;
-            m = null;
+            _ = null;
             r = true;
           }
         }
-        _++;
+        m++;
       }
       if (r) this.diff_cleanupMerge(s);
       this.diff_cleanupSemanticLossless(s);
-      _ = 1;
-      for (;_ < s.length; ) {
-        if (s[_ - 1][0] == o && 1 == s[_][0]) {
-          var L = s[_ - 1][1], O = s[_][1], D = this.diff_commonOverlap_(L, O), k = this.diff_commonOverlap_(O, L);
+      m = 1;
+      for (;m < s.length; ) {
+        if (s[m - 1][0] == o && 1 == s[m][0]) {
+          var L = s[m - 1][1], O = s[m][1], D = this.diff_commonOverlap_(L, O), k = this.diff_commonOverlap_(O, L);
           if (D >= k) {
             if (D >= L.length / 2 || D >= O.length / 2) {
-              s.splice(_, 0, new diff_match_patch2.Diff(0, O.substring(0, D)));
-              s[_ - 1][1] = L.substring(0, L.length - D);
-              s[_ + 1][1] = O.substring(D);
-              _++;
+              s.splice(m, 0, new diff_match_patch2.Diff(0, O.substring(0, D)));
+              s[m - 1][1] = L.substring(0, L.length - D);
+              s[m + 1][1] = O.substring(D);
+              m++;
             }
           } else if (k >= L.length / 2 || k >= O.length / 2) {
-            s.splice(_, 0, new diff_match_patch2.Diff(0, L.substring(0, k)));
-            s[_ - 1][0] = 1;
-            s[_ - 1][1] = O.substring(0, O.length - k);
-            s[_ + 1][0] = o;
-            s[_ + 1][1] = L.substring(k);
-            _++;
+            s.splice(m, 0, new diff_match_patch2.Diff(0, L.substring(0, k)));
+            s[m - 1][0] = 1;
+            s[m - 1][1] = O.substring(0, O.length - k);
+            s[m + 1][0] = o;
+            s[m + 1][1] = L.substring(k);
+            m++;
           }
-          _++;
+          m++;
         }
-        _++;
+        m++;
       }
     };
     diff_match_patch2.prototype.diff_cleanupSemanticLossless = function(s) {
       function diff_cleanupSemanticScore_(s, r) {
         if (!s || !r) return 6;
-        var o = s.charAt(s.length - 1), u = r.charAt(0), g = o.match(diff_match_patch2.nonAlphaNumericRegex_), m = u.match(diff_match_patch2.nonAlphaNumericRegex_), _ = g && o.match(diff_match_patch2.whitespaceRegex_), b = m && u.match(diff_match_patch2.whitespaceRegex_), w = _ && o.match(diff_match_patch2.linebreakRegex_), E = b && u.match(diff_match_patch2.linebreakRegex_), S = w && s.match(diff_match_patch2.blanklineEndRegex_), L = E && r.match(diff_match_patch2.blanklineStartRegex_);
-        if (S || L) return 5; else if (w || E) return 4; else if (g && !_ && b) return 3; else if (_ || b) return 2; else if (g || m) return 1;
+        var o = s.charAt(s.length - 1), u = r.charAt(0), g = o.match(diff_match_patch2.nonAlphaNumericRegex_), _ = u.match(diff_match_patch2.nonAlphaNumericRegex_), m = g && o.match(diff_match_patch2.whitespaceRegex_), b = _ && u.match(diff_match_patch2.whitespaceRegex_), w = m && o.match(diff_match_patch2.linebreakRegex_), E = b && u.match(diff_match_patch2.linebreakRegex_), S = w && s.match(diff_match_patch2.blanklineEndRegex_), L = E && r.match(diff_match_patch2.blanklineStartRegex_);
+        if (S || L) return 5; else if (w || E) return 4; else if (g && !m && b) return 3; else if (m || b) return 2; else if (g || _) return 1;
         return 0;
       }
       for (var r = 1; r < s.length - 1; ) {
         if (0 == s[r - 1][0] && 0 == s[r + 1][0]) {
-          var o = s[r - 1][1], u = s[r][1], g = s[r + 1][1], m = this.diff_commonSuffix(o, u);
-          if (m) {
-            var _ = u.substring(u.length - m);
-            o = o.substring(0, o.length - m);
-            u = _ + u.substring(0, u.length - m);
-            g = _ + g;
+          var o = s[r - 1][1], u = s[r][1], g = s[r + 1][1], _ = this.diff_commonSuffix(o, u);
+          if (_) {
+            var m = u.substring(u.length - _);
+            o = o.substring(0, o.length - _);
+            u = m + u.substring(0, u.length - _);
+            g = m + g;
           }
           for (var b = o, w = u, E = g, S = diff_cleanupSemanticScore_(o, u) + diff_cleanupSemanticScore_(u, g); u.charAt(0) === g.charAt(0); ) {
             o += u.charAt(0);
@@ -376,75 +376,75 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
     diff_match_patch2.blanklineEndRegex_ = /\n\r?\n$/;
     diff_match_patch2.blanklineStartRegex_ = /^\r?\n\r?\n/;
     diff_match_patch2.prototype.diff_cleanupEfficiency = function(s) {
-      for (var r = false, u = [], g = 0, m = null, _ = 0, b = false, w = false, E = false, S = false; _ < s.length; ) {
-        if (0 == s[_][0]) {
-          if (s[_][1].length < this.Diff_EditCost && (E || S)) {
-            u[g++] = _;
+      for (var r = false, u = [], g = 0, _ = null, m = 0, b = false, w = false, E = false, S = false; m < s.length; ) {
+        if (0 == s[m][0]) {
+          if (s[m][1].length < this.Diff_EditCost && (E || S)) {
+            u[g++] = m;
             b = E;
             w = S;
-            m = s[_][1];
+            _ = s[m][1];
           } else {
             g = 0;
-            m = null;
+            _ = null;
           }
           E = S = false;
         } else {
-          if (s[_][0] == o) S = true; else E = true;
-          if (m && (b && w && E && S || m.length < this.Diff_EditCost / 2 && b + w + E + S == 3)) {
-            s.splice(u[g - 1], 0, new diff_match_patch2.Diff(o, m));
+          if (s[m][0] == o) S = true; else E = true;
+          if (_ && (b && w && E && S || _.length < this.Diff_EditCost / 2 && b + w + E + S == 3)) {
+            s.splice(u[g - 1], 0, new diff_match_patch2.Diff(o, _));
             s[u[g - 1] + 1][0] = 1;
             g--;
-            m = null;
+            _ = null;
             if (b && w) {
               E = S = true;
               g = 0;
             } else {
-              _ = --g > 0 ? u[g - 1] : -1;
+              m = --g > 0 ? u[g - 1] : -1;
               E = S = false;
             }
             r = true;
           }
         }
-        _++;
+        m++;
       }
       if (r) this.diff_cleanupMerge(s);
     };
     diff_match_patch2.prototype.diff_cleanupMerge = function(s) {
       s.push(new diff_match_patch2.Diff(0, ""));
-      for (var r, u = 0, g = 0, m = 0, _ = "", b = ""; u < s.length; ) switch (s[u][0]) {
+      for (var r, u = 0, g = 0, _ = 0, m = "", b = ""; u < s.length; ) switch (s[u][0]) {
        case 1:
-        m++;
+        _++;
         b += s[u][1];
         u++;
         break;
 
        case o:
         g++;
-        _ += s[u][1];
+        m += s[u][1];
         u++;
         break;
 
        case 0:
-        if (g + m > 1) {
-          if (0 !== g && 0 !== m) {
-            if (0 !== (r = this.diff_commonPrefix(b, _))) {
-              if (u - g - m > 0 && 0 == s[u - g - m - 1][0]) s[u - g - m - 1][1] += b.substring(0, r); else {
+        if (g + _ > 1) {
+          if (0 !== g && 0 !== _) {
+            if (0 !== (r = this.diff_commonPrefix(b, m))) {
+              if (u - g - _ > 0 && 0 == s[u - g - _ - 1][0]) s[u - g - _ - 1][1] += b.substring(0, r); else {
                 s.splice(0, 0, new diff_match_patch2.Diff(0, b.substring(0, r)));
                 u++;
               }
               b = b.substring(r);
-              _ = _.substring(r);
+              m = m.substring(r);
             }
-            if (0 !== (r = this.diff_commonSuffix(b, _))) {
+            if (0 !== (r = this.diff_commonSuffix(b, m))) {
               s[u][1] = b.substring(b.length - r) + s[u][1];
               b = b.substring(0, b.length - r);
-              _ = _.substring(0, _.length - r);
+              m = m.substring(0, m.length - r);
             }
           }
-          u -= g + m;
-          s.splice(u, g + m);
-          if (_.length) {
-            s.splice(u, 0, new diff_match_patch2.Diff(o, _));
+          u -= g + _;
+          s.splice(u, g + _);
+          if (m.length) {
+            s.splice(u, 0, new diff_match_patch2.Diff(o, m));
             u++;
           }
           if (b.length) {
@@ -456,9 +456,9 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
           s[u - 1][1] += s[u][1];
           s.splice(u, 1);
         } else u++;
-        m = 0;
+        _ = 0;
         g = 0;
-        _ = "";
+        m = "";
         b = "";
         break;
       }
@@ -482,19 +482,19 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       if (w) this.diff_cleanupMerge(s);
     };
     diff_match_patch2.prototype.diff_xIndex = function(s, r) {
-      var u, g = 0, m = 0, _ = 0, b = 0;
+      var u, g = 0, _ = 0, m = 0, b = 0;
       for (u = 0; u < s.length; u++) {
         if (1 !== s[u][0]) g += s[u][1].length;
-        if (s[u][0] !== o) m += s[u][1].length;
+        if (s[u][0] !== o) _ += s[u][1].length;
         if (g > r) break;
-        _ = g;
-        b = m;
+        m = g;
+        b = _;
       }
-      if (s.length != u && s[u][0] === o) return b; else return b + (r - _);
+      if (s.length != u && s[u][0] === o) return b; else return b + (r - m);
     };
     diff_match_patch2.prototype.diff_prettyHtml = function(s) {
-      for (var r = [], u = /&/g, g = /</g, m = />/g, _ = /\n/g, b = 0; b < s.length; b++) {
-        var w = s[b][0], E = s[b][1].replace(u, "&amp;").replace(g, "&lt;").replace(m, "&gt;").replace(_, "&para;<br>");
+      for (var r = [], u = /&/g, g = /</g, _ = />/g, m = /\n/g, b = 0; b < s.length; b++) {
+        var w = s[b][0], E = s[b][1].replace(u, "&amp;").replace(g, "&lt;").replace(_, "&gt;").replace(m, "&para;<br>");
         switch (w) {
          case 1:
           r[b] = '<ins style="background:#e6ffe6;">' + E + "</ins>";
@@ -520,9 +520,9 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       return r.join("");
     };
     diff_match_patch2.prototype.diff_levenshtein = function(s) {
-      for (var r = 0, u = 0, g = 0, m = 0; m < s.length; m++) {
-        var _ = s[m][0], b = s[m][1];
-        switch (_) {
+      for (var r = 0, u = 0, g = 0, _ = 0; _ < s.length; _++) {
+        var m = s[_][0], b = s[_][1];
+        switch (m) {
          case 1:
           u += b.length;
           break;
@@ -557,9 +557,9 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       return r.join("\t").replace(/%20/g, " ");
     };
     diff_match_patch2.prototype.diff_fromDelta = function(s, r) {
-      for (var u = [], g = 0, m = 0, _ = r.split(/\t/g), b = 0; b < _.length; b++) {
-        var w = _[b].substring(1);
-        switch (_[b].charAt(0)) {
+      for (var u = [], g = 0, _ = 0, m = r.split(/\t/g), b = 0; b < m.length; b++) {
+        var w = m[b].substring(1);
+        switch (m[b].charAt(0)) {
          case "+":
           try {
             u[g++] = new diff_match_patch2.Diff(1, decodeURI(w));
@@ -572,15 +572,15 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
          case "=":
           var E = parseInt(w, 10);
           if (isNaN(E) || E < 0) throw new Error("Invalid number in diff_fromDelta: " + w);
-          var S = s.substring(m, m += E);
-          if ("=" == _[b].charAt(0)) u[g++] = new diff_match_patch2.Diff(0, S); else u[g++] = new diff_match_patch2.Diff(o, S);
+          var S = s.substring(_, _ += E);
+          if ("=" == m[b].charAt(0)) u[g++] = new diff_match_patch2.Diff(0, S); else u[g++] = new diff_match_patch2.Diff(o, S);
           break;
 
          default:
-          if (_[b]) throw new Error("Invalid diff operation in diff_fromDelta: " + _[b]);
+          if (m[b]) throw new Error("Invalid diff operation in diff_fromDelta: " + m[b]);
         }
       }
-      if (m != s.length) throw new Error("Delta length (" + m + ") does not equal source text length (" + s.length + ").");
+      if (_ != s.length) throw new Error("Delta length (" + _ + ") does not equal source text length (" + s.length + ").");
       return u;
     };
     diff_match_patch2.prototype.match_main = function(s, r, o) {
@@ -592,21 +592,21 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       if (r.length > this.Match_MaxBits) throw new Error("Pattern too long for this browser.");
       var u = this.match_alphabet_(r), g = this;
       function match_bitapScore_(s, u) {
-        var m = s / r.length, _ = Math.abs(o - u);
-        if (!g.Match_Distance) return _ ? 1 : m; else return m + _ / g.Match_Distance;
+        var _ = s / r.length, m = Math.abs(o - u);
+        if (!g.Match_Distance) return m ? 1 : _; else return _ + m / g.Match_Distance;
       }
-      var m = this.Match_Threshold, _ = s.indexOf(r, o);
-      if (-1 != _) {
-        m = Math.min(match_bitapScore_(0, _), m);
-        if (-1 != (_ = s.lastIndexOf(r, o + r.length))) m = Math.min(match_bitapScore_(0, _), m);
+      var _ = this.Match_Threshold, m = s.indexOf(r, o);
+      if (-1 != m) {
+        _ = Math.min(match_bitapScore_(0, m), _);
+        if (-1 != (m = s.lastIndexOf(r, o + r.length))) _ = Math.min(match_bitapScore_(0, m), _);
       }
       var b, w, E = 1 << r.length - 1;
-      _ = -1;
+      m = -1;
       for (var S, L = r.length + s.length, O = 0; O < r.length; O++) {
         b = 0;
         w = L;
         for (;b < w; ) {
-          if (match_bitapScore_(O, o + w) <= m) b = w; else L = w;
+          if (match_bitapScore_(O, o + w) <= _) b = w; else L = w;
           w = Math.floor((L - b) / 2 + b);
         }
         L = w;
@@ -617,16 +617,16 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
           if (0 === O) C[T] = (C[T + 1] << 1 | 1) & I; else C[T] = (C[T + 1] << 1 | 1) & I | (S[T + 1] | S[T]) << 1 | 1 | S[T + 1];
           if (C[T] & E) {
             var A = match_bitapScore_(O, T - 1);
-            if (A <= m) {
-              m = A;
-              if ((_ = T - 1) > o) D = Math.max(1, 2 * o - _); else break;
+            if (A <= _) {
+              _ = A;
+              if ((m = T - 1) > o) D = Math.max(1, 2 * o - m); else break;
             }
           }
         }
-        if (match_bitapScore_(O + 1, o) > m) break;
+        if (match_bitapScore_(O + 1, o) > _) break;
         S = C;
       }
-      return _;
+      return m;
     };
     diff_match_patch2.prototype.match_alphabet_ = function(s) {
       for (var r = {}, o = 0; o < s.length; o++) r[s.charAt(o)] = 0;
@@ -643,60 +643,60 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         u += this.Patch_Margin;
         var g = r.substring(s.start2 - u, s.start2);
         if (g) s.diffs.unshift(new diff_match_patch2.Diff(0, g));
-        var m = r.substring(s.start2 + s.length1, s.start2 + s.length1 + u);
-        if (m) s.diffs.push(new diff_match_patch2.Diff(0, m));
+        var _ = r.substring(s.start2 + s.length1, s.start2 + s.length1 + u);
+        if (_) s.diffs.push(new diff_match_patch2.Diff(0, _));
         s.start1 -= g.length;
         s.start2 -= g.length;
-        s.length1 += g.length + m.length;
-        s.length2 += g.length + m.length;
+        s.length1 += g.length + _.length;
+        s.length2 += g.length + _.length;
       }
     };
     diff_match_patch2.prototype.patch_make = function(s, r, u) {
-      var g, m;
+      var g, _;
       if ("string" == typeof s && "string" == typeof r && "undefined" == typeof u) {
         g = s;
-        if ((m = this.diff_main(g, r, true)).length > 2) {
-          this.diff_cleanupSemantic(m);
-          this.diff_cleanupEfficiency(m);
+        if ((_ = this.diff_main(g, r, true)).length > 2) {
+          this.diff_cleanupSemantic(_);
+          this.diff_cleanupEfficiency(_);
         }
       } else if (s && "object" == typeof s && "undefined" == typeof r && "undefined" == typeof u) {
-        m = s;
-        g = this.diff_text1(m);
+        _ = s;
+        g = this.diff_text1(_);
       } else if ("string" == typeof s && r && "object" == typeof r && "undefined" == typeof u) {
         g = s;
-        m = r;
+        _ = r;
       } else if ("string" == typeof s && "string" == typeof r && u && "object" == typeof u) {
         g = s;
-        m = u;
+        _ = u;
       } else throw new Error("Unknown call format to patch_make.");
-      if (0 === m.length) return [];
-      for (var _ = [], b = new diff_match_patch2.patch_obj, w = 0, E = 0, S = 0, L = g, O = g, D = 0; D < m.length; D++) {
-        var k = m[D][0], C = m[D][1];
+      if (0 === _.length) return [];
+      for (var m = [], b = new diff_match_patch2.patch_obj, w = 0, E = 0, S = 0, L = g, O = g, D = 0; D < _.length; D++) {
+        var k = _[D][0], C = _[D][1];
         if (!w && 0 !== k) {
           b.start1 = E;
           b.start2 = S;
         }
         switch (k) {
          case 1:
-          b.diffs[w++] = m[D];
+          b.diffs[w++] = _[D];
           b.length2 += C.length;
           O = O.substring(0, S) + C + O.substring(S);
           break;
 
          case o:
           b.length1 += C.length;
-          b.diffs[w++] = m[D];
+          b.diffs[w++] = _[D];
           O = O.substring(0, S) + O.substring(S + C.length);
           break;
 
          case 0:
-          if (C.length <= 2 * this.Patch_Margin && w && m.length != D + 1) {
-            b.diffs[w++] = m[D];
+          if (C.length <= 2 * this.Patch_Margin && w && _.length != D + 1) {
+            b.diffs[w++] = _[D];
             b.length1 += C.length;
             b.length2 += C.length;
           } else if (C.length >= 2 * this.Patch_Margin) if (w) {
             this.patch_addContext_(b, L);
-            _.push(b);
+            m.push(b);
             b = new diff_match_patch2.patch_obj;
             w = 0;
             L = O;
@@ -709,15 +709,15 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       }
       if (w) {
         this.patch_addContext_(b, L);
-        _.push(b);
+        m.push(b);
       }
-      return _;
+      return m;
     };
     diff_match_patch2.prototype.patch_deepCopy = function(s) {
       for (var r = [], o = 0; o < s.length; o++) {
         var u = s[o], g = new diff_match_patch2.patch_obj;
         g.diffs = [];
-        for (var m = 0; m < u.diffs.length; m++) g.diffs[m] = new diff_match_patch2.Diff(u.diffs[m][0], u.diffs[m][1]);
+        for (var _ = 0; _ < u.diffs.length; _++) g.diffs[_] = new diff_match_patch2.Diff(u.diffs[_][0], u.diffs[_][1]);
         g.start1 = u.start1;
         g.start2 = u.start2;
         g.length1 = u.length1;
@@ -732,25 +732,25 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       var u = this.patch_addPadding(s);
       r = u + r + u;
       this.patch_splitMax(s);
-      for (var g = 0, m = [], _ = 0; _ < s.length; _++) {
-        var b, w = s[_].start2 + g, E = this.diff_text1(s[_].diffs), S = -1;
+      for (var g = 0, _ = [], m = 0; m < s.length; m++) {
+        var b, w = s[m].start2 + g, E = this.diff_text1(s[m].diffs), S = -1;
         if (E.length > this.Match_MaxBits) {
           if (-1 != (b = this.match_main(r, E.substring(0, this.Match_MaxBits), w))) if (-1 == (S = this.match_main(r, E.substring(E.length - this.Match_MaxBits), w + E.length - this.Match_MaxBits)) || b >= S) b = -1;
         } else b = this.match_main(r, E, w);
         if (-1 == b) {
-          m[_] = false;
-          g -= s[_].length2 - s[_].length1;
+          _[m] = false;
+          g -= s[m].length2 - s[m].length1;
         } else {
-          m[_] = true;
+          _[m] = true;
           g = b - w;
           var L;
           if (-1 == S) L = r.substring(b, b + E.length); else L = r.substring(b, S + this.Match_MaxBits);
-          if (E == L) r = r.substring(0, b) + this.diff_text2(s[_].diffs) + r.substring(b + E.length); else {
+          if (E == L) r = r.substring(0, b) + this.diff_text2(s[m].diffs) + r.substring(b + E.length); else {
             var O = this.diff_main(E, L, false);
-            if (E.length > this.Match_MaxBits && this.diff_levenshtein(O) / E.length > this.Patch_DeleteThreshold) m[_] = false; else {
+            if (E.length > this.Match_MaxBits && this.diff_levenshtein(O) / E.length > this.Patch_DeleteThreshold) _[m] = false; else {
               this.diff_cleanupSemanticLossless(O);
-              for (var D, k = 0, C = 0; C < s[_].diffs.length; C++) {
-                var T = s[_].diffs[C];
+              for (var D, k = 0, C = 0; C < s[m].diffs.length; C++) {
+                var T = s[m].diffs[C];
                 if (0 !== T[0]) D = this.diff_xIndex(O, k);
                 if (1 === T[0]) r = r.substring(0, b + D) + T[1] + r.substring(b + D); else if (T[0] === o) r = r.substring(0, b + D) + r.substring(b + this.diff_xIndex(O, k + T[1].length));
                 if (T[0] !== o) k += T[1].length;
@@ -759,7 +759,7 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
           }
         }
       }
-      return [ r = r.substring(u.length, r.length - u.length), m ];
+      return [ r = r.substring(u.length, r.length - u.length), _ ];
     };
     diff_match_patch2.prototype.patch_addPadding = function(s) {
       for (var r = this.Patch_Margin, o = "", u = 1; u <= r; u++) o += String.fromCharCode(u);
@@ -767,30 +767,30 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         s[u].start1 += r;
         s[u].start2 += r;
       }
-      var g = s[0], m = g.diffs;
-      if (0 == m.length || 0 != m[0][0]) {
-        m.unshift(new diff_match_patch2.Diff(0, o));
+      var g = s[0], _ = g.diffs;
+      if (0 == _.length || 0 != _[0][0]) {
+        _.unshift(new diff_match_patch2.Diff(0, o));
         g.start1 -= r;
         g.start2 -= r;
         g.length1 += r;
         g.length2 += r;
-      } else if (r > m[0][1].length) {
-        var _ = r - m[0][1].length;
-        m[0][1] = o.substring(m[0][1].length) + m[0][1];
-        g.start1 -= _;
-        g.start2 -= _;
-        g.length1 += _;
-        g.length2 += _;
+      } else if (r > _[0][1].length) {
+        var m = r - _[0][1].length;
+        _[0][1] = o.substring(_[0][1].length) + _[0][1];
+        g.start1 -= m;
+        g.start2 -= m;
+        g.length1 += m;
+        g.length2 += m;
       }
-      if (0 == (m = (g = s[s.length - 1]).diffs).length || 0 != m[m.length - 1][0]) {
-        m.push(new diff_match_patch2.Diff(0, o));
+      if (0 == (_ = (g = s[s.length - 1]).diffs).length || 0 != _[_.length - 1][0]) {
+        _.push(new diff_match_patch2.Diff(0, o));
         g.length1 += r;
         g.length2 += r;
-      } else if (r > m[m.length - 1][1].length) {
-        _ = r - m[m.length - 1][1].length;
-        m[m.length - 1][1] += o.substring(0, _);
-        g.length1 += _;
-        g.length2 += _;
+      } else if (r > _[_.length - 1][1].length) {
+        m = r - _[_.length - 1][1].length;
+        _[_.length - 1][1] += o.substring(0, m);
+        g.length1 += m;
+        g.length2 += m;
       }
       return o;
     };
@@ -798,10 +798,10 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       for (var r = this.Match_MaxBits, u = 0; u < s.length; u++) if (!(s[u].length1 <= r)) {
         var g = s[u];
         s.splice(u--, 1);
-        for (var m = g.start1, _ = g.start2, b = ""; 0 !== g.diffs.length; ) {
+        for (var _ = g.start1, m = g.start2, b = ""; 0 !== g.diffs.length; ) {
           var w = new diff_match_patch2.patch_obj, E = true;
-          w.start1 = m - b.length;
-          w.start2 = _ - b.length;
+          w.start1 = _ - b.length;
+          w.start2 = m - b.length;
           if ("" !== b) {
             w.length1 = w.length2 = b.length;
             w.diffs.push(new diff_match_patch2.Diff(0, b));
@@ -810,22 +810,22 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
             var S = g.diffs[0][0], L = g.diffs[0][1];
             if (1 === S) {
               w.length2 += L.length;
-              _ += L.length;
+              m += L.length;
               w.diffs.push(g.diffs.shift());
               E = false;
             } else if (S === o && 1 == w.diffs.length && 0 == w.diffs[0][0] && L.length > 2 * r) {
               w.length1 += L.length;
-              m += L.length;
+              _ += L.length;
               E = false;
               w.diffs.push(new diff_match_patch2.Diff(S, L));
               g.diffs.shift();
             } else {
               L = L.substring(0, r - w.length1 - this.Patch_Margin);
               w.length1 += L.length;
-              m += L.length;
+              _ += L.length;
               if (0 === S) {
                 w.length2 += L.length;
-                _ += L.length;
+                m += L.length;
               } else E = false;
               w.diffs.push(new diff_match_patch2.Diff(S, L));
               if (L == g.diffs[0][1]) g.diffs.shift(); else g.diffs[0][1] = g.diffs[0][1].substring(L.length);
@@ -849,26 +849,26 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
     diff_match_patch2.prototype.patch_fromText = function(s) {
       var r = [];
       if (!s) return r;
-      for (var u = s.split("\n"), g = 0, m = /^@@ -(\d+),?(\d*) \+(\d+),?(\d*) @@$/; g < u.length; ) {
-        var _ = u[g].match(m);
-        if (!_) throw new Error("Invalid patch string: " + u[g]);
+      for (var u = s.split("\n"), g = 0, _ = /^@@ -(\d+),?(\d*) \+(\d+),?(\d*) @@$/; g < u.length; ) {
+        var m = u[g].match(_);
+        if (!m) throw new Error("Invalid patch string: " + u[g]);
         var b = new diff_match_patch2.patch_obj;
         r.push(b);
-        b.start1 = parseInt(_[1], 10);
-        if ("" === _[2]) {
+        b.start1 = parseInt(m[1], 10);
+        if ("" === m[2]) {
           b.start1--;
           b.length1 = 1;
-        } else if ("0" == _[2]) b.length1 = 0; else {
+        } else if ("0" == m[2]) b.length1 = 0; else {
           b.start1--;
-          b.length1 = parseInt(_[2], 10);
+          b.length1 = parseInt(m[2], 10);
         }
-        b.start2 = parseInt(_[3], 10);
-        if ("" === _[4]) {
+        b.start2 = parseInt(m[3], 10);
+        if ("" === m[4]) {
           b.start2--;
           b.length2 = 1;
-        } else if ("0" == _[4]) b.length2 = 0; else {
+        } else if ("0" == m[4]) b.length2 = 0; else {
           b.start2--;
-          b.length2 = parseInt(_[4], 10);
+          b.length2 = parseInt(m[4], 10);
         }
         g++;
         for (;g < u.length; ) {
@@ -895,8 +895,8 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       var s, r;
       if (0 === this.length1) s = this.start1 + ",0"; else if (1 == this.length1) s = this.start1 + 1; else s = this.start1 + 1 + "," + this.length1;
       if (0 === this.length2) r = this.start2 + ",0"; else if (1 == this.length2) r = this.start2 + 1; else r = this.start2 + 1 + "," + this.length2;
-      for (var u, g = [ "@@ -" + s + " +" + r + " @@\n" ], m = 0; m < this.diffs.length; m++) {
-        switch (this.diffs[m][0]) {
+      for (var u, g = [ "@@ -" + s + " +" + r + " @@\n" ], _ = 0; _ < this.diffs.length; _++) {
+        switch (this.diffs[_][0]) {
          case 1:
           u = "+";
           break;
@@ -909,7 +909,7 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
           u = " ";
           break;
         }
-        g[m + 1] = u + encodeURI(this.diffs[m][1]) + "\n";
+        g[_ + 1] = u + encodeURI(this.diffs[_][1]) + "\n";
       }
       return g.join("").replace(/%20/g, " ");
     };
@@ -941,25 +941,25 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
     }
     balanced.range = range2;
     function range2(s, r, o) {
-      var u, g, m, _, b, w = o.indexOf(s), E = o.indexOf(r, w + 1), S = w;
+      var u, g, _, m, b, w = o.indexOf(s), E = o.indexOf(r, w + 1), S = w;
       if (w >= 0 && E > 0) {
         if (s === r) return [ w, E ];
         u = [];
-        m = o.length;
+        _ = o.length;
         for (;S >= 0 && !b; ) {
           if (S == w) {
             u.push(S);
             w = o.indexOf(s, S + 1);
           } else if (1 == u.length) b = [ u.pop(), E ]; else {
-            if ((g = u.pop()) < m) {
-              m = g;
-              _ = E;
+            if ((g = u.pop()) < _) {
+              _ = g;
+              m = E;
             }
             E = o.indexOf(r, S + 1);
           }
           S = w < E && w >= 0 ? w : E;
         }
-        if (u.length) b = [ m, _ ];
+        if (u.length) b = [ _, m ];
       }
       return b;
     }
@@ -971,24 +971,24 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       if (!s) return [];
       if ("{}" === s.substr(0, 2)) s = "\\{\\}" + s.substr(2);
       return expand2(function escapeBraces(s) {
-        return s.split("\\\\").join(u).split("\\{").join(g).split("\\}").join(m).split("\\,").join(_).split("\\.").join(b);
+        return s.split("\\\\").join(u).split("\\{").join(g).split("\\}").join(_).split("\\,").join(m).split("\\.").join(b);
       }(s), true).map(unescapeBraces);
     };
-    var u = "\0SLASH" + Math.random() + "\0", g = "\0OPEN" + Math.random() + "\0", m = "\0CLOSE" + Math.random() + "\0", _ = "\0COMMA" + Math.random() + "\0", b = "\0PERIOD" + Math.random() + "\0";
+    var u = "\0SLASH" + Math.random() + "\0", g = "\0OPEN" + Math.random() + "\0", _ = "\0CLOSE" + Math.random() + "\0", m = "\0COMMA" + Math.random() + "\0", b = "\0PERIOD" + Math.random() + "\0";
     function numeric(s) {
       return parseInt(s, 10) == s ? parseInt(s, 10) : s.charCodeAt(0);
     }
     function unescapeBraces(s) {
-      return s.split(u).join("\\").split(g).join("{").split(m).join("}").split(_).join(",").split(b).join(".");
+      return s.split(u).join("\\").split(g).join("{").split(_).join("}").split(m).join(",").split(b).join(".");
     }
     function parseCommaParts(s) {
       if (!s) return [ "" ];
       var r = [], u = o("{", "}", s);
       if (!u) return s.split(",");
-      var g = u.pre, m = u.body, _ = u.post, b = g.split(",");
-      b[b.length - 1] += "{" + m + "}";
-      var w = parseCommaParts(_);
-      if (_.length) {
+      var g = u.pre, _ = u.body, m = u.post, b = g.split(",");
+      b[b.length - 1] += "{" + _ + "}";
+      var w = parseCommaParts(m);
+      if (m.length) {
         b[b.length - 1] += w.shift();
         b.push.apply(b, w);
       }
@@ -1010,13 +1010,13 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
     function expand2(s, r) {
       var u = [], g = o("{", "}", s);
       if (!g) return [ s ];
-      var _ = g.pre, b = g.post.length ? expand2(g.post, false) : [ "" ];
+      var m = g.pre, b = g.post.length ? expand2(g.post, false) : [ "" ];
       if (/\$$/.test(g.pre)) for (var w = 0; w < b.length; w++) {
-        var E = _ + "{" + g.body + "}" + b[w];
+        var E = m + "{" + g.body + "}" + b[w];
         u.push(E);
       } else {
         var S, L, O = /^-?\d+\.\.-?\d+(?:\.\.-?\d+)?$/.test(g.body), D = /^[a-zA-Z]\.\.[a-zA-Z](?:\.\.-?\d+)?$/.test(g.body), k = O || D, C = g.body.indexOf(",") >= 0;
-        if (!k && !C) if (g.post.match(/,.*\}/)) return expand2(s = g.pre + "{" + g.body + m + g.post); else return [ s ];
+        if (!k && !C) if (g.post.match(/,.*\}/)) return expand2(s = g.pre + "{" + g.body + _ + g.post); else return [ s ];
         if (k) S = g.body.split(/\.\./); else if (1 === (S = parseCommaParts(g.body)).length) if (1 === (S = expand2(S[0], false).map(embrace)).length) return b.map((function(s) {
           return g.pre + S[0] + s;
         }));
@@ -1049,7 +1049,7 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
           for (var V = 0; V < S.length; V++) L.push.apply(L, expand2(S[V], false));
         }
         for (V = 0; V < L.length; V++) for (w = 0; w < b.length; w++) {
-          E = _ + L[V] + b[w];
+          E = m + L[V] + b[w];
           if (!r || k || E) u.push(E);
         }
       }
@@ -1136,11 +1136,11 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
 }), require_lib = __commonJS({
   "node_modules/immediate/lib/index.js"(s, r) {
     "use strict";
-    var o, u, g, m = [ require_nextTick(), require_queueMicrotask(), require_mutation(), require_messageChannel(), require_stateChange(), require_timeout() ], _ = -1, b = [], w = false;
+    var o, u, g, _ = [ require_nextTick(), require_queueMicrotask(), require_mutation(), require_messageChannel(), require_stateChange(), require_timeout() ], m = -1, b = [], w = false;
     function cleanUpNextTick() {
       if (o && u) {
         o = false;
-        if (u.length) b = u.concat(b); else _ = -1;
+        if (u.length) b = u.concat(b); else m = -1;
         if (b.length) nextTick();
       }
     }
@@ -1151,18 +1151,18 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         for (var s = b.length, r = setTimeout(cleanUpNextTick); s; ) {
           u = b;
           b = [];
-          for (;u && ++_ < s; ) u[_].run();
-          _ = -1;
+          for (;u && ++m < s; ) u[m].run();
+          m = -1;
           s = b.length;
         }
         u = null;
-        _ = -1;
+        m = -1;
         o = false;
         clearTimeout(r);
       }
     }
-    for (var E = -1, S = m.length; ++E < S; ) if (m[E] && m[E].test && m[E].test()) {
-      g = m[E].install(nextTick);
+    for (var E = -1, S = _.length; ++E < S; ) if (_[E] && _[E].test && _[E].test()) {
+      g = _[E].install(nextTick);
       break;
     }
     function Item(s, r) {
@@ -1209,7 +1209,7 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
     }; else o = function ReflectOwnKeys2(s) {
       return Object.getOwnPropertyNames(s);
     };
-    var m = Number.isNaN || function NumberIsNaN2(s) {
+    var _ = Number.isNaN || function NumberIsNaN2(s) {
       return s != s;
     };
     function EventEmitter2() {
@@ -1240,18 +1240,18 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
     EventEmitter2.prototype._events = void 0;
     EventEmitter2.prototype._eventsCount = 0;
     EventEmitter2.prototype._maxListeners = void 0;
-    var _ = 10;
+    var m = 10;
     function checkListener(s) {
       if ("function" != typeof s) throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof s);
     }
     Object.defineProperty(EventEmitter2, "defaultMaxListeners", {
       enumerable: true,
       get: function() {
-        return _;
+        return m;
       },
       set: function(s) {
-        if ("number" != typeof s || s < 0 || m(s)) throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + s + ".");
-        _ = s;
+        if ("number" != typeof s || s < 0 || _(s)) throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + s + ".");
+        m = s;
       }
     });
     EventEmitter2.init = function() {
@@ -1262,7 +1262,7 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       this._maxListeners = this._maxListeners || void 0;
     };
     EventEmitter2.prototype.setMaxListeners = function setMaxListeners(s) {
-      if ("number" != typeof s || s < 0 || m(s)) throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received ' + s + ".");
+      if ("number" != typeof s || s < 0 || _(s)) throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received ' + s + ".");
       this._maxListeners = s;
       return this;
     };
@@ -1274,17 +1274,17 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
     };
     EventEmitter2.prototype.emit = function emit2(s) {
       for (var r = [], o = 1; o < arguments.length; o++) r.push(arguments[o]);
-      var u = "error" === s, m = this._events;
-      if (void 0 !== m) u = u && void 0 === m.error; else if (!u) return false;
+      var u = "error" === s, _ = this._events;
+      if (void 0 !== _) u = u && void 0 === _.error; else if (!u) return false;
       if (u) {
-        var _;
-        if (r.length > 0) _ = r[0];
-        if (_ instanceof Error) throw _;
-        var b = new Error("Unhandled error." + (_ ? " (" + _.message + ")" : ""));
-        b.context = _;
+        var m;
+        if (r.length > 0) m = r[0];
+        if (m instanceof Error) throw m;
+        var b = new Error("Unhandled error." + (m ? " (" + m.message + ")" : ""));
+        b.context = m;
         throw b;
       }
-      var w = m[s];
+      var w = _[s];
       if (void 0 === w) return false;
       if ("function" == typeof w) g(w, this, r); else {
         var E = w.length, S = arrayClone(w, E);
@@ -1293,30 +1293,30 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       return true;
     };
     function _addListener(s, r, o, u) {
-      var g, m, _;
+      var g, _, m;
       checkListener(o);
-      if (void 0 === (m = s._events)) {
-        m = s._events = Object.create(null);
+      if (void 0 === (_ = s._events)) {
+        _ = s._events = Object.create(null);
         s._eventsCount = 0;
       } else {
-        if (void 0 !== m.newListener) {
+        if (void 0 !== _.newListener) {
           s.emit("newListener", r, o.listener ? o.listener : o);
-          m = s._events;
+          _ = s._events;
         }
-        _ = m[r];
+        m = _[r];
       }
-      if (void 0 === _) {
-        _ = m[r] = o;
+      if (void 0 === m) {
+        m = _[r] = o;
         ++s._eventsCount;
       } else {
-        if ("function" == typeof _) _ = m[r] = u ? [ o, _ ] : [ _, o ]; else if (u) _.unshift(o); else _.push(o);
-        if ((g = _getMaxListeners(s)) > 0 && _.length > g && !_.warned) {
-          _.warned = true;
-          var b = new Error("Possible EventEmitter memory leak detected. " + _.length + " " + String(r) + " listeners added. Use emitter.setMaxListeners() to increase limit");
+        if ("function" == typeof m) m = _[r] = u ? [ o, m ] : [ m, o ]; else if (u) m.unshift(o); else m.push(o);
+        if ((g = _getMaxListeners(s)) > 0 && m.length > g && !m.warned) {
+          m.warned = true;
+          var b = new Error("Possible EventEmitter memory leak detected. " + m.length + " " + String(r) + " listeners added. Use emitter.setMaxListeners() to increase limit");
           b.name = "MaxListenersExceededWarning";
           b.emitter = s;
           b.type = r;
-          b.count = _.length;
+          b.count = m.length;
           (function ProcessEmitWarning(s) {
             if (console && console.warn) console.warn(s);
           })(b);
@@ -1361,7 +1361,7 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       return this;
     };
     EventEmitter2.prototype.removeListener = function removeListener(s, r) {
-      var o, u, g, m, _;
+      var o, u, g, _, m;
       checkListener(r);
       if (void 0 === (u = this._events)) return this;
       if (void 0 === (o = u[s])) return this;
@@ -1370,9 +1370,9 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         if (u.removeListener) this.emit("removeListener", s, o.listener || r);
       } else if ("function" != typeof o) {
         g = -1;
-        for (m = o.length - 1; m >= 0; m--) if (o[m] === r || o[m].listener === r) {
-          _ = o[m].listener;
-          g = m;
+        for (_ = o.length - 1; _ >= 0; _--) if (o[_] === r || o[_].listener === r) {
+          m = o[_].listener;
+          g = _;
           break;
         }
         if (g < 0) return this;
@@ -1381,7 +1381,7 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
           s.pop();
         })(o, g);
         if (1 === o.length) u[s] = o[0];
-        if (void 0 !== u.removeListener) this.emit("removeListener", s, _ || r);
+        if (void 0 !== u.removeListener) this.emit("removeListener", s, m || r);
       }
       return this;
     };
@@ -1397,8 +1397,8 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         return this;
       }
       if (0 === arguments.length) {
-        var g, m = Object.keys(o);
-        for (u = 0; u < m.length; ++u) if ("removeListener" !== (g = m[u])) this.removeAllListeners(g);
+        var g, _ = Object.keys(o);
+        for (u = 0; u < _.length; ++u) if ("removeListener" !== (g = _[u])) this.removeAllListeners(g);
         this.removeAllListeners("removeListener");
         this._events = Object.create(null);
         this._eventsCount = 0;
@@ -1465,27 +1465,27 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       "use strict";
       var r = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" ];
       function md5cycle(s, r) {
-        var o = s[0], u = s[1], g = s[2], m = s[3];
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u & g | ~u & m) + r[0] - 680876936 | 0) << 7 | o >>> 25) + u | 0) & u | ~o & g) + r[1] - 389564586 | 0) << 12 | m >>> 20) + o | 0) & o | ~m & u) + r[2] + 606105819 | 0) << 17 | g >>> 15) + m | 0) & m | ~g & o) + r[3] - 1044525330 | 0) << 22 | u >>> 10) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u & g | ~u & m) + r[4] - 176418897 | 0) << 7 | o >>> 25) + u | 0) & u | ~o & g) + r[5] + 1200080426 | 0) << 12 | m >>> 20) + o | 0) & o | ~m & u) + r[6] - 1473231341 | 0) << 17 | g >>> 15) + m | 0) & m | ~g & o) + r[7] - 45705983 | 0) << 22 | u >>> 10) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u & g | ~u & m) + r[8] + 1770035416 | 0) << 7 | o >>> 25) + u | 0) & u | ~o & g) + r[9] - 1958414417 | 0) << 12 | m >>> 20) + o | 0) & o | ~m & u) + r[10] - 42063 | 0) << 17 | g >>> 15) + m | 0) & m | ~g & o) + r[11] - 1990404162 | 0) << 22 | u >>> 10) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u & g | ~u & m) + r[12] + 1804603682 | 0) << 7 | o >>> 25) + u | 0) & u | ~o & g) + r[13] - 40341101 | 0) << 12 | m >>> 20) + o | 0) & o | ~m & u) + r[14] - 1502002290 | 0) << 17 | g >>> 15) + m | 0) & m | ~g & o) + r[15] + 1236535329 | 0) << 22 | u >>> 10) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u & m | g & ~m) + r[1] - 165796510 | 0) << 5 | o >>> 27) + u | 0) & g | u & ~g) + r[6] - 1069501632 | 0) << 9 | m >>> 23) + o | 0) & u | o & ~u) + r[11] + 643717713 | 0) << 14 | g >>> 18) + m | 0) & o | m & ~o) + r[0] - 373897302 | 0) << 20 | u >>> 12) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u & m | g & ~m) + r[5] - 701558691 | 0) << 5 | o >>> 27) + u | 0) & g | u & ~g) + r[10] + 38016083 | 0) << 9 | m >>> 23) + o | 0) & u | o & ~u) + r[15] - 660478335 | 0) << 14 | g >>> 18) + m | 0) & o | m & ~o) + r[4] - 405537848 | 0) << 20 | u >>> 12) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u & m | g & ~m) + r[9] + 568446438 | 0) << 5 | o >>> 27) + u | 0) & g | u & ~g) + r[14] - 1019803690 | 0) << 9 | m >>> 23) + o | 0) & u | o & ~u) + r[3] - 187363961 | 0) << 14 | g >>> 18) + m | 0) & o | m & ~o) + r[8] + 1163531501 | 0) << 20 | u >>> 12) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u & m | g & ~m) + r[13] - 1444681467 | 0) << 5 | o >>> 27) + u | 0) & g | u & ~g) + r[2] - 51403784 | 0) << 9 | m >>> 23) + o | 0) & u | o & ~u) + r[7] + 1735328473 | 0) << 14 | g >>> 18) + m | 0) & o | m & ~o) + r[12] - 1926607734 | 0) << 20 | u >>> 12) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u ^ g ^ m) + r[5] - 378558 | 0) << 4 | o >>> 28) + u | 0) ^ u ^ g) + r[8] - 2022574463 | 0) << 11 | m >>> 21) + o | 0) ^ o ^ u) + r[11] + 1839030562 | 0) << 16 | g >>> 16) + m | 0) ^ m ^ o) + r[14] - 35309556 | 0) << 23 | u >>> 9) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u ^ g ^ m) + r[1] - 1530992060 | 0) << 4 | o >>> 28) + u | 0) ^ u ^ g) + r[4] + 1272893353 | 0) << 11 | m >>> 21) + o | 0) ^ o ^ u) + r[7] - 155497632 | 0) << 16 | g >>> 16) + m | 0) ^ m ^ o) + r[10] - 1094730640 | 0) << 23 | u >>> 9) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u ^ g ^ m) + r[13] + 681279174 | 0) << 4 | o >>> 28) + u | 0) ^ u ^ g) + r[0] - 358537222 | 0) << 11 | m >>> 21) + o | 0) ^ o ^ u) + r[3] - 722521979 | 0) << 16 | g >>> 16) + m | 0) ^ m ^ o) + r[6] + 76029189 | 0) << 23 | u >>> 9) + g | 0;
-        u = ((u += ((g = ((g += ((m = ((m += ((o = ((o += (u ^ g ^ m) + r[9] - 640364487 | 0) << 4 | o >>> 28) + u | 0) ^ u ^ g) + r[12] - 421815835 | 0) << 11 | m >>> 21) + o | 0) ^ o ^ u) + r[15] + 530742520 | 0) << 16 | g >>> 16) + m | 0) ^ m ^ o) + r[2] - 995338651 | 0) << 23 | u >>> 9) + g | 0;
-        u = ((u += ((m = ((m += (u ^ ((o = ((o += (g ^ (u | ~m)) + r[0] - 198630844 | 0) << 6 | o >>> 26) + u | 0) | ~g)) + r[7] + 1126891415 | 0) << 10 | m >>> 22) + o | 0) ^ ((g = ((g += (o ^ (m | ~u)) + r[14] - 1416354905 | 0) << 15 | g >>> 17) + m | 0) | ~o)) + r[5] - 57434055 | 0) << 21 | u >>> 11) + g | 0;
-        u = ((u += ((m = ((m += (u ^ ((o = ((o += (g ^ (u | ~m)) + r[12] + 1700485571 | 0) << 6 | o >>> 26) + u | 0) | ~g)) + r[3] - 1894986606 | 0) << 10 | m >>> 22) + o | 0) ^ ((g = ((g += (o ^ (m | ~u)) + r[10] - 1051523 | 0) << 15 | g >>> 17) + m | 0) | ~o)) + r[1] - 2054922799 | 0) << 21 | u >>> 11) + g | 0;
-        u = ((u += ((m = ((m += (u ^ ((o = ((o += (g ^ (u | ~m)) + r[8] + 1873313359 | 0) << 6 | o >>> 26) + u | 0) | ~g)) + r[15] - 30611744 | 0) << 10 | m >>> 22) + o | 0) ^ ((g = ((g += (o ^ (m | ~u)) + r[6] - 1560198380 | 0) << 15 | g >>> 17) + m | 0) | ~o)) + r[13] + 1309151649 | 0) << 21 | u >>> 11) + g | 0;
-        u = ((u += ((m = ((m += (u ^ ((o = ((o += (g ^ (u | ~m)) + r[4] - 145523070 | 0) << 6 | o >>> 26) + u | 0) | ~g)) + r[11] - 1120210379 | 0) << 10 | m >>> 22) + o | 0) ^ ((g = ((g += (o ^ (m | ~u)) + r[2] + 718787259 | 0) << 15 | g >>> 17) + m | 0) | ~o)) + r[9] - 343485551 | 0) << 21 | u >>> 11) + g | 0;
+        var o = s[0], u = s[1], g = s[2], _ = s[3];
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u & g | ~u & _) + r[0] - 680876936 | 0) << 7 | o >>> 25) + u | 0) & u | ~o & g) + r[1] - 389564586 | 0) << 12 | _ >>> 20) + o | 0) & o | ~_ & u) + r[2] + 606105819 | 0) << 17 | g >>> 15) + _ | 0) & _ | ~g & o) + r[3] - 1044525330 | 0) << 22 | u >>> 10) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u & g | ~u & _) + r[4] - 176418897 | 0) << 7 | o >>> 25) + u | 0) & u | ~o & g) + r[5] + 1200080426 | 0) << 12 | _ >>> 20) + o | 0) & o | ~_ & u) + r[6] - 1473231341 | 0) << 17 | g >>> 15) + _ | 0) & _ | ~g & o) + r[7] - 45705983 | 0) << 22 | u >>> 10) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u & g | ~u & _) + r[8] + 1770035416 | 0) << 7 | o >>> 25) + u | 0) & u | ~o & g) + r[9] - 1958414417 | 0) << 12 | _ >>> 20) + o | 0) & o | ~_ & u) + r[10] - 42063 | 0) << 17 | g >>> 15) + _ | 0) & _ | ~g & o) + r[11] - 1990404162 | 0) << 22 | u >>> 10) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u & g | ~u & _) + r[12] + 1804603682 | 0) << 7 | o >>> 25) + u | 0) & u | ~o & g) + r[13] - 40341101 | 0) << 12 | _ >>> 20) + o | 0) & o | ~_ & u) + r[14] - 1502002290 | 0) << 17 | g >>> 15) + _ | 0) & _ | ~g & o) + r[15] + 1236535329 | 0) << 22 | u >>> 10) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u & _ | g & ~_) + r[1] - 165796510 | 0) << 5 | o >>> 27) + u | 0) & g | u & ~g) + r[6] - 1069501632 | 0) << 9 | _ >>> 23) + o | 0) & u | o & ~u) + r[11] + 643717713 | 0) << 14 | g >>> 18) + _ | 0) & o | _ & ~o) + r[0] - 373897302 | 0) << 20 | u >>> 12) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u & _ | g & ~_) + r[5] - 701558691 | 0) << 5 | o >>> 27) + u | 0) & g | u & ~g) + r[10] + 38016083 | 0) << 9 | _ >>> 23) + o | 0) & u | o & ~u) + r[15] - 660478335 | 0) << 14 | g >>> 18) + _ | 0) & o | _ & ~o) + r[4] - 405537848 | 0) << 20 | u >>> 12) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u & _ | g & ~_) + r[9] + 568446438 | 0) << 5 | o >>> 27) + u | 0) & g | u & ~g) + r[14] - 1019803690 | 0) << 9 | _ >>> 23) + o | 0) & u | o & ~u) + r[3] - 187363961 | 0) << 14 | g >>> 18) + _ | 0) & o | _ & ~o) + r[8] + 1163531501 | 0) << 20 | u >>> 12) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u & _ | g & ~_) + r[13] - 1444681467 | 0) << 5 | o >>> 27) + u | 0) & g | u & ~g) + r[2] - 51403784 | 0) << 9 | _ >>> 23) + o | 0) & u | o & ~u) + r[7] + 1735328473 | 0) << 14 | g >>> 18) + _ | 0) & o | _ & ~o) + r[12] - 1926607734 | 0) << 20 | u >>> 12) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u ^ g ^ _) + r[5] - 378558 | 0) << 4 | o >>> 28) + u | 0) ^ u ^ g) + r[8] - 2022574463 | 0) << 11 | _ >>> 21) + o | 0) ^ o ^ u) + r[11] + 1839030562 | 0) << 16 | g >>> 16) + _ | 0) ^ _ ^ o) + r[14] - 35309556 | 0) << 23 | u >>> 9) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u ^ g ^ _) + r[1] - 1530992060 | 0) << 4 | o >>> 28) + u | 0) ^ u ^ g) + r[4] + 1272893353 | 0) << 11 | _ >>> 21) + o | 0) ^ o ^ u) + r[7] - 155497632 | 0) << 16 | g >>> 16) + _ | 0) ^ _ ^ o) + r[10] - 1094730640 | 0) << 23 | u >>> 9) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u ^ g ^ _) + r[13] + 681279174 | 0) << 4 | o >>> 28) + u | 0) ^ u ^ g) + r[0] - 358537222 | 0) << 11 | _ >>> 21) + o | 0) ^ o ^ u) + r[3] - 722521979 | 0) << 16 | g >>> 16) + _ | 0) ^ _ ^ o) + r[6] + 76029189 | 0) << 23 | u >>> 9) + g | 0;
+        u = ((u += ((g = ((g += ((_ = ((_ += ((o = ((o += (u ^ g ^ _) + r[9] - 640364487 | 0) << 4 | o >>> 28) + u | 0) ^ u ^ g) + r[12] - 421815835 | 0) << 11 | _ >>> 21) + o | 0) ^ o ^ u) + r[15] + 530742520 | 0) << 16 | g >>> 16) + _ | 0) ^ _ ^ o) + r[2] - 995338651 | 0) << 23 | u >>> 9) + g | 0;
+        u = ((u += ((_ = ((_ += (u ^ ((o = ((o += (g ^ (u | ~_)) + r[0] - 198630844 | 0) << 6 | o >>> 26) + u | 0) | ~g)) + r[7] + 1126891415 | 0) << 10 | _ >>> 22) + o | 0) ^ ((g = ((g += (o ^ (_ | ~u)) + r[14] - 1416354905 | 0) << 15 | g >>> 17) + _ | 0) | ~o)) + r[5] - 57434055 | 0) << 21 | u >>> 11) + g | 0;
+        u = ((u += ((_ = ((_ += (u ^ ((o = ((o += (g ^ (u | ~_)) + r[12] + 1700485571 | 0) << 6 | o >>> 26) + u | 0) | ~g)) + r[3] - 1894986606 | 0) << 10 | _ >>> 22) + o | 0) ^ ((g = ((g += (o ^ (_ | ~u)) + r[10] - 1051523 | 0) << 15 | g >>> 17) + _ | 0) | ~o)) + r[1] - 2054922799 | 0) << 21 | u >>> 11) + g | 0;
+        u = ((u += ((_ = ((_ += (u ^ ((o = ((o += (g ^ (u | ~_)) + r[8] + 1873313359 | 0) << 6 | o >>> 26) + u | 0) | ~g)) + r[15] - 30611744 | 0) << 10 | _ >>> 22) + o | 0) ^ ((g = ((g += (o ^ (_ | ~u)) + r[6] - 1560198380 | 0) << 15 | g >>> 17) + _ | 0) | ~o)) + r[13] + 1309151649 | 0) << 21 | u >>> 11) + g | 0;
+        u = ((u += ((_ = ((_ += (u ^ ((o = ((o += (g ^ (u | ~_)) + r[4] - 145523070 | 0) << 6 | o >>> 26) + u | 0) | ~g)) + r[11] - 1120210379 | 0) << 10 | _ >>> 22) + o | 0) ^ ((g = ((g += (o ^ (_ | ~u)) + r[2] + 718787259 | 0) << 15 | g >>> 17) + _ | 0) | ~o)) + r[9] - 343485551 | 0) << 21 | u >>> 11) + g | 0;
         s[0] = o + s[0] | 0;
         s[1] = u + s[1] | 0;
         s[2] = g + s[2] | 0;
-        s[3] = m + s[3] | 0;
+        s[3] = _ + s[3] | 0;
       }
       function md5blk(s) {
         var r, o = [];
@@ -1498,7 +1498,7 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         return o;
       }
       function md51(s) {
-        var r, o, u, g, m, _, b = s.length, w = [ 1732584193, -271733879, -1732584194, 271733878 ];
+        var r, o, u, g, _, m, b = s.length, w = [ 1732584193, -271733879, -1732584194, 271733878 ];
         for (r = 64; r <= b; r += 64) md5cycle(w, md5blk(s.substring(r - 64, r)));
         o = (s = s.substring(r - 64)).length;
         u = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
@@ -1509,10 +1509,10 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
           for (r = 0; r < 16; r += 1) u[r] = 0;
         }
         g = (g = 8 * b).toString(16).match(/(.*?)(.{0,8})$/);
-        m = parseInt(g[2], 16);
-        _ = parseInt(g[1], 16) || 0;
-        u[14] = m;
-        u[15] = _;
+        _ = parseInt(g[2], 16);
+        m = parseInt(g[1], 16) || 0;
+        u[14] = _;
+        u[15] = m;
         md5cycle(w, u);
         return w;
       }
@@ -1532,14 +1532,14 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
           if ((s = 0 | s || 0) < 0) return Math.max(s + r, 0); else return Math.min(s, r);
         }
         ArrayBuffer.prototype.slice = function(r, o) {
-          var u, g, m, _, b = this.byteLength, w = clamp(r, b), E = b;
+          var u, g, _, m, b = this.byteLength, w = clamp(r, b), E = b;
           if (o !== s) E = clamp(o, b);
           if (w > E) return new ArrayBuffer(0);
           u = E - w;
           g = new ArrayBuffer(u);
-          m = new Uint8Array(g);
-          _ = new Uint8Array(this, w, u);
-          m.set(_);
+          _ = new Uint8Array(g);
+          m = new Uint8Array(this, w, u);
+          _.set(m);
           return g;
         };
       })();
@@ -1568,9 +1568,9 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         return this;
       };
       SparkMD5.prototype.end = function(s) {
-        var r, o, u = this._buff, g = u.length, m = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
-        for (r = 0; r < g; r += 1) m[r >> 2] |= u.charCodeAt(r) << (r % 4 << 3);
-        this._finish(m, g);
+        var r, o, u = this._buff, g = u.length, _ = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+        for (r = 0; r < g; r += 1) _[r >> 2] |= u.charCodeAt(r) << (r % 4 << 3);
+        this._finish(_, g);
         o = hex(this._hash);
         if (s) o = hexToBinaryString(o);
         this.reset();
@@ -1601,11 +1601,11 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         delete this._length;
       };
       SparkMD5.prototype._finish = function(s, r) {
-        var o, u, g, m = r;
-        s[m >> 2] |= 128 << (m % 4 << 3);
-        if (m > 55) {
+        var o, u, g, _ = r;
+        s[_ >> 2] |= 128 << (_ % 4 << 3);
+        if (_ > 55) {
           md5cycle(this._hash, s);
-          for (m = 0; m < 16; m += 1) s[m] = 0;
+          for (_ = 0; _ < 16; _ += 1) s[_] = 0;
         }
         o = (o = 8 * this._length).toString(16).match(/(.*?)(.{0,8})$/);
         u = parseInt(o[2], 16);
@@ -1637,9 +1637,9 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         return this;
       };
       SparkMD5.ArrayBuffer.prototype.end = function(s) {
-        var r, o, u = this._buff, g = u.length, m = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
-        for (r = 0; r < g; r += 1) m[r >> 2] |= u[r] << (r % 4 << 3);
-        this._finish(m, g);
+        var r, o, u = this._buff, g = u.length, _ = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+        for (r = 0; r < g; r += 1) _[r >> 2] |= u[r] << (r % 4 << 3);
+        this._finish(_, g);
         o = hex(this._hash);
         if (s) o = hexToBinaryString(o);
         this.reset();
@@ -1660,9 +1660,9 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       };
       SparkMD5.ArrayBuffer.prototype.setState = function(s) {
         s.buff = function utf8Str2ArrayBuffer(s, r) {
-          var o, u = s.length, g = new ArrayBuffer(u), m = new Uint8Array(g);
-          for (o = 0; o < u; o += 1) m[o] = s.charCodeAt(o);
-          return r ? m : g;
+          var o, u = s.length, g = new ArrayBuffer(u), _ = new Uint8Array(g);
+          for (o = 0; o < u; o += 1) _[o] = s.charCodeAt(o);
+          return r ? _ : g;
         }(s.buff, true);
         return SparkMD5.prototype.setState.call(this, s);
       };
@@ -1670,7 +1670,7 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       SparkMD5.ArrayBuffer.prototype._finish = SparkMD5.prototype._finish;
       SparkMD5.ArrayBuffer.hash = function(s, r) {
         var o = function md51_array(s) {
-          var r, o, u, g, m, _, b = s.length, w = [ 1732584193, -271733879, -1732584194, 271733878 ];
+          var r, o, u, g, _, m, b = s.length, w = [ 1732584193, -271733879, -1732584194, 271733878 ];
           for (r = 64; r <= b; r += 64) md5cycle(w, md5blk_array(s.subarray(r - 64, r)));
           o = (s = r - 64 < b ? s.subarray(r - 64) : new Uint8Array(0)).length;
           u = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
@@ -1681,10 +1681,10 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
             for (r = 0; r < 16; r += 1) u[r] = 0;
           }
           g = (g = 8 * b).toString(16).match(/(.*?)(.{0,8})$/);
-          m = parseInt(g[2], 16);
-          _ = parseInt(g[1], 16) || 0;
-          u[14] = m;
-          u[15] = _;
+          _ = parseInt(g[2], 16);
+          m = parseInt(g[1], 16) || 0;
+          u[14] = _;
+          u[15] = m;
           md5cycle(w, u);
           return w;
         }(new Uint8Array(s)), u = hex(o);
@@ -1701,18 +1701,18 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
       r.push({
         obj: s
       });
-      for (var o, u, g, m, _, b, w, E, S, L, O = ""; o = r.pop(); ) {
+      for (var o, u, g, _, m, b, w, E, S, L, O = ""; o = r.pop(); ) {
         u = o.obj;
         O += o.prefix || "";
         if (g = o.val || "") O += g; else if ("object" != typeof u) O += "undefined" == typeof u ? null : JSON.stringify(u); else if (null === u) O += "null"; else if (Array.isArray(u)) {
           r.push({
             val: "]"
           });
-          for (m = u.length - 1; m >= 0; m--) {
-            _ = 0 === m ? "" : ",";
+          for (_ = u.length - 1; _ >= 0; _--) {
+            m = 0 === _ ? "" : ",";
             r.push({
-              obj: u[m],
-              prefix: _
+              obj: u[_],
+              prefix: m
             });
           }
           r.push({
@@ -1724,9 +1724,9 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
           r.push({
             val: "}"
           });
-          for (m = b.length - 1; m >= 0; m--) {
-            S = u[E = b[m]];
-            L = m > 0 ? "," : "";
+          for (_ = b.length - 1; _ >= 0; _--) {
+            S = u[E = b[_]];
+            L = _ > 0 ? "," : "";
             L += JSON.stringify(E) + ":";
             r.push({
               obj: S,
@@ -1746,11 +1746,11 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
         o.pop();
         u = o[o.length - 1];
       }
-      var g = u.element, m = u.index;
-      if (Array.isArray(g)) g.push(s); else if (m === r.length - 2) g[r.pop()] = s; else r.push(s);
+      var g = u.element, _ = u.index;
+      if (Array.isArray(g)) g.push(s); else if (_ === r.length - 2) g[r.pop()] = s; else r.push(s);
     }
     s.parse = function(s) {
-      for (var r, o, u, g, m, _, b, w, E, S = [], L = [], O = 0; ;) {
+      for (var r, o, u, g, _, m, b, w, E, S = [], L = [], O = 0; ;) {
         if ("}" === (r = s[O++]) || "]" === r || "undefined" == typeof r) if (1 === S.length) return S.pop(); else {
           pop2(S.pop(), S, L);
           continue;
@@ -1803,11 +1803,11 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
 
          case '"':
           g = "";
-          m = void 0;
-          _ = 0;
-          for (;'"' !== (b = s[O++]) || "\\" === m && _ % 2 == 1; ) {
+          _ = void 0;
+          m = 0;
+          for (;'"' !== (b = s[O++]) || "\\" === _ && m % 2 == 1; ) {
             g += b;
-            if ("\\" === (m = b)) _++; else _ = 0;
+            if ("\\" === (_ = b)) m++; else m = 0;
           }
           pop2(JSON.parse('"' + g + '"'), S, L);
           break;
@@ -1845,17 +1845,17 @@ var __create = Object.create, __defProp = Object.defineProperty, __getOwnPropDes
           let u = null;
           const g = "query" === r ? 1 : 0;
           if (o.length > g && "function" == typeof o[o.length - 1]) u = o.pop();
-          let m = s._originals[r].bind(s);
-          for (const o of s._handlers[r]) m = o.bind(s, m);
-          const _ = m(...o);
-          if (_.then && u) (function nodify(s, r) {
+          let _ = s._originals[r].bind(s);
+          for (const o of s._handlers[r]) _ = o.bind(s, _);
+          const m = _(...o);
+          if (m.then && u) (function nodify(s, r) {
             s.then(((...s) => {
               r(null, ...s);
             })).catch((s => {
               r(s);
             }));
-          })(_, u);
-          return _;
+          })(m, u);
+          return m;
         }
         if ("changes" !== r && s.taskqueue && !s.taskqueue.isReady) return new Promise(((r, o) => {
           s.taskqueue.addTask((s => {
@@ -2087,16 +2087,15 @@ var symbolFilePath = Symbol(), symbolFilePathWithPrefix = Symbol(), symbolId = S
   useIgnoreFiles: false,
   ignoreFiles: ".gitignore",
   syncOnEditorSave: false,
-  pluginSyncExtendedSetting: {},
-  useV1: void 0
+  pluginSyncExtendedSetting: {}
 }, PREFIXMD_LOGFILE = "LIVESYNC_LOG_", FLAGMD_REDFLAG = "redflag.md", FLAGMD_REDFLAG2 = "redflag2.md", FLAGMD_REDFLAG3 = "redflag3.md", SYNCINFO_ID = "syncinfo", SALT_OF_PASSPHRASE = "rHGMPtr6oWw7VSa3W3wpa8fT8U", PREFIX_OBFUSCATED = "f:", PREFIX_ENCRYPTED_CHUNK = "h:+", import_obsidian = require("obsidian"), import_obsidian2 = require("obsidian"), import_diff_match_patch = __toESM(require_diff_match_patch(), 1), normalizePath = import_obsidian2.normalizePath, PERIODIC_PLUGIN_SWEEP = 60, CHeader = "h:", PSCHeader = "ps:", ICHeader = "i:", ICHeaderEnd = "i;", ICHeaderLength = ICHeader.length, ICXHeader = "ix:", FileWatchEventQueueMax = 10, configURIBase = "obsidian://setuplivesync?settings=", LEVEL_INFO = LOG_LEVEL_INFO, defaultLoggerEnv = {
   minLogLevel: LOG_LEVEL_INFO
 }, defaultLogger = function defaultLogger2(s, r = LEVEL_INFO, o) {
   if (r < defaultLoggerEnv.minLogLevel) return;
   const u = (new Date).toLocaleString(), g = "string" == typeof s ? s : s instanceof Error ? `${s.name}:${s.message}` : JSON.stringify(s, null, 2);
   if (s instanceof Error) console.dir(s.stack);
-  const m = `${u}\t${r}\t${g}`;
-  console.log(m);
+  const _ = `${u}\t${r}\t${g}`;
+  console.log(_);
 }, _logger = defaultLogger;
 
 function setGlobalLogFunction(s) {
@@ -2192,30 +2191,30 @@ function Semaphore(s, r) {
       o = s;
     },
     _acquire(s, r, u) {
-      const m = makeUniqueString();
+      const _ = makeUniqueString();
       if (o < s) throw Error("Too big quantity");
       let notify = s => {};
-      const _ = new Promise((s => {
+      const m = new Promise((s => {
         notify = r => {
           if (r) s((() => {
-            release(m);
+            release(_);
           })); else s(false);
         };
       })), b = {
-        key: m,
+        key: _,
         notify,
-        semaphoreStopper: _,
+        semaphoreStopper: m,
         quantity: s,
         memo: r,
         state: "NONE"
       };
       if (u) b.timer = setTimeout((() => {
-        release(m);
+        release(_);
         notify(false);
       }), u);
       g.push(b);
       execProcess();
-      return _;
+      return m;
     },
     acquire(s = 1, r) {
       return this._acquire(s, null != r ? r : "", 0);
@@ -2245,7 +2244,7 @@ var table = {}, revTable = {};
   revTable[s] = r;
 }));
 
-var decoderStreamAvailable = "undefined" != typeof TextDecoderStream, BINARY_CHUNK_MAX = 31457280;
+var BINARY_CHUNK_MAX = 31457280;
 
 function hexStringToUint8Array(s) {
   const r = s.length / 2, o = new Uint8Array(r);
@@ -2267,9 +2266,9 @@ function atob_node(s) {
 
 var btoa2 = "undefined" != typeof window ? window.btoa : btoa_node, atob2 = "undefined" != typeof window ? window.atob : atob_node, QUANTUM = 32768, writeString = s => {
   const r = new Uint8Array(4 * s.length), o = s.length;
-  let u = 0, g = 0, m = 0;
-  for (;m < o; ) {
-    g = s.charCodeAt(m++);
+  let u = 0, g = 0, _ = 0;
+  for (;_ < o; ) {
+    g = s.charCodeAt(_++);
     if (g < 128) r[u++] = g; else if (g < 2048) {
       r[u++] = 192 | g >>> 6;
       r[u++] = 128 | 63 & g;
@@ -2278,7 +2277,7 @@ var btoa2 = "undefined" != typeof window ? window.btoa : btoa_node, atob2 = "und
       r[u++] = 128 | g >>> 6 & 63;
       r[u++] = 128 | 63 & g;
     } else {
-      g = 65536 + (g - 55296 << 10 | s.charCodeAt(m++) - 56320);
+      g = 65536 + (g - 55296 << 10 | s.charCodeAt(_++) - 56320);
       r[u++] = 240 | g >>> 18;
       r[u++] = 128 | g >>> 12 & 63;
       r[u++] = 128 | g >>> 6 & 63;
@@ -2291,8 +2290,8 @@ var btoa2 = "undefined" != typeof window ? window.btoa : btoa_node, atob2 = "und
   const o = s.length;
   let u = "";
   for (;r < o; ) {
-    const g = [], m = Math.min(r + QUANTUM, o);
-    for (;r < m; ) {
+    const g = [], _ = Math.min(r + QUANTUM, o);
+    for (;r < _; ) {
       const o = s[r++];
       if (o < 128) g.push(o); else if (192 == (224 & o)) g.push((31 & o) << 6 | 63 & s[r++]); else if (224 == (240 & o)) g.push((15 & o) << 12 | (63 & s[r++]) << 6 | 63 & s[r++]); else if (240 == (248 & o)) {
         let u = (7 & o) << 18 | (63 & s[r++]) << 12 | (63 & s[r++]) << 6 | 63 & s[r++];
@@ -2313,10 +2312,10 @@ function arrayBufferToBase64internalBrowser(s) {
       type: "application/octet-binary"
     }), g = new FileReader;
     g.onload = function(u) {
-      var g, m;
-      const _ = (null == (m = null == (g = u.target) ? void 0 : g.result) ? void 0 : m.toString()) || "";
-      if (0 != s.byteLength && ("" == _ || "data:" == _)) return o(new TypeError("Could not parse the encoded string"));
-      const b = _.substring(_.indexOf(",") + 1);
+      var g, _;
+      const m = (null == (_ = null == (g = u.target) ? void 0 : g.result) ? void 0 : _.toString()) || "";
+      if (0 != s.byteLength && ("" == m || "data:" == m)) return o(new TypeError("Could not parse the encoded string"));
+      const b = m.substring(m.indexOf(",") + 1);
       r(b);
     };
     g.readAsDataURL(u);
@@ -2375,6 +2374,8 @@ function base64ToArrayBufferInternalBrowser(s) {
     for (let s = 0; s < o; s++) u[s] = r.charCodeAt(s);
     return u.buffer;
   } catch (r) {
+    Logger("Base64 Decode error", LOG_LEVEL_VERBOSE);
+    Logger(r, LOG_LEVEL_VERBOSE);
     const o = s.length, u = new Uint8Array(o);
     for (let r = 0; r < o; r++) u[r] = s.charCodeAt(r);
     return u.buffer;
@@ -2397,9 +2398,9 @@ function* pickPiece(s, r) {
         if ("undefined" == typeof r) break t;
         o += r + (0 != s.length ? "\n" : "");
       } while (s.length > 0 && !(s[0].startsWith("```") || s[0].startsWith(" ```") || s[0].startsWith("  ```") || s[0].startsWith("   ```")));
-      const r = o.endsWith("="), g = o.length > 2048, m = s.shift();
-      if ("undefined" != typeof m) {
-        o += m;
+      const r = o.endsWith("="), g = o.length > 2048, _ = s.shift();
+      if ("undefined" != typeof _) {
+        o += _;
         o += 0 != s.length ? "\n" : "";
       }
       if (!r && !g) {
@@ -2417,27 +2418,12 @@ function* pickPiece(s, r) {
   } while (s.length > 0);
 }
 
-function totalSize(s) {
-  return s.reduce(((s, r) => s + r.length), 0);
-}
+var charNewLine = "\n".charCodeAt(0);
 
-var charNull = String.fromCharCode(table[0]), charNewLine = String.fromCharCode(table[13]);
-
-function splitPieces2(s, r, o, u, g, m) {
-  let _ = o ? "\n" : charNull;
-  if (g && g.endsWith(".pdf")) _ = "/";
-  const b = "string" == typeof s ? [ s ] : s;
-  if (!o && !m) {
-    const s = 1e5, r = 1e8;
-    let o = 1, g = Math.max(s, Math.min(r, totalSize(b)));
-    for (;g > 10; ) {
-      g /= 12.5;
-      o++;
-    }
-    u = Math.floor(10 ** (o - 1));
-  }
+function splitPiecesText(s, r, o, u) {
+  const g = "string" == typeof s ? [ s ] : s;
   return function* pieces() {
-    for (const s of b) if (o) {
+    for (const s of g) if (o) {
       const o = pickPiece(s.split("\n"), u);
       for (const s of o) {
         let o = s;
@@ -2451,20 +2437,38 @@ function splitPieces2(s, r, o, u, g, m) {
     } else {
       let o = s;
       do {
-        let s = r;
-        if (!m) {
-          let g = o.indexOf(_, u);
-          if (-1 == g) g = o.indexOf(charNewLine, u);
-          s = -1 == g ? r : Math.min(r, g);
-        }
-        let g = o.substring(0, s);
+        const s = r, u = o.substring(0, s);
         o = o.substring(s);
-        if (m) yield g; else for (;"" != g; ) {
-          yield g.substring(0, r);
-          g = g.substring(r);
-        }
+        yield u;
       } while ("" != o);
     }
+  };
+}
+
+async function splitPieces2(s, r, o, u, g) {
+  const _ = !(s instanceof Blob) ? createTextBlob(s) : s;
+  if (o) return splitPiecesText(await _.text(), r, o, u);
+  let m = 0;
+  if (g && g.endsWith(".pdf")) m = "/".charCodeAt(0);
+  let b = 1, w = Math.max(1e5, Math.min(1e8, _.size));
+  for (;w > 10; ) {
+    w /= 12.5;
+    b++;
+  }
+  u = Math.floor(10 ** (b - 1));
+  return async function* piecesBlob() {
+    const s = _.size;
+    let o = 0;
+    do {
+      let s = r;
+      const g = new Uint8Array(await _.slice(o, o + r).arrayBuffer());
+      let b = g.indexOf(m, u);
+      s = -1 == b ? r : Math.min(r, b);
+      if (-1 == b) b = g.indexOf(charNewLine, u);
+      const w = g.slice(0, s);
+      o += w.length;
+      yield await arrayBufferToBase64Single(w);
+    } while (o < s);
   };
 }
 
@@ -2508,57 +2512,15 @@ function crc32CKHash(s) {
   const u = "s0" + s + "\t" + s.length;
   let g = u.length;
   for (;--g; ) {
-    const s = u.charCodeAt(g), m = 255 & s, _ = s >> 8;
-    r = r >>> 8 ^ crc32cTable[255 & (r ^ m)];
+    const s = u.charCodeAt(g), _ = 255 & s, m = s >> 8;
     r = r >>> 8 ^ crc32cTable[255 & (r ^ _)];
-    o = o >>> 8 ^ crc32kTable[255 & (o ^ m)];
+    r = r >>> 8 ^ crc32cTable[255 & (r ^ m)];
     o = o >>> 8 ^ crc32kTable[255 & (o ^ _)];
+    o = o >>> 8 ^ crc32kTable[255 & (o ^ m)];
   }
   r ^= 4294967295;
   o ^= 4294967295;
   return r.toString(32) + "-" + o.toString(32);
-}
-
-async function _encodeBinary(s) {
-  const r = s.length;
-  if (r < BINARY_CHUNK_MAX) return [ await encodeBinaryEach(s) ];
-  const o = [];
-  for (let u = 0; u < r; u += BINARY_CHUNK_MAX) o.push(encodeBinaryEach(s.subarray(u, u + BINARY_CHUNK_MAX)));
-  return Promise.all(o);
-}
-
-async function decodeAsync(s) {
-  if (0 == s.length) return "";
-  if (!decoderStreamAvailable) return await decodeAsyncReader(s);
-  const r = new TextDecoderStream("utf-16"), o = r.writable.getWriter();
-  o.write(s);
-  o.close();
-  const u = r.readable.getReader(), g = await u.read();
-  if (!g.value) throw new Error("UTF-16 Parse error");
-  return g.value;
-}
-
-function decodeAsyncReader(s) {
-  return new Promise(((r, o) => {
-    const u = new Blob([ s ], {
-      type: "application/octet-binary"
-    }), g = new FileReader;
-    g.onload = function(s) {
-      var u;
-      const g = null == (u = s.target) ? void 0 : u.result;
-      if (!g) return o("UTF-16 Parse error"); else return r(g);
-    };
-    g.readAsText(u, "utf-16");
-  }));
-}
-
-async function encodeBinaryEach(s) {
-  const r = s.byteLength, o = new Uint16Array(s);
-  for (let u = 0; u < r; u++) {
-    const r = s[u];
-    if (r >= 38 && r <= 126 && 58 != r) ; else o[u] = table[r];
-  }
-  return await decodeAsync(o);
 }
 
 function decodeToArrayBuffer(s) {
@@ -2591,10 +2553,8 @@ function decodeBinary(s) {
   return base64ToArrayBuffer(s);
 }
 
-async function encodeBinary(s, r) {
-  if (r) return await arrayBufferToBase64(s);
-  const o = s instanceof ArrayBuffer ? new Uint8Array(s) : s, [u, ...g] = await _encodeBinary(o);
-  return [ "%" + u, ...g ];
+async function encodeBinary(s) {
+  return await arrayBufferToBase64(s);
 }
 
 var webcrypto, import_crypto = require("crypto");
@@ -2613,14 +2573,14 @@ async function getKeyForEncrypt(s, r) {
     if (u.count > 0) return [ u.key, u.salt ];
     u.count--;
   }
-  const g = 15 - s.length, m = r ? 1e3 * (g > 0 ? g : 0) + 121 - g : 1e5, _ = (new TextEncoder).encode(s), b = await webcrypto.subtle.digest({
+  const g = 15 - s.length, _ = r ? 1e3 * (g > 0 ? g : 0) + 121 - g : 1e5, m = (new TextEncoder).encode(s), b = await webcrypto.subtle.digest({
     name: "SHA-256"
-  }, _), w = await webcrypto.subtle.importKey("raw", b, {
+  }, m), w = await webcrypto.subtle.importKey("raw", b, {
     name: "PBKDF2"
   }, false, [ "deriveKey" ]), E = webcrypto.getRandomValues(new Uint8Array(16)), S = await webcrypto.subtle.deriveKey({
     name: "PBKDF2",
     salt: E,
-    iterations: m,
+    iterations: _,
     hash: "SHA-256"
   }, w, {
     name: "AES-GCM",
@@ -2651,14 +2611,14 @@ async function getKeyForDecryption(s, r, o) {
     g.count = decKeyIdx;
     return [ g.key, g.salt ];
   }
-  const m = 15 - s.length, _ = o ? 1e3 * (m > 0 ? m : 0) + 121 - m : 1e5, b = (new TextEncoder).encode(s), w = await webcrypto.subtle.digest({
+  const _ = 15 - s.length, m = o ? 1e3 * (_ > 0 ? _ : 0) + 121 - _ : 1e5, b = (new TextEncoder).encode(s), w = await webcrypto.subtle.digest({
     name: "SHA-256"
   }, b), E = await webcrypto.subtle.importKey("raw", w, {
     name: "PBKDF2"
   }, false, [ "deriveKey" ]), S = await webcrypto.subtle.deriveKey({
     name: "PBKDF2",
     salt: r,
-    iterations: _,
+    iterations: m,
     hash: "SHA-256"
   }, E, {
     name: "AES-GCM",
@@ -2682,29 +2642,20 @@ function getNonce() {
   return nonceBuffer;
 }
 
-async function encryptV1(s, r, o) {
-  const [u, g] = await getKeyForEncrypt(r, o), m = getSemiStaticField(), _ = getNonce(), b = new Uint8Array([ ...m, ...new Uint8Array(_.buffer) ]), w = JSON.stringify(s), E = writeString(w), S = await webcrypto.subtle.encrypt({
+async function encrypt(s, r, o) {
+  const [u, g] = await getKeyForEncrypt(r, o), _ = getSemiStaticField(), m = getNonce(), b = new Uint8Array([ ..._, ...new Uint8Array(m.buffer) ]), w = writeString(s), E = await webcrypto.subtle.encrypt({
     name: "AES-GCM",
     iv: b
-  }, u, E);
-  return `["${await arrayBufferToBase64Single(S)}","${uint8ArrayToHexString(b)}","${uint8ArrayToHexString(g)}"]`;
-}
-
-async function encrypt(s, r, o, u) {
-  if (u) return encryptV1(s, r, o);
-  const [g, m] = await getKeyForEncrypt(r, o), _ = getSemiStaticField(), b = getNonce(), w = new Uint8Array([ ..._, ...new Uint8Array(b.buffer) ]), E = writeString(s), S = await webcrypto.subtle.encrypt({
-    name: "AES-GCM",
-    iv: w
-  }, g, E), L = "%" + await encodeBinaryEach(new Uint8Array(S));
-  return `%${uint8ArrayToHexString(w)}${uint8ArrayToHexString(m)}${L}`;
+  }, u, w), S = "" + await arrayBufferToBase64Single(new Uint8Array(E));
+  return `%${uint8ArrayToHexString(b)}${uint8ArrayToHexString(g)}${S}`;
 }
 
 async function getKeyForObfuscatePath(s, r, o) {
-  const u = 15 - s.length, g = o ? 1e3 * (u > 0 ? u : 0) + 121 - u : 1e5, m = (new TextEncoder).encode(s), _ = await webcrypto.subtle.digest({
+  const u = 15 - s.length, g = o ? 1e3 * (u > 0 ? u : 0) + 121 - u : 1e5, _ = (new TextEncoder).encode(s), m = await webcrypto.subtle.digest({
     name: "SHA-256"
-  }, m), b = new Uint8Array(await webcrypto.subtle.digest({
+  }, _), b = new Uint8Array(await webcrypto.subtle.digest({
     name: "SHA-256"
-  }, new Uint8Array([ ...r, ...m ]))), w = b.slice(0, 16), E = b.slice(16, 32), S = await webcrypto.subtle.importKey("raw", _, {
+  }, new Uint8Array([ ...r, ..._ ]))), w = b.slice(0, 16), E = b.slice(16, 32), S = await webcrypto.subtle.importKey("raw", m, {
     name: "PBKDF2"
   }, false, [ "deriveKey" ]);
   return [ await webcrypto.subtle.deriveKey({
@@ -2719,19 +2670,19 @@ async function getKeyForObfuscatePath(s, r, o) {
 }
 
 async function obfuscatePath(s, r, o) {
-  const u = writeString(s), [g, m, _] = await getKeyForObfuscatePath(r, u, o), b = await webcrypto.subtle.encrypt({
+  const u = writeString(s), [g, _, m] = await getKeyForObfuscatePath(r, u, o), b = await webcrypto.subtle.encrypt({
     name: "AES-GCM",
-    iv: _
-  }, g, u), w = "%" + await encodeBinaryEach(new Uint8Array(b));
-  return `%${uint8ArrayToHexString(_)}${uint8ArrayToHexString(m)}${w}`;
+    iv: m
+  }, g, u), w = await arrayBufferToBase64Single(new Uint8Array(b));
+  return `%${uint8ArrayToHexString(m)}${uint8ArrayToHexString(_)}${w}`;
 }
 
 async function decryptV2(s, r, o) {
   try {
-    const u = s.substring(1, 33), g = s.substring(33, 65), m = s.substring(65), [_] = await getKeyForDecryption(r, hexStringToUint8Array(g), o), b = hexStringToUint8Array(u), w = decodeBinary(m), E = await webcrypto.subtle.decrypt({
+    const u = s.substring(1, 33), g = s.substring(33, 65), _ = s.substring(65), [m] = await getKeyForDecryption(r, hexStringToUint8Array(g), o), b = hexStringToUint8Array(u), w = decodeBinary(_), E = await webcrypto.subtle.decrypt({
       name: "AES-GCM",
       iv: b
-    }, _, w);
+    }, m, w);
     return readString(new Uint8Array(E));
   } catch (s) {
     Logger("Couldn't decode! You should wrong the passphrases (V2)", LOG_LEVEL_VERBOSE);
@@ -2744,7 +2695,7 @@ async function decrypt(s, r, o) {
   try {
     if ("%" == s[0]) return decryptV2(s, r, o);
     if (!s.startsWith("[") || !s.endsWith("]")) throw new Error("Encrypted data corrupted!");
-    const u = s.substring(1, s.length - 1).split(",").map((s => '"' == s[0] ? s.substring(1, s.length - 1) : s)), [g, m, _] = u, [b] = await getKeyForDecryption(r, hexStringToUint8Array(_), o), w = hexStringToUint8Array(m), E = atob2(g), S = E.length, L = new Uint8Array(S);
+    const u = s.substring(1, s.length - 1).split(",").map((s => '"' == s[0] ? s.substring(1, s.length - 1) : s)), [g, _, m] = u, [b] = await getKeyForDecryption(r, hexStringToUint8Array(m), o), w = hexStringToUint8Array(_), E = atob2(g), S = E.length, L = new Uint8Array(S);
     for (let s = S; s >= 0; --s) L[s] = E.charCodeAt(s);
     const O = await webcrypto.subtle.decrypt({
       name: "AES-GCM",
@@ -2768,8 +2719,8 @@ async function tryDecrypt(s, r, o) {
 }
 
 async function testCrypt() {
-  const s = "supercalifragilisticexpialidocious", r = await encrypt(s, "passwordTest", false, false), o = await encrypt(s, "passwordTest", false, true), u = await decrypt(r, "passwordTest", false), g = await decrypt(o, "passwordTest", false);
-  if (s != u || s != g) {
+  const s = "supercalifragilisticexpialidocious", r = await encrypt(s, "passwordTest", false);
+  if (s != await decrypt(r, "passwordTest", false)) {
     Logger("WARNING! Your device would not support encryption.", LOG_LEVEL_VERBOSE);
     return false;
   } else {
@@ -2939,13 +2890,13 @@ async function _runWithLock(s, r, o, u) {
   })));
   const g = mutexes.get(s);
   if (1 != o) g.setLimit(o);
-  const m = r == LOCKMODE_SKIP ? 1 : 0, _ = await g.tryAcquire(1, m, s);
+  const _ = r == LOCKMODE_SKIP ? 1 : 0, m = await g.tryAcquire(1, _, s);
   updateStore();
-  if (!_) return null;
+  if (!m) return null;
   try {
     return await u();
   } finally {
-    _();
+    m();
     notifyLock();
     updateStore();
   }
@@ -2986,48 +2937,48 @@ var _root, _hasMagic, _uflag, _parts, _parent, _parentIndex, _negs, _filledNegs,
   const o = r;
   if ("[" !== s.charAt(o)) throw new Error("not in a brace expression");
   const u = [], g = [];
-  let m = o + 1, _ = false, b = false, w = false, E = false, S = o, L = "";
-  e: for (;m < s.length; ) {
-    const r = s.charAt(m);
-    if ("!" !== r && "^" !== r || m !== o + 1) {
-      if ("]" === r && _ && !w) {
-        S = m + 1;
+  let _ = o + 1, m = false, b = false, w = false, E = false, S = o, L = "";
+  e: for (;_ < s.length; ) {
+    const r = s.charAt(_);
+    if ("!" !== r && "^" !== r || _ !== o + 1) {
+      if ("]" === r && m && !w) {
+        S = _ + 1;
         break;
       }
-      _ = true;
+      m = true;
       if ("\\" === r) if (!w) {
         w = true;
-        m++;
+        _++;
         continue;
       }
-      if ("[" === r && !w) for (const [r, [_, w, E]] of Object.entries(posixClasses)) if (s.startsWith(r, m)) {
+      if ("[" === r && !w) for (const [r, [m, w, E]] of Object.entries(posixClasses)) if (s.startsWith(r, _)) {
         if (L) return [ "$.", false, s.length - o, true ];
-        m += r.length;
-        if (E) g.push(_); else u.push(_);
+        _ += r.length;
+        if (E) g.push(m); else u.push(m);
         b = b || w;
         continue e;
       }
       w = false;
-      if (!L) if (!s.startsWith("-]", m + 1)) if (!s.startsWith("-", m + 1)) {
+      if (!L) if (!s.startsWith("-]", _ + 1)) if (!s.startsWith("-", _ + 1)) {
         u.push(braceEscape(r));
-        m++;
+        _++;
       } else {
         L = r;
-        m += 2;
+        _ += 2;
       } else {
         u.push(braceEscape(r + "-"));
-        m += 2;
+        _ += 2;
       } else {
         if (r > L) u.push(braceEscape(L) + "-" + braceEscape(r)); else if (r === L) u.push(braceEscape(r));
         L = "";
-        m++;
+        _++;
       }
     } else {
       E = true;
-      m++;
+      _++;
     }
   }
-  if (S < m) return [ "", false, 0, false ];
+  if (S < _) return [ "", false, 0, false ];
   if (!u.length && !g.length) return [ "$.", false, s.length - o, true ];
   if (0 === g.length && 1 === u.length && /^\\?.$/.test(u[0]) && !E) {
     const s = 2 === u[0].length ? u[0].slice(-1) : u[0];
@@ -3121,8 +3072,8 @@ var _root, _hasMagic, _uflag, _parts, _parent, _parentIndex, _negs, _filledNegs,
     if (this !== __privateGet(this, _root)) return __privateGet(this, _root).toMMPattern();
     const s = this.toString(), [r, o, u, g] = this.toRegExpSource();
     if (!(u || __privateGet(this, _hasMagic) || __privateGet(this, _options).nocase && !__privateGet(this, _options).nocaseMagicOnly && s.toUpperCase() !== s.toLowerCase())) return o;
-    const m = (__privateGet(this, _options).nocase ? "i" : "") + (g ? "u" : "");
-    return Object.assign(new RegExp(`^${r}$`, m), {
+    const _ = (__privateGet(this, _options).nocase ? "i" : "") + (g ? "u" : "");
+    return Object.assign(new RegExp(`^${r}$`, _), {
       _src: r,
       _glob: s
     });
@@ -3134,35 +3085,35 @@ var _root, _hasMagic, _uflag, _parts, _parent, _parentIndex, _negs, _filledNegs,
     if (!this.type) {
       const u = this.isStart() && this.isEnd(), g = __privateGet(this, _parts).map((r => {
         var o;
-        const [g, m, _, b] = "string" == typeof r ? __privateMethod(o = _AST, _parseGlob, parseGlob_fn).call(o, r, __privateGet(this, _hasMagic), u) : r.toRegExpSource(s);
-        __privateSet(this, _hasMagic, __privateGet(this, _hasMagic) || _);
+        const [g, _, m, b] = "string" == typeof r ? __privateMethod(o = _AST, _parseGlob, parseGlob_fn).call(o, r, __privateGet(this, _hasMagic), u) : r.toRegExpSource(s);
+        __privateSet(this, _hasMagic, __privateGet(this, _hasMagic) || m);
         __privateSet(this, _uflag, __privateGet(this, _uflag) || b);
         return g;
       })).join("");
-      let m = "";
-      if (this.isStart()) if ("string" == typeof __privateGet(this, _parts)[0]) if (!(1 === __privateGet(this, _parts).length && justDots.has(__privateGet(this, _parts)[0]))) {
-        const r = addPatternStart, u = o && r.has(g.charAt(0)) || g.startsWith("\\.") && r.has(g.charAt(2)) || g.startsWith("\\.\\.") && r.has(g.charAt(4)), _ = !o && !s && r.has(g.charAt(0));
-        m = u ? startNoTraversal : _ ? startNoDot : "";
-      }
       let _ = "";
-      if (this.isEnd() && __privateGet(__privateGet(this, _root), _filledNegs) && "!" === (null == (r = __privateGet(this, _parent)) ? void 0 : r.type)) _ = "(?:$|\\/)";
-      return [ m + g + _, unescape2(g), __privateSet(this, _hasMagic, !!__privateGet(this, _hasMagic)), __privateGet(this, _uflag) ];
+      if (this.isStart()) if ("string" == typeof __privateGet(this, _parts)[0]) if (!(1 === __privateGet(this, _parts).length && justDots.has(__privateGet(this, _parts)[0]))) {
+        const r = addPatternStart, u = o && r.has(g.charAt(0)) || g.startsWith("\\.") && r.has(g.charAt(2)) || g.startsWith("\\.\\.") && r.has(g.charAt(4)), m = !o && !s && r.has(g.charAt(0));
+        _ = u ? startNoTraversal : m ? startNoDot : "";
+      }
+      let m = "";
+      if (this.isEnd() && __privateGet(__privateGet(this, _root), _filledNegs) && "!" === (null == (r = __privateGet(this, _parent)) ? void 0 : r.type)) m = "(?:$|\\/)";
+      return [ _ + g + m, unescape2(g), __privateSet(this, _hasMagic, !!__privateGet(this, _hasMagic)), __privateGet(this, _uflag) ];
     }
     const u = "*" === this.type || "+" === this.type, g = "!" === this.type ? "(?:(?!(?:" : "(?:";
-    let m = __privateMethod(this, _partsToRegExp, partsToRegExp_fn).call(this, o);
-    if (this.isStart() && this.isEnd() && !m && "!" !== this.type) {
+    let _ = __privateMethod(this, _partsToRegExp, partsToRegExp_fn).call(this, o);
+    if (this.isStart() && this.isEnd() && !_ && "!" !== this.type) {
       const s = this.toString();
       __privateSet(this, _parts, [ s ]);
       this.type = null;
       __privateSet(this, _hasMagic, void 0);
       return [ s, unescape2(this.toString()), false, false ];
     }
-    let _ = !u || s || o || !startNoDot ? "" : __privateMethod(this, _partsToRegExp, partsToRegExp_fn).call(this, true);
-    if (_ === m) _ = "";
-    if (_) m = `(?:${m})(?:${_})*?`;
+    let m = !u || s || o || !startNoDot ? "" : __privateMethod(this, _partsToRegExp, partsToRegExp_fn).call(this, true);
+    if (m === _) m = "";
+    if (m) _ = `(?:${_})(?:${m})*?`;
     let b = "";
-    if ("!" === this.type && __privateGet(this, _emptyExt)) b = (this.isStart() && !o ? startNoDot : "") + starNoEmpty; else b = g + m + ("!" === this.type ? "))" + (this.isStart() && !o && !s ? startNoDot : "") + star + ")" : "@" === this.type ? ")" : "?" === this.type ? ")?" : "+" === this.type && _ ? ")" : "*" === this.type && _ ? ")?" : `)${this.type}`);
-    return [ b, unescape2(m), __privateSet(this, _hasMagic, !!__privateGet(this, _hasMagic)), __privateGet(this, _uflag) ];
+    if ("!" === this.type && __privateGet(this, _emptyExt)) b = (this.isStart() && !o ? startNoDot : "") + starNoEmpty; else b = g + _ + ("!" === this.type ? "))" + (this.isStart() && !o && !s ? startNoDot : "") + star + ")" : "@" === this.type ? ")" : "?" === this.type ? ")?" : "+" === this.type && m ? ")" : "*" === this.type && m ? ")?" : `)${this.type}`);
+    return [ b, unescape2(_), __privateSet(this, _hasMagic, !!__privateGet(this, _hasMagic)), __privateGet(this, _uflag) ];
   }
 };
 
@@ -3214,46 +3165,46 @@ fillNegs_fn = function() {
 _parseAST = new WeakSet;
 
 parseAST_fn = function(s, r, o, u) {
-  var g, m;
-  let _ = false, b = false, w = -1, E = false;
+  var g, _;
+  let m = false, b = false, w = -1, E = false;
   if (null === r.type) {
-    let m = o, S = "";
-    for (;m < s.length; ) {
-      const o = s.charAt(m++);
-      if (!_ && "\\" !== o) if (!b) {
+    let _ = o, S = "";
+    for (;_ < s.length; ) {
+      const o = s.charAt(_++);
+      if (!m && "\\" !== o) if (!b) {
         if ("[" === o) {
           b = true;
-          w = m;
+          w = _;
           E = false;
           S += o;
           continue;
         }
-        if (u.noext || !isExtglobType(o) || "(" !== s.charAt(m)) S += o; else {
+        if (u.noext || !isExtglobType(o) || "(" !== s.charAt(_)) S += o; else {
           r.push(S);
           S = "";
-          const _ = new _AST(o, r);
-          m = __privateMethod(g = _AST, _parseAST, parseAST_fn).call(g, s, _, m, u);
-          r.push(_);
+          const m = new _AST(o, r);
+          _ = __privateMethod(g = _AST, _parseAST, parseAST_fn).call(g, s, m, _, u);
+          r.push(m);
         }
       } else {
-        if (m === w + 1) {
+        if (_ === w + 1) {
           if ("^" === o || "!" === o) E = true;
-        } else if ("]" === o && !(m === w + 2 && E)) b = false;
+        } else if ("]" === o && !(_ === w + 2 && E)) b = false;
         S += o;
       } else {
-        _ = !_;
+        m = !m;
         S += o;
       }
     }
     r.push(S);
-    return m;
+    return _;
   }
   let S = o + 1, L = new _AST(null, r);
   const O = [];
   let D = "";
   for (;S < s.length; ) {
     const o = s.charAt(S++);
-    if (!_ && "\\" !== o) if (!b) {
+    if (!m && "\\" !== o) if (!b) {
       if ("[" === o) {
         b = true;
         w = S;
@@ -3280,7 +3231,7 @@ parseAST_fn = function(s, r, o, u) {
         D = "";
         const r = new _AST(o, L);
         L.push(r);
-        S = __privateMethod(m = _AST, _parseAST, parseAST_fn).call(m, s, r, S, u);
+        S = __privateMethod(_ = _AST, _parseAST, parseAST_fn).call(_, s, r, S, u);
       }
     } else {
       if (S === w + 1) {
@@ -3288,7 +3239,7 @@ parseAST_fn = function(s, r, o, u) {
       } else if ("]" === o && !(S === w + 2 && E)) b = false;
       D += o;
     } else {
-      _ = !_;
+      m = !m;
       D += o;
     }
   }
@@ -3303,8 +3254,8 @@ _partsToRegExp = new WeakSet;
 partsToRegExp_fn = function(s) {
   return __privateGet(this, _parts).map((r => {
     if ("string" == typeof r) throw new Error("string type in extglob ast??");
-    const [o, u, g, m] = r.toRegExpSource(s);
-    __privateSet(this, _uflag, __privateGet(this, _uflag) || m);
+    const [o, u, g, _] = r.toRegExpSource(s);
+    __privateSet(this, _uflag, __privateGet(this, _uflag) || _);
     return o;
   })).filter((s => !(this.isStart() && this.isEnd() && !s))).join("|");
 };
@@ -3312,16 +3263,16 @@ partsToRegExp_fn = function(s) {
 _parseGlob = new WeakSet;
 
 parseGlob_fn = function(s, r, o = false) {
-  let u = false, g = "", m = false;
-  for (let _ = 0; _ < s.length; _++) {
-    const b = s.charAt(_);
+  let u = false, g = "", _ = false;
+  for (let m = 0; m < s.length; m++) {
+    const b = s.charAt(m);
     if (!u) if ("\\" !== b) {
       if ("[" === b) {
-        const [o, u, b, w] = parseClass(s, _);
+        const [o, u, b, w] = parseClass(s, m);
         if (b) {
           g += o;
-          m = m || u;
-          _ += b - 1;
+          _ = _ || u;
+          m += b - 1;
           r = r || w;
           continue;
         }
@@ -3333,12 +3284,12 @@ parseGlob_fn = function(s, r, o = false) {
         if (o && "*" === s) g += starNoEmpty; else g += star;
         r = true;
       }
-    } else if (_ === s.length - 1) g += "\\\\"; else u = true; else {
+    } else if (m === s.length - 1) g += "\\\\"; else u = true; else {
       u = false;
       g += (reSpecials.has(b) ? "\\" : "") + b;
     }
   }
-  return [ g, unescape2(s), !!r, m ];
+  return [ g, unescape2(s), !!r, _ ];
 };
 
 __privateAdd(_AST, _parseAST);
@@ -3601,10 +3552,10 @@ var globMagic = /[?*]|[+@!]\(.*?\)|\[|\]/, regExpEscape2 = s => s.replace(/[-[\]
           let g = u;
           for (;"**" === o[g + 1]; ) g++;
           if (g > u) o.splice(u + 1, g - u);
-          let m = o[u + 1];
-          const _ = o[u + 2], b = o[u + 3];
-          if (".." !== m) continue;
-          if (!_ || "." === _ || ".." === _ || !b || "." === b || ".." === b) continue;
+          let _ = o[u + 1];
+          const m = o[u + 2], b = o[u + 3];
+          if (".." !== _) continue;
+          if (!m || "." === m || ".." === m || !b || "." === b || ".." === b) continue;
           r = true;
           o.splice(u, 1);
           const w = o.slice(0);
@@ -3652,31 +3603,31 @@ var globMagic = /[?*]|[+@!]\(.*?\)|\[|\]/, regExpEscape2 = s => s.replace(/[-[\]
     return s.filter((s => s.length));
   }
   partsMatch(s, r, o = false) {
-    let u = 0, g = 0, m = [], _ = "";
+    let u = 0, g = 0, _ = [], m = "";
     for (;u < s.length && g < r.length; ) if (s[u] === r[g]) {
-      m.push("b" === _ ? r[g] : s[u]);
+      _.push("b" === m ? r[g] : s[u]);
       u++;
       g++;
     } else if (o && "**" === s[u] && r[g] === s[u + 1]) {
-      m.push(s[u]);
+      _.push(s[u]);
       u++;
     } else if (o && "**" === r[g] && s[u] === r[g + 1]) {
-      m.push(r[g]);
+      _.push(r[g]);
       g++;
     } else if ("*" === s[u] && r[g] && (this.options.dot || !r[g].startsWith(".")) && "**" !== r[g]) {
-      if ("b" === _) return false;
-      _ = "a";
-      m.push(s[u]);
+      if ("b" === m) return false;
+      m = "a";
+      _.push(s[u]);
       u++;
       g++;
     } else if ("*" === r[g] && s[u] && (this.options.dot || !s[u].startsWith(".")) && "**" !== s[u]) {
-      if ("a" === _) return false;
-      _ = "b";
-      m.push(r[g]);
+      if ("a" === m) return false;
+      m = "b";
+      _.push(r[g]);
       u++;
       g++;
     } else return false;
-    return s.length === r.length && m;
+    return s.length === r.length && _;
   }
   parseNegate() {
     if (this.nonegate) return;
@@ -3692,12 +3643,12 @@ var globMagic = /[?*]|[+@!]\(.*?\)|\[|\]/, regExpEscape2 = s => s.replace(/[-[\]
   matchOne(s, r, o = false) {
     const u = this.options;
     if (this.isWindows) {
-      const o = "string" == typeof s[0] && /^[a-z]:$/i.test(s[0]), u = !o && "" === s[0] && "" === s[1] && "?" === s[2] && /^[a-z]:$/i.test(s[3]), g = "string" == typeof r[0] && /^[a-z]:$/i.test(r[0]), m = u ? 3 : o ? 0 : void 0, _ = !g && "" === r[0] && "" === r[1] && "?" === r[2] && "string" == typeof r[3] && /^[a-z]:$/i.test(r[3]) ? 3 : g ? 0 : void 0;
-      if ("number" == typeof m && "number" == typeof _) {
-        const [o, u] = [ s[m], r[_] ];
+      const o = "string" == typeof s[0] && /^[a-z]:$/i.test(s[0]), u = !o && "" === s[0] && "" === s[1] && "?" === s[2] && /^[a-z]:$/i.test(s[3]), g = "string" == typeof r[0] && /^[a-z]:$/i.test(r[0]), _ = u ? 3 : o ? 0 : void 0, m = !g && "" === r[0] && "" === r[1] && "?" === r[2] && "string" == typeof r[3] && /^[a-z]:$/i.test(r[3]) ? 3 : g ? 0 : void 0;
+      if ("number" == typeof _ && "number" == typeof m) {
+        const [o, u] = [ s[_], r[m] ];
         if (o.toLowerCase() === u.toLowerCase()) {
-          r[_] = o;
-          if (_ > m) r = r.slice(_); else if (m > _) s = s.slice(m);
+          r[m] = o;
+          if (m > _) r = r.slice(m); else if (_ > m) s = s.slice(_);
         }
       }
     }
@@ -3708,17 +3659,17 @@ var globMagic = /[?*]|[+@!]\(.*?\)|\[|\]/, regExpEscape2 = s => s.replace(/[-[\]
       pattern: r
     });
     this.debug("matchOne", s.length, r.length);
-    for (var m = 0, _ = 0, b = s.length, w = r.length; m < b && _ < w; m++, _++) {
+    for (var _ = 0, m = 0, b = s.length, w = r.length; _ < b && m < w; _++, m++) {
       this.debug("matchOne loop");
-      var E = r[_], S = s[m];
+      var E = r[m], S = s[_];
       this.debug(r, E, S);
       if (false === E) return false;
       if (E === GLOBSTAR) {
         this.debug("GLOBSTAR", [ r, E, S ]);
-        var L = m, O = _ + 1;
+        var L = _, O = m + 1;
         if (O === w) {
           this.debug("** at the end");
-          for (;m < b; m++) if ("." === s[m] || ".." === s[m] || !u.dot && "." === s[m].charAt(0)) return false;
+          for (;_ < b; _++) if ("." === s[_] || ".." === s[_] || !u.dot && "." === s[_].charAt(0)) return false;
           return true;
         }
         for (;L < b; ) {
@@ -3752,7 +3703,7 @@ var globMagic = /[?*]|[+@!]\(.*?\)|\[|\]/, regExpEscape2 = s => s.replace(/[-[\]
       }
       if (!g) return false;
     }
-    if (m === b && _ === w) return true; else if (m === b) return o; else if (_ === w) return m === b - 1 && "" === s[m]; else throw new Error("wtf?");
+    if (_ === b && m === w) return true; else if (_ === b) return o; else if (m === w) return _ === b - 1 && "" === s[_]; else throw new Error("wtf?");
   }
   braceExpand() {
     return braceExpand(this.pattern, this.options);
@@ -3783,16 +3734,16 @@ var globMagic = /[?*]|[+@!]\(.*?\)|\[|\]/, regExpEscape2 = s => s.replace(/[-[\]
         return "string" == typeof s ? regExpEscape2(s) : s === GLOBSTAR ? GLOBSTAR : s._src;
       }));
       r.forEach(((s, u) => {
-        const g = r[u + 1], m = r[u - 1];
-        if (s === GLOBSTAR && m !== GLOBSTAR) if (void 0 === m) if (void 0 !== g && g !== GLOBSTAR) r[u + 1] = "(?:\\/|" + o + "\\/)?" + g; else r[u] = o; else if (void 0 === g) r[u - 1] = m + "(?:\\/|" + o + ")?"; else if (g !== GLOBSTAR) {
-          r[u - 1] = m + "(?:\\/|\\/" + o + "\\/)" + g;
+        const g = r[u + 1], _ = r[u - 1];
+        if (s === GLOBSTAR && _ !== GLOBSTAR) if (void 0 === _) if (void 0 !== g && g !== GLOBSTAR) r[u + 1] = "(?:\\/|" + o + "\\/)?" + g; else r[u] = o; else if (void 0 === g) r[u - 1] = _ + "(?:\\/|" + o + ")?"; else if (g !== GLOBSTAR) {
+          r[u - 1] = _ + "(?:\\/|\\/" + o + "\\/)" + g;
           r[u + 1] = GLOBSTAR;
         }
       }));
       return r.filter((s => s !== GLOBSTAR)).join("/");
     })).join("|");
-    const [m, _] = s.length > 1 ? [ "(?:", ")" ] : [ "", "" ];
-    g = "^" + m + g + _ + "$";
+    const [_, m] = s.length > 1 ? [ "(?:", ")" ] : [ "", "" ];
+    g = "^" + _ + g + m + "$";
     if (this.negate) g = "^(?!" + g + ").+$";
     try {
       this.regexp = new RegExp(g, [ ...u ].join(""));
@@ -3815,13 +3766,13 @@ var globMagic = /[?*]|[+@!]\(.*?\)|\[|\]/, regExpEscape2 = s => s.replace(/[-[\]
     this.debug(this.pattern, "split", u);
     const g = this.set;
     this.debug(this.pattern, "set", g);
-    let m = u[u.length - 1];
-    if (!m) for (let s = u.length - 2; !m && s >= 0; s--) m = u[s];
+    let _ = u[u.length - 1];
+    if (!_) for (let s = u.length - 2; !_ && s >= 0; s--) _ = u[s];
     for (let s = 0; s < g.length; s++) {
-      const _ = g[s];
+      const m = g[s];
       let b = u;
-      if (o.matchBase && 1 === _.length) b = [ m ];
-      if (this.matchOne(b, _, r)) if (o.flipNegate) return true; else return !this.negate;
+      if (o.matchBase && 1 === m.length) b = [ _ ];
+      if (this.matchOne(b, m, r)) if (o.flipNegate) return true; else return !this.negate;
     }
     if (o.flipNegate) return false; else return this.negate;
   }
@@ -3902,8 +3853,8 @@ async function path2id_base(s, r) {
   if (!r) return o;
   const [u, g] = expandFilePathPrefix(o);
   if (g.startsWith(PREFIX_OBFUSCATED)) return o;
-  const m = await hashString(r), _ = await hashString(`${m}:${s}`);
-  return u + PREFIX_OBFUSCATED + _;
+  const _ = await hashString(r), m = await hashString(`${_}:${s}`);
+  return u + PREFIX_OBFUSCATED + m;
 }
 
 function id2path_base(s, r) {
@@ -3970,10 +3921,10 @@ function isAccepted(s, r) {
 async function isAcceptedAll(s, r, o) {
   const u = unique(s.substring(0, s.lastIndexOf("/")).split("/").reduce(((s, r) => [ ...s, s[s.length - 1] + "/" + r ]), [ "" ]).map((s => s.substring(1)))).reverse();
   for (const g of u) for (const u of r) {
-    const r = g + "/" + u, m = await o(r);
-    if (false === m) continue;
-    const _ = isAccepted(s.substring(g.length ? g.length + 1 : 0), m);
-    if (void 0 !== _) return _;
+    const r = g + "/" + u, _ = await o(r);
+    if (false === _) continue;
+    const m = isAccepted(s.substring(g.length ? g.length + 1 : 0), _);
+    if (void 0 !== m) return m;
   }
   return true;
 }
@@ -4011,14 +3962,14 @@ async function* processAllGeneratorTasksWithConcurrencyLimit(s, r) {
       const s = await r.next();
       if (s.done) g = true;
       if (void 0 === s.value) break e;
-      const m = s.value;
+      const _ = s.value;
       u++;
-      const _ = wrapEachProcess(u, isTaskWaiting(m) ? m() : m);
-      o.set(u, _);
+      const m = wrapEachProcess(u, isTaskWaiting(_) ? _() : _);
+      o.set(u, m);
     }
-    const m = await Promise.race(o.values());
-    o.delete(m.key);
-    yield m;
+    const _ = await Promise.race(o.values());
+    o.delete(_.key);
+    yield _;
   }
 }
 
@@ -4140,15 +4091,15 @@ async function putDesignDocuments(s) {
   return false;
 }
 
-var enableEncryption = (s, r, o, u, g) => {
-  const m = new Map;
+var enableEncryption = (s, r, o, u) => {
+  const g = new Map;
   s.transform({
     incoming: async s => {
       const u = {
         ...s
       };
       if (isEncryptedChunkEntry(u) || isSyncInfoEntry(u)) try {
-        u.data = await encrypt(u.data, r, o, g);
+        u.data = await encrypt(u.data, r, o);
       } catch (s) {
         Logger("Encryption failed.", LOG_LEVEL_NOTICE);
         Logger(s);
@@ -4164,35 +4115,35 @@ var enableEncryption = (s, r, o, u, g) => {
       return u;
     },
     outgoing: async s => {
-      const g = {
+      const _ = {
         ...s
-      }, _ = isEncryptedChunkEntry(g) || isSyncInfoEntry(g), b = isObfuscatedEntry(g);
-      if (_ || b) {
-        if (u && m.has(g._id)) return g;
+      }, m = isEncryptedChunkEntry(_) || isSyncInfoEntry(_), b = isObfuscatedEntry(_);
+      if (m || b) {
+        if (u && g.has(_._id)) return _;
         try {
-          if (_) g.data = await decrypt(g.data, r, o);
-          if (b) g.path = await decrypt(getPath(g), r, o);
-          if (u) m.set(g._id, true);
+          if (m) _.data = await decrypt(_.data, r, o);
+          if (b) _.path = await decrypt(getPath(_), r, o);
+          if (u) g.set(_._id, true);
         } catch (s) {
           if (o) try {
-            if (_) g.data = await decrypt(g.data, r, false);
-            if (b) g.path = await decrypt(getPath(g), r, o);
-            if (u) m.set(g._id, true);
+            if (m) _.data = await decrypt(_.data, r, false);
+            if (b) _.path = await decrypt(getPath(_), r, o);
+            if (u) g.set(_._id, true);
           } catch (s) {
-            if (u && "SyntaxError" == s.name) return g;
+            if (u && "SyntaxError" == s.name) return _;
             Logger("Decryption failed.", LOG_LEVEL_NOTICE);
             Logger(s, LOG_LEVEL_VERBOSE);
-            Logger(`id:${g._id}-${g._rev}`, LOG_LEVEL_VERBOSE);
+            Logger(`id:${_._id}-${_._rev}`, LOG_LEVEL_VERBOSE);
             throw s;
           } else {
             Logger("Decryption failed.", LOG_LEVEL_NOTICE);
             Logger(s, LOG_LEVEL_VERBOSE);
-            Logger(`id:${g._id}-${g._rev}`, LOG_LEVEL_VERBOSE);
+            Logger(`id:${_._id}-${_._rev}`, LOG_LEVEL_VERBOSE);
             throw s;
           }
         }
       }
-      return g;
+      return _;
     }
   });
 };
@@ -4305,8 +4256,8 @@ async function purgeChunksLocal(s, r) {
           error: s.error + r.error
         })), u);
         Logger(`Local chunk backed up: new:${u.ok} ,exist:${u.exist}, error:${u.error}`, LOG_LEVEL_NOTICE, "purge-local-backup");
-        const m = g.filter((s => "error" in s && 409 != s.status));
-        for (const s of m) Logger(`Failed to back up: ${s.id} / ${s.rev}`, LOG_LEVEL_VERBOSE);
+        const _ = g.filter((s => "error" in s && 409 != s.status));
+        for (const s of _) Logger(`Failed to back up: ${s.id} / ${s.rev}`, LOG_LEVEL_VERBOSE);
       }
     } catch (s) {
       Logger("Could not back up chunks");
@@ -4324,10 +4275,10 @@ async function purgeChunksLocal(s, r) {
   }));
 }
 
-var _requestToCouchDBFetch = async (s, r, o, u, g, m) => {
-  const _ = String.fromCharCode.apply(null, [ ...writeString(`${r}:${o}`) ]), b = window.btoa(_), w = `${s}/${u}`, E = {
+var _requestToCouchDBFetch = async (s, r, o, u, g, _) => {
+  const m = String.fromCharCode.apply(null, [ ...writeString(`${r}:${o}`) ]), b = window.btoa(m), w = `${s}/${u}`, E = {
     url: w,
-    method: m || (g ? "PUT" : "GET"),
+    method: _ || (g ? "PUT" : "GET"),
     headers: new Headers({
       authorization: "Basic " + b,
       "content-type": "application/json"
@@ -4363,35 +4314,35 @@ function sizeToHumanReadable(s) {
 
 async function purgeUnreferencedChunks(s, r, o, u = false) {
   const g = await s.info();
-  let m = 0;
+  let _ = 0;
   const getSize = function(s, r) {
     var o, u;
     return Number.parseInt(null != (u = null == (o = null == s ? void 0 : s.sizes) ? void 0 : o[r]) ? u : 0);
-  }, _ = o ? "-remote" : "-local";
+  }, m = o ? "-remote" : "-local";
   Logger(`${r ? "Counting" : "Cleaning"} ${o ? "remote" : "local"} database`, LOG_LEVEL_NOTICE);
   if (o) Logger(`Database active-size: ${sizeToHumanReadable(getSize(g, "active"))}, external-size:${sizeToHumanReadable(getSize(g, "external"))}, file-size: ${sizeToHumanReadable(getSize(g, "file"))}`, LOG_LEVEL_NOTICE);
-  Logger(`Collecting unreferenced chunks on ${g.db_name}`, LOG_LEVEL_NOTICE, "gc-countchunk" + _);
+  Logger(`Collecting unreferenced chunks on ${g.db_name}`, LOG_LEVEL_NOTICE, "gc-countchunk" + m);
   const b = await collectUnreferencedChunks(s);
-  m = b.length;
-  if (0 == b.length) Logger(`No unreferenced chunks! ${g.db_name}`, LOG_LEVEL_NOTICE, "gc-countchunk" + _); else {
-    Logger(`Number of unreferenced chunks on ${g.db_name}: ${b.length}`, LOG_LEVEL_NOTICE, "gc-countchunk" + _);
+  _ = b.length;
+  if (0 == b.length) Logger(`No unreferenced chunks! ${g.db_name}`, LOG_LEVEL_NOTICE, "gc-countchunk" + m); else {
+    Logger(`Number of unreferenced chunks on ${g.db_name}: ${b.length}`, LOG_LEVEL_NOTICE, "gc-countchunk" + m);
     if (r) {
       Logger(`DryRun of cleaning ${o ? "remote" : "local"} database up: Done`, LOG_LEVEL_NOTICE);
-      return m;
+      return _;
     }
     if (o) {
-      Logger("Cleaning unreferenced chunks on remote", LOG_LEVEL_NOTICE, "gc-purge" + _);
+      Logger("Cleaning unreferenced chunks on remote", LOG_LEVEL_NOTICE, "gc-purge" + m);
       await purgeChunksRemote(o, b);
     } else {
-      Logger("Cleaning unreferenced chunks on local", LOG_LEVEL_NOTICE, "gc-purge" + _);
+      Logger("Cleaning unreferenced chunks on local", LOG_LEVEL_NOTICE, "gc-purge" + m);
       await purgeChunksLocal(s, b);
     }
-    Logger("Cleaning unreferenced chunks done!", LOG_LEVEL_NOTICE, "gc-purge" + _);
+    Logger("Cleaning unreferenced chunks done!", LOG_LEVEL_NOTICE, "gc-purge" + m);
   }
   if (u) {
-    Logger("Compacting database...", LOG_LEVEL_NOTICE, "gc-compact" + _);
+    Logger("Compacting database...", LOG_LEVEL_NOTICE, "gc-compact" + m);
     await s.compact();
-    Logger("Compacting database done", LOG_LEVEL_NOTICE, "gc-compact" + _);
+    Logger("Compacting database done", LOG_LEVEL_NOTICE, "gc-compact" + m);
   }
   if (o) {
     const r = await s.info();
@@ -4399,15 +4350,15 @@ async function purgeUnreferencedChunks(s, r, o, u = false) {
     Logger(`Reduced sizes: active-size: ${sizeToHumanReadable(getSize(g, "active") - getSize(r, "active"))}, external-size:${sizeToHumanReadable(getSize(g, "external") - getSize(r, "external"))}, file-size: ${sizeToHumanReadable(getSize(g, "file") - getSize(r, "file"))}`, LOG_LEVEL_NOTICE);
   }
   Logger(`Cleaning ${o ? "remote" : "local"} database up: Done`, LOG_LEVEL_NOTICE);
-  return m;
+  return _;
 }
 
 function transferChunks(s, r, o, u, g) {
-  const m = arrayToChunkedArray(g, 25);
-  let _ = 0;
+  const _ = arrayToChunkedArray(g, 25);
+  let m = 0;
   const b = g.length;
-  return [ ...m ].map((g => async () => {
-    const m = g.length;
+  return [ ..._ ].map((g => async () => {
+    const _ = g.length;
     try {
       const s = (await o.allDocs({
         keys: g.map((s => s.id)),
@@ -4420,8 +4371,8 @@ function transferChunks(s, r, o, u, g) {
       Logger(`${r}: Something went wrong on balancing`, LOG_LEVEL_NOTICE);
       Logger(s, LOG_LEVEL_VERBOSE);
     } finally {
-      _ += m;
-      Logger(`${r}: ${_} / ${b}`, LOG_LEVEL_NOTICE, "balance-" + s);
+      m += _;
+      Logger(`${r}: ${m} / ${b}`, LOG_LEVEL_NOTICE, "balance-" + s);
     }
   }));
 }
@@ -4429,8 +4380,8 @@ function transferChunks(s, r, o, u, g) {
 async function balanceChunkPurgedDBs(s, r) {
   Logger("Complement missing chunks between databases", LOG_LEVEL_NOTICE);
   try {
-    const {onlyOnLocal: o, onlyOnRemote: u} = await collectUnbalancedChunkIDs(s, r), g = transferChunks("l2r", "local -> remote", s, r, o), m = transferChunks("r2l", "remote -> local", r, s, u);
-    await mapAllTasksWithConcurrencyLimit(6, [ ...g, ...m ]);
+    const {onlyOnLocal: o, onlyOnRemote: u} = await collectUnbalancedChunkIDs(s, r), g = transferChunks("l2r", "local -> remote", s, r, o), _ = transferChunks("r2l", "remote -> local", r, s, u);
+    await mapAllTasksWithConcurrencyLimit(6, [ ...g, ..._ ]);
     Logger("local -> remote: Done", LOG_LEVEL_NOTICE, "balance-l2r");
     Logger("remote -> local: Done", LOG_LEVEL_NOTICE, "balance-r2l");
   } catch (s) {
@@ -4471,37 +4422,32 @@ function getDocData(s) {
   return "string" == typeof s ? s : s.join("");
 }
 
-function getDocDataAsArray(s) {
-  return "string" == typeof s ? [ s ] : s;
+function createTextBlob(s) {
+  const r = Array.isArray(s) ? s : [ s ];
+  return new Blob(r, {
+    endings: "transparent",
+    type: "text/plain"
+  });
 }
 
-var chunkCheckLen = 1e6;
-
-function stringYielder(s) {
-  return function* gen() {
-    let r = "";
-    for (const o of s) {
-      r += o;
-      for (;r.length > chunkCheckLen; ) {
-        const s = r.slice(0, chunkCheckLen);
-        r = r.substring(chunkCheckLen);
-        yield s;
-      }
-    }
-    if ("" != r) yield r;
-  }();
+function createBinaryBlob(s) {
+  return new Blob([ s ], {
+    endings: "transparent",
+    type: "application/octet-stream"
+  });
 }
 
 function isDocContentSame(s, r) {
-  const o = getDocDataAsArray(s), u = getDocDataAsArray(r), g = stringYielder(o), m = stringYielder(u);
-  let _, b;
-  do {
-    _ = g.next();
-    b = m.next();
-    if (_.value != b.value) return false;
-    if (_.done != b.done) return false;
-  } while (!_.done);
-  if (!b.done) return false; else return true;
+  const o = s instanceof Blob ? s : createTextBlob(s), u = r instanceof Blob ? r : createTextBlob(r);
+  if (o.size != u.size) return false;
+  const g = o.stream().getReader(), _ = u.stream().getReader();
+  let m = g.read(), b = _.read();
+  for (;null !== m && null !== b; ) {
+    if (m !== b) return false;
+    m = g.read();
+    b = _.read();
+  }
+  return null === m && null === b;
 }
 
 function isObfuscatedEntry(s) {
@@ -4831,7 +4777,7 @@ function appendString(s, r, o, u, g) {
 }
 
 function binaryMd5(s, r) {
-  var o = "string" == typeof s, u = o ? s.length : s.size, g = Math.min(MD5_CHUNK_SIZE, u), m = Math.ceil(u / g), _ = 0, b = o ? new import_spark_md5.default : new import_spark_md5.default.ArrayBuffer, w = o ? appendString : appendBlob;
+  var o = "string" == typeof s, u = o ? s.length : s.size, g = Math.min(MD5_CHUNK_SIZE, u), _ = Math.ceil(u / g), m = 0, b = o ? new import_spark_md5.default : new import_spark_md5.default.ArrayBuffer, w = o ? appendString : appendBlob;
   function next() {
     setImmediateShim(loadNextChunk);
   }
@@ -4841,8 +4787,8 @@ function binaryMd5(s, r) {
     b.destroy();
   }
   function loadNextChunk() {
-    var r = _ * g, o = r + g;
-    if (++_ < m) w(b, s, r, o, next); else w(b, s, r, o, done);
+    var r = m * g, o = r + g;
+    if (++m < _) w(b, s, r, o, next); else w(b, s, r, o, done);
   }
   loadNextChunk();
 }
@@ -4910,13 +4856,13 @@ function toPromise(s) {
   return function(...r) {
     r = clone(r);
     var o = this, u = "function" == typeof r[r.length - 1] ? r.pop() : false, g = new Promise((function(u, g) {
-      var m;
+      var _;
       try {
-        var _ = once((function(s, r) {
+        var m = once((function(s, r) {
           if (s) g(s); else u(r);
         }));
-        r.push(_);
-        if ((m = s.apply(o, r)) && "function" == typeof m.then) u(m);
+        r.push(m);
+        if ((_ = s.apply(o, r)) && "function" == typeof _.then) u(_);
       } catch (s) {
         g(s);
       }
@@ -4932,12 +4878,12 @@ function logApiCall(s, r, o) {
   if (s.constructor.listeners("debug").length) {
     for (var u = [ "api", s.name, r ], g = 0; g < o.length - 1; g++) u.push(o[g]);
     s.constructor.emit("debug", u);
-    var m = o[o.length - 1];
+    var _ = o[o.length - 1];
     o[o.length - 1] = function(o, u) {
       var g = [ "api", s.name, r ];
       g = g.concat(o ? [ "error", o ] : [ "success", u ]);
       s.constructor.emit("debug", g);
-      m(o, u);
+      _(o, u);
     };
   }
 }
@@ -4949,8 +4895,8 @@ function adapterFun(s, r) {
     var u = this;
     logApiCall(u, s, o);
     if (!this.taskqueue.isReady) return new Promise((function(r, g) {
-      u.taskqueue.addTask((function(m) {
-        if (m) g(m); else r(u[s].apply(u, o));
+      u.taskqueue.addTask((function(_) {
+        if (_) g(_); else r(u[s].apply(u, o));
       }));
     })); else return r.apply(this, o);
   }));
@@ -4958,8 +4904,8 @@ function adapterFun(s, r) {
 
 function pick(s, r) {
   for (var o = {}, u = 0, g = r.length; u < g; u++) {
-    var m = r[u];
-    if (m in s) o[m] = s[m];
+    var _ = r[u];
+    if (_ in s) o[_] = s[_];
   }
   return o;
 }
@@ -4981,7 +4927,7 @@ function bulkGet(s, r, o) {
   u.forEach((function(s) {
     if (g.has(s.id)) g.get(s.id).push(s); else g.set(s.id, [ s ]);
   }));
-  var m = g.size, _ = 0, b = new Array(m), w = [];
+  var _ = g.size, m = 0, b = new Array(_), w = [];
   g.forEach((function(s, r) {
     w.push(r);
   }));
@@ -5015,7 +4961,7 @@ function bulkGet(s, r, o) {
                 docs: u
               };
               (function checkDone() {
-                if (++_ === m) (function collapseResultsAndFinish() {
+                if (++m === _) (function collapseResultsAndFinish() {
                   var s = [];
                   b.forEach((function(r) {
                     r.docs.forEach((function(o) {
@@ -5061,12 +5007,12 @@ var assign$1, Changes = class extends import_events.default {
   }
   addListener(s, r, o, u) {
     if (!this._listeners[r]) {
-      var g = false, m = this;
+      var g = false, _ = this;
       this._listeners[r] = eventFunction;
       this.on(s, eventFunction);
     }
     function eventFunction() {
-      if (m._listeners[r]) if (!g) {
+      if (_._listeners[r]) if (!g) {
         g = true;
         var s = pick(u, [ "style", "include_docs", "attachments", "conflicts", "filter", "doc_ids", "view", "since", "query_params", "binary", "return_docs" ]);
         o.changes(s).on("change", (function(s) {
@@ -5153,7 +5099,7 @@ function filterChange(s) {
     var g = o && tryFilter(s.filter, u.doc, r);
     if ("object" == typeof g) return g;
     if (g) return false;
-    if (!s.include_docs) delete u.doc; else if (!s.attachments) for (var m in u.doc._attachments) if (Object.prototype.hasOwnProperty.call(u.doc._attachments, m)) u.doc._attachments[m].stub = true;
+    if (!s.include_docs) delete u.doc; else if (!s.attachments) for (var _ in u.doc._attachments) if (Object.prototype.hasOwnProperty.call(u.doc._attachments, _)) u.doc._attachments[_].stub = true;
     return true;
   };
 }
@@ -5209,8 +5155,8 @@ var keys = [ "source", "protocol", "authority", "userInfo", "user", "password", 
 
 function parseUri(s) {
   for (var r = parser.exec(s), o = {}, u = 14; u--; ) {
-    var g = keys[u], m = r[u] || "", _ = -1 !== [ "user", "password" ].indexOf(g);
-    o[g] = _ ? decodeURIComponent(m) : m;
+    var g = keys[u], _ = r[u] || "", m = -1 !== [ "user", "password" ].indexOf(g);
+    o[g] = m ? decodeURIComponent(_) : _;
   }
   o[qName] = {};
   o[keys[12]].replace(qParser, (function(s, r, u) {
@@ -5234,14 +5180,14 @@ function upsert(s, r, o) {
     if (404 !== s.status) throw s;
     return {};
   })).then((function(u) {
-    var g = u._rev, m = o(u);
-    if (!m) return {
+    var g = u._rev, _ = o(u);
+    if (!_) return {
       updated: false,
       rev: g
     };
-    m._id = r;
-    m._rev = g;
-    return tryAndPut(s, m, o);
+    _._id = r;
+    _._rev = g;
+    return tryAndPut(s, _, o);
   }));
 }
 
@@ -5267,16 +5213,16 @@ function rev(s, r) {
 var uuid = v4_default;
 
 function winningRev(s) {
-  for (var r, o, u, g, m = s.rev_tree.slice(); g = m.pop(); ) {
-    var _ = g.ids, b = _[2], w = g.pos;
+  for (var r, o, u, g, _ = s.rev_tree.slice(); g = _.pop(); ) {
+    var m = g.ids, b = m[2], w = g.pos;
     if (!b.length) {
-      var E = !!_[1].deleted, S = _[0];
+      var E = !!m[1].deleted, S = m[0];
       if (!r || (u !== E ? u : o !== w ? o < w : r < S)) {
         r = S;
         o = w;
         u = E;
       }
-    } else for (var L = 0, O = b.length; L < O; L++) m.push({
+    } else for (var L = 0, O = b.length; L < O; L++) _.push({
       pos: w + 1,
       ids: b[L]
     });
@@ -5285,9 +5231,9 @@ function winningRev(s) {
 }
 
 function traverseRevTree(s, r) {
-  for (var o, u = s.slice(); o = u.pop(); ) for (var g = o.pos, m = o.ids, _ = m[2], b = r(0 === _.length, g, m[0], o.ctx, m[1]), w = 0, E = _.length; w < E; w++) u.push({
+  for (var o, u = s.slice(); o = u.pop(); ) for (var g = o.pos, _ = o.ids, m = _[2], b = r(0 === m.length, g, _[0], o.ctx, _[1]), w = 0, E = m.length; w < E; w++) u.push({
     pos: g + 1,
-    ids: _[w],
+    ids: m[w],
     ctx: b
   });
 }
@@ -5298,11 +5244,11 @@ function sortByPos(s, r) {
 
 function collectLeaves(s) {
   var r = [];
-  traverseRevTree(s, (function(s, o, u, g, m) {
+  traverseRevTree(s, (function(s, o, u, g, _) {
     if (s) r.push({
       rev: o + "-" + u,
       pos: o,
-      opts: m
+      opts: _
     });
   }));
   r.sort(sortByPos).reverse();
@@ -5311,19 +5257,19 @@ function collectLeaves(s) {
 }
 
 function collectConflicts(s) {
-  for (var r = winningRev(s), o = collectLeaves(s.rev_tree), u = [], g = 0, m = o.length; g < m; g++) {
-    var _ = o[g];
-    if (_.rev !== r && !_.opts.deleted) u.push(_.rev);
+  for (var r = winningRev(s), o = collectLeaves(s.rev_tree), u = [], g = 0, _ = o.length; g < _; g++) {
+    var m = o[g];
+    if (m.rev !== r && !m.opts.deleted) u.push(m.rev);
   }
   return u;
 }
 
 function compactTree(s) {
   var r = [];
-  traverseRevTree(s.rev_tree, (function(s, o, u, g, m) {
-    if ("available" === m.status && !s) {
+  traverseRevTree(s.rev_tree, (function(s, o, u, g, _) {
+    if ("available" === _.status && !s) {
       r.push(o + "-" + u);
-      m.status = "missing";
+      _.status = "missing";
     }
   }));
   return r;
@@ -5334,9 +5280,9 @@ function findPathToLeaf(s, r) {
   const u = s.slice();
   let g;
   for (;g = u.pop(); ) {
-    const {pos: s, ids: m} = g, _ = `${s}-${m[0]}`, b = m[2];
-    o.push(_);
-    if (_ === r) {
+    const {pos: s, ids: _} = g, m = `${s}-${_[0]}`, b = _[2];
+    o.push(m);
+    if (m === r) {
       if (0 !== b.length) throw new Error("The requested revision is not a leaf");
       return o.reverse();
     }
@@ -5352,9 +5298,9 @@ function findPathToLeaf(s, r) {
 
 function rootToLeaf(s) {
   for (var r, o = [], u = s.slice(); r = u.pop(); ) {
-    var g = r.pos, m = r.ids, _ = m[0], b = m[1], w = m[2], E = 0 === w.length, S = r.history ? r.history.slice() : [];
+    var g = r.pos, _ = r.ids, m = _[0], b = _[1], w = _[2], E = 0 === w.length, S = r.history ? r.history.slice() : [];
     S.push({
-      id: _,
+      id: m,
       opts: b
     });
     if (E) o.push({
@@ -5375,7 +5321,7 @@ function sortByPos$1(s, r) {
 }
 
 function binarySearch(s, r, o) {
-  for (var u, g = 0, m = s.length; g < m; ) if (o(s[u = g + m >>> 1], r) < 0) g = u + 1; else m = u;
+  for (var u, g = 0, _ = s.length; g < _; ) if (o(s[u = g + _ >>> 1], r) < 0) g = u + 1; else _ = u;
   return g;
 }
 
@@ -5385,8 +5331,8 @@ function insertSorted(s, r, o) {
 }
 
 function pathToTree(s, r) {
-  for (var o, u, g = r, m = s.length; g < m; g++) {
-    var _ = s[g], b = [ _.id, _.opts, [] ];
+  for (var o, u, g = r, _ = s.length; g < _; g++) {
+    var m = s[g], b = [ m.id, m.opts, [] ];
     if (u) {
       u[2].push(b);
       u = b;
@@ -5404,23 +5350,23 @@ function mergeTree(s, r) {
     tree1: s,
     tree2: r
   } ], u = false; o.length > 0; ) {
-    var g = o.pop(), m = g.tree1, _ = g.tree2;
-    if (m[1].status || _[1].status) m[1].status = "available" === m[1].status || "available" === _[1].status ? "available" : "missing";
-    for (var b = 0; b < _[2].length; b++) if (m[2][0]) {
-      for (var w = false, E = 0; E < m[2].length; E++) if (m[2][E][0] === _[2][b][0]) {
+    var g = o.pop(), _ = g.tree1, m = g.tree2;
+    if (_[1].status || m[1].status) _[1].status = "available" === _[1].status || "available" === m[1].status ? "available" : "missing";
+    for (var b = 0; b < m[2].length; b++) if (_[2][0]) {
+      for (var w = false, E = 0; E < _[2].length; E++) if (_[2][E][0] === m[2][b][0]) {
         o.push({
-          tree1: m[2][E],
-          tree2: _[2][b]
+          tree1: _[2][E],
+          tree2: m[2][b]
         });
         w = true;
       }
       if (!w) {
         u = "new_branch";
-        insertSorted(m[2], _[2][b], compareTree);
+        insertSorted(_[2], m[2][b], compareTree);
       }
     } else {
       u = "new_leaf";
-      m[2][0] = _[2][b];
+      _[2][0] = m[2][b];
     }
   }
   return {
@@ -5430,7 +5376,7 @@ function mergeTree(s, r) {
 }
 
 function doMerge(s, r, o) {
-  var u, g = [], m = false, _ = false;
+  var u, g = [], _ = false, m = false;
   if (!s.length) return {
     tree: [ r ],
     conflicts: "new_leaf"
@@ -5443,8 +5389,8 @@ function doMerge(s, r, o) {
         pos: E.pos,
         ids: u.tree
       });
-      m = m || u.conflicts;
-      _ = true;
+      _ = _ || u.conflicts;
+      m = true;
     } else if (true !== o) {
       var S = E.pos < r.pos ? E : r, L = E.pos < r.pos ? r : E, O = L.pos - S.pos, D = [], k = [];
       k.push({
@@ -5470,22 +5416,22 @@ function doMerge(s, r, o) {
           pos: S.pos,
           ids: S.ids
         });
-        m = m || u.conflicts;
-        _ = true;
+        _ = _ || u.conflicts;
+        m = true;
       }
     } else g.push(E);
   }
-  if (!_) g.push(r);
+  if (!m) g.push(r);
   g.sort(sortByPos$1);
   return {
     tree: g,
-    conflicts: m || "internal_node"
+    conflicts: _ || "internal_node"
   };
 }
 
 function stem(s, r) {
-  for (var o, u, g = rootToLeaf(s), m = 0, _ = g.length; m < _; m++) {
-    var b, w = g[m], E = w.ids;
+  for (var o, u, g = rootToLeaf(s), _ = 0, m = g.length; _ < m; _++) {
+    var b, w = g[_], E = w.ids;
     if (E.length > r) {
       if (!o) o = {};
       var S = E.length - r;
@@ -5529,17 +5475,17 @@ function removeLeafFromPath(s, r) {
   const o = clone(s), u = [ o ];
   let g;
   for (;g = u.pop(); ) {
-    const {pos: s, ids: [m, , _], parent: b} = g;
-    if (0 === _.length && `${s}-${m}` === r) {
+    const {pos: s, ids: [_, , m], parent: b} = g;
+    if (0 === m.length && `${s}-${_}` === r) {
       if (!b) return null;
       b.ids[2] = b.ids[2].filter((function(s) {
-        return s[0] !== m;
+        return s[0] !== _;
       }));
       return o;
     }
-    for (let r = 0, o = _.length; r < o; r++) u.push({
+    for (let r = 0, o = m.length; r < o; r++) u.push({
       pos: s + 1,
-      ids: _[r],
+      ids: m[r],
       parent: g
     });
   }
@@ -5547,8 +5493,8 @@ function removeLeafFromPath(s, r) {
 }
 
 function revExists(s, r) {
-  for (var o, u = s.slice(), g = r.split("-"), m = parseInt(g[0], 10), _ = g[1]; o = u.pop(); ) {
-    if (o.pos === m && o.ids[0] === _) return true;
+  for (var o, u = s.slice(), g = r.split("-"), _ = parseInt(g[0], 10), m = g[1]; o = u.pop(); ) {
+    if (o.pos === _ && o.ids[0] === m) return true;
     for (var b = o.ids[2], w = 0, E = b.length; w < E; w++) u.push({
       pos: o.pos + 1,
       ids: b[w]
@@ -5575,15 +5521,15 @@ function isLocalId(s) {
 
 function latest(s, r) {
   for (var o, u = r.rev_tree.slice(); o = u.pop(); ) {
-    var g = o.pos, m = o.ids, _ = m[0], b = m[1], w = m[2], E = 0 === w.length, S = o.history ? o.history.slice() : [];
+    var g = o.pos, _ = o.ids, m = _[0], b = _[1], w = _[2], E = 0 === w.length, S = o.history ? o.history.slice() : [];
     S.push({
-      id: _,
+      id: m,
       pos: g,
       opts: b
     });
     if (E) for (var L = 0, O = S.length; L < O; L++) {
       var D = S[L];
-      if (D.pos + "-" + D.id === s) return g + "-" + _;
+      if (D.pos + "-" + D.id === s) return g + "-" + m;
     }
     for (var k = 0, C = w.length; k < C; k++) u.push({
       pos: g + 1,
@@ -5647,8 +5593,8 @@ function normalizeKey(s) {
     } else if (s instanceof Date) return s.toJSON(); else if (null !== s) {
       s = {};
       for (var g in r) if (Object.prototype.hasOwnProperty.call(r, g)) {
-        var m = r[g];
-        if ("undefined" != typeof m) s[g] = normalizeKey(m);
+        var _ = r[g];
+        if ("undefined" != typeof _) s[g] = normalizeKey(_);
       }
     }
   }
@@ -5667,12 +5613,12 @@ function indexify(s) {
     return s.replace(/\u0002/g, "").replace(/\u0001/g, "").replace(/\u0000/g, "");
 
    case "object":
-    var r = Array.isArray(s), o = r ? s : Object.keys(s), u = -1, g = o.length, m = "";
-    if (r) for (;++u < g; ) m += toIndexableString(o[u]); else for (;++u < g; ) {
-      var _ = o[u];
-      m += toIndexableString(_) + toIndexableString(s[_]);
+    var r = Array.isArray(s), o = r ? s : Object.keys(s), u = -1, g = o.length, _ = "";
+    if (r) for (;++u < g; ) _ += toIndexableString(o[u]); else for (;++u < g; ) {
+      var m = o[u];
+      _ += toIndexableString(m) + toIndexableString(s[m]);
     }
-    return m;
+    return _;
   }
   return "";
 }
@@ -5689,15 +5635,15 @@ function parseNumber(s, r) {
   } else {
     var g = "0" === s[r];
     r++;
-    var m = "", _ = s.substring(r, r + MAGNITUDE_DIGITS), b = parseInt(_, 10) + MIN_MAGNITUDE;
+    var _ = "", m = s.substring(r, r + MAGNITUDE_DIGITS), b = parseInt(m, 10) + MIN_MAGNITUDE;
     if (g) b = -b;
     r += MAGNITUDE_DIGITS;
     for (;;) {
       var w = s[r];
-      if ("\0" === w) break; else m += w;
+      if ("\0" === w) break; else _ += w;
       r++;
     }
-    if (1 === (m = m.split(".")).length) o = parseInt(m, 10); else o = parseFloat(m[0] + "." + m[1]);
+    if (1 === (_ = _.split(".")).length) o = parseInt(_, 10); else o = parseFloat(_[0] + "." + _[1]);
     if (g) o -= 10;
     if (0 !== b) o = parseFloat(o + "e" + b);
   }
@@ -5715,8 +5661,8 @@ function pop(s, r) {
       r.pop();
       u = r[r.length - 1];
     }
-    var g = u.element, m = u.index;
-    if (Array.isArray(g)) g.push(o); else if (m === s.length - 2) g[s.pop()] = o; else s.push(o);
+    var g = u.element, _ = u.index;
+    if (Array.isArray(g)) g.push(o); else if (_ === s.length - 2) g[s.pop()] = o; else s.push(o);
   }
 }
 
@@ -5738,20 +5684,20 @@ function parseIndexableString(s) {
       break;
 
      case "3":
-      var m = parseNumber(s, u);
-      r.push(m.num);
-      u += m.length;
+      var _ = parseNumber(s, u);
+      r.push(_.num);
+      u += _.length;
       break;
 
      case "4":
-      for (var _ = ""; ;) {
+      for (var m = ""; ;) {
         var b = s[u];
         if ("\0" === b) break;
-        _ += b;
+        m += b;
         u++;
       }
-      _ = _.replace(/\u0001\u0001/g, "\0").replace(/\u0001\u0002/g, "").replace(/\u0002\u0002/g, "");
-      r.push(_);
+      m = m.replace(/\u0001\u0001/g, "\0").replace(/\u0001\u0002/g, "").replace(/\u0002\u0002/g, "");
+      r.push(m);
       break;
 
      case "5":
@@ -5791,10 +5737,10 @@ function stringCollate(s, r) {
 }
 
 function objectCollate(s, r) {
-  for (var o = Object.keys(s), u = Object.keys(r), g = Math.min(o.length, u.length), m = 0; m < g; m++) {
-    var _ = collate(o[m], u[m]);
-    if (0 !== _) return _;
-    if (0 !== (_ = collate(s[o[m]], r[u[m]]))) return _;
+  for (var o = Object.keys(s), u = Object.keys(r), g = Math.min(o.length, u.length), _ = 0; _ < g; _++) {
+    var m = collate(o[_], u[_]);
+    if (0 !== m) return m;
+    if (0 !== (m = collate(s[o[_]], r[u[_]]))) return m;
   }
   return o.length === u.length ? 0 : o.length > u.length ? 1 : -1;
 }
@@ -5810,11 +5756,11 @@ function collationIndex(s) {
 
 function numToIndexableString(s) {
   if (0 === s) return "1";
-  var r = s.toExponential().split(/e\+?/), o = parseInt(r[1], 10), u = s < 0, g = u ? "0" : "2", m = padLeft(((u ? -o : o) - MIN_MAGNITUDE).toString(), "0", MAGNITUDE_DIGITS);
-  g += SEP + m;
-  var _ = Math.abs(parseFloat(r[0]));
-  if (u) _ = 10 - _;
-  var b = _.toFixed(20);
+  var r = s.toExponential().split(/e\+?/), o = parseInt(r[1], 10), u = s < 0, g = u ? "0" : "2", _ = padLeft(((u ? -o : o) - MIN_MAGNITUDE).toString(), "0", MAGNITUDE_DIGITS);
+  g += SEP + _;
+  var m = Math.abs(parseFloat(r[0]));
+  if (u) m = 10 - m;
+  var b = m.toFixed(20);
   b = b.replace(/\.?0+$/, "");
   return g += SEP + b;
 }
@@ -5826,8 +5772,8 @@ function getFieldFromDoc(s, r) {
 
 function setFieldInDoc(s, r, o) {
   for (var u = 0, g = r.length; u < g - 1; u++) {
-    var m = r[u];
-    s = s[m] = s[m] || {};
+    var _ = r[u];
+    s = s[_] = s[_] || {};
   }
   s[r[g - 1]] = o;
 }
@@ -5838,11 +5784,11 @@ function compare(s, r) {
 
 function parseField(s) {
   for (var r = [], o = "", u = 0, g = s.length; u < g; u++) {
-    var m = s[u];
-    if (u > 0 && "\\" === s[u - 1] && ("$" === m || "." === m)) o = o.substring(0, o.length - 1) + m; else if ("." === m) {
+    var _ = s[u];
+    if (u > 0 && "\\" === s[u - 1] && ("$" === _ || "." === _)) o = o.substring(0, o.length - 1) + _; else if ("." === _) {
       r.push(o);
       o = "";
-    } else o += m;
+    } else o += _;
   }
   r.push(o);
   return r;
@@ -5879,20 +5825,20 @@ function mergeAndedSelectors(s) {
           r[u] = g;
           return;
         }
-        var m = [];
+        var _ = [];
         r[u].forEach((function(s) {
           Object.keys(g).forEach((function(r) {
-            var o = g[r], u = Math.max(Object.keys(s).length, Object.keys(o).length), _ = mergeAndedSelectors([ s, o ]);
-            if (!(Object.keys(_).length <= u)) m.push(_);
+            var o = g[r], u = Math.max(Object.keys(s).length, Object.keys(o).length), m = mergeAndedSelectors([ s, o ]);
+            if (!(Object.keys(m).length <= u)) _.push(m);
           }));
         }));
-        r[u] = m;
+        r[u] = _;
       } else r[u] = mergeAndedSelectors([ g ]); else {
-        var _ = r[u] = r[u] || {};
+        var m = r[u] = r[u] || {};
         Object.keys(g).forEach((function(s) {
           var r = g[s];
-          if ("$gt" === s || "$gte" === s) return mergeGtGte(s, r, _); else if ("$lt" === s || "$lte" === s) return mergeLtLte(s, r, _); else if ("$ne" === s) return mergeNe(r, _); else if ("$eq" === s) return mergeEq(r, _); else if ("$regex" === s) return mergeRegex(r, _);
-          _[s] = r;
+          if ("$gt" === s || "$gte" === s) return mergeGtGte(s, r, m); else if ("$lt" === s || "$lte" === s) return mergeLtLte(s, r, m); else if ("$ne" === s) return mergeNe(r, m); else if ("$eq" === s) return mergeEq(r, m); else if ("$regex" === s) return mergeRegex(r, m);
+          m[s] = r;
         }));
       }
     }));
@@ -5986,11 +5932,11 @@ function massageSelector(s) {
   }));
   if ("$not" in r) r["$not"] = mergeAndedSelectors([ r["$not"] ]);
   for (var o = Object.keys(r), u = 0; u < o.length; u++) {
-    var g = o[u], m = r[g];
-    if ("object" != typeof m || null === m) m = {
-      $eq: m
+    var g = o[u], _ = r[g];
+    if ("object" != typeof _ || null === _) _ = {
+      $eq: _
     };
-    r[g] = m;
+    r[g] = _;
   }
   normalizeArrayOperators(r);
   return r;
@@ -6028,28 +5974,28 @@ function filterInMemoryFields(s, r, o) {
     if ("string" != typeof r.sort[0] && "desc" === getValue(r.sort[0])) s = s.reverse();
   }
   if ("limit" in r || "skip" in r) {
-    var g = r.skip || 0, m = ("limit" in r ? r.limit : s.length) + g;
-    s = s.slice(g, m);
+    var g = r.skip || 0, _ = ("limit" in r ? r.limit : s.length) + g;
+    s = s.slice(g, _);
   }
   return s;
 }
 
 function rowFilter(s, r, o) {
   return o.every((function(o) {
-    var u = r[o], g = parseField(o), m = getFieldFromDoc(s, g);
-    if (isCombinationalField(o)) return matchCominationalSelector(o, u, s); else return matchSelector(u, s, g, m);
+    var u = r[o], g = parseField(o), _ = getFieldFromDoc(s, g);
+    if (isCombinationalField(o)) return matchCominationalSelector(o, u, s); else return matchSelector(u, s, g, _);
   }));
 }
 
 function matchSelector(s, r, o, u) {
   if (!s) return true;
   if ("object" == typeof s) return Object.keys(s).every((function(g) {
-    var m = s[g];
-    if (0 === g.indexOf("$")) return match2(g, r, m, o, u); else {
-      var _ = parseField(g);
-      if (void 0 === u && "object" != typeof m && _.length > 0) return false;
-      var b = getFieldFromDoc(u, _);
-      if ("object" == typeof m) return matchSelector(m, r, o, b); else return match2("$eq", r, m, _, b);
+    var _ = s[g];
+    if (0 === g.indexOf("$")) return match2(g, r, _, o, u); else {
+      var m = parseField(g);
+      if (void 0 === u && "object" != typeof _ && m.length > 0) return false;
+      var b = getFieldFromDoc(u, m);
+      if ("object" == typeof _) return matchSelector(_, r, o, b); else return match2("$eq", r, _, m, b);
     }
   })); else return s === u;
 }
@@ -6237,14 +6183,14 @@ function filter2(s, r) {
       return o(u);
     }
     var g = parseDesignDocFunctionName(r.view);
-    s.db.get("_design/" + g[0], (function(u, m) {
+    s.db.get("_design/" + g[0], (function(u, _) {
       if (s.isCancelled) return o(null, {
         status: "cancelled"
       });
       if (u) return o(generateErrorFromResponse(u));
-      var _ = m && m.views && m.views[g[1]] && m.views[g[1]].map;
-      if (!_) return o(createError(MISSING_DOC, m.views ? "missing json key: " + g[1] : "missing json key: views"));
-      r.filter = evalView(_);
+      var m = _ && _.views && _.views[g[1]] && _.views[g[1]].map;
+      if (!m) return o(createError(MISSING_DOC, _.views ? "missing json key: " + g[1] : "missing json key: views"));
+      r.filter = evalView(m);
       s.doChanges(r);
     }));
   } else if (r.selector) {
@@ -6253,15 +6199,15 @@ function filter2(s, r) {
     };
     s.doChanges(r);
   } else {
-    var m = parseDesignDocFunctionName(r.filter);
-    s.db.get("_design/" + m[0], (function(u, g) {
+    var _ = parseDesignDocFunctionName(r.filter);
+    s.db.get("_design/" + _[0], (function(u, g) {
       if (s.isCancelled) return o(null, {
         status: "cancelled"
       });
       if (u) return o(generateErrorFromResponse(u));
-      var _ = g && g.filters && g.filters[m[1]];
-      if (!_) return o(createError(MISSING_DOC, g && g.filters ? "missing json key: " + m[1] : "missing json key: filters"));
-      r.filter = evalFilter(_);
+      var m = g && g.filters && g.filters[_[1]];
+      if (!m) return o(createError(MISSING_DOC, g && g.filters ? "missing json key: " + _[1] : "missing json key: filters"));
+      r.filter = evalFilter(m);
       s.doChanges(r);
     }));
   }
@@ -6415,8 +6361,8 @@ function cleanDocs(s) {
   for (var r = 0; r < s.length; r++) {
     var o = s[r];
     if (o._deleted) delete o._attachments; else if (o._attachments) for (var u = Object.keys(o._attachments), g = 0; g < u.length; g++) {
-      var m = u[g];
-      o._attachments[m] = pick(o._attachments[m], [ "data", "digest", "content_type", "length", "revpos", "stub" ]);
+      var _ = u[g];
+      o._attachments[_] = pick(o._attachments[_], [ "data", "digest", "content_type", "length", "revpos", "stub" ]);
     }
   }
 }
@@ -6428,14 +6374,14 @@ function compareByIdThenRev(s, r) {
 
 function computeHeight(s) {
   var r = {}, o = [];
-  traverseRevTree(s, (function(s, u, g, m) {
-    var _ = u + "-" + g;
-    if (s) r[_] = 0;
-    if (void 0 !== m) o.push({
-      from: m,
-      to: _
+  traverseRevTree(s, (function(s, u, g, _) {
+    var m = u + "-" + g;
+    if (s) r[m] = 0;
+    if (void 0 !== _) o.push({
+      from: _,
+      to: m
     });
-    return _;
+    return m;
   }));
   o.reverse();
   o.forEach((function(s) {
@@ -6529,12 +6475,12 @@ var AbstractPouchDB = class extends import_events2.default {
       };
       if (r.force && s._rev) {
         (function transformForceOptionToNewEditsOption() {
-          var o = s._rev.split("-"), u = o[1], g = parseInt(o[0], 10) + 1, m = rev();
+          var o = s._rev.split("-"), u = o[1], g = parseInt(o[0], 10) + 1, _ = rev();
           s._revisions = {
             start: g,
-            ids: [ m, u ]
+            ids: [ _, u ]
           };
-          s._rev = g + "-" + m;
+          s._rev = g + "-" + _;
           r.new_edits = false;
         })();
         putDoc((function(r) {
@@ -6548,7 +6494,7 @@ var AbstractPouchDB = class extends import_events2.default {
       } else putDoc(o);
     })).bind(this);
     this.putAttachment = adapterFun("putAttachment", (function(s, r, o, u, g) {
-      var m = this;
+      var _ = this;
       if ("function" == typeof g) {
         g = u;
         u = o;
@@ -6568,9 +6514,9 @@ var AbstractPouchDB = class extends import_events2.default {
           data: u,
           revpos: ++o
         };
-        return m.put(s);
+        return _.put(s);
       }
-      return m.get(s).then((function(s) {
+      return _.get(s).then((function(s) {
         if (s._rev !== o) throw createError(REV_CONFLICT);
         return createAttachment(s);
       }), (function(r) {
@@ -6611,15 +6557,15 @@ var AbstractPouchDB = class extends import_events2.default {
         }
       }
       (o = o || {}).was_delete = true;
-      var m = {
+      var _ = {
         _id: g._id,
         _rev: g._rev || o.rev,
         _deleted: true
       };
-      if (isLocalId(m._id) && "function" == typeof this._removeLocal) return this._removeLocal(g, u);
+      if (isLocalId(_._id) && "function" == typeof this._removeLocal) return this._removeLocal(g, u);
       this.bulkDocs({
-        docs: [ m ]
-      }, o, yankError(u, m._id));
+        docs: [ _ ]
+      }, o, yankError(u, _._id));
     })).bind(this);
     this.revsDiff = adapterFun("revsDiff", (function(s, r, o) {
       if ("function" == typeof r) {
@@ -6628,24 +6574,24 @@ var AbstractPouchDB = class extends import_events2.default {
       }
       var u = Object.keys(s);
       if (!u.length) return o(null, {});
-      var g = 0, m = new ExportedMap;
+      var g = 0, _ = new ExportedMap;
       function addToMissing(s, r) {
-        if (!m.has(s)) m.set(s, {
+        if (!_.has(s)) _.set(s, {
           missing: []
         });
-        m.get(s).missing.push(r);
+        _.get(s).missing.push(r);
       }
       u.map((function(r) {
-        this._getRevisionTree(r, (function(_, b) {
-          if (_ && 404 === _.status && "missing" === _.message) m.set(r, {
+        this._getRevisionTree(r, (function(m, b) {
+          if (m && 404 === m.status && "missing" === m.message) _.set(r, {
             missing: s[r]
-          }); else if (_) return o(_); else (function processDoc(r, o) {
+          }); else if (m) return o(m); else (function processDoc(r, o) {
             var u = s[r].slice(0);
-            traverseRevTree(o, (function(s, o, g, m, _) {
+            traverseRevTree(o, (function(s, o, g, _, m) {
               var b = o + "-" + g, w = u.indexOf(b);
               if (-1 !== w) {
                 u.splice(w, 1);
-                if ("available" !== _.status) addToMissing(r, b);
+                if ("available" !== m.status) addToMissing(r, b);
               }
             }));
             u.forEach((function(s) {
@@ -6654,7 +6600,7 @@ var AbstractPouchDB = class extends import_events2.default {
           })(r, b);
           if (++g === u.length) {
             var w = {};
-            m.forEach((function(s, r) {
+            _.forEach((function(s, r) {
               w[r] = s;
             }));
             return o(null, w);
@@ -6668,13 +6614,13 @@ var AbstractPouchDB = class extends import_events2.default {
     this.compactDocument = adapterFun("compactDocument", (function(s, r, o) {
       this._getRevisionTree(s, ((u, g) => {
         if (u) return o(u);
-        var m = computeHeight(g), _ = [], b = [];
-        Object.keys(m).forEach((function(s) {
-          if (m[s] > r) _.push(s);
+        var _ = computeHeight(g), m = [], b = [];
+        Object.keys(_).forEach((function(s) {
+          if (_[s] > r) m.push(s);
         }));
         traverseRevTree(g, (function(s, r, o, u, g) {
-          var m = r + "-" + o;
-          if ("available" === g.status && -1 !== _.indexOf(m)) b.push(m);
+          var _ = r + "-" + o;
+          if ("available" === g.status && -1 !== m.indexOf(_)) b.push(_);
         }));
         this._doCompaction(s, b, o);
       }));
@@ -6701,8 +6647,8 @@ var AbstractPouchDB = class extends import_events2.default {
       if (isLocalId(s) && "function" == typeof this._getLocal) return this._getLocal(s, o);
       var u = [];
       const finishOpenRevs = () => {
-        var g = [], m = u.length;
-        if (!m) return o(null, g);
+        var g = [], _ = u.length;
+        if (!_) return o(null, g);
         u.forEach((u => {
           this.get(s, {
             rev: u,
@@ -6712,17 +6658,17 @@ var AbstractPouchDB = class extends import_events2.default {
             binary: r.binary
           }, (function(s, r) {
             if (!s) {
-              for (var _, b = 0, w = g.length; b < w; b++) if (g[b].ok && g[b].ok._rev === r._rev) {
-                _ = true;
+              for (var m, b = 0, w = g.length; b < w; b++) if (g[b].ok && g[b].ok._rev === r._rev) {
+                m = true;
                 break;
               }
-              if (!_) g.push({
+              if (!m) g.push({
                 ok: r
               });
             } else g.push({
               missing: u
             });
-            if (! --m) o(null, g);
+            if (! --_) o(null, g);
           }));
         }));
       };
@@ -6731,14 +6677,14 @@ var AbstractPouchDB = class extends import_events2.default {
           u.docId = s;
           return o(u);
         }
-        var m = g.doc, _ = g.metadata, b = g.ctx;
+        var _ = g.doc, m = g.metadata, b = g.ctx;
         if (r.conflicts) {
-          var w = collectConflicts(_);
-          if (w.length) m._conflicts = w;
+          var w = collectConflicts(m);
+          if (w.length) _._conflicts = w;
         }
-        if (isDeleted(_, m._rev)) m._deleted = true;
+        if (isDeleted(m, _._rev)) _._deleted = true;
         if (r.revs || r.revs_info) {
-          for (var E = m._rev.split("-"), S = parseInt(E[0], 10), L = E[1], O = rootToLeaf(_.rev_tree), D = null, k = 0; k < O.length; k++) {
+          for (var E = _._rev.split("-"), S = parseInt(E[0], 10), L = E[1], O = rootToLeaf(m.rev_tree), D = null, k = 0; k < O.length; k++) {
             var C = O[k], T = C.ids.map((function(s) {
               return s.id;
             })).indexOf(L);
@@ -6750,10 +6696,10 @@ var AbstractPouchDB = class extends import_events2.default {
           }
           var I = D.ids.map((function(s) {
             return s.id;
-          })).indexOf(m._rev.split("-")[1]) + 1, A = D.ids.length - I;
+          })).indexOf(_._rev.split("-")[1]) + 1, A = D.ids.length - I;
           D.ids.splice(I, A);
           D.ids.reverse();
-          if (r.revs) m._revisions = {
+          if (r.revs) _._revisions = {
             start: D.pos + D.ids.length - 1,
             ids: D.ids.map((function(s) {
               return s.id;
@@ -6761,7 +6707,7 @@ var AbstractPouchDB = class extends import_events2.default {
           };
           if (r.revs_info) {
             var x = D.pos + D.ids.length;
-            m._revs_info = D.ids.map((function(s) {
+            _._revs_info = D.ids.map((function(s) {
               return {
                 rev: --x + "-" + s.id,
                 status: s.opts.status
@@ -6769,25 +6715,25 @@ var AbstractPouchDB = class extends import_events2.default {
             }));
           }
         }
-        if (r.attachments && m._attachments) {
-          var R = m._attachments, P = Object.keys(R).length;
-          if (0 === P) return o(null, m);
+        if (r.attachments && _._attachments) {
+          var R = _._attachments, P = Object.keys(R).length;
+          if (0 === P) return o(null, _);
           Object.keys(R).forEach((s => {
-            this._getAttachment(m._id, s, R[s], {
-              rev: m._rev,
+            this._getAttachment(_._id, s, R[s], {
+              rev: _._rev,
               binary: r.binary,
               ctx: b
             }, (function(r, u) {
-              var g = m._attachments[s];
+              var g = _._attachments[s];
               g.data = u;
               delete g.stub;
               delete g.length;
-              if (! --P) o(null, m);
+              if (! --P) o(null, _);
             }));
           }));
         } else {
-          if (m._attachments) for (var N in m._attachments) if (Object.prototype.hasOwnProperty.call(m._attachments, N)) m._attachments[N].stub = true;
-          o(null, m);
+          if (_._attachments) for (var N in _._attachments) if (Object.prototype.hasOwnProperty.call(_._attachments, N)) _._attachments[N].stub = true;
+          o(null, _);
         }
       })); else if ("all" === r.open_revs) this._getRevisionTree(s, (function(s, r) {
         if (s) return o(s);
@@ -6798,8 +6744,8 @@ var AbstractPouchDB = class extends import_events2.default {
       })); else if (Array.isArray(r.open_revs)) {
         u = r.open_revs;
         for (var g = 0; g < u.length; g++) {
-          var m = u[g];
-          if (!("string" == typeof m && /^\d+-/.test(m))) return o(createError(INVALID_REV));
+          var _ = u[g];
+          if (!("string" == typeof _ && /^\d+-/.test(_))) return o(createError(INVALID_REV));
         }
         finishOpenRevs();
       } else return o(createError(UNKNOWN_ERROR, "function_clause"));
@@ -6809,12 +6755,12 @@ var AbstractPouchDB = class extends import_events2.default {
         u = o;
         o = {};
       }
-      this._get(s, o, ((g, m) => {
+      this._get(s, o, ((g, _) => {
         if (g) return u(g);
-        if (m.doc._attachments && m.doc._attachments[r]) {
-          o.ctx = m.ctx;
+        if (_.doc._attachments && _.doc._attachments[r]) {
+          o.ctx = _.ctx;
           o.binary = true;
-          this._getAttachment(s, r, m.doc._attachments[r], o, u);
+          this._getAttachment(s, r, _.doc._attachments[r], o, u);
         } else return u(createError(MISSING_DOC));
       }));
     })).bind(this);
@@ -6881,10 +6827,10 @@ var AbstractPouchDB = class extends import_events2.default {
       }));
       if (g) return o(createError(BAD_REQUEST, g));
       if (!("new_edits" in r)) if ("new_edits" in s) r.new_edits = s.new_edits; else r.new_edits = true;
-      var m = this;
-      if (!r.new_edits && !isRemote(m)) s.docs.sort(compareByIdThenRev);
+      var _ = this;
+      if (!r.new_edits && !isRemote(_)) s.docs.sort(compareByIdThenRev);
       cleanDocs(s.docs);
-      var _ = s.docs.map((function(s) {
+      var m = s.docs.map((function(s) {
         return s._id;
       }));
       this._bulkDocs(s, r, (function(s, u) {
@@ -6892,7 +6838,7 @@ var AbstractPouchDB = class extends import_events2.default {
         if (!r.new_edits) u = u.filter((function(s) {
           return s.error;
         }));
-        if (!isRemote(m)) for (var g = 0, b = u.length; g < b; g++) u[g].id = u[g].id || _[g];
+        if (!isRemote(_)) for (var g = 0, b = u.length; g < b; g++) u[g].id = u[g].id || m[g];
         o(null, u);
       }));
     })).bind(this);
@@ -6930,11 +6876,11 @@ var AbstractPouchDB = class extends import_events2.default {
       if (isRemote(this)) return destroyDb();
       this.get("_local/_pouch_dependentDbs", ((s, u) => {
         if (s) if (404 !== s.status) return r(s); else return destroyDb();
-        var g = u.dependentDbs, m = this.constructor, _ = Object.keys(g).map((s => {
-          var r = o ? s.replace(new RegExp("^" + m.prefix), "") : s;
-          return new m(r, this.__opts).destroy();
+        var g = u.dependentDbs, _ = this.constructor, m = Object.keys(g).map((s => {
+          var r = o ? s.replace(new RegExp("^" + _.prefix), "") : s;
+          return new _(r, this.__opts).destroy();
         }));
-        Promise.all(_).then(destroyDb, r);
+        Promise.all(m).then(destroyDb, r);
       }));
     })).bind(this);
   }
@@ -6942,10 +6888,10 @@ var AbstractPouchDB = class extends import_events2.default {
     var o, u = {
       return_docs: false,
       last_seq: s.last_seq || 0
-    }, g = [], m = 0;
+    }, g = [], _ = 0;
     const onChange = s => {
       this.activeTasks.update(o, {
-        completed_items: ++m
+        completed_items: ++_
       });
       g.push(this.compactDocument(s.id, 0));
     }, onError = s => {
@@ -6990,18 +6936,18 @@ var AbstractPouchDB = class extends import_events2.default {
 AbstractPouchDB.prototype.purge = adapterFun("_purge", (function(s, r, o) {
   if ("undefined" == typeof this._purge) return o(createError(UNKNOWN_ERROR, "Purge is not implemented in the " + this.adapter + " adapter."));
   var u = this;
-  u._getRevisionTree(s, ((g, m) => {
+  u._getRevisionTree(s, ((g, _) => {
     if (g) return o(g);
-    if (!m) return o(createError(MISSING_DOC));
-    let _;
+    if (!_) return o(createError(MISSING_DOC));
+    let m;
     try {
-      _ = findPathToLeaf(m, r);
+      m = findPathToLeaf(_, r);
     } catch (s) {
       return o(s.message || s);
     }
-    u._purge(s, _, ((g, m) => {
+    u._purge(s, m, ((g, _) => {
       if (g) return o(g); else appendPurgeSeq(u, s, r).then((function() {
-        return o(null, m);
+        return o(null, _);
       }));
     }));
   }));
@@ -7038,12 +6984,12 @@ function parseAdapter(s, r) {
     name: /https?/.test(o[1]) ? o[1] + "://" + o[2] : o[2],
     adapter: o[1]
   };
-  var u = PouchDB.adapters, g = PouchDB.preferredAdapters, m = PouchDB.prefix, _ = r.adapter;
-  if (!_) for (var b = 0; b < g.length && "idb" === (_ = g[b]) && "websql" in u && hasLocalStorage() && localStorage["_pouch__websqldb_" + m + s]; ++b) guardedConsole("log", 'PouchDB is downgrading "' + s + '" to WebSQL to avoid data loss, because it was already opened with WebSQL.');
-  var w = u[_];
+  var u = PouchDB.adapters, g = PouchDB.preferredAdapters, _ = PouchDB.prefix, m = r.adapter;
+  if (!m) for (var b = 0; b < g.length && "idb" === (m = g[b]) && "websql" in u && hasLocalStorage() && localStorage["_pouch__websqldb_" + _ + s]; ++b) guardedConsole("log", 'PouchDB is downgrading "' + s + '" to WebSQL to avoid data loss, because it was already opened with WebSQL.');
+  var w = u[m];
   return {
-    name: (w && "use_prefix" in w ? w.use_prefix : true) ? m + s : s,
-    adapter: _
+    name: (w && "use_prefix" in w ? w.use_prefix : true) ? _ + s : s,
+    adapter: m
   };
 }
 
@@ -7262,7 +7208,7 @@ function parseRevisionInfo(s) {
 }
 
 function makeRevTreeFromRevisions(s, r) {
-  for (var o = s.start - s.ids.length + 1, u = s.ids, g = [ u[0], r, [] ], m = 1, _ = u.length; m < _; m++) g = [ u[m], {
+  for (var o = s.start - s.ids.length + 1, u = s.ids, g = [ u[0], r, [] ], _ = 1, m = u.length; _ < m; _++) g = [ u[_], {
     status: "missing"
   }, [ g ] ];
   return [ {
@@ -7275,42 +7221,42 @@ function parseDoc(s, r, o) {
   if (!o) o = {
     deterministic_revs: true
   };
-  var u, g, m, _ = {
+  var u, g, _, m = {
     status: "available"
   };
-  if (s._deleted) _.deleted = true;
+  if (s._deleted) m.deleted = true;
   if (r) {
     if (!s._id) s._id = uuid();
     g = rev(s, o.deterministic_revs);
     if (s._rev) {
-      if ((m = parseRevisionInfo(s._rev)).error) return m;
+      if ((_ = parseRevisionInfo(s._rev)).error) return _;
       s._rev_tree = [ {
-        pos: m.prefix,
-        ids: [ m.id, {
+        pos: _.prefix,
+        ids: [ _.id, {
           status: "missing"
-        }, [ [ g, _, [] ] ] ]
+        }, [ [ g, m, [] ] ] ]
       } ];
-      u = m.prefix + 1;
+      u = _.prefix + 1;
     } else {
       s._rev_tree = [ {
         pos: 1,
-        ids: [ g, _, [] ]
+        ids: [ g, m, [] ]
       } ];
       u = 1;
     }
   } else {
     if (s._revisions) {
-      s._rev_tree = makeRevTreeFromRevisions(s._revisions, _);
+      s._rev_tree = makeRevTreeFromRevisions(s._revisions, m);
       u = s._revisions.start;
       g = s._revisions.ids[0];
     }
     if (!s._rev_tree) {
-      if ((m = parseRevisionInfo(s._rev)).error) return m;
-      u = m.prefix;
-      g = m.id;
+      if ((_ = parseRevisionInfo(s._rev)).error) return _;
+      u = _.prefix;
+      g = _.id;
       s._rev_tree = [ {
         pos: u,
-        ids: [ g, _, [] ]
+        ids: [ g, m, [] ]
       } ];
     }
   }
@@ -7381,7 +7327,7 @@ function preprocessAttachments(s, r, o) {
       u = s;
       if (++g === o.length) done();
     }
-    for (var m in s.data._attachments) if (Object.prototype.hasOwnProperty.call(s.data._attachments, m)) preprocessAttachment(s.data._attachments[m], r, processedAttachment);
+    for (var _ in s.data._attachments) if (Object.prototype.hasOwnProperty.call(s.data._attachments, _)) preprocessAttachment(s.data._attachments[_], r, processedAttachment);
   }));
   function done() {
     g++;
@@ -7389,10 +7335,10 @@ function preprocessAttachments(s, r, o) {
   }
 }
 
-function updateDoc(s, r, o, u, g, m, _, b) {
+function updateDoc(s, r, o, u, g, _, m, b) {
   if (revExists(r.rev_tree, o.metadata.rev) && !b) {
     u[g] = o;
-    return m();
+    return _();
   }
   var w = r.winningRev || winningRev(r), E = "deleted" in r ? r.deleted : isDeleted(r, w), S = "deleted" in o.metadata ? o.metadata.deleted : isDeleted(o.metadata), L = /^1-/.test(o.metadata.rev);
   if (E && !S && b && L) {
@@ -7405,7 +7351,7 @@ function updateDoc(s, r, o, u, g, m, _, b) {
   if (b && (E && S && "new_leaf" !== D.conflicts || !E && "new_leaf" !== D.conflicts || E && !S && "new_branch" === D.conflicts)) {
     var k = createError(REV_CONFLICT);
     u[g] = k;
-    return m();
+    return _();
   }
   var C = o.metadata.rev;
   o.metadata.rev_tree = D.tree;
@@ -7413,14 +7359,14 @@ function updateDoc(s, r, o, u, g, m, _, b) {
   if (r.rev_map) o.metadata.rev_map = r.rev_map;
   var T, I = winningRev(o.metadata), A = isDeleted(o.metadata, I), x = E === A ? 0 : E < A ? -1 : 1;
   if (C === I) T = A; else T = isDeleted(o.metadata, C);
-  _(o, I, A, T, true, x, g, m);
+  m(o, I, A, T, true, x, g, _);
 }
 
 function rootIsMissing(s) {
   return "missing" === s.metadata.rev_tree[0].ids[1].status;
 }
 
-function processDocs(s, r, o, u, g, m, _, b, w) {
+function processDocs(s, r, o, u, g, _, m, b, w) {
   s = s || 1e3;
   var E = b.new_edits, S = new ExportedMap, L = 0, O = r.length;
   function checkAllDocsDone() {
@@ -7434,11 +7380,11 @@ function processDocs(s, r, o, u, g, m, _, b, w) {
         S.get(u).push([ s, r ]);
       } else S.set(u, [ [ s, r ] ]);
     } else {
-      var _ = s._deleted ? "_removeLocal" : "_putLocal";
-      o[_](s, {
+      var m = s._deleted ? "_removeLocal" : "_putLocal";
+      o[m](s, {
         ctx: g
       }, (function(s, o) {
-        m[r] = s || o;
+        _[r] = s || o;
         checkAllDocsDone();
       }));
     }
@@ -7450,22 +7396,22 @@ function processDocs(s, r, o, u, g, m, _, b, w) {
     }
     function nextDoc() {
       var w = r[g], S = w[0], L = w[1];
-      if (u.has(o)) updateDoc(s, u.get(o), S, m, L, docWritten, _, E); else {
+      if (u.has(o)) updateDoc(s, u.get(o), S, _, L, docWritten, m, E); else {
         var O = merge([], S.metadata.rev_tree[0], s);
         S.metadata.rev_tree = O.tree;
         S.stemmedRevs = O.stemmedRevs || [];
         (function insertDoc(s, r, o) {
           var u = winningRev(s.metadata), g = isDeleted(s.metadata, u);
           if ("was_delete" in b && g) {
-            m[r] = createError(MISSING_DOC, "deleted");
+            _[r] = createError(MISSING_DOC, "deleted");
             return o();
           }
           if (E && rootIsMissing(s)) {
             var w = createError(REV_CONFLICT);
-            m[r] = w;
+            _[r] = w;
             return o();
           }
-          _(s, u, g, g, false, g ? 0 : 1, r, o);
+          m(s, u, g, g, false, g ? 0 : 1, r, o);
         })(S, L, docWritten);
       }
     }
@@ -7540,9 +7486,9 @@ function readBlobData(s, r, o, u) {
 function fetchAttachmentsIfNecessary(s, r, o, u) {
   var g = Object.keys(s._attachments || {});
   if (!g.length) return u && u();
-  var m = 0;
+  var _ = 0;
   function checkDone() {
-    if (++m === g.length && u) u();
+    if (++_ === g.length && u) u();
   }
   g.forEach((function(u) {
     if (r.attachments && r.include_docs) (function fetchAttachment(s, r) {
@@ -7565,13 +7511,13 @@ function postProcessAttachments(s, r) {
       return Promise.all(o.map((function(o) {
         var u = s.doc._attachments[o];
         if ("body" in u) {
-          var g = u.body, m = u.content_type;
-          return new Promise((function(_) {
-            readBlobData(g, m, r, (function(r) {
+          var g = u.body, _ = u.content_type;
+          return new Promise((function(m) {
+            readBlobData(g, _, r, (function(r) {
               s.doc._attachments[o] = assign$2(pick(u, [ "digest", "content_type" ]), {
                 data: r
               });
-              _();
+              m();
             }));
           }));
         }
@@ -7581,28 +7527,28 @@ function postProcessAttachments(s, r) {
 }
 
 function compactRevs(s, r, o) {
-  var u = [], g = o.objectStore(BY_SEQ_STORE), m = o.objectStore(ATTACH_STORE), _ = o.objectStore(ATTACH_AND_SEQ_STORE), b = s.length;
+  var u = [], g = o.objectStore(BY_SEQ_STORE), _ = o.objectStore(ATTACH_STORE), m = o.objectStore(ATTACH_AND_SEQ_STORE), b = s.length;
   function checkDone() {
     if (! --b) (function deleteOrphanedAttachments() {
       if (u.length) u.forEach((function(s) {
-        _.index("digestSeq").count(IDBKeyRange.bound(s + "::", s + "::￿", false, false)).onsuccess = function(r) {
-          if (!r.target.result) m.delete(s);
+        m.index("digestSeq").count(IDBKeyRange.bound(s + "::", s + "::￿", false, false)).onsuccess = function(r) {
+          if (!r.target.result) _.delete(s);
         };
       }));
     })();
   }
   s.forEach((function(s) {
-    var o = g.index("_doc_id_rev"), m = r + "::" + s;
-    o.getKey(m).onsuccess = function(s) {
+    var o = g.index("_doc_id_rev"), _ = r + "::" + s;
+    o.getKey(_).onsuccess = function(s) {
       var r = s.target.result;
       if ("number" != typeof r) return checkDone();
       g.delete(r);
-      _.index("seq").openCursor(IDBKeyRange.only(r)).onsuccess = function(s) {
+      m.index("seq").openCursor(IDBKeyRange.only(r)).onsuccess = function(s) {
         var r = s.target.result;
         if (r) {
           var o = r.value.digestSeq.split("::")[0];
           u.push(o);
-          _.delete(r.primaryKey);
+          m.delete(r.primaryKey);
           r.continue();
         } else checkDone();
       };
@@ -7624,26 +7570,26 @@ function openTransactionSafely(s, r, o) {
 
 var changesHandler$1 = new Changes;
 
-function idbBulkDocs(s, r, o, u, g, m) {
-  for (var _, b, w, E, S, L, O, D, k = r.docs, C = 0, T = k.length; C < T; C++) {
+function idbBulkDocs(s, r, o, u, g, _) {
+  for (var m, b, w, E, S, L, O, D, k = r.docs, C = 0, T = k.length; C < T; C++) {
     var I = k[C];
     if (!I._id || !isLocalId(I._id)) if ((I = k[C] = parseDoc(I, o.new_edits, s)).error && !O) O = I;
   }
-  if (O) return m(O);
+  if (O) return _(O);
   var A = false, x = 0, R = new Array(k.length), P = new ExportedMap, N = false, B = u._meta.blobSupport ? "blob" : "base64";
   preprocessAttachments(k, B, (function(r) {
-    if (r) return m(r);
+    if (r) return _(r);
     (function startTransaction() {
       var r = openTransactionSafely(g, [ DOC_STORE, BY_SEQ_STORE, ATTACH_STORE, LOCAL_STORE, ATTACH_AND_SEQ_STORE, META_STORE ], "readwrite");
-      if (r.error) return m(r.error);
-      (_ = r.txn).onabort = idbError(m);
-      _.ontimeout = idbError(m);
-      _.oncomplete = complete;
-      b = _.objectStore(DOC_STORE);
-      w = _.objectStore(BY_SEQ_STORE);
-      E = _.objectStore(ATTACH_STORE);
-      S = _.objectStore(ATTACH_AND_SEQ_STORE);
-      (L = _.objectStore(META_STORE)).get(META_STORE).onsuccess = function(s) {
+      if (r.error) return _(r.error);
+      (m = r.txn).onabort = idbError(_);
+      m.ontimeout = idbError(_);
+      m.oncomplete = complete;
+      b = m.objectStore(DOC_STORE);
+      w = m.objectStore(BY_SEQ_STORE);
+      E = m.objectStore(ATTACH_STORE);
+      S = m.objectStore(ATTACH_AND_SEQ_STORE);
+      (L = m.objectStore(META_STORE)).get(META_STORE).onsuccess = function(s) {
         D = s.target.result;
         updateDocCountIfReady();
       };
@@ -7676,16 +7622,16 @@ function idbBulkDocs(s, r, o, u, g, m) {
       })((function(r) {
         if (r) {
           N = true;
-          return m(r);
+          return _(r);
         }
         (function fetchExistingDocs() {
-          if (k.length) for (var r = 0, g = 0, m = k.length; g < m; g++) {
+          if (k.length) for (var r = 0, g = 0, _ = k.length; g < _; g++) {
             var w = k[g];
             if (!w._id || !isLocalId(w._id)) b.get(w.metadata.id).onsuccess = readMetadata; else checkDone();
           }
           function checkDone() {
             if (++r === k.length) (function idbProcessDocs() {
-              processDocs(s.revs_limit, k, u, P, _, R, writeDoc, o, onAllDocsProcessed);
+              processDocs(s.revs_limit, k, u, P, m, R, writeDoc, o, onAllDocsProcessed);
             })();
           }
           function readMetadata(s) {
@@ -7710,20 +7656,20 @@ function idbBulkDocs(s, r, o, u, g, m) {
   function complete() {
     if (!N) {
       changesHandler$1.notify(u._meta.name);
-      m(null, R);
+      _(null, R);
     }
   }
-  function writeDoc(s, r, o, u, g, m, _, b) {
+  function writeDoc(s, r, o, u, g, _, m, b) {
     s.metadata.winningRev = r;
     s.metadata.deleted = o;
     var w = s.data;
     w._id = s.metadata.id;
     w._rev = s.metadata.rev;
     if (u) w._deleted = true;
-    if (w._attachments && Object.keys(w._attachments).length) return function writeAttachments(s, r, o, u, g, m) {
-      var _ = s.data, b = 0, w = Object.keys(_._attachments);
+    if (w._attachments && Object.keys(w._attachments).length) return function writeAttachments(s, r, o, u, g, _) {
+      var m = s.data, b = 0, w = Object.keys(m._attachments);
       function collectResults() {
-        if (b === w.length) finishDoc(s, r, o, u, g, m);
+        if (b === w.length) finishDoc(s, r, o, u, g, _);
       }
       function attachmentSaved() {
         b++;
@@ -7750,26 +7696,26 @@ function idbBulkDocs(s, r, o, u, g, m) {
           collectResults();
         }
       }));
-    }(s, r, o, g, _, b);
-    x += m;
+    }(s, r, o, g, m, b);
+    x += _;
     updateDocCountIfReady();
-    finishDoc(s, r, o, g, _, b);
+    finishDoc(s, r, o, g, m, b);
   }
-  function finishDoc(s, r, o, g, m, E) {
+  function finishDoc(s, r, o, g, _, E) {
     var L = s.data, O = s.metadata;
     L._doc_id_rev = O.id + "::" + O.rev;
     delete L._id;
     delete L._rev;
-    function afterPutDoc(m) {
+    function afterPutDoc(_) {
       var w = s.stemmedRevs || [];
       if (g && u.auto_compaction) w = w.concat(compactTree(s.metadata));
-      if (w && w.length) compactRevs(w, s.metadata.id, _);
-      O.seq = m.target.result;
+      if (w && w.length) compactRevs(w, s.metadata.id, m);
+      O.seq = _.target.result;
       var E = encodeMetadata(O, r, o);
       b.put(E).onsuccess = afterPutMetadata;
     }
     function afterPutMetadata() {
-      R[m] = {
+      R[_] = {
         ok: true,
         id: O.id,
         rev: O.rev
@@ -7793,7 +7739,7 @@ function idbBulkDocs(s, r, o, u, g, m) {
             checkDone();
           };
         }
-        for (var m = 0; m < g.length; m++) add(g[m]);
+        for (var _ = 0; _ < g.length; _++) add(g[_]);
       })(s, O.seq, E);
     }
     var D = w.put(L);
@@ -7810,14 +7756,14 @@ function idbBulkDocs(s, r, o, u, g, m) {
 
 function runBatchedCursor(s, r, o, u, g) {
   if (-1 === u) u = 1e3;
-  var m, _, b;
+  var _, m, b;
   function onGetAll(s) {
-    _ = s.target.result;
-    if (m) g(m, _, b);
+    m = s.target.result;
+    if (_) g(_, m, b);
   }
   function onGetAllKeys(s) {
-    m = s.target.result;
-    if (_) g(m, _, b);
+    _ = s.target.result;
+    if (m) g(_, m, b);
   }
   function onCursor(s) {
     var r = s.target.result;
@@ -7827,16 +7773,16 @@ function runBatchedCursor(s, r, o, u, g) {
   if ("function" == typeof s.getAll && "function" == typeof s.getAllKeys && u > 1 && !o) {
     b = {
       continue: function continuePseudoCursor() {
-        if (!m.length) return g();
-        var o, b = m[m.length - 1];
+        if (!_.length) return g();
+        var o, b = _[_.length - 1];
         if (r && r.upper) try {
           o = IDBKeyRange.bound(b, r.upper, true, r.upperOpen);
         } catch (s) {
           if ("DataError" === s.name && 0 === s.code) return g();
         } else o = IDBKeyRange.lowerBound(b, true);
         r = o;
-        m = null;
         _ = null;
+        m = null;
         s.getAll(r, u).onsuccess = onGetAll;
         s.getAllKeys(r, u).onsuccess = onGetAllKeys;
       }
@@ -7865,10 +7811,10 @@ function getAll(s, r, o) {
 
 function allDocsKeys(s, r, o) {
   var u = new Array(s.length), g = 0;
-  s.forEach((function(m, _) {
-    r.get(m).onsuccess = function(r) {
-      if (r.target.result) u[_] = r.target.result; else u[_] = {
-        key: m,
+  s.forEach((function(_, m) {
+    r.get(_).onsuccess = function(r) {
+      if (r.target.result) u[m] = r.target.result; else u[m] = {
+        key: _,
         error: "not_found"
       };
       if (++g === s.length) o(s, u, {});
@@ -7888,8 +7834,8 @@ function createKeyRange(s, r, o, u, g) {
 }
 
 function idbAllDocs(s, r, o) {
-  var u, g, m = "startkey" in s ? s.startkey : false, _ = "endkey" in s ? s.endkey : false, b = "key" in s ? s.key : false, w = "keys" in s ? s.keys : false, E = s.skip || 0, S = "number" == typeof s.limit ? s.limit : -1, L = false !== s.inclusive_end;
-  if (!w) if ((g = (u = createKeyRange(m, _, L, b, s.descending)) && u.error) && !("DataError" === g.name && 0 === g.code)) return o(createError(IDB_ERROR, g.name, g.message));
+  var u, g, _ = "startkey" in s ? s.startkey : false, m = "endkey" in s ? s.endkey : false, b = "key" in s ? s.key : false, w = "keys" in s ? s.keys : false, E = s.skip || 0, S = "number" == typeof s.limit ? s.limit : -1, L = false !== s.inclusive_end;
+  if (!w) if ((g = (u = createKeyRange(_, m, L, b, s.descending)) && u.error) && !("DataError" === g.name && 0 === g.code)) return o(createError(IDB_ERROR, g.name, g.message));
   var O = [ DOC_STORE, BY_SEQ_STORE, META_STORE ];
   if (s.attachments) O.push(ATTACH_STORE);
   var D = openTransactionSafely(r, O, "readonly");
@@ -8044,9 +7990,9 @@ function changes(s, r, o, u) {
       }
     };
   }
-  var m = s.doc_ids && new ExportedSet(s.doc_ids);
+  var _ = s.doc_ids && new ExportedSet(s.doc_ids);
   s.since = s.since || 0;
-  var _ = s.since, b = "limit" in s ? s.limit : -1;
+  var m = s.since, b = "limit" in s ? s.limit : -1;
   if (0 === b) b = 1;
   var w, E, S, L, O = [], D = 0, k = filterChange(s), C = new ExportedMap;
   function onGetMetadata(s, r, o, u) {
@@ -8060,7 +8006,7 @@ function changes(s, r, o, u) {
   function finish() {
     s.complete(null, {
       results: O,
-      last_seq: _
+      last_seq: m
     });
   }
   var T = [ DOC_STORE, BY_SEQ_STORE ];
@@ -8077,9 +8023,9 @@ function changes(s, r, o, u) {
   runBatchedCursor(E, s.since && !s.descending ? IDBKeyRange.lowerBound(s.since, true) : null, s.descending, b, (function onBatch(r, o, u) {
     if (u && r.length) {
       var g = new Array(r.length), E = new Array(r.length), L = 0;
-      o.forEach((function(o, _) {
+      o.forEach((function(o, m) {
         (function fetchWinningDocAndMetadata(s, r, o) {
-          if (m && !m.has(s._id)) return o();
+          if (_ && !_.has(s._id)) return o();
           var u = C.get(s._id);
           if (u) return onGetMetadata(s, r, u, o);
           S.get(s._id).onsuccess = function(g) {
@@ -8087,15 +8033,15 @@ function changes(s, r, o, u) {
             C.set(s._id, u);
             onGetMetadata(s, r, u, o);
           };
-        })(decodeDoc(o), r[_], (function(o, m) {
-          E[_] = o;
-          g[_] = m;
+        })(decodeDoc(o), r[m], (function(o, _) {
+          E[m] = o;
+          g[m] = _;
           if (++L === r.length) (function onBatchDone() {
-            for (var r = [], o = 0, m = g.length; o < m && D !== b; o++) {
-              var _ = g[o];
-              if (_) {
+            for (var r = [], o = 0, _ = g.length; o < _ && D !== b; o++) {
+              var m = g[o];
+              if (m) {
                 var w = E[o];
-                r.push(processMetadataAndWinningDoc(w, _));
+                r.push(processMetadataAndWinningDoc(w, m));
               }
             }
             Promise.all(r).then((function(r) {
@@ -8108,7 +8054,7 @@ function changes(s, r, o, u) {
     }
     function processMetadataAndWinningDoc(r, o) {
       var u = s.processChange(o, r, s);
-      _ = u.seq = r.seq;
+      m = u.seq = r.seq;
       var g = k(u);
       if ("object" == typeof g) return Promise.reject(g);
       if (!g) return Promise.resolve();
@@ -8135,11 +8081,11 @@ function IdbPouch(s, r) {
 }
 
 function init(s, r, o) {
-  var u = r.name, g = null, m = null;
+  var u = r.name, g = null, _ = null;
   s._meta = null;
   function enrichCallbackError(s) {
     return function(r, o) {
-      if (r && r instanceof Error && !r.reason) if (m) r.reason = m;
+      if (r && r instanceof Error && !r.reason) if (_) r.reason = _;
       s(r, o);
     };
   }
@@ -8151,8 +8097,8 @@ function init(s, r, o) {
     o.openCursor().onsuccess = function(s) {
       var u = s.target.result;
       if (u) {
-        var g = u.value, m = isDeleted(g);
-        g.deletedOrLocal = m ? "1" : "0";
+        var g = u.value, _ = isDeleted(g);
+        g.deletedOrLocal = _ ? "1" : "0";
         o.put(g);
         u.continue();
       } else r();
@@ -8161,15 +8107,15 @@ function init(s, r, o) {
   function migrateLocalStore(s, r) {
     var o = s.objectStore(LOCAL_STORE), u = s.objectStore(DOC_STORE), g = s.objectStore(BY_SEQ_STORE);
     u.openCursor().onsuccess = function(s) {
-      var m = s.target.result;
-      if (m) {
-        var _ = m.value, b = _.id, w = isLocalId(b), E = winningRev(_);
+      var _ = s.target.result;
+      if (_) {
+        var m = _.value, b = m.id, w = isLocalId(b), E = winningRev(m);
         if (w) {
           var S = b + "::" + E, L = b + "::", O = b + "::~", D = g.index("_doc_id_rev"), k = IDBKeyRange.bound(L, O, false, false), C = D.openCursor(k);
           C.onsuccess = function(s) {
             if (!(C = s.target.result)) {
-              u.delete(m.primaryKey);
-              m.continue();
+              u.delete(_.primaryKey);
+              _.continue();
             } else {
               var r = C.value;
               if (r._doc_id_rev === S) o.put(r);
@@ -8177,7 +8123,7 @@ function init(s, r, o) {
               C.continue();
             }
           };
-        } else m.continue();
+        } else _.continue();
       } else if (r) r();
     };
   }
@@ -8188,13 +8134,13 @@ function init(s, r, o) {
       o.openCursor().onsuccess = function(s) {
         var o = s.target.result;
         if (!o) return r();
-        for (var u = o.value, m = o.primaryKey, _ = Object.keys(u._attachments || {}), b = {}, w = 0; w < _.length; w++) b[u._attachments[_[w]].digest] = true;
+        for (var u = o.value, _ = o.primaryKey, m = Object.keys(u._attachments || {}), b = {}, w = 0; w < m.length; w++) b[u._attachments[m[w]].digest] = true;
         var E = Object.keys(b);
         for (w = 0; w < E.length; w++) {
           var S = E[w];
           g.put({
-            seq: m,
-            digestSeq: S + "::" + m
+            seq: _,
+            digestSeq: S + "::" + _
           });
         }
         o.continue();
@@ -8216,15 +8162,15 @@ function init(s, r, o) {
         g.winningRev = g.winningRev || winningRev(g);
         if (g.seq) return onGetMetadataSeq();
         (function fetchMetadataSeq() {
-          var s = g.id + "::", o = g.id + "::￿", u = r.index("_doc_id_rev").openCursor(IDBKeyRange.bound(s, o)), m = 0;
+          var s = g.id + "::", o = g.id + "::￿", u = r.index("_doc_id_rev").openCursor(IDBKeyRange.bound(s, o)), _ = 0;
           u.onsuccess = function(s) {
             var r = s.target.result;
             if (!r) {
-              g.seq = m;
+              g.seq = _;
               return onGetMetadataSeq();
             }
             var o = r.primaryKey;
-            if (o > m) m = o;
+            if (o > _) _ = o;
             r.continue();
           };
         })();
@@ -8244,73 +8190,73 @@ function init(s, r, o) {
   s._id = toPromise((function(r) {
     r(null, s._meta.instanceId);
   }));
-  s._bulkDocs = function idb_bulkDocs(o, u, m) {
-    idbBulkDocs(r, o, u, s, g, enrichCallbackError(m));
+  s._bulkDocs = function idb_bulkDocs(o, u, _) {
+    idbBulkDocs(r, o, u, s, g, enrichCallbackError(_));
   };
   s._get = function idb_get(s, r, o) {
-    var u, m, _, b = r.ctx;
+    var u, _, m, b = r.ctx;
     if (!b) {
       var w = openTransactionSafely(g, [ DOC_STORE, BY_SEQ_STORE, ATTACH_STORE ], "readonly");
       if (w.error) return o(w.error);
       b = w.txn;
     }
     function finish() {
-      o(_, {
+      o(m, {
         doc: u,
-        metadata: m,
+        metadata: _,
         ctx: b
       });
     }
     b.objectStore(DOC_STORE).get(s).onsuccess = function(s) {
-      if (!(m = decodeMetadata(s.target.result))) {
-        _ = createError(MISSING_DOC, "missing");
+      if (!(_ = decodeMetadata(s.target.result))) {
+        m = createError(MISSING_DOC, "missing");
         return finish();
       }
       var o;
       if (!r.rev) {
-        o = m.winningRev;
-        if (isDeleted(m)) {
-          _ = createError(MISSING_DOC, "deleted");
+        o = _.winningRev;
+        if (isDeleted(_)) {
+          m = createError(MISSING_DOC, "deleted");
           return finish();
         }
-      } else o = r.latest ? latest(r.rev, m) : r.rev;
-      var g = b.objectStore(BY_SEQ_STORE), w = m.id + "::" + o;
+      } else o = r.latest ? latest(r.rev, _) : r.rev;
+      var g = b.objectStore(BY_SEQ_STORE), w = _.id + "::" + o;
       g.index("_doc_id_rev").get(w).onsuccess = function(s) {
         if (u = s.target.result) u = decodeDoc(u);
         if (!u) {
-          _ = createError(MISSING_DOC, "missing");
+          m = createError(MISSING_DOC, "missing");
           return finish();
         }
         finish();
       };
     };
   };
-  s._getAttachment = function(s, r, o, u, m) {
-    var _;
-    if (u.ctx) _ = u.ctx; else {
+  s._getAttachment = function(s, r, o, u, _) {
+    var m;
+    if (u.ctx) m = u.ctx; else {
       var b = openTransactionSafely(g, [ DOC_STORE, BY_SEQ_STORE, ATTACH_STORE ], "readonly");
-      if (b.error) return m(b.error);
-      _ = b.txn;
+      if (b.error) return _(b.error);
+      m = b.txn;
     }
     var w = o.digest, E = o.content_type;
-    _.objectStore(ATTACH_STORE).get(w).onsuccess = function(s) {
+    m.objectStore(ATTACH_STORE).get(w).onsuccess = function(s) {
       readBlobData(s.target.result.body, E, u.binary, (function(s) {
-        m(null, s);
+        _(null, s);
       }));
     };
   };
   s._info = function idb_info(r) {
-    var o, u, m = openTransactionSafely(g, [ META_STORE, BY_SEQ_STORE ], "readonly");
-    if (m.error) return r(m.error);
-    var _ = m.txn;
-    _.objectStore(META_STORE).get(META_STORE).onsuccess = function(s) {
+    var o, u, _ = openTransactionSafely(g, [ META_STORE, BY_SEQ_STORE ], "readonly");
+    if (_.error) return r(_.error);
+    var m = _.txn;
+    m.objectStore(META_STORE).get(META_STORE).onsuccess = function(s) {
       u = s.target.result.docCount;
     };
-    _.objectStore(BY_SEQ_STORE).openCursor(null, "prev").onsuccess = function(s) {
+    m.objectStore(BY_SEQ_STORE).openCursor(null, "prev").onsuccess = function(s) {
       var r = s.target.result;
       o = r ? r.key : 0;
     };
-    _.oncomplete = function() {
+    m.oncomplete = function() {
       r(null, {
         doc_count: u,
         update_seq: o,
@@ -8340,19 +8286,19 @@ function init(s, r, o) {
   s._doCompaction = function(s, r, o) {
     var u = openTransactionSafely(g, [ DOC_STORE, BY_SEQ_STORE, ATTACH_STORE, ATTACH_AND_SEQ_STORE ], "readwrite");
     if (u.error) return o(u.error);
-    var m = u.txn;
-    m.objectStore(DOC_STORE).get(s).onsuccess = function(o) {
+    var _ = u.txn;
+    _.objectStore(DOC_STORE).get(s).onsuccess = function(o) {
       var u = decodeMetadata(o.target.result);
-      traverseRevTree(u.rev_tree, (function(s, o, u, g, m) {
-        var _ = o + "-" + u;
-        if (-1 !== r.indexOf(_)) m.status = "missing";
+      traverseRevTree(u.rev_tree, (function(s, o, u, g, _) {
+        var m = o + "-" + u;
+        if (-1 !== r.indexOf(m)) _.status = "missing";
       }));
-      compactRevs(r, s, m);
-      var g = u.winningRev, _ = u.deleted;
-      m.objectStore(DOC_STORE).put(encodeMetadata(u, g, _));
+      compactRevs(r, s, _);
+      var g = u.winningRev, m = u.deleted;
+      _.objectStore(DOC_STORE).put(encodeMetadata(u, g, m));
     };
-    m.onabort = idbError(o);
-    m.oncomplete = function() {
+    _.onabort = idbError(o);
+    _.oncomplete = function() {
       o();
     };
   };
@@ -8375,27 +8321,27 @@ function init(s, r, o) {
       r = {};
     }
     delete s._revisions;
-    var u = s._rev, m = s._id;
+    var u = s._rev, _ = s._id;
     if (!u) s._rev = "0-1"; else s._rev = "0-" + (parseInt(u.split("-")[1], 10) + 1);
-    var _, b = r.ctx;
+    var m, b = r.ctx;
     if (!b) {
       var w = openTransactionSafely(g, [ LOCAL_STORE ], "readwrite");
       if (w.error) return o(w.error);
       (b = w.txn).onerror = idbError(o);
       b.oncomplete = function() {
-        if (_) o(null, _);
+        if (m) o(null, m);
       };
     }
     var E, S = b.objectStore(LOCAL_STORE);
-    if (u) (E = S.get(m)).onsuccess = function(g) {
-      var m = g.target.result;
-      if (!m || m._rev !== u) o(createError(REV_CONFLICT)); else S.put(s).onsuccess = function() {
-        _ = {
+    if (u) (E = S.get(_)).onsuccess = function(g) {
+      var _ = g.target.result;
+      if (!_ || _._rev !== u) o(createError(REV_CONFLICT)); else S.put(s).onsuccess = function() {
+        m = {
           ok: true,
           id: s._id,
           rev: s._rev
         };
-        if (r.ctx) o(null, _);
+        if (r.ctx) o(null, m);
       };
     }; else {
       (E = S.add(s)).onerror = function(s) {
@@ -8404,12 +8350,12 @@ function init(s, r, o) {
         s.stopPropagation();
       };
       E.onsuccess = function() {
-        _ = {
+        m = {
           ok: true,
           id: s._id,
           rev: s._rev
         };
-        if (r.ctx) o(null, _);
+        if (r.ctx) o(null, m);
       };
     }
   };
@@ -8418,19 +8364,19 @@ function init(s, r, o) {
       o = r;
       r = {};
     }
-    var u, m = r.ctx;
-    if (!m) {
-      var _ = openTransactionSafely(g, [ LOCAL_STORE ], "readwrite");
-      if (_.error) return o(_.error);
-      (m = _.txn).oncomplete = function() {
+    var u, _ = r.ctx;
+    if (!_) {
+      var m = openTransactionSafely(g, [ LOCAL_STORE ], "readwrite");
+      if (m.error) return o(m.error);
+      (_ = m.txn).oncomplete = function() {
         if (u) o(null, u);
       };
     }
-    var b = s._id, w = m.objectStore(LOCAL_STORE), E = w.get(b);
+    var b = s._id, w = _.objectStore(LOCAL_STORE), E = w.get(b);
     E.onerror = idbError(o);
     E.onsuccess = function(g) {
-      var m = g.target.result;
-      if (!m || m._rev !== s._rev) o(createError(MISSING_DOC)); else {
+      var _ = g.target.result;
+      if (!_ || _._rev !== s._rev) o(createError(MISSING_DOC)); else {
         w.delete(b);
         u = {
           ok: true,
@@ -8458,10 +8404,10 @@ function init(s, r, o) {
     };
     g.onerror = idbError(r);
   };
-  var _ = cachedDBs.get(u);
-  if (_) {
-    g = _.idb;
-    s._meta = _.global;
+  var m = cachedDBs.get(u);
+  if (m) {
+    g = m.idb;
+    s._meta = m.global;
     return (0, import_immediate.default)((function() {
       o(null, s);
     }));
@@ -8532,11 +8478,11 @@ function init(s, r, o) {
     };
     g.onabort = function(s) {
       guardedConsole("error", "Database has a global failure", s.target.error);
-      m = s.target.error;
+      _ = s.target.error;
       g.close();
       cachedDBs.delete(u);
     };
-    var _, b, w, E, S = g.transaction([ META_STORE, DETECT_BLOB_SUPPORT_STORE, DOC_STORE ], "readwrite"), L = false;
+    var m, b, w, E, S = g.transaction([ META_STORE, DETECT_BLOB_SUPPORT_STORE, DOC_STORE ], "readwrite"), L = false;
     function completeSetup() {
       if ("undefined" != typeof w && L) {
         s._meta = {
@@ -8552,15 +8498,15 @@ function init(s, r, o) {
       }
     }
     function storeMetaDocIfReady() {
-      if ("undefined" != typeof b && "undefined" != typeof _) {
+      if ("undefined" != typeof b && "undefined" != typeof m) {
         var s = u + "_id";
-        if (s in _) E = _[s]; else _[s] = E = uuid();
-        _.docCount = b;
-        S.objectStore(META_STORE).put(_);
+        if (s in m) E = m[s]; else m[s] = E = uuid();
+        m.docCount = b;
+        S.objectStore(META_STORE).put(m);
       }
     }
     S.objectStore(META_STORE).get(META_STORE).onsuccess = function(s) {
-      _ = s.target.result || {
+      m = s.target.result || {
         id: META_STORE
       };
       storeMetaDocIfReady();
@@ -8691,7 +8637,7 @@ function getPouchDbVersion(s) {
 function maintainNativeIndexes(s, r) {
   var o = s.transaction.objectStore(DOC_STORE2);
   o.getAll(IDBKeyRange.bound("_design/", "_design/￿")).onsuccess = function(s) {
-    var u = s.target.result, g = Array.from(o.indexNames), m = u.filter((function(s) {
+    var u = s.target.result, g = Array.from(o.indexNames), _ = u.filter((function(s) {
       return 0 === s.deleted && s.revs[s.rev].data.views;
     })).map((function(s) {
       return s.revs[s.rev].data;
@@ -8701,16 +8647,16 @@ function maintainNativeIndexes(s, r) {
         if (u && u.length > 0) s[naturalIndexName(u)] = correctIndexFields(u);
         return s;
       }), s);
-    }), {}), _ = Object.keys(m), b = [ "seq" ];
+    }), {}), m = Object.keys(_), b = [ "seq" ];
     g.forEach((function(s) {
-      if (-1 === b.indexOf(s) && -1 === _.indexOf(s)) o.deleteIndex(s);
+      if (-1 === b.indexOf(s) && -1 === m.indexOf(s)) o.deleteIndex(s);
     }));
-    var w = _.filter((function(s) {
+    var w = m.filter((function(s) {
       return -1 === g.indexOf(s);
     }));
     try {
       w.forEach((function(s) {
-        o.createIndex(s, m[s]);
+        o.createIndex(s, _[s]);
       }));
     } catch (s) {
       r(s);
@@ -8732,19 +8678,19 @@ function upgradePouchDbSchema(s, r) {
 }
 
 function openDatabase(s, r, o, u, g) {
-  var m = o.versionchanged ? indexedDB.open(o.name) : indexedDB.open(o.name, createIdbVersion());
-  m.onupgradeneeded = function(s) {
+  var _ = o.versionchanged ? indexedDB.open(o.name) : indexedDB.open(o.name, createIdbVersion());
+  _.onupgradeneeded = function(s) {
     if (s.oldVersion > 0 && s.oldVersion < versionMultiplier) throw new Error('Incorrect adapter: you should specify the "idb" adapter to open this DB'); else if (0 === s.oldVersion && s.newVersion < versionMultiplier) {
       indexedDB.deleteDatabase(o.name);
       throw new Error("Database was deleted while open");
     }
     upgradePouchDbSchema(s.target.result, getPouchDbVersion(s.oldVersion));
-    maintainNativeIndexes(m, g);
+    maintainNativeIndexes(_, g);
   };
-  m.onblocked = function(s) {
+  _.onblocked = function(s) {
     console.error("onblocked, this should never happen", s);
   };
-  m.onsuccess = function(r) {
+  _.onsuccess = function(r) {
     var g = r.target.result;
     g.onabort = function(r) {
       console.error("Database has a global failure", r.target.error);
@@ -8760,34 +8706,34 @@ function openDatabase(s, r, o, u, g) {
       console.log("Database was made stale, closing handle");
       if (o.name in s) s[o.name].versionchanged = true;
     };
-    var m = {
+    var _ = {
       id: META_STORE2
-    }, _ = g.transaction([ META_STORE2 ], "readwrite");
-    _.oncomplete = function() {
+    }, m = g.transaction([ META_STORE2 ], "readwrite");
+    m.oncomplete = function() {
       u({
         idb: g,
-        metadata: m
+        metadata: _
       });
     };
-    var b = _.objectStore(META_STORE2);
+    var b = m.objectStore(META_STORE2);
     b.get(META_STORE2).onsuccess = function(s) {
       var r = false;
-      if (!("doc_count" in (m = s.target.result || m))) {
+      if (!("doc_count" in (_ = s.target.result || _))) {
         r = true;
-        m.doc_count = 0;
+        _.doc_count = 0;
       }
-      if (!("seq" in m)) {
+      if (!("seq" in _)) {
         r = true;
-        m.seq = 0;
+        _.seq = 0;
       }
-      if (!("db_uuid" in m)) {
+      if (!("db_uuid" in _)) {
         r = true;
-        m.db_uuid = uuid();
+        _.db_uuid = uuid();
       }
-      if (r) b.put(m);
+      if (r) b.put(_);
     };
   };
-  m.onerror = function(s) {
+  _.onerror = function(s) {
     g(s.target.error);
   };
 }
@@ -8812,15 +8758,15 @@ function info(s, r) {
 function get(s, r, o, u) {
   if (s.error) return u(s.error);
   s.txn.objectStore(DOC_STORE2).get(r).onsuccess = function(r) {
-    var g, m = r.target.result;
-    if (!o.rev) g = m && m.rev; else g = o.latest ? latest(o.rev, m) : o.rev;
-    if (m && (!m.deleted || o.rev) && g in m.revs) {
-      var _ = m.revs[g].data;
-      _._id = m.id;
-      _._rev = g;
+    var g, _ = r.target.result;
+    if (!o.rev) g = _ && _.rev; else g = o.latest ? latest(o.rev, _) : o.rev;
+    if (_ && (!_.deleted || o.rev) && g in _.revs) {
+      var m = _.revs[g].data;
+      m._id = _.id;
+      m._rev = g;
       u(null, {
-        doc: _,
-        metadata: m,
+        doc: m,
+        metadata: _,
         ctx: s
       });
     } else u(createError(MISSING_DOC, "missing"));
@@ -8833,20 +8779,20 @@ function parseAttachment(s, r, o) {
   }));
 }
 
-function getAttachment(s, r, o, u, g, m) {
-  if (s.error) return m(s.error);
-  var _;
+function getAttachment(s, r, o, u, g, _) {
+  if (s.error) return _(s.error);
+  var m;
   s.txn.objectStore(DOC_STORE2).get(r).onsuccess = function(s) {
     var r = s.target.result, u = r.revs[g.rev || r.rev].data._attachments[o].digest;
-    _ = r.attachments[u].data;
+    m = r.attachments[u].data;
   };
   s.txn.oncomplete = function() {
-    parseAttachment(_, g, m);
+    parseAttachment(m, g, _);
   };
-  s.txn.onabort = m;
+  s.txn.onabort = _;
 }
 
-function bulkDocs(s, r, o, u, g, m, _) {
+function bulkDocs(s, r, o, u, g, _, m) {
   var b, w, E, S = [], L = [], O = g.revs_limit || 1e3, D = -1 === g.name.indexOf("-mrview-");
   const k = g.auto_compaction;
   function docsRevsLimit(s) {
@@ -8880,7 +8826,7 @@ function bulkDocs(s, r, o, u, g, m, _) {
     } catch (s) {
       I = s;
     }
-    if (I.error) return _(I);
+    if (I.error) return m(I);
     L.push(convertDocFormat(I));
   }
   (function preProcessAttachments() {
@@ -8926,33 +8872,33 @@ function bulkDocs(s, r, o, u, g, m, _) {
     return Promise.all(s);
   })().then((function() {
     s._openTransactionSafely([ DOC_STORE2, META_STORE2 ], "readwrite", (function(s, r) {
-      if (s) return _(s);
+      if (s) return m(s);
       (b = r).onabort = function() {
-        _(w || createError(UNKNOWN_ERROR, "transaction was aborted"));
+        m(w || createError(UNKNOWN_ERROR, "transaction was aborted"));
       };
-      b.ontimeout = idbError2(_);
+      b.ontimeout = idbError2(m);
       b.oncomplete = function() {
-        m.notify(g.name);
-        _(null, S);
+        _.notify(g.name);
+        m(null, S);
       };
       (function fetchExistingDocs(s, r) {
-        var m = 0, _ = {};
+        var _ = 0, m = {};
         function readDone(b) {
-          if (b.target.result) _[b.target.result.id] = b.target.result;
-          if (++m === r.length) (function processDocs2(s, r, m) {
-            r.forEach((function(r, _) {
+          if (b.target.result) m[b.target.result.id] = b.target.result;
+          if (++_ === r.length) (function processDocs2(s, r, _) {
+            r.forEach((function(r, m) {
               var b;
-              if ("was_delete" in o && !Object.prototype.hasOwnProperty.call(m, r.id)) b = createError(MISSING_DOC, "deleted"); else if (o.new_edits && !Object.prototype.hasOwnProperty.call(m, r.id) && function rootIsMissing2(s) {
+              if ("was_delete" in o && !Object.prototype.hasOwnProperty.call(_, r.id)) b = createError(MISSING_DOC, "deleted"); else if (o.new_edits && !Object.prototype.hasOwnProperty.call(_, r.id) && function rootIsMissing2(s) {
                 return "missing" === s.rev_tree[0].ids[1].status;
-              }(r)) b = createError(REV_CONFLICT); else if (Object.prototype.hasOwnProperty.call(m, r.id)) {
+              }(r)) b = createError(REV_CONFLICT); else if (Object.prototype.hasOwnProperty.call(_, r.id)) {
                 b = function update2(s, r, u) {
                   if (r.rev in u.revs && !o.new_edits) return false;
-                  var m = /^1-/.test(r.rev);
-                  if (u.deleted && !r.deleted && o.new_edits && m) {
-                    var _ = r.revs[r.rev].data;
-                    _._rev = u.rev;
-                    _._id = u.id;
-                    r = convertDocFormat(parseDoc(_, o.new_edits, g));
+                  var _ = /^1-/.test(r.rev);
+                  if (u.deleted && !r.deleted && o.new_edits && _) {
+                    var m = r.revs[r.rev].data;
+                    m._rev = u.rev;
+                    m._id = u.id;
+                    r = convertDocFormat(parseDoc(m, o.new_edits, g));
                   }
                   var b = merge(u.rev_tree, r.rev_tree[0], docsRevsLimit(r));
                   r.stemmedRevs = b.stemmedRevs;
@@ -8964,7 +8910,7 @@ function bulkDocs(s, r, o, u, g, m, _) {
                   if (o.new_edits && (u.deleted && r.deleted || !u.deleted && "new_leaf" !== b.conflicts || u.deleted && !r.deleted && "new_branch" === b.conflicts || u.rev === r.rev)) return createError(REV_CONFLICT);
                   r.wasDeleted = u.deleted;
                   return r;
-                }(0, r, m[r.id]);
+                }(0, r, _[r.id]);
                 if (false == b) return;
               } else {
                 var L = merge([], r.rev_tree[0], docsRevsLimit(r));
@@ -8973,11 +8919,11 @@ function bulkDocs(s, r, o, u, g, m, _) {
                 (b = r).isNewDoc = true;
                 b.wasDeleted = r.revs[r.rev].deleted ? 1 : 0;
               }
-              if (b.error) S[_] = b; else {
-                m[b.id] = b;
-                E = _;
+              if (b.error) S[m] = b; else {
+                _[b.id] = b;
+                E = m;
                 (function write(s, r, o) {
-                  var g = winningRev(r), m = r.rev, _ = /^_local/.test(r.id), b = r.revs[g].data;
+                  var g = winningRev(r), _ = r.rev, m = /^_local/.test(r.id), b = r.revs[g].data;
                   const E = r.isNewDoc;
                   if (D) {
                     var L = rewrite(b);
@@ -8988,7 +8934,7 @@ function bulkDocs(s, r, o, u, g, m, _) {
                   } else r.data = b;
                   r.rev = g;
                   r.deleted = r.revs[g].deleted ? 1 : 0;
-                  if (!_) {
+                  if (!m) {
                     r.seq = ++u.seq;
                     var O = 0;
                     if (r.isNewDoc) O = r.deleted ? 0 : 1; else if (r.wasDeleted !== r.deleted) O = r.deleted ? -1 : 1;
@@ -9014,25 +8960,25 @@ function bulkDocs(s, r, o, u, g, m, _) {
                         s.abort();
                         return;
                       }
-                      if (revHasAttachment(r, m, I.digest)) r.attachments[I.digest].revs[m] = true;
+                      if (revHasAttachment(r, _, I.digest)) r.attachments[I.digest].revs[_] = true;
                     } else {
                       r.attachments[I.digest] = I;
                       r.attachments[I.digest].revs = {};
-                      r.attachments[I.digest].revs[m] = true;
+                      r.attachments[I.digest].revs[_] = true;
                       b._attachments[T] = {
                         stub: true,
                         digest: I.digest,
                         content_type: I.content_type,
                         length: I.length,
-                        revpos: parseInt(m, 10)
+                        revpos: parseInt(_, 10)
                       };
                     }
                   }
-                  if (!_ || !r.deleted) s.objectStore(DOC_STORE2).put(r).onsuccess = function() {
+                  if (!m || !r.deleted) s.objectStore(DOC_STORE2).put(r).onsuccess = function() {
                     S[o] = {
                       ok: true,
                       id: r.id,
-                      rev: m
+                      rev: _
                     };
                     updateSeq(o);
                   }; else {
@@ -9045,10 +8991,10 @@ function bulkDocs(s, r, o, u, g, m, _) {
                     };
                     updateSeq(o);
                   }
-                })(s, b, _);
+                })(s, b, m);
               }
             }));
-          })(s, r, _);
+          })(s, r, m);
         }
         r.forEach((function(r) {
           s.objectStore(DOC_STORE2).get(r.id).onsuccess = readDone;
@@ -9056,16 +9002,16 @@ function bulkDocs(s, r, o, u, g, m, _) {
       })(b, L);
     }));
   })).catch((function(s) {
-    _(s);
+    m(s);
   }));
 }
 
 function allDocsKeys2(s, r, o) {
   var u = new Array(s.length), g = 0;
-  s.forEach((function(m, _) {
-    r.get(m).onsuccess = function(r) {
-      if (r.target.result) u[_] = r.target.result; else u[_] = {
-        key: m,
+  s.forEach((function(_, m) {
+    r.get(_).onsuccess = function(r) {
+      if (r.target.result) u[m] = r.target.result; else u[m] = {
+        key: _,
         error: "not_found"
       };
       if (++g === s.length) u.forEach((function(s) {
@@ -9110,15 +9056,15 @@ function allDocs(s, r, o, u) {
     if (o.update_seq) g.update_seq = r.seq;
     return u(null, g);
   }
-  var m, _ = [], b = [], w = "startkey" in o ? o.startkey : false, E = "endkey" in o ? o.endkey : false, S = "key" in o ? o.key : false, L = "keys" in o ? o.keys : false, O = o.skip || 0, D = "number" == typeof o.limit ? o.limit : -1, k = false !== o.inclusive_end, C = "descending" in o && o.descending ? "prev" : null;
-  if (!L) if ((m = createKeyRange2(w, E, k, S, C)) && m.error) return handleKeyRangeError(o, r, m.error, u);
+  var _, m = [], b = [], w = "startkey" in o ? o.startkey : false, E = "endkey" in o ? o.endkey : false, S = "key" in o ? o.key : false, L = "keys" in o ? o.keys : false, O = o.skip || 0, D = "number" == typeof o.limit ? o.limit : -1, k = false !== o.inclusive_end, C = "descending" in o && o.descending ? "prev" : null;
+  if (!L) if ((_ = createKeyRange2(w, E, k, S, C)) && _.error) return handleKeyRangeError(o, r, _.error, u);
   var T = s.txn.objectStore(DOC_STORE2);
   s.txn.oncomplete = function onTxnComplete() {
     Promise.all(b).then((function() {
       var s = {
         total_rows: r.doc_count,
         offset: 0,
-        rows: _
+        rows: m
       };
       if (o.update_seq) s.update_seq = r.seq;
       u(null, s);
@@ -9127,7 +9073,7 @@ function allDocs(s, r, o, u) {
   if (L) return allDocsKeys2(o.keys, T, allDocsInner);
   function allDocsInner(s) {
     if (s.error && L) {
-      _.push(s);
+      m.push(s);
       return true;
     }
     var r = {
@@ -9139,12 +9085,12 @@ function allDocs(s, r, o, u) {
     };
     if (s.deleted) {
       if (L) {
-        _.push(r);
+        m.push(r);
         r.value.deleted = true;
         r.doc = null;
       }
     } else if (O-- <= 0) {
-      _.push(r);
+      m.push(r);
       if (o.include_docs) (function include_doc(s, r) {
         var u = r.revs[r.rev].data;
         s.doc = u;
@@ -9154,13 +9100,13 @@ function allDocs(s, r, o, u) {
           var g = collectConflicts(r);
           if (g.length) s.doc._conflicts = g;
         }
-        if (o.attachments && u._attachments) for (var m in u._attachments) b.push(processAttachment(m, r, s.doc, o.binary));
+        if (o.attachments && u._attachments) for (var _ in u._attachments) b.push(processAttachment(_, r, s.doc, o.binary));
       })(r, s);
       if (0 == --D) return false;
     }
     return true;
   }
-  (C ? T.openCursor(m, C) : T.openCursor(m)).onsuccess = function(s) {
+  (C ? T.openCursor(_, C) : T.openCursor(_)).onsuccess = function(s) {
     var r = s.target.result && s.target.result.value;
     if (r) {
       if (/^_local/.test(r.id)) return s.target.result.continue();
@@ -9172,17 +9118,17 @@ function allDocs(s, r, o, u) {
 function changes2(s, r, o, u, g) {
   if (s.error) return g.complete(s.error);
   if (g.continuous) {
-    var m = u.name + ":" + uuid();
-    r.addListener(u.name, m, o, g);
+    var _ = u.name + ":" + uuid();
+    r.addListener(u.name, _, o, g);
     r.notify(u.name);
     return {
       cancel: function() {
-        r.removeListener(u.name, m);
+        r.removeListener(u.name, _);
       }
     };
   }
-  var _ = "limit" in g ? g.limit : -1;
-  if (0 === _) _ = 1;
+  var m = "limit" in g ? g.limit : -1;
+  if (0 === m) m = 1;
   var b, w = s.txn.objectStore(DOC_STORE2).index("seq"), E = filterChange(g), S = 0, L = g.since || 0, O = [], D = [];
   if (g.descending) b = w.openCursor(null, "prev"); else b = w.openCursor(IDBKeyRange.lowerBound(g.since, true));
   s.txn.oncomplete = function onTxnComplete() {
@@ -9204,9 +9150,9 @@ function changes2(s, r, o, u, g) {
       var u = g.processChange(o.data, o, g);
       u.seq = o.seq;
       L = o.seq;
-      var m = E(u);
-      if ("object" == typeof m) return g.complete(m);
-      if (m) {
+      var _ = E(u);
+      if ("object" == typeof _) return g.complete(_);
+      if (_) {
         S++;
         if (g.return_docs) O.push(u);
         if (g.include_docs && g.attachments && o.data._attachments) {
@@ -9221,7 +9167,7 @@ function changes2(s, r, o, u, g) {
           }));
         } else g.onChange(u);
       }
-      if (S !== _) r.continue();
+      if (S !== m) r.continue();
     }
   };
 }
@@ -9238,9 +9184,9 @@ function doCompaction(s, r, o, u) {
   var g = s.txn.objectStore(DOC_STORE2);
   g.get(r).onsuccess = function(s) {
     var r = s.target.result;
-    traverseRevTree(r.rev_tree, (function(s, r, u, g, m) {
-      var _ = r + "-" + u;
-      if (-1 !== o.indexOf(_)) m.status = "missing";
+    traverseRevTree(r.rev_tree, (function(s, r, u, g, _) {
+      var m = r + "-" + u;
+      if (-1 !== o.indexOf(m)) _.status = "missing";
     }));
     var u = [];
     o.forEach((function(s) {
@@ -9322,36 +9268,36 @@ function generateKeyRange(s) {
 function getIndexHandle(s, r, o) {
   var u = naturalIndexName(r);
   return new Promise((function(g) {
-    s._openTransactionSafely([ DOC_STORE2 ], "readonly", (function(m, _) {
-      if (m) return idbError2(o)(m);
-      _.onabort = idbError2(o);
-      _.ontimeout = idbError2(o);
-      if (-1 === Array.from(_.objectStore(DOC_STORE2).indexNames).indexOf(u)) s._freshen().then((function() {
+    s._openTransactionSafely([ DOC_STORE2 ], "readonly", (function(_, m) {
+      if (_) return idbError2(o)(_);
+      m.onabort = idbError2(o);
+      m.ontimeout = idbError2(o);
+      if (-1 === Array.from(m.objectStore(DOC_STORE2).indexNames).indexOf(u)) s._freshen().then((function() {
         return getIndexHandle(s, r, o);
-      })).then(g); else g(_.objectStore(DOC_STORE2).index(u));
+      })).then(g); else g(m.objectStore(DOC_STORE2).index(u));
     }));
   }));
 }
 
 function query(s, r, o, u) {
-  var g = this, m = r.split("/");
-  return new Promise((function(s, _) {
-    g.get("_design/" + m[0]).then((function(b) {
-      if (isPartialFilterView(b, m[1])) return u(r, o).then(s, _);
-      var w = rawIndexFields(b, m[1]);
-      if (!w) throw new Error("ddoc " + b._id + " with view " + m[1] + " does not have map.options.def.fields defined.");
+  var g = this, _ = r.split("/");
+  return new Promise((function(s, m) {
+    g.get("_design/" + _[0]).then((function(b) {
+      if (isPartialFilterView(b, _[1])) return u(r, o).then(s, m);
+      var w = rawIndexFields(b, _[1]);
+      if (!w) throw new Error("ddoc " + b._id + " with view " + _[1] + " does not have map.options.def.fields defined.");
       var E = o.skip, S = Number.isInteger(o.limit) && o.limit;
-      return getIndexHandle(g, w, _).then((function(r) {
-        var u = generateKeyRange(o), g = r.openCursor(u, o.descending ? "prev" : "next"), m = [];
-        g.onerror = idbError2(_);
+      return getIndexHandle(g, w, m).then((function(r) {
+        var u = generateKeyRange(o), g = r.openCursor(u, o.descending ? "prev" : "next"), _ = [];
+        g.onerror = idbError2(m);
         g.onsuccess = function(r) {
           var o = r.target.result;
           if (!o || 0 === S) return s({
-            rows: m
+            rows: _
           });
           if (!E) {
             if (S) S -= 1;
-            m.push({
+            _.push({
               doc: externaliseRecord(o.value)
             });
             o.continue();
@@ -9361,7 +9307,7 @@ function query(s, r, o, u) {
           }
         };
       }));
-    })).catch(_);
+    })).catch(m);
   }));
 }
 
@@ -9381,14 +9327,14 @@ function purgeAttachments(s, r) {
 
 function purge(s, r, o, u) {
   if (s.error) return u(s.error);
-  const g = s.txn.objectStore(DOC_STORE2), m = [];
-  let _ = false;
+  const g = s.txn.objectStore(DOC_STORE2), _ = [];
+  let m = false;
   g.get(r).onsuccess = s => {
     const r = s.target.result;
     for (const s of o) {
       r.rev_tree = removeLeafFromRevTree(r.rev_tree, s);
       delete r.revs[s];
-      m.push(s);
+      _.push(s);
     }
     if (0 !== r.rev_tree.length) {
       r.rev = winningRev(r);
@@ -9397,14 +9343,14 @@ function purge(s, r, o, u) {
       g.put(r);
     } else {
       g.delete(r.id);
-      _ = true;
+      m = true;
     }
   };
   s.txn.oncomplete = function() {
     u(null, {
       ok: true,
-      deletedRevs: m,
-      documentWasRemovedCompletely: _
+      deletedRevs: _,
+      documentWasRemovedCompletely: m
     });
   };
 }
@@ -9434,21 +9380,21 @@ function IdbPouch2(s, r) {
         return r.apply(o, g);
       }));
     };
-  }, $t = function(r, g, m) {
+  }, $t = function(r, g, _) {
     g = g || [ DOC_STORE2 ];
-    m = m || "readonly";
+    _ = _ || "readonly";
     return function() {
-      var _ = Array.prototype.slice.call(arguments), b = {};
+      var m = Array.prototype.slice.call(arguments), b = {};
       setup(openDatabases, o, s).then((function(s) {
         u = s.metadata;
-        b.txn = s.idb.transaction(g, m);
+        b.txn = s.idb.transaction(g, _);
       })).catch((function(s) {
         console.error("Failed to establish transaction safely");
         console.error(s);
         b.error = s;
       })).then((function() {
-        _.unshift(b);
-        r.apply(o, _);
+        m.unshift(b);
+        r.apply(o, m);
       }));
     };
   };
@@ -9468,8 +9414,8 @@ function IdbPouch2(s, r) {
     return info(u, r);
   }));
   o._get = $t(get);
-  o._bulkDocs = $((function(r, g, m, _) {
-    bulkDocs(o, g, m, u, s, idbChanges, _);
+  o._bulkDocs = $((function(r, g, _, m) {
+    bulkDocs(o, g, _, u, s, idbChanges, m);
   }));
   o._allDocs = $t((function(s, r, o) {
     allDocs(s, u, r, o);
@@ -9517,25 +9463,25 @@ var index_es_default3 = index2;
 
 function pool(s, r) {
   return new Promise((function(o, u) {
-    var g, m = 0, _ = 0, b = 0, w = s.length;
+    var g, _ = 0, m = 0, b = 0, w = s.length;
     function runNext() {
-      m++;
-      s[_++]().then(onSuccess, onError);
+      _++;
+      s[m++]().then(onSuccess, onError);
     }
     function doNext() {
       if (++b === w) if (g) u(g); else o(); else runNextBatch();
     }
     function onSuccess() {
-      m--;
+      _--;
       doNext();
     }
     function onError(s) {
-      m--;
+      _--;
       g = g || s;
       doNext();
     }
     function runNextBatch() {
-      for (;m < r && _ < w; ) runNext();
+      for (;_ < r && m < w; ) runNext();
     }
     runNextBatch();
   }));
@@ -9606,8 +9552,8 @@ function paramsToStr(s) {
 }
 
 function shouldCacheBust(s) {
-  let r = "undefined" != typeof navigator && navigator.userAgent ? navigator.userAgent.toLowerCase() : "", o = -1 !== r.indexOf("msie"), u = -1 !== r.indexOf("trident"), g = -1 !== r.indexOf("edge"), m = !("method" in s) || "GET" === s.method;
-  return (o || u || g) && m;
+  let r = "undefined" != typeof navigator && navigator.userAgent ? navigator.userAgent.toLowerCase() : "", o = -1 !== r.indexOf("msie"), u = -1 !== r.indexOf("trident"), g = -1 !== r.indexOf("edge"), _ = !("method" in s) || "GET" === s.method;
+  return (o || u || g) && _;
 }
 
 function HttpPouch(s, r) {
@@ -9617,16 +9563,16 @@ function HttpPouch(s, r) {
     (o = o || {}).headers = o.headers || new h;
     o.credentials = "include";
     if (s.auth || u.auth) {
-      let r = s.auth || u.auth, g = r.username + ":" + r.password, m = thisBtoa(unescape(encodeURIComponent(g)));
-      o.headers.set("Authorization", "Basic " + m);
+      let r = s.auth || u.auth, g = r.username + ":" + r.password, _ = thisBtoa(unescape(encodeURIComponent(g)));
+      o.headers.set("Authorization", "Basic " + _);
     }
     let g = s.headers || {};
     Object.keys(g).forEach((function(s) {
       o.headers.append(s, g[s]);
     }));
     if (shouldCacheBust(o)) r += (-1 === r.indexOf("?") ? "?" : "&") + "_nonce=" + Date.now();
-    let m = s.fetch || f2;
-    return await m(r, o);
+    let _ = s.fetch || f2;
+    return await _(r, o);
   };
   function adapterFun$$1(s, r) {
     return adapterFun(s, (function(...s) {
@@ -9656,11 +9602,11 @@ function HttpPouch(s, r) {
     }));
     return o;
   }
-  let m;
+  let _;
   async function setup2() {
     if (s.skip_setup) return Promise.resolve();
-    if (m) return m;
-    m = fetchJSON(g).catch((function(s) {
+    if (_) return _;
+    _ = fetchJSON(g).catch((function(s) {
       if (s && s.status && 404 === s.status) {
         explainError(404, "PouchDB is just detecting if the remote exists.");
         return fetchJSON(g, {
@@ -9670,10 +9616,10 @@ function HttpPouch(s, r) {
     })).catch((function(s) {
       if (s && s.status && 412 === s.status) return true; else return Promise.reject(s);
     }));
-    m.catch((function() {
-      m = null;
+    _.catch((function() {
+      _ = null;
     }));
-    return m;
+    return _;
   }
   (0, import_immediate.default)((function() {
     r(null, o);
@@ -9732,12 +9678,12 @@ function HttpPouch(s, r) {
       }
     }
     function doBulkGetShim() {
-      let u = MAX_SIMULTANEOUS_REVS, g = Math.ceil(s.docs.length / u), m = 0, _ = new Array(g);
+      let u = MAX_SIMULTANEOUS_REVS, g = Math.ceil(s.docs.length / u), _ = 0, m = new Array(g);
       function onResult(s) {
         return function(o, u) {
-          _[s] = u.results;
-          if (++m === g) r(null, {
-            results: flatten(_)
+          m[s] = u.results;
+          if (++_ === g) r(null, {
+            results: flatten(m)
           });
         };
       }
@@ -9747,8 +9693,8 @@ function HttpPouch(s, r) {
         bulkGet(o, g, onResult(r));
       }
     }
-    let g = genUrl(u, ""), m = supportsBulkGetMap[g];
-    if ("boolean" != typeof m) doBulkGet((function(s, o) {
+    let g = genUrl(u, ""), _ = supportsBulkGetMap[g];
+    if ("boolean" != typeof _) doBulkGet((function(s, o) {
       if (s) {
         supportsBulkGetMap[g] = false;
         explainError(s.status, "PouchDB is just detecting if the remote supports the _bulk_get API.");
@@ -9757,7 +9703,7 @@ function HttpPouch(s, r) {
         supportsBulkGetMap[g] = true;
         r(null, o);
       }
-    })); else if (m) doBulkGet(r); else doBulkGetShim();
+    })); else if (_) doBulkGet(r); else doBulkGetShim();
   }));
   o._info = async function(s) {
     try {
@@ -9796,26 +9742,26 @@ function HttpPouch(s, r) {
       if (o && g.length) return pool(g.map((function(g) {
         return function() {
           return async function fetchData(g) {
-            const m = o[g], _ = encodeDocId(s._id) + "/" + encodeAttachmentId(g) + "?rev=" + s._rev, b = await ourFetch(genDBUrl(u, _));
+            const _ = o[g], m = encodeDocId(s._id) + "/" + encodeAttachmentId(g) + "?rev=" + s._rev, b = await ourFetch(genDBUrl(u, m));
             let w, E;
             if ("buffer" in b) w = await b.buffer(); else w = await b.blob();
             if (r.binary) {
               let s = Object.getOwnPropertyDescriptor(w.__proto__, "type");
-              if (!s || s.set) w.type = m.content_type;
+              if (!s || s.set) w.type = _.content_type;
               E = w;
             } else E = await new Promise((function(s) {
               blobToBase64(w, s);
             }));
-            delete m.stub;
-            delete m.length;
-            m.data = E;
+            delete _.stub;
+            delete _.length;
+            _.data = E;
           }(g);
         };
       })), 5);
     }
-    const m = genDBUrl(u, s + paramsToStr(g));
+    const _ = genDBUrl(u, s + paramsToStr(g));
     try {
-      const s = await fetchJSON(m);
+      const s = await fetchJSON(_);
       if (r.attachments) await function fetchAllAttachments(s) {
         if (Array.isArray(s)) return Promise.all(s.map((function(s) {
           if (s.ok) return fetchAttachments(s.ok);
@@ -9828,9 +9774,9 @@ function HttpPouch(s, r) {
     }
   }));
   o.remove = adapterFun$$1("remove", (async function(s, r, o, g) {
-    let m;
+    let _;
     if ("string" == typeof r) {
-      m = {
+      _ = {
         _id: s,
         _rev: r
       };
@@ -9839,7 +9785,7 @@ function HttpPouch(s, r) {
         o = {};
       }
     } else {
-      m = s;
+      _ = s;
       if ("function" == typeof r) {
         g = r;
         o = {};
@@ -9848,7 +9794,7 @@ function HttpPouch(s, r) {
         o = r;
       }
     }
-    const _ = m._rev || o.rev, b = genDBUrl(u, encodeDocId(m._id)) + "?rev=" + _;
+    const m = _._rev || o.rev, b = genDBUrl(u, encodeDocId(_._id)) + "?rev=" + m;
     try {
       g(null, (await fetchJSON(b, {
         method: "DELETE"
@@ -9865,10 +9811,10 @@ function HttpPouch(s, r) {
       g = o;
       o = {};
     }
-    const m = o.rev ? "?rev=" + o.rev : "", _ = genDBUrl(u, encodeDocId(s)) + "/" + encodeAttachmentId(r) + m;
+    const _ = o.rev ? "?rev=" + o.rev : "", m = genDBUrl(u, encodeDocId(s)) + "/" + encodeAttachmentId(r) + _;
     let b;
     try {
-      const s = await ourFetch(_, {
+      const s = await ourFetch(m, {
         method: "GET"
       });
       if (!s.ok) throw s;
@@ -9885,19 +9831,19 @@ function HttpPouch(s, r) {
     }
   }));
   o.removeAttachment = adapterFun$$1("removeAttachment", (async function(s, r, o, g) {
-    const m = genDBUrl(u, encodeDocId(s) + "/" + encodeAttachmentId(r)) + "?rev=" + o;
+    const _ = genDBUrl(u, encodeDocId(s) + "/" + encodeAttachmentId(r)) + "?rev=" + o;
     try {
-      g(null, (await fetchJSON(m, {
+      g(null, (await fetchJSON(_, {
         method: "DELETE"
       })).data);
     } catch (s) {
       g(s);
     }
   }));
-  o.putAttachment = adapterFun$$1("putAttachment", (async function(s, r, o, g, m, _) {
-    if ("function" == typeof m) {
-      _ = m;
-      m = g;
+  o.putAttachment = adapterFun$$1("putAttachment", (async function(s, r, o, g, _, m) {
+    if ("function" == typeof _) {
+      m = _;
+      _ = g;
       g = o;
       o = null;
     }
@@ -9909,20 +9855,20 @@ function HttpPouch(s, r) {
       try {
         s = thisAtob(g);
       } catch (s) {
-        return _(createError(BAD_ARG, "Attachment is not a valid base64 string"));
+        return m(createError(BAD_ARG, "Attachment is not a valid base64 string"));
       }
-      g = s ? binStringToBluffer(s, m) : "";
+      g = s ? binStringToBluffer(s, _) : "";
     }
     try {
-      _(null, (await fetchJSON(w, {
+      m(null, (await fetchJSON(w, {
         headers: new h({
-          "Content-Type": m
+          "Content-Type": _
         }),
         method: "PUT",
         body: g
       })).data);
     } catch (s) {
-      _(s);
+      m(s);
     }
   }));
   o._bulkDocs = async function(s, r, o) {
@@ -9956,7 +9902,7 @@ function HttpPouch(s, r) {
       r = s;
       s = {};
     }
-    let o, g = {}, m = "GET";
+    let o, g = {}, _ = "GET";
     if ((s = clone(s)).conflicts) g.conflicts = true;
     if (s.update_seq) g.update_seq = true;
     if (s.descending) g.descending = true;
@@ -9970,16 +9916,16 @@ function HttpPouch(s, r) {
     if ("undefined" != typeof s.inclusive_end) g.inclusive_end = !!s.inclusive_end;
     if ("undefined" != typeof s.limit) g.limit = s.limit;
     if ("undefined" != typeof s.skip) g.skip = s.skip;
-    let _ = paramsToStr(g);
+    let m = paramsToStr(g);
     if ("undefined" != typeof s.keys) {
-      m = "POST";
+      _ = "POST";
       o = {
         keys: s.keys
       };
     }
     try {
-      const g = await fetchJSON(genDBUrl(u, "_all_docs" + _), {
-        method: m,
+      const g = await fetchJSON(genDBUrl(u, "_all_docs" + m), {
+        method: _,
         body: JSON.stringify(o)
       });
       if (s.include_docs && s.attachments && s.binary) g.data.rows.forEach(readAttachmentsAsBlobOrBuffer);
@@ -9996,7 +9942,7 @@ function HttpPouch(s, r) {
     if ("heartbeat" in s && s.heartbeat && o - s.heartbeat < CHANGES_TIMEOUT_BUFFER) o = s.heartbeat + CHANGES_TIMEOUT_BUFFER;
     let g = {};
     if ("timeout" in s && s.timeout) g.timeout = s.timeout;
-    let m = "undefined" != typeof s.limit ? s.limit : false, _ = m;
+    let _ = "undefined" != typeof s.limit ? s.limit : false, m = _;
     if (s.style) g.style = s.style;
     if (s.include_docs || s.filter && "function" == typeof s.filter) g.include_docs = true;
     if (s.attachments) g.attachments = true;
@@ -10032,8 +9978,8 @@ function HttpPouch(s, r) {
       g.since = o;
       if ("object" == typeof g.since) g.since = JSON.stringify(g.since);
       if (s.descending) {
-        if (m) g.limit = _;
-      } else g.limit = !m || _ > r ? r : _;
+        if (_) g.limit = m;
+      } else g.limit = !_ || m > r ? r : m;
       let O = genDBUrl(u, "_changes" + paramsToStr(g)), D = {
         signal: S.signal,
         method: w,
@@ -10061,7 +10007,7 @@ function HttpPouch(s, r) {
         if ("string" == typeof L.last_seq || "number" == typeof L.last_seq) o = L.last_seq;
         ({}).query = s.query_params;
         u.results = u.results.filter((function(u) {
-          _--;
+          m--;
           let g = filterChange(s)(u);
           if (g) {
             if (s.include_docs && s.attachments && s.binary) readAttachmentsAsBlobOrBuffer(u);
@@ -10076,8 +10022,8 @@ function HttpPouch(s, r) {
         return;
       }
       if (u && u.last_seq) E = u.last_seq;
-      let b = m && _ <= 0 || u && g < r || s.descending;
-      if (s.continuous && !(m && _ <= 0) || !b) (0, import_immediate.default)((function() {
+      let b = _ && m <= 0 || u && g < r || s.descending;
+      if (s.continuous && !(_ && m <= 0) || !b) (0, import_immediate.default)((function() {
         fetchData(E, fetched);
       })); else s.complete(null, L);
     };
@@ -10256,16 +10202,16 @@ function createViewSignature(s, r) {
   return stringify2(s) + stringify2(r) + "undefined";
 }
 
-async function createView(s, r, o, u, g, m) {
-  const _ = createViewSignature(o, u);
+async function createView(s, r, o, u, g, _) {
+  const m = createViewSignature(o, u);
   let b;
   if (!g) {
     b = s._cachedViews = s._cachedViews || {};
-    if (b[_]) return b[_];
+    if (b[m]) return b[m];
   }
   const w = s.info().then((async function(w) {
-    const E = w.db_name + "-mrview-" + (g ? "temp" : stringMd5(_));
-    await upsert(s, "_local/" + m, (function diffFunction(s) {
+    const E = w.db_name + "-mrview-" + (g ? "temp" : stringMd5(m));
+    await upsert(s, "_local/" + _, (function diffFunction(s) {
       s.views = s.views || {};
       let o = r;
       if (-1 === o.indexOf("/")) o = r + "/" + r;
@@ -10293,11 +10239,11 @@ async function createView(s, r, o, u, g, m) {
     }
     L.seq = O ? O.seq : 0;
     if (b) L.db.once("destroyed", (function() {
-      delete b[_];
+      delete b[m];
     }));
     return L;
   }));
-  if (b) b[_] = w;
+  if (b) b[m] = w;
   return w;
 }
 
@@ -10336,15 +10282,15 @@ function createAbstractMapReduce(s, r, o, u) {
       return {
         output: r(o, u, g)
       };
-    } catch (m) {
-      emitError(s, m, {
+    } catch (_) {
+      emitError(s, _, {
         fun: r,
         keys: o,
         values: u,
         rereduce: g
       });
       return {
-        error: m
+        error: _
       };
     }
   }
@@ -10415,8 +10361,8 @@ function createAbstractMapReduce(s, r, o, u) {
   async function updateView(s, o) {
     return sequentialize(getQueue(s), (function() {
       return async function updateViewInQueue(s, o) {
-        let u, g, m;
-        const _ = r(s.mapFun, (function emit2(s, r) {
+        let u, g, _;
+        const m = r(s.mapFun, (function emit2(s, r) {
           const o = {
             id: g._id,
             key: normalizeKey(s)
@@ -10435,9 +10381,9 @@ function createAbstractMapReduce(s, r, o, u) {
           const r = new ExportedMap;
           let o;
           for (let u = 0, g = s.length; u < g; u++) {
-            const g = s[u], m = [ g.key, g.id ];
-            if (u > 0 && 0 === collate(g.key, o)) m.push(u);
-            r.set(toIndexableString(m), g);
+            const g = s[u], _ = [ g.key, g.id ];
+            if (u > 0 && 0 === collate(g.key, o)) _.push(u);
+            r.set(toIndexableString(_), g);
             o = g.key;
           }
           return r;
@@ -10445,7 +10391,7 @@ function createAbstractMapReduce(s, r, o, u) {
         try {
           await function createTask() {
             return s.sourceDB.info().then((function(r) {
-              m = s.sourceDB.activeTasks.add({
+              _ = s.sourceDB.activeTasks.add({
                 name: "view_indexing",
                 total_items: r.update_seq - b
               });
@@ -10476,12 +10422,12 @@ function createAbstractMapReduce(s, r, o, u) {
               }
               var O = function createDocIdsToChangesAndEmits(r) {
                 const o = new ExportedMap;
-                for (let m = 0, w = r.length; m < w; m++) {
-                  const w = r[m];
+                for (let _ = 0, w = r.length; _ < w; _++) {
+                  const w = r[_];
                   if ("_" !== w.doc._id[0]) {
                     u = [];
                     g = w.doc;
-                    if (!g._deleted) tryMap(s.sourceDB, _, g);
+                    if (!g._deleted) tryMap(s.sourceDB, m, g);
                     u.sort(sortByKeyThenValue);
                     const r = createIndexableKeysToKeyValues(u);
                     o.set(w.doc._id, [ r, w.changes ]);
@@ -10504,7 +10450,7 @@ function createAbstractMapReduce(s, r, o, u) {
                           const u = "_local/doc_" + s, g = {
                             _id: u,
                             keys: []
-                          }, m = o.get(s), _ = m[0], b = m[1], w = await function getMetaDoc() {
+                          }, _ = o.get(s), m = _[0], b = _[1], w = await function getMetaDoc() {
                             if (isGenOne(b)) return Promise.resolve(g); else return r.db.get(u).catch(defaultsTo(g));
                           }();
                           return function processKeyValueDocs(s, r) {
@@ -10514,19 +10460,19 @@ function createAbstractMapReduce(s, r, o, u) {
                               if (g) {
                                 o.push(g);
                                 u.add(g._id);
-                                g._deleted = !_.has(g._id);
+                                g._deleted = !m.has(g._id);
                                 if (!g._deleted) {
-                                  const s = _.get(g._id);
+                                  const s = m.get(g._id);
                                   if ("value" in s) g.value = s.value;
                                 }
                               }
                             }
-                            const g = mapToKeysArray(_);
+                            const g = mapToKeysArray(m);
                             g.forEach((function(s) {
                               if (!u.has(s)) {
                                 const r = {
                                   _id: s
-                                }, u = _.get(s);
+                                }, u = m.get(s);
                                 if ("value" in u) r.value = u.value;
                                 o.push(r);
                               }
@@ -10580,7 +10526,7 @@ function createAbstractMapReduce(s, r, o, u) {
                 indexed_docs: w
               };
               s.sourceDB.emit("indexing", D);
-              s.sourceDB.activeTasks.update(m, {
+              s.sourceDB.activeTasks.update(_, {
                 completed_items: w
               });
               if (!(L.length < o.changes_batch_size)) return processNextBatch(); else return;
@@ -10626,9 +10572,9 @@ function createAbstractMapReduce(s, r, o, u) {
           }();
           await S.finish();
           s.seq = b;
-          s.sourceDB.activeTasks.remove(m);
+          s.sourceDB.activeTasks.remove(_);
         } catch (r) {
-          s.sourceDB.activeTasks.remove(m, r);
+          s.sourceDB.activeTasks.remove(_, r);
         }
       }(s, o);
     }))();
@@ -10637,7 +10583,7 @@ function createAbstractMapReduce(s, r, o, u) {
     return sequentialize(getQueue(s), (function() {
       return async function queryViewInQueue(s, r) {
         let u;
-        const g = s.reduceFun && false !== r.reduce, m = r.skip || 0;
+        const g = s.reduceFun && false !== r.reduce, _ = r.skip || 0;
         if ("undefined" != typeof r.keys && !r.keys.length) {
           r.limit = 0;
           delete r.keys;
@@ -10659,16 +10605,16 @@ function createAbstractMapReduce(s, r, o, u) {
             };
           }));
         }
-        async function onMapResultsReady(_) {
+        async function onMapResultsReady(m) {
           let b;
           if (g) b = function reduceView(s, r, u) {
             if (0 === u.group_level) delete u.group_level;
-            const g = u.group || u.group_level, m = o(s.reduceFun), _ = [], b = isNaN(u.group_level) ? Number.POSITIVE_INFINITY : u.group_level;
+            const g = u.group || u.group_level, _ = o(s.reduceFun), m = [], b = isNaN(u.group_level) ? Number.POSITIVE_INFINITY : u.group_level;
             r.forEach((function(s) {
-              const r = _[_.length - 1];
+              const r = m[m.length - 1];
               let o = g ? s.key : null;
               if (g && Array.isArray(o)) o = o.slice(0, b);
-              if (!r || 0 !== collate(r.groupKey, o)) _.push({
+              if (!r || 0 !== collate(r.groupKey, o)) m.push({
                 keys: [ [ s.key, s.id ] ],
                 values: [ s.value ],
                 groupKey: o
@@ -10678,8 +10624,8 @@ function createAbstractMapReduce(s, r, o, u) {
               }
             }));
             r = [];
-            for (let o = 0, u = _.length; o < u; o++) {
-              const u = _[o], g = tryReduce(s.sourceDB, m, u.keys, u.values, false);
+            for (let o = 0, u = m.length; o < u; o++) {
+              const u = m[o], g = tryReduce(s.sourceDB, _, u.keys, u.values, false);
               if (g.error && g.error instanceof BuiltInError) throw g.error;
               r.push({
                 value: g.error ? null : g.output,
@@ -10689,18 +10635,18 @@ function createAbstractMapReduce(s, r, o, u) {
             return {
               rows: sliceResults(r, u.limit, u.skip)
             };
-          }(s, _, r); else if ("undefined" == typeof r.keys) b = {
+          }(s, m, r); else if ("undefined" == typeof r.keys) b = {
             total_rows: u,
-            offset: m,
-            rows: _
+            offset: _,
+            rows: m
           }; else b = {
             total_rows: u,
-            offset: m,
-            rows: sliceResults(_, r.limit, r.skip)
+            offset: _,
+            rows: sliceResults(m, r.limit, r.skip)
           };
           if (r.update_seq) b.update_seq = s.seq;
           if (r.include_docs) {
-            const o = uniq(_.map(rowToDocId)), u = await s.sourceDB.allDocs({
+            const o = uniq(m.map(rowToDocId)), u = await s.sourceDB.allDocs({
               keys: o,
               include_docs: true,
               conflicts: r.conflicts,
@@ -10711,7 +10657,7 @@ function createAbstractMapReduce(s, r, o, u) {
             u.rows.forEach((function(s) {
               w.set(s.id, s.doc);
             }));
-            _.forEach((function(s) {
+            m.forEach((function(s) {
               var r = rowToDocId(s), o = w.get(r);
               if (o) s.doc = o;
             }));
@@ -10756,7 +10702,7 @@ function createAbstractMapReduce(s, r, o, u) {
           }
           if (!g) {
             if ("number" == typeof r.limit) s.limit = r.limit;
-            s.skip = m;
+            s.skip = _;
           }
           return onMapResultsReady(await fetchFromView(s));
         }
@@ -10765,7 +10711,7 @@ function createAbstractMapReduce(s, r, o, u) {
   }
   return {
     query: function abstractQuery(r, o, g) {
-      const m = this;
+      const _ = this;
       if ("function" == typeof o) {
         g = o;
         o = {};
@@ -10779,7 +10725,7 @@ function createAbstractMapReduce(s, r, o, u) {
       if ("function" == typeof r) r = {
         map: r
       };
-      const _ = Promise.resolve().then((function() {
+      const m = Promise.resolve().then((function() {
         return async function queryPromised(r, o, g) {
           if ("function" == typeof r._query) return function customQuery(s, r, o) {
             return new Promise((function(u, g) {
@@ -10790,41 +10736,41 @@ function createAbstractMapReduce(s, r, o, u) {
             }));
           }(r, o, g);
           if (isRemote(r)) return async function httpQuery(s, r, o) {
-            let u, g, m = [], _ = "GET";
-            addHttpParam("reduce", o, m);
-            addHttpParam("include_docs", o, m);
-            addHttpParam("attachments", o, m);
-            addHttpParam("limit", o, m);
-            addHttpParam("descending", o, m);
-            addHttpParam("group", o, m);
-            addHttpParam("group_level", o, m);
-            addHttpParam("skip", o, m);
-            addHttpParam("stale", o, m);
-            addHttpParam("conflicts", o, m);
-            addHttpParam("startkey", o, m, true);
-            addHttpParam("start_key", o, m, true);
-            addHttpParam("endkey", o, m, true);
-            addHttpParam("end_key", o, m, true);
-            addHttpParam("inclusive_end", o, m);
-            addHttpParam("key", o, m, true);
-            addHttpParam("update_seq", o, m);
-            m = m.join("&");
-            m = "" === m ? "" : "?" + m;
+            let u, g, _ = [], m = "GET";
+            addHttpParam("reduce", o, _);
+            addHttpParam("include_docs", o, _);
+            addHttpParam("attachments", o, _);
+            addHttpParam("limit", o, _);
+            addHttpParam("descending", o, _);
+            addHttpParam("group", o, _);
+            addHttpParam("group_level", o, _);
+            addHttpParam("skip", o, _);
+            addHttpParam("stale", o, _);
+            addHttpParam("conflicts", o, _);
+            addHttpParam("startkey", o, _, true);
+            addHttpParam("start_key", o, _, true);
+            addHttpParam("endkey", o, _, true);
+            addHttpParam("end_key", o, _, true);
+            addHttpParam("inclusive_end", o, _);
+            addHttpParam("key", o, _, true);
+            addHttpParam("update_seq", o, _);
+            _ = _.join("&");
+            _ = "" === _ ? "" : "?" + _;
             if ("undefined" != typeof o.keys) {
               const s = 2e3, g = `keys=${encodeURIComponent(JSON.stringify(o.keys))}`;
-              if (g.length + m.length + 1 <= s) m += ("?" === m[0] ? "&" : "?") + g; else {
-                _ = "POST";
+              if (g.length + _.length + 1 <= s) _ += ("?" === _[0] ? "&" : "?") + g; else {
+                m = "POST";
                 if ("string" == typeof r) u = {
                   keys: o.keys
                 }; else r.keys = o.keys;
               }
             }
             if ("string" == typeof r) {
-              const b = parseViewName(r), w = await s.fetch("_design/" + b[0] + "/_view/" + b[1] + m, {
+              const b = parseViewName(r), w = await s.fetch("_design/" + b[0] + "/_view/" + b[1] + _, {
                 headers: new h({
                   "Content-Type": "application/json"
                 }),
-                method: _,
+                method: m,
                 body: JSON.stringify(u)
               });
               g = w.ok;
@@ -10844,7 +10790,7 @@ function createAbstractMapReduce(s, r, o, u) {
             Object.keys(r).forEach((function(s) {
               if (Array.isArray(r[s])) u[s] = r[s]; else u[s] = r[s].toString();
             }));
-            const b = await s.fetch("_temp_view" + m, {
+            const b = await s.fetch("_temp_view" + _, {
               headers: new h({
                 "Content-Type": "application/json"
               }),
@@ -10861,14 +10807,14 @@ function createAbstractMapReduce(s, r, o, u) {
               s(w);
             })).then(postprocessAttachments(o));
           }(r, o, g);
-          const m = {
+          const _ = {
             changes_batch_size: r.__opts.view_update_changes_batch_size || CHANGES_BATCH_SIZE2
           };
           if ("string" != typeof o) {
             checkQueryParseError(g, o);
             tempViewQueue.add((async function() {
               const u = await createView(r, "temp_view/temp_view", o.map, o.reduce, true, s);
-              return fin(updateView(u, m).then((function() {
+              return fin(updateView(u, _).then((function() {
                 return queryView(u, g);
               })), (function() {
                 return u.db.destroy();
@@ -10876,25 +10822,25 @@ function createAbstractMapReduce(s, r, o, u) {
             }));
             return tempViewQueue.finish();
           } else {
-            const _ = o, b = parseViewName(_), w = b[0], E = b[1], S = await r.get("_design/" + w);
+            const m = o, b = parseViewName(m), w = b[0], E = b[1], S = await r.get("_design/" + w);
             if (!(o = S.views && S.views[E])) throw new NotFoundError(`ddoc ${S._id} has no view named ${E}`);
             u(S, E);
             checkQueryParseError(g, o);
-            const L = await createView(r, _, o.map, o.reduce, false, s);
+            const L = await createView(r, m, o.map, o.reduce, false, s);
             if ("ok" === g.stale || "update_after" === g.stale) {
               if ("update_after" === g.stale) (0, import_immediate.default)((function() {
-                updateView(L, m);
+                updateView(L, _);
               }));
               return queryView(L, g);
             } else {
-              await updateView(L, m);
+              await updateView(L, _);
               return queryView(L, g);
             }
           }
-        }(m, r, o);
+        }(_, r, o);
       }));
-      promisedCallback(_, g);
-      return _;
+      promisedCallback(m, g);
+      return m;
     },
     viewCleanup: callbackify((function() {
       const r = this;
@@ -10918,30 +10864,30 @@ function createAbstractMapReduce(s, r, o, u) {
           const o = await r.get("_local/" + s), u = new ExportedMap;
           Object.keys(o.views).forEach((function(s) {
             const r = parseViewName(s), o = "_design/" + r[0], g = r[1];
-            let m = u.get(o);
-            if (!m) {
-              m = new ExportedSet;
-              u.set(o, m);
+            let _ = u.get(o);
+            if (!_) {
+              _ = new ExportedSet;
+              u.set(o, _);
             }
-            m.add(g);
+            _.add(g);
           }));
           const g = {
             keys: mapToKeysArray(u),
             include_docs: true
-          }, m = await r.allDocs(g), _ = {};
-          m.rows.forEach((function(s) {
+          }, _ = await r.allDocs(g), m = {};
+          _.rows.forEach((function(s) {
             const r = s.key.substring(8);
             u.get(s.key).forEach((function(u) {
               let g = r + "/" + u;
               if (!o.views[g]) g = u;
-              const m = Object.keys(o.views[g]), b = s.doc && s.doc.views && s.doc.views[u];
-              m.forEach((function(s) {
-                _[s] = _[s] || b;
+              const _ = Object.keys(o.views[g]), b = s.doc && s.doc.views && s.doc.views[u];
+              _.forEach((function(s) {
+                m[s] = m[s] || b;
               }));
             }));
           }));
-          const b = Object.keys(_).filter((function(s) {
-            return !_[s];
+          const b = Object.keys(m).filter((function(s) {
+            return !m[s];
           })).map((function(s) {
             return sequentialize(getQueue(s), (function() {
               return new r.constructor(s, r.__opts).destroy();
@@ -10973,9 +10919,9 @@ function sum(s) {
     var g = s[o];
     if ("number" != typeof g) if (Array.isArray(g)) {
       r = "number" == typeof r ? [ r ] : r;
-      for (var m = 0, _ = g.length; m < _; m++) {
-        var b = g[m];
-        if ("number" != typeof b) throw createBuiltInError("_sum"); else if ("undefined" == typeof r[m]) r.push(b); else r[m] += b;
+      for (var _ = 0, m = g.length; _ < m; _++) {
+        var b = g[_];
+        if ("number" != typeof b) throw createBuiltInError("_sum"); else if ("undefined" == typeof r[_]) r.push(b); else r[_] += b;
       }
     } else throw createBuiltInError("_sum"); else if ("number" == typeof r) r += g; else r[0] += g;
   }
@@ -11069,23 +11015,23 @@ function updateCheckpoint(s, r, o, u, g) {
       };
     }
     throw o;
-  })).then((function(m) {
-    if (!g.cancelled) if (m.last_seq !== o) {
-      m.history = (m.history || []).filter((function(s) {
+  })).then((function(_) {
+    if (!g.cancelled) if (_.last_seq !== o) {
+      _.history = (_.history || []).filter((function(s) {
         return s.session_id !== u;
       }));
-      m.history.unshift({
+      _.history.unshift({
         last_seq: o,
         session_id: u
       });
-      m.history = m.history.slice(0, CHECKPOINT_HISTORY_SIZE);
-      m.version = CHECKPOINT_VERSION;
-      m.replicator = REPLICATOR;
-      m.session_id = u;
-      m.last_seq = o;
-      return s.put(m).catch((function(m) {
-        if (409 === m.status) return updateCheckpoint(s, r, o, u, g);
-        throw m;
+      _.history = _.history.slice(0, CHECKPOINT_HISTORY_SIZE);
+      _.version = CHECKPOINT_VERSION;
+      _.replicator = REPLICATOR;
+      _.session_id = u;
+      _.last_seq = o;
+      return s.put(_).catch((function(_) {
+        if (409 === _.status) return updateCheckpoint(s, r, o, u, g);
+        throw _;
       }));
     }
   }));
@@ -11170,7 +11116,7 @@ function compareReplicationLogs(s, r) {
 }
 
 function compareReplicationHistory(s, r) {
-  var o = s[0], u = s.slice(1), g = r[0], m = r.slice(1);
+  var o = s[0], u = s.slice(1), g = r[0], _ = r.slice(1);
   if (!o || 0 === r.length) return {
     last_seq: LOWEST_SEQ,
     history: []
@@ -11181,8 +11127,8 @@ function compareReplicationHistory(s, r) {
   };
   if (hasSessionId(g.session_id, u)) return {
     last_seq: g.last_seq,
-    history: m
-  }; else return compareReplicationHistory(u, m);
+    history: _
+  }; else return compareReplicationHistory(u, _);
 }
 
 function hasSessionId(s, r) {
@@ -11209,12 +11155,12 @@ function sortObjectPropertiesByKey(s) {
 }
 
 function generateReplicationId(s, r, o) {
-  var u = o.doc_ids ? o.doc_ids.sort(collate) : "", g = o.filter ? o.filter.toString() : "", m = "", _ = "", b = "";
+  var u = o.doc_ids ? o.doc_ids.sort(collate) : "", g = o.filter ? o.filter.toString() : "", _ = "", m = "", b = "";
   if (o.selector) b = JSON.stringify(o.selector);
-  if (o.filter && o.query_params) m = JSON.stringify(sortObjectPropertiesByKey(o.query_params));
-  if (o.filter && "_view" === o.filter) _ = o.view.toString();
+  if (o.filter && o.query_params) _ = JSON.stringify(sortObjectPropertiesByKey(o.query_params));
+  if (o.filter && "_view" === o.filter) m = o.view.toString();
   return Promise.all([ s.id(), r.id() ]).then((function(s) {
-    var r = s[0] + s[1] + g + _ + m + u + b;
+    var r = s[0] + s[1] + g + m + _ + u + b;
     return new Promise((function(s) {
       binaryMd5(r, s);
     }));
@@ -11269,15 +11215,15 @@ function createBulkGetOpts(s) {
 
 function getDocs(s, r, o, u) {
   o = clone(o);
-  var g = [], m = true;
+  var g = [], _ = true;
   return Promise.resolve().then((function getAllDocs() {
-    var _ = createBulkGetOpts(o);
-    if (_.docs.length) return s.bulkGet(_).then((function(o) {
+    var m = createBulkGetOpts(o);
+    if (m.docs.length) return s.bulkGet(m).then((function(o) {
       if (u.cancelled) throw new Error("cancelled");
       return Promise.all(o.results.map((function(o) {
         return Promise.all(o.docs.map((function(o) {
           var u = o.ok;
-          if (o.error) m = false;
+          if (o.error) _ = false;
           if (!u || !u._attachments) return u; else return getDocAttachmentsFromTargetOrSource(r, s, u).then((function(s) {
             var r = Object.keys(u._attachments);
             s.forEach((function(s, o) {
@@ -11295,7 +11241,7 @@ function getDocs(s, r, o, u) {
     }));
   })).then((function returnResult() {
     return {
-      ok: m,
+      ok: _,
       docs: g
     };
   }));
@@ -11328,7 +11274,7 @@ function backOff(s, r, o, u) {
 }
 
 function replicate(s, r, o, u, g) {
-  var m, _, b, w, E = [], S = {
+  var _, m, b, w, E = [], S = {
     seq: 0,
     changes: [],
     docs: []
@@ -11345,34 +11291,34 @@ function replicate(s, r, o, u, g) {
   u.ready(s, r);
   function initCheckpointer() {
     if (b) return Promise.resolve(); else return index_es_default7(s, r, o).then((function(g) {
-      _ = g;
-      var m = {};
-      if (false === o.checkpoint) m = {
+      m = g;
+      var _ = {};
+      if (false === o.checkpoint) _ = {
         writeSourceCheckpoint: false,
         writeTargetCheckpoint: false
-      }; else if ("source" === o.checkpoint) m = {
+      }; else if ("source" === o.checkpoint) _ = {
         writeSourceCheckpoint: true,
         writeTargetCheckpoint: false
-      }; else if ("target" === o.checkpoint) m = {
+      }; else if ("target" === o.checkpoint) _ = {
         writeSourceCheckpoint: false,
         writeTargetCheckpoint: true
-      }; else m = {
+      }; else _ = {
         writeSourceCheckpoint: true,
         writeTargetCheckpoint: true
       };
-      b = new index_es_default6(s, r, _, u, m);
+      b = new index_es_default6(s, r, m, u, _);
     }));
   }
   function writeDocs() {
     B = [];
-    if (0 !== m.docs.length) {
-      var s = m.docs, _ = {
+    if (0 !== _.docs.length) {
+      var s = _.docs, m = {
         timeout: o.timeout
       };
       return r.bulkDocs({
         docs: s,
         new_edits: false
-      }, _).then((function(r) {
+      }, m).then((function(r) {
         if (u.cancelled) {
           completeReplication();
           throw new Error("cancelled");
@@ -11381,15 +11327,15 @@ function replicate(s, r, o, u, g) {
         r.forEach((function(s) {
           if (s.error) o[s.id] = s;
         }));
-        var m = Object.keys(o).length;
-        g.doc_write_failures += m;
-        g.docs_written += s.length - m;
+        var _ = Object.keys(o).length;
+        g.doc_write_failures += _;
+        g.docs_written += s.length - _;
         s.forEach((function(s) {
           var r = o[s._id];
           if (r) {
             g.errors.push(r);
-            var m = (r.name || "").toLowerCase();
-            if ("unauthorized" === m || "forbidden" === m) u.emit("denied", clone(r)); else throw r;
+            var _ = (r.name || "").toLowerCase();
+            if ("unauthorized" === _ || "forbidden" === _) u.emit("denied", clone(r)); else throw r;
           } else B.push(s);
         }));
       }), (function(r) {
@@ -11399,38 +11345,38 @@ function replicate(s, r, o, u, g) {
     }
   }
   function finishBatch() {
-    if (m.error) throw new Error("There was a problem getting docs.");
-    g.last_seq = C = m.seq;
+    if (_.error) throw new Error("There was a problem getting docs.");
+    g.last_seq = C = _.seq;
     var r = clone(g);
     if (B.length) {
       r.docs = B;
-      if ("number" == typeof m.pending) {
-        r.pending = m.pending;
-        delete m.pending;
+      if ("number" == typeof _.pending) {
+        r.pending = _.pending;
+        delete _.pending;
       }
       u.emit("change", r);
     }
     L = true;
     s.info().then((function(r) {
       var o = s.activeTasks.get(w);
-      if (m && o) {
+      if (_ && o) {
         var u = o.completed_items || 0, g = parseInt(r.update_seq, 10) - parseInt(k, 10);
         s.activeTasks.update(w, {
-          completed_items: u + m.changes.length,
+          completed_items: u + _.changes.length,
           total_items: g
         });
       }
     }));
-    return b.writeCheckpoint(m.seq, F).then((function() {
+    return b.writeCheckpoint(_.seq, F).then((function() {
       u.emit("checkpoint", {
-        checkpoint: m.seq
+        checkpoint: _.seq
       });
       L = false;
       if (u.cancelled) {
         completeReplication();
         throw new Error("cancelled");
       }
-      m = void 0;
+      _ = void 0;
       getChanges();
     })).catch((function(s) {
       onCheckpointError(s);
@@ -11438,24 +11384,24 @@ function replicate(s, r, o, u, g) {
     }));
   }
   function getBatchDocs() {
-    return getDocs(s, r, m.diffs, u).then((function(s) {
-      m.error = !s.ok;
+    return getDocs(s, r, _.diffs, u).then((function(s) {
+      _.error = !s.ok;
       s.docs.forEach((function(s) {
-        delete m.diffs[s._id];
+        delete _.diffs[s._id];
         g.docs_read++;
-        m.docs.push(s);
+        _.docs.push(s);
       }));
     }));
   }
   function startNextBatch() {
-    if (!u.cancelled && !m) if (0 !== E.length) {
-      m = E.shift();
+    if (!u.cancelled && !_) if (0 !== E.length) {
+      _ = E.shift();
       u.emit("checkpoint", {
-        start_next_batch: m.seq
+        start_next_batch: _.seq
       });
       (function getDiffs() {
         var s = {};
-        m.changes.forEach((function(r) {
+        _.changes.forEach((function(r) {
           u.emit("checkpoint", {
             revs_diff: r
           });
@@ -11468,7 +11414,7 @@ function replicate(s, r, o, u, g) {
             completeReplication();
             throw new Error("cancelled");
           }
-          m.diffs = s;
+          _.diffs = s;
         }));
       })().then(getBatchDocs).then(writeDocs).then(finishBatch).then(startNextBatch).catch((function(s) {
         abortReplication("batch processing terminated with error", s);
@@ -11490,7 +11436,7 @@ function replicate(s, r, o, u, g) {
         }
         startNextBatch();
       }
-    } else if (0 === E.length && !m) {
+    } else if (0 === E.length && !_) {
       if (T && M.live || O) {
         u.state = "pending";
         u.emit("paused");
@@ -11512,7 +11458,7 @@ function replicate(s, r, o, u, g) {
       completeReplication(r);
     }
   }
-  function completeReplication(m) {
+  function completeReplication(_) {
     if (!D) {
       if (u.cancelled) {
         g.status = "cancelled";
@@ -11522,14 +11468,14 @@ function replicate(s, r, o, u, g) {
       g.end_time = (new Date).toISOString();
       g.last_seq = C;
       D = true;
-      s.activeTasks.remove(w, m);
-      if (m) {
-        (m = createError(m)).result = g;
-        var _ = (m.name || "").toLowerCase();
-        if ("unauthorized" === _ || "forbidden" === _) {
-          u.emit("error", m);
+      s.activeTasks.remove(w, _);
+      if (_) {
+        (_ = createError(_)).result = g;
+        var m = (_.name || "").toLowerCase();
+        if ("unauthorized" === m || "forbidden" === m) {
+          u.emit("error", _);
           u.removeAllListeners();
-        } else backOff(o, u, m, (function() {
+        } else backOff(o, u, _, (function() {
           replicate(s, r, o, u);
         }));
       } else {
@@ -11538,11 +11484,11 @@ function replicate(s, r, o, u, g) {
       }
     }
   }
-  function onChange(r, g, m) {
+  function onChange(r, g, _) {
     if (u.cancelled) return completeReplication();
     if ("number" == typeof g) S.pending = g;
     if (filterChange(o)(r)) {
-      S.seq = r.seq || m;
+      S.seq = r.seq || _;
       S.changes.push(r);
       u.emit("checkpoint", {
         pending_batch: S.seq
@@ -11551,9 +11497,9 @@ function replicate(s, r, o, u, g) {
         processPendingBatch(0 === E.length && M.live);
       }));
     } else {
-      var _ = s.activeTasks.get(w);
-      if (_) {
-        var b = _.completed_items || 0;
+      var m = s.activeTasks.get(w);
+      if (m) {
+        var b = m.completed_items || 0;
         s.activeTasks.update(w, {
           completed_items: ++b
         });
@@ -11575,7 +11521,7 @@ function replicate(s, r, o, u, g) {
         } else O = true;
         processPendingBatch(true);
       };
-      if (!m && 0 === s.results.length) {
+      if (!_ && 0 === s.results.length) {
         L = true;
         b.writeCheckpoint(s.last_seq, F).then((function() {
           L = false;
@@ -11754,9 +11700,9 @@ var Sync = class extends import_events3.default {
   constructor(s, r, o, u) {
     super();
     this.canceled = false;
-    const g = o.push ? assign$2({}, o, o.push) : o, m = o.pull ? assign$2({}, o, o.pull) : o;
+    const g = o.push ? assign$2({}, o, o.push) : o, _ = o.pull ? assign$2({}, o, o.pull) : o;
     this.push = replicateWrapper(s, r, g);
-    this.pull = replicateWrapper(r, s, m);
+    this.pull = replicateWrapper(r, s, _);
     this.pushPaused = true;
     this.pullPaused = true;
     const pullChange = s => {
@@ -11796,12 +11742,12 @@ var Sync = class extends import_events3.default {
         direction: "pull"
       });
     };
-    let _ = {};
+    let m = {};
     const removeAll = s => (r, o) => {
       if ("change" === r && (o === pullChange || o === pushChange) || "denied" === r && (o === pullDenied || o === pushDenied) || "paused" === r && (o === pullPaused || o === pushPaused) || "active" === r && (o === pullActive || o === pushActive)) {
-        if (!(r in _)) _[r] = {};
-        _[r][s] = true;
-        if (2 === Object.keys(_[r]).length) this.removeAllListeners(r);
+        if (!(r in m)) m[r] = {};
+        m[r][s] = true;
+        if (2 === Object.keys(m[r]).length) this.removeAllListeners(r);
       }
     };
     if (o.live) {
@@ -11915,18 +11861,18 @@ function massageCreateIndexRequest(s) {
 }
 
 function checkFieldValueType(s, r, o) {
-  var u = "", g = r, m = true;
+  var u = "", g = r, _ = true;
   if (-1 !== [ "$in", "$nin", "$or", "$and", "$mod", "$nor", "$all" ].indexOf(s)) if (!Array.isArray(r)) u = "Query operator " + s + " must be an array.";
   if (-1 !== [ "$not", "$elemMatch", "$allMatch" ].indexOf(s)) if (!(!Array.isArray(r) && "object" == typeof r && null !== r)) u = "Query operator " + s + " must be an object.";
   if ("$mod" === s && Array.isArray(r)) if (2 !== r.length) u = "Query operator $mod must be in the format [divisor, remainder], where divisor and remainder are both integers."; else {
-    var _ = r[0], b = r[1];
-    if (0 === _) {
+    var m = r[0], b = r[1];
+    if (0 === m) {
       u = "Query operator $mod's divisor cannot be 0, cannot divide by zero.";
-      m = false;
+      _ = false;
     }
-    if ("number" != typeof _ || parseInt(_, 10) !== _) {
+    if ("number" != typeof m || parseInt(m, 10) !== m) {
       u = "Query operator $mod's divisor is not an integer.";
-      g = _;
+      g = m;
     }
     if (parseInt(b, 10) !== b) {
       u = "Query operator $mod's remainder is not an integer.";
@@ -11941,7 +11887,7 @@ function checkFieldValueType(s, r, o) {
   if ("$size" === s) if (parseInt(r, 10) !== r) u = "Query operator $size must be a integer.";
   if ("$regex" === s) if ("string" != typeof r) if (o) u = "Query operator $regex must be a string."; else if (!(r instanceof RegExp)) u = "Query operator $regex must be a string or an instance of a javascript regular expression.";
   if (u) {
-    if (m) u += " Received" + (null === g ? " " : Array.isArray(g) ? " array" : " " + typeof g) + ": " + ("object" == typeof g && null !== g ? JSON.stringify(g, null, "\t") : g);
+    if (_) u += " Received" + (null === g ? " " : Array.isArray(g) ? " array" : " " + typeof g) + ": " + ("object" == typeof g && null !== g ? JSON.stringify(g, null, "\t") : g);
     throw new Error(u);
   }
 }
@@ -11950,25 +11896,25 @@ var requireValidation = [ "$all", "$allMatch", "$and", "$elemMatch", "$exists", 
 
 function validateSelector(s, r) {
   if (Array.isArray(s)) {
-    for (var o of s) if ("object" == typeof o && null !== _) validateSelector(o, r);
+    for (var o of s) if ("object" == typeof o && null !== m) validateSelector(o, r);
   } else for (var u = Object.keys(s), g = 0; g < u.length; g++) {
-    var m = u[g], _ = s[m];
-    if (-1 !== requireValidation.indexOf(m)) checkFieldValueType(m, _, r);
-    if (-1 === equalityOperators.indexOf(m)) if (-1 === arrayTypeComparisonOperators.indexOf(m)) if ("object" == typeof _ && null !== _) validateSelector(_, r);
+    var _ = u[g], m = s[_];
+    if (-1 !== requireValidation.indexOf(_)) checkFieldValueType(_, m, r);
+    if (-1 === equalityOperators.indexOf(_)) if (-1 === arrayTypeComparisonOperators.indexOf(_)) if ("object" == typeof m && null !== m) validateSelector(m, r);
   }
 }
 
 function dbFetch(s, r, o, u) {
-  var g, m;
+  var g, _;
   o.headers = new h({
     "Content-type": "application/json"
   });
   s.fetch(r, o).then((function(s) {
     g = s.status;
-    m = s.ok;
+    _ = s.ok;
     return s.json();
   })).then((function(s) {
-    if (!m) {
+    if (!_) {
       s.status = g;
       var r = generateErrorFromResponse(s);
       u(r);
@@ -12006,10 +11952,10 @@ function getIndexes(s, r) {
 }
 
 function deleteIndex(s, r, o) {
-  var u = r.ddoc, g = r.type || "json", m = r.name;
+  var u = r.ddoc, g = r.type || "json", _ = r.name;
   if (!u) return o(new Error("you must provide an index's ddoc"));
-  if (!m) return o(new Error("you must provide an index's name"));
-  dbFetch(s, "_index/" + [ u, g, m ].map(encodeURIComponent).join("/"), {
+  if (!_) return o(new Error("you must provide an index's name"));
+  dbFetch(s, "_index/" + [ u, g, _ ].map(encodeURIComponent).join("/"), {
     method: "DELETE"
   }, o);
 }
@@ -12050,8 +11996,8 @@ function mergeObjects(s) {
 
 function pick2(s, r) {
   for (var o = {}, u = 0, g = r.length; u < g; u++) {
-    var m = parseField(r[u]), _ = getFieldFromDoc(s, m);
-    if ("undefined" != typeof _) setFieldInDoc(o, m, _);
+    var _ = parseField(r[u]), m = getFieldFromDoc(s, _);
+    if ("undefined" != typeof m) setFieldInDoc(o, _, m);
   }
   return o;
 }
@@ -12070,8 +12016,8 @@ function oneSetIsSubArrayOfOther(s, r) {
   for (var o = 0, u = r.length; o < u; o++) {
     var g = r[o];
     if (!s.length) break;
-    var m = s.indexOf(g);
-    if (-1 === m) return false; else s.splice(m, 1);
+    var _ = s.indexOf(g);
+    if (-1 === _) return false; else s.splice(_, 1);
   }
   return true;
 }
@@ -12082,11 +12028,11 @@ function arrayToObject(s) {
 }
 
 function max(s, r) {
-  for (var o = null, u = -1, g = 0, m = s.length; g < m; g++) {
-    var _ = s[g], b = r(_);
+  for (var o = null, u = -1, g = 0, _ = s.length; g < _; g++) {
+    var m = s[g], b = r(m);
     if (b > u) {
       u = b;
-      o = _;
+      o = m;
     }
   }
   return o;
@@ -12108,8 +12054,8 @@ function uniq2(s) {
 function createDeepMultiMapper(s, r, o) {
   return function(u) {
     if (!o || matchesSelector(u, o)) {
-      for (var g = [], m = 0, _ = s.length; m < _; m++) {
-        for (var b = parseField(s[m]), w = u, E = 0, S = b.length; E < S; E++) if ("undefined" == typeof (w = w[b[E]])) return;
+      for (var g = [], _ = 0, m = s.length; _ < m; _++) {
+        for (var b = parseField(s[_]), w = u, E = 0, S = b.length; E < S; E++) if ("undefined" == typeof (w = w[b[E]])) return;
         g.push(w);
       }
       r(g);
@@ -12121,7 +12067,7 @@ function createDeepSingleMapper(s, r, o) {
   var u = parseField(s);
   return function(s) {
     if (!o || matchesSelector(s, o)) {
-      for (var g = s, m = 0, _ = u.length; m < _; m++) if ("undefined" == typeof (g = g[u[m]])) return;
+      for (var g = s, _ = 0, m = u.length; _ < m; _++) if ("undefined" == typeof (g = g[u[_]])) return;
       r(g);
     }
   };
@@ -12136,7 +12082,7 @@ function createShallowSingleMapper(s, r, o) {
 function createShallowMultiMapper(s, r, o) {
   return function(u) {
     if (!o || matchesSelector(u, o)) {
-      for (var g = [], m = 0, _ = s.length; m < _; m++) g.push(u[s[m]]);
+      for (var g = [], _ = 0, m = s.length; _ < m; _++) g.push(u[s[_]]);
       r(g);
     }
   };
@@ -12221,10 +12167,10 @@ function getKeyFromDoc(s, r) {
 }
 
 function filterInclusiveStart(s, r, o) {
-  for (var u = o.def.fields, g = 0, m = s.length; g < m; g++) {
-    var _ = getKeyFromDoc(s[g].doc, o);
-    if (1 === u.length) _ = _[0]; else for (;_.length > r.length; ) _.pop();
-    if (Math.abs(collate(_, r)) > 0) break;
+  for (var u = o.def.fields, g = 0, _ = s.length; g < _; g++) {
+    var m = getKeyFromDoc(s[g].doc, o);
+    if (1 === u.length) m = m[0]; else for (;m.length > r.length; ) m.pop();
+    if (Math.abs(collate(m, r)) > 0) break;
   }
   return g > 0 ? s.slice(g) : s;
 }
@@ -12289,9 +12235,9 @@ function createIndex$1(s, r) {
   function getMd5() {
     return o || (o = stringMd5(JSON.stringify(r)));
   }
-  var g = r.name || "idx-" + getMd5(), m = r.ddoc || "idx-" + getMd5(), _ = "_design/" + m, b = false, w = false;
-  s.constructor.emit("debug", [ "find", "creating index", _ ]);
-  return upsert(s, _, (function updateDdoc(s) {
+  var g = r.name || "idx-" + getMd5(), _ = r.ddoc || "idx-" + getMd5(), m = "_design/" + _, b = false, w = false;
+  s.constructor.emit("debug", [ "find", "creating index", m ]);
+  return upsert(s, m, (function updateDdoc(s) {
     if (s._rev && "query" !== s.language) b = true;
     s.language = "query";
     s.views = s.views || {};
@@ -12308,15 +12254,15 @@ function createIndex$1(s, r) {
     };
     return s;
   })).then((function() {
-    if (b) throw new Error('invalid language for ddoc with id "' + _ + '" (should be "query")');
+    if (b) throw new Error('invalid language for ddoc with id "' + m + '" (should be "query")');
   })).then((function() {
-    var r = m + "/" + g;
+    var r = _ + "/" + g;
     return abstractMapper$1(s).query.call(s, r, {
       limit: 0,
       reduce: false
     }).then((function() {
       return {
-        id: _,
+        id: m,
         name: g,
         result: w ? "exists" : "created"
       };
@@ -12394,10 +12340,10 @@ function sortFieldsByIndex(s, r) {
 }
 
 function getBasicInMemoryFields(s, r, o) {
-  for (var u = false, g = 0, m = (o = sortFieldsByIndex(o, s)).length; g < m; g++) {
-    var _ = o[g];
-    if (u || !checkFieldInIndex(s, _)) return o.slice(g);
-    if (g < m - 1 && userOperatorLosesPrecision(r, _)) u = true;
+  for (var u = false, g = 0, _ = (o = sortFieldsByIndex(o, s)).length; g < _; g++) {
+    var m = o[g];
+    if (u || !checkFieldInIndex(s, m)) return o.slice(g);
+    if (g < _ - 1 && userOperatorLosesPrecision(r, m)) u = true;
   }
   return [];
 }
@@ -12448,20 +12394,20 @@ function findMatchingIndexes(s, r, o, u) {
 }
 
 function findBestMatchingIndex(s, r, o, u, g) {
-  var m = findMatchingIndexes(s, r, o, u);
-  if (0 === m.length) {
+  var _ = findMatchingIndexes(s, r, o, u);
+  if (0 === _.length) {
     if (g) throw {
       error: "no_usable_index",
       message: "There is no index available for this selector."
     };
-    var _ = u[0];
-    _.defaultUsed = true;
-    return _;
+    var m = u[0];
+    m.defaultUsed = true;
+    return m;
   }
-  if (1 === m.length && !g) return m[0];
+  if (1 === _.length && !g) return _[0];
   var b = arrayToObject(r);
   if (g) {
-    var w = "_design/" + g[0], E = 2 === g.length ? g[1] : false, S = m.find((function(s) {
+    var w = "_design/" + g[0], E = 2 === g.length ? g[1] : false, S = _.find((function(s) {
       if (E && s.ddoc === w && E === s.name) return true;
       if (s.ddoc === w) return true; else return false;
     }));
@@ -12471,10 +12417,10 @@ function findBestMatchingIndex(s, r, o, u, g) {
     };
     return S;
   }
-  return max(m, (function scoreIndex(s) {
+  return max(_, (function scoreIndex(s) {
     for (var r = s.def.fields.map(getKey), o = 0, u = 0, g = r.length; u < g; u++) {
-      var m = r[u];
-      if (b[m]) o++;
+      var _ = r[u];
+      if (b[_]) o++;
     }
     return o;
   }));
@@ -12515,15 +12461,15 @@ function getSingleFieldQueryOptsFor(s, r) {
 }
 
 function getSingleFieldCoreQueryPlan(s, r) {
-  var o, u = getKey(r.def.fields[0]), g = s[u] || {}, m = [];
+  var o, u = getKey(r.def.fields[0]), g = s[u] || {}, _ = [];
   Object.keys(g).forEach((function(s) {
-    if (isNonLogicalMatcher(s)) m.push(u);
+    if (isNonLogicalMatcher(s)) _.push(u);
     var r = getSingleFieldQueryOptsFor(s, g[s]);
     if (o) o = mergeObjects([ o, r ]); else o = r;
   }));
   return {
     queryOpts: o,
-    inMemoryFields: m
+    inMemoryFields: _
   };
 }
 
@@ -12560,11 +12506,11 @@ function getMultiFieldCoreQueryPlan(s, r) {
 }
 
 function getMultiFieldQueryOpts(s, r) {
-  var o, u, g = r.def.fields.map(getKey), m = [], _ = [], b = [];
+  var o, u, g = r.def.fields.map(getKey), _ = [], m = [], b = [];
   function finish(s) {
-    if (false !== o) _.push(COLLATE_LO);
+    if (false !== o) m.push(COLLATE_LO);
     if (false !== u) b.push(COLLATE_HI);
-    m = g.slice(s);
+    _ = g.slice(s);
   }
   for (var w = 0, E = g.length; w < E; w++) {
     var S = s[g[w]];
@@ -12585,20 +12531,20 @@ function getMultiFieldQueryOpts(s, r) {
       var A = C[I], x = getMultiFieldCoreQueryPlan(A, S[A]);
       if (T) T = mergeObjects([ T, x ]); else T = x;
     }
-    _.push("startkey" in T ? T.startkey : COLLATE_LO);
+    m.push("startkey" in T ? T.startkey : COLLATE_LO);
     b.push("endkey" in T ? T.endkey : COLLATE_HI);
     if ("inclusive_start" in T) o = T.inclusive_start;
     if ("inclusive_end" in T) u = T.inclusive_end;
   }
   var R = {
-    startkey: _,
+    startkey: m,
     endkey: b
   };
   if ("undefined" != typeof o) R.inclusive_start = o;
   if ("undefined" != typeof u) R.inclusive_end = u;
   return {
     queryOpts: R,
-    inMemoryFields: m
+    inMemoryFields: _
   };
 }
 
@@ -12629,11 +12575,11 @@ function planQuery(s, r) {
   if (shouldShortCircuit(o)) return assign$2({}, SHORT_CIRCUIT_QUERY, {
     index: r[0]
   });
-  var g = getUserFields(o, u), m = g.fields, _ = findBestMatchingIndex(o, m, g.sortOrder, r, s.use_index), b = getCoreQueryPlan(o, _);
+  var g = getUserFields(o, u), _ = g.fields, m = findBestMatchingIndex(o, _, g.sortOrder, r, s.use_index), b = getCoreQueryPlan(o, m);
   return {
     queryOpts: b.queryOpts,
-    index: _,
-    inMemoryFields: getInMemoryFields(b.inMemoryFields, _, o, m)
+    index: m,
+    inMemoryFields: getInMemoryFields(b.inMemoryFields, m, o, _)
   };
 }
 
@@ -12677,31 +12623,31 @@ function find$1(s, r, o) {
     s.constructor.emit("debug", [ "find", "planning query", r ]);
     var g = planQuery(r, u.indexes);
     s.constructor.emit("debug", [ "find", "query plan", g ]);
-    var m = g.index;
-    validateSort(r, m);
-    var _ = assign$2({
+    var _ = g.index;
+    validateSort(r, _);
+    var m = assign$2({
       include_docs: true,
       reduce: false,
       indexes_count: u.total_rows
     }, g.queryOpts);
-    if ("startkey" in _ && "endkey" in _ && collate(_.startkey, _.endkey) > 0) return {
+    if ("startkey" in m && "endkey" in m && collate(m.startkey, m.endkey) > 0) return {
       docs: []
     };
     if (r.sort && "string" != typeof r.sort[0] && "desc" === getValue(r.sort[0])) {
-      _.descending = true;
-      _ = reverseOptions(_);
+      m.descending = true;
+      m = reverseOptions(m);
     }
     if (!g.inMemoryFields.length) {
-      if ("limit" in r) _.limit = r.limit;
-      if ("skip" in r) _.skip = r.skip;
+      if ("limit" in r) m.limit = r.limit;
+      if ("skip" in r) m.skip = r.skip;
     }
-    if (o) return Promise.resolve(g, _); else return Promise.resolve().then((function() {
-      if ("_all_docs" === m.name) return doAllDocs(s, _); else {
-        var r = indexToSignature(m);
-        return abstractMapper$1(s).query.call(s, r, _);
+    if (o) return Promise.resolve(g, m); else return Promise.resolve().then((function() {
+      if ("_all_docs" === _.name) return doAllDocs(s, m); else {
+        var r = indexToSignature(_);
+        return abstractMapper$1(s).query.call(s, r, m);
       }
     })).then((function(s) {
-      if (false === _.inclusive_start) s.rows = filterInclusiveStart(s.rows, _.startkey, m);
+      if (false === m.inclusive_start) s.rows = filterInclusiveStart(s.rows, m.startkey, _);
       if (g.inMemoryFields.length) s.rows = filterInMemoryFields(s.rows, r, g.inMemoryFields);
       var o = {
         docs: s.rows.map((function(s) {
@@ -12709,7 +12655,7 @@ function find$1(s, r, o) {
           if (r.fields) return pick2(o, r.fields); else return o;
         }))
       };
-      if (m.defaultUsed) o.warning = "No matching index found, create an index to optimize query time.";
+      if (_.defaultUsed) o.warning = "No matching index found, create an index to optimize query time.";
       return o;
     }));
   }));
@@ -12832,13 +12778,13 @@ function appendPurgeSeqs(s, r) {
 index_es_default.prototype.purgeMulti = adapterFun("_purgeMulti", (function(s, r) {
   if ("undefined" == typeof this._purge) return r(createError(UNKNOWN_ERROR, "Purge is not implemented in the " + this.adapter + " adapter."));
   const o = this, u = s.map((s => () => new Promise(((r, u) => {
-    const [g, m] = s;
-    o._getRevisionTree(g, ((u, _) => {
+    const [g, _] = s;
+    o._getRevisionTree(g, ((u, m) => {
       if (u) return r([ s, u ]);
-      if (!_) return r([ s, createError(MISSING_DOC) ]);
+      if (!m) return r([ s, createError(MISSING_DOC) ]);
       let b;
       try {
-        b = findPathToLeaf(_, m);
+        b = findPathToLeaf(m, _);
       } catch (o) {
         return r([ s, o.message || o ]);
       }
@@ -12882,8 +12828,8 @@ var import_diff_match_patch2 = __toESM(require_diff_match_patch(), 1), ConflictR
     }
     o = o.replace(/\n/g, "<br>");
     r.innerHTML = o;
-    const u = s.createDiv(""), g = new Date(this.result.left.mtime).toLocaleString() + (this.result.left.deleted ? " (Deleted)" : ""), m = new Date(this.result.right.mtime).toLocaleString() + (this.result.right.deleted ? " (Deleted)" : "");
-    u.innerHTML = `\n<span class='deleted'>A:${g}</span><br /><span class='added'>B:${m}</span><br> \n        `;
+    const u = s.createDiv(""), g = new Date(this.result.left.mtime).toLocaleString() + (this.result.left.deleted ? " (Deleted)" : ""), _ = new Date(this.result.right.mtime).toLocaleString() + (this.result.right.deleted ? " (Deleted)" : "");
+    u.innerHTML = `\n<span class='deleted'>A:${g}</span><br /><span class='added'>B:${_}</span><br> \n        `;
     s.createEl("button", {
       text: "Keep A"
     }, (s => {
@@ -13253,17 +13199,17 @@ function get_spread_update(s, r) {
   const o = {}, u = {}, g = {
     $$scope: 1
   };
-  let m = s.length;
-  for (;m--; ) {
-    const _ = s[m], b = r[m];
+  let _ = s.length;
+  for (;_--; ) {
+    const m = s[_], b = r[_];
     if (b) {
-      for (const s in _) if (!(s in b)) u[s] = 1;
+      for (const s in m) if (!(s in b)) u[s] = 1;
       for (const s in b) if (!g[s]) {
         o[s] = b[s];
         g[s] = 1;
       }
-      s[m] = b;
-    } else for (const s in _) g[s] = 1;
+      s[_] = b;
+    } else for (const s in m) g[s] = 1;
   }
   for (const s in u) if (!(s in o)) o[s] = void 0;
   return o;
@@ -13310,13 +13256,13 @@ function make_dirty(s, r) {
   s.$$.dirty[r / 31 | 0] |= 1 << r % 31;
 }
 
-function init2(s, r, o, u, g, m, _, b = [ -1 ]) {
+function init2(s, r, o, u, g, _, m, b = [ -1 ]) {
   const w = current_component;
   set_current_component(s);
   const E = s.$$ = {
     fragment: null,
     ctx: [],
-    props: m,
+    props: _,
     update: noop,
     not_equal: g,
     bound: blank_object(),
@@ -13331,12 +13277,12 @@ function init2(s, r, o, u, g, m, _, b = [ -1 ]) {
     skip_bound: false,
     root: r.target || w.$$.root
   };
-  _ && _(E.root);
+  m && m(E.root);
   let S = false;
   E.ctx = o ? o(s, r.props || {}, ((r, o, ...u) => {
-    const m = u.length ? u[0] : o;
-    if (E.ctx && g(E.ctx[r], E.ctx[r] = m)) {
-      if (!E.skip_bound && E.bound[r]) E.bound[r](m);
+    const _ = u.length ? u[0] : o;
+    if (E.ctx && g(E.ctx[r], E.ctx[r] = _)) {
+      if (!E.skip_bound && E.bound[r]) E.bound[r](_);
       if (S) make_dirty(s, r);
     }
     return o;
@@ -13481,9 +13427,9 @@ if ("function" == typeof HTMLElement) SvelteElement = class extends HTMLElement 
 
 function get_custom_element_value(s, r, o, u) {
   var g;
-  const m = null == (g = o[s]) ? void 0 : g.type;
-  r = "Boolean" === m && "boolean" != typeof r ? null != r : r;
-  if (!u || !o[s]) return r; else if ("toAttribute" === u) switch (m) {
+  const _ = null == (g = o[s]) ? void 0 : g.type;
+  r = "Boolean" === _ && "boolean" != typeof r ? null != r : r;
+  if (!u || !o[s]) return r; else if ("toAttribute" === u) switch (_) {
    case "Object":
    case "Array":
     return null == r ? null : JSON.stringify(r);
@@ -13496,7 +13442,7 @@ function get_custom_element_value(s, r, o, u) {
 
    default:
     return r;
-  } else switch (m) {
+  } else switch (_) {
    case "Object":
    case "Array":
     return r && JSON.parse(r);
@@ -13570,13 +13516,13 @@ function writable(s, r = noop) {
   return {
     set,
     update: update2,
-    subscribe: function subscribe2(g, m = noop) {
-      const _ = [ g, m ];
-      u.add(_);
+    subscribe: function subscribe2(g, _ = noop) {
+      const m = [ g, _ ];
+      u.add(m);
       if (1 === u.size) o = r(set, update2) || noop;
       g(s);
       return () => {
-        u.delete(_);
+        u.delete(m);
         if (0 === u.size && o) {
           o();
           o = null;
@@ -13648,7 +13594,7 @@ function get_each_context_1(s, r, o) {
 }
 
 function create_else_block(s) {
-  let r, o, u, g, m, _, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P, N, B, F, M, V = new Date(s[3].mtime).toLocaleString() + "", G = s[5].length + "", j = new Date(s[4].mtime).toLocaleString() + "", q = s[6].length + "", U = ensure_array_like(s[11]), z = [];
+  let r, o, u, g, _, m, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P, N, B, F, M, V = new Date(s[3].mtime).toLocaleString() + "", G = s[5].length + "", j = new Date(s[4].mtime).toLocaleString() + "", q = s[6].length + "", U = ensure_array_like(s[11]), z = [];
   for (let r = 0; r < U.length; r += 1) z[r] = create_each_block_1(get_each_context_1(s, U, r));
   function select_block_type_1(s, r) {
     if (false != s[8]) return create_if_block_3; else return create_else_block_1;
@@ -13662,8 +13608,8 @@ function create_else_block(s) {
       H.c();
       u = space();
       g = element("div");
-      m = text(s[1]);
-      _ = space();
+      _ = text(s[1]);
+      m = space();
       if (K) K.c();
       b = text(" ,");
       w = text(V);
@@ -13697,8 +13643,8 @@ function create_else_block(s) {
       H.m(V, G);
       insert(V, u, G);
       insert(V, g, G);
-      append(g, m);
       append(g, _);
+      append(g, m);
       if (K) K.m(g, null);
       append(g, b);
       append(g, w);
@@ -13746,7 +13692,7 @@ function create_else_block(s) {
           H.m(u.parentNode, u);
         }
       }
-      if (2 & o) set_data(m, s[1]);
+      if (2 & o) set_data(_, s[1]);
       if (s[3]._id == s[4]._id) if (K) K.p(s, o); else {
         K = create_if_block_2(s);
         K.c();
@@ -13791,7 +13737,7 @@ function create_else_block(s) {
 }
 
 function create_if_block(s) {
-  let r, o, u, g, m, _;
+  let r, o, u, g, _, m;
   return {
     c() {
       r = element("div");
@@ -13809,9 +13755,9 @@ function create_if_block(s) {
       insert(b, o, w);
       insert(b, u, w);
       append(u, g);
-      if (!m) {
-        _ = listen(g, "click", s[12]);
-        m = true;
+      if (!_) {
+        m = listen(g, "click", s[12]);
+        _ = true;
       }
     },
     p: noop,
@@ -13821,28 +13767,28 @@ function create_if_block(s) {
         detach(o);
         detach(u);
       }
-      m = false;
-      _();
+      _ = false;
+      m();
     }
   };
 }
 
 function create_if_block_4(s) {
-  let r, o, u, g, m, _, b, w, E, S, L = false, O = s[28][1] + "";
+  let r, o, u, g, _, m, b, w, E, S, L = false, O = s[28][1] + "";
   w = init_binding_group(s[21][0]);
   return {
     c() {
       r = element("label");
       o = element("input");
       g = space();
-      m = element("div");
-      _ = text(O);
+      _ = element("div");
+      m = text(O);
       attr(o, "type", "radio");
       attr(o, "name", "disp");
       o.__value = u = s[28][0];
       set_input_value(o, o.__value);
       attr(o, "class", "sls-setting-tab svelte-guf68w");
-      attr(m, "class", "sls-setting-menu-btn svelte-guf68w");
+      attr(_, "class", "sls-setting-menu-btn svelte-guf68w");
       attr(r, "class", b = null_to_empty("sls-setting-label " + (s[28][0] == s[7] ? "selected" : "")) + " svelte-guf68w");
       w.p(o);
     },
@@ -13851,8 +13797,8 @@ function create_if_block_4(s) {
       append(r, o);
       o.checked = o.__value === s[7];
       append(r, g);
-      append(r, m);
-      append(m, _);
+      append(r, _);
+      append(_, m);
       if (!E) {
         S = listen(o, "change", s[20]);
         E = true;
@@ -13865,7 +13811,7 @@ function create_if_block_4(s) {
         L = true;
       }
       if (L || 2176 & g) o.checked = o.__value === s[7];
-      if (2048 & g && O !== (O = s[28][1] + "")) set_data(_, O);
+      if (2048 & g && O !== (O = s[28][1] + "")) set_data(m, O);
       if (2176 & g && b !== (b = null_to_empty("sls-setting-label " + (s[28][0] == s[7] ? "selected" : "")) + " svelte-guf68w")) attr(r, "class", b);
     },
     d(s) {
@@ -13937,16 +13883,16 @@ function create_if_block_3(s) {
     p(s, g) {
       if (1024 & g) {
         o = ensure_array_like(s[10]);
-        let m;
-        for (m = 0; m < o.length; m += 1) {
-          const _ = get_each_context(s, o, m);
-          if (u[m]) u[m].p(_, g); else {
-            u[m] = create_each_block(_);
-            u[m].c();
-            u[m].m(r, null);
+        let _;
+        for (_ = 0; _ < o.length; _ += 1) {
+          const m = get_each_context(s, o, _);
+          if (u[_]) u[_].p(m, g); else {
+            u[_] = create_each_block(m);
+            u[_].c();
+            u[_].m(r, null);
           }
         }
-        for (;m < u.length; m += 1) u[m].d(1);
+        for (;_ < u.length; _ += 1) u[_].d(1);
         u.length = o.length;
       }
     },
@@ -13969,9 +13915,9 @@ function create_each_block(s) {
       insert(s, r, u);
       append(r, o);
     },
-    p(s, m) {
-      if (1024 & m && g !== (g = s[25][1] + "")) set_data(o, g);
-      if (1024 & m && u !== (u = null_to_empty(s[25][0] == import_diff_match_patch.DIFF_DELETE ? "deleted" : s[25][0] == import_diff_match_patch.DIFF_INSERT ? "added" : "normal") + " svelte-guf68w")) attr(r, "class", u);
+    p(s, _) {
+      if (1024 & _ && g !== (g = s[25][1] + "")) set_data(o, g);
+      if (1024 & _ && u !== (u = null_to_empty(s[25][0] == import_diff_match_patch.DIFF_DELETE ? "deleted" : s[25][0] == import_diff_match_patch.DIFF_INSERT ? "added" : "normal") + " svelte-guf68w")) attr(r, "class", u);
     },
     d(s) {
       if (s) detach(r);
@@ -14030,31 +13976,31 @@ function create_fragment(s) {
   function select_block_type(s, r) {
     if (!s[3] || !s[4]) return create_if_block; else return create_else_block;
   }
-  let m = select_block_type(s), _ = m(s);
+  let _ = select_block_type(s), m = _(s);
   return {
     c() {
       r = element("h2");
       o = text(s[0]);
       u = space();
-      _.c();
+      m.c();
       g = empty();
       attr(r, "class", "svelte-guf68w");
     },
-    m(s, m) {
-      insert(s, r, m);
+    m(s, _) {
+      insert(s, r, _);
       append(r, o);
-      insert(s, u, m);
-      _.m(s, m);
-      insert(s, g, m);
+      insert(s, u, _);
+      m.m(s, _);
+      insert(s, g, _);
     },
     p(s, [r]) {
       if (1 & r) set_data(o, s[0]);
-      if (m === (m = select_block_type(s)) && _) _.p(s, r); else {
-        _.d(1);
-        _ = m(s);
-        if (_) {
-          _.c();
-          _.m(g.parentNode, g);
+      if (_ === (_ = select_block_type(s)) && m) m.p(s, r); else {
+        m.d(1);
+        m = _(s);
+        if (m) {
+          m.c();
+          m.m(g.parentNode, g);
         }
       }
     },
@@ -14066,7 +14012,7 @@ function create_fragment(s) {
         detach(u);
         detach(g);
       }
-      _.d(s);
+      m.d(s);
     }
   };
 }
@@ -14076,7 +14022,7 @@ function revStringToRevNumber(s) {
 }
 
 function instance(s, r, o) {
-  let u, g, m, _, b, w, {docs: E = []} = r, {callback: S = (async (s, r) => {
+  let u, g, _, m, b, w, {docs: E = []} = r, {callback: S = (async (s, r) => {
     Promise.resolve();
   })} = r, {filename: L = ""} = r, {nameA: O = "A"} = r, {nameB: D = "B"} = r, {defaultSelect: k = ""} = r, C = "", T = "", I = {}, A = {}, x = {}, R = {}, P = k;
   function docToString(s) {
@@ -14093,13 +14039,13 @@ function instance(s, r, o) {
   s.$$.update = () => {
     if (991352 & s.$$.dirty) if (E && E.length >= 1) {
       if (E[0].mtime < E[1].mtime) {
-        o(3, _ = E[0]);
+        o(3, m = E[0]);
         o(4, b = E[1]);
       } else {
-        o(3, _ = E[1]);
+        o(3, m = E[1]);
         o(4, b = E[0]);
       }
-      o(5, C = docToString(_));
+      o(5, C = docToString(m));
       o(6, T = docToString(b));
       try {
         o(16, I = false);
@@ -14129,14 +14075,14 @@ function instance(s, r, o) {
         return g;
       }(JSON.stringify(s, null, 2), JSON.stringify(r, null, 2));
     }(I, g));
-    if (6 & s.$$.dirty) o(11, m = [ [ "", "Not now" ], [ "A", O || "A" ], [ "B", D || "B" ], [ "AB", `${O || "A"} + ${D || "B"}` ], [ "BA", `${D || "B"} + ${O || "A"}` ] ]);
+    if (6 & s.$$.dirty) o(11, _ = [ [ "", "Not now" ], [ "A", O || "A" ], [ "B", D || "B" ], [ "AB", `${O || "A"} + ${D || "B"}` ], [ "BA", `${D || "B"} + ${O || "A"}` ] ]);
   };
-  return [ L, O, D, _, b, C, T, P, g, u, w, m, function apply() {
-    if (_._id == b._id) {
-      if ("A" == P) return S(_._rev, null);
+  return [ L, O, D, m, b, C, T, P, g, u, w, _, function apply() {
+    if (m._id == b._id) {
+      if ("A" == P) return S(m._rev, null);
       if ("B" == P) return S(b._rev, null);
     } else {
-      if ("A" == P) return S(null, docToString(_));
+      if ("A" == P) return S(null, docToString(m));
       if ("B" == P) return S(null, docToString(b));
     }
     if ("BA" == P) return S(null, JSON.stringify(R, null, 2));
@@ -14161,14 +14107,14 @@ var JsonResolvePane = class extends SvelteComponent {
     }, add_css);
   }
 }, JsonResolvePane_default = JsonResolvePane, JsonResolveModal = class extends import_obsidian.Modal {
-  constructor(s, r, o, u, g, m, _) {
+  constructor(s, r, o, u, g, _, m) {
     super(s);
     this.callback = u;
     this.filename = r;
     this.docs = o;
     this.nameA = g;
-    this.nameB = m;
-    this.defaultSelect = _;
+    this.nameB = _;
+    this.defaultSelect = m;
   }
   async UICallback(s, r) {
     this.close();
@@ -14204,25 +14150,25 @@ var JsonResolvePane = class extends SvelteComponent {
 
 function serialize(s) {
   var r, o, u, g;
-  let m = "";
-  m += ":";
-  m += s.category + d + s.name + d + s.term + d2;
-  m += (null != (r = s.version) ? r : "") + d2;
-  m += s.mtime + d2;
+  let _ = "";
+  _ += ":";
+  _ += s.category + d + s.name + d + s.term + d2;
+  _ += (null != (r = s.version) ? r : "") + d2;
+  _ += s.mtime + d2;
   for (const r of s.files) {
-    m += r.filename + d + (null != (o = r.displayName) ? o : "") + d + (null != (u = r.version) ? u : "") + d2;
-    m += r.mtime + d + r.size + d2;
-    for (const s of null != (g = r.data) ? g : []) m += s + d;
-    m += d2;
+    _ += r.filename + d + (null != (o = r.displayName) ? o : "") + d + (null != (u = r.version) ? u : "") + d2;
+    _ += r.mtime + d + r.size + d2;
+    for (const s of null != (g = r.data) ? g : []) _ += s + d;
+    _ += d2;
   }
-  return m;
+  return _;
 }
 
 function fetchToken(s, r) {
-  const o = s.indexOf(d2, r), u = -1 == o ? s.length : o, g = s.indexOf(d, r), m = -1 == g ? s.length : g, _ = Math.min(u, m);
-  let b = _;
-  if (u < m) b = _; else b = _ + 1;
-  return [ b, s.substring(r, _) ];
+  const o = s.indexOf(d2, r), u = -1 == o ? s.length : o, g = s.indexOf(d, r), _ = -1 == g ? s.length : g, m = Math.min(u, _);
+  let b = m;
+  if (u < _) b = m; else b = m + 1;
+  return [ b, s.substring(r, m) ];
 }
 
 function getTokenizer(s) {
@@ -14243,16 +14189,16 @@ function getTokenizer(s) {
 function deserialize2(s) {
   const r = getTokenizer(s), o = r.next(), u = r.next(), g = r.next();
   r.nextLine();
-  const m = r.next();
+  const _ = r.next();
   r.nextLine();
-  const _ = Number(r.next());
+  const m = Number(r.next());
   r.nextLine();
   const b = Object.assign({}, {
     category: o,
     name: u,
     term: g,
-    version: m,
-    mtime: _,
+    version: _,
+    mtime: m,
     files: []
   });
   let w = "";
@@ -14263,20 +14209,20 @@ function deserialize2(s) {
     r.nextLine();
     const u = Number(r.next()), g = Number(r.next());
     r.nextLine();
-    const m = [];
-    let _ = "";
+    const _ = [];
+    let m = "";
     do {
-      _ = r.next();
-      if ("" == _) break;
-      m.push(_);
-    } while ("" != _);
+      m = r.next();
+      if ("" == m) break;
+      _.push(m);
+    } while ("" != m);
     b.files.push({
       filename: w,
       displayName: s,
       version: o,
       mtime: u,
       size: g,
-      data: m
+      data: _
     });
     r.nextLine();
   } while (w);
@@ -14424,8 +14370,8 @@ var pluginList = writable([]), pluginIsEnumerating = writable(false), ConfigSync
             for await (const s of processAllGeneratorTasksWithConcurrencyLimit(20, pipeGeneratorToGenerator(u, (async s => {
               const u = s.path || this.getPath(s);
               if (r && r != u) return false;
-              const m = this.pluginList.find((s => s.documentPath == u));
-              if (m && m.mtime == s.mtime) return false;
+              const _ = this.pluginList.find((s => s.documentPath == u));
+              if (_ && _.mtime == s.mtime) return false;
               try {
                 g++;
                 if (g % 10 == 0) Logger(`Enumerating files... ${g}`, o, "get-plugins");
@@ -14464,9 +14410,9 @@ var pluginList = writable([]), pluginIsEnumerating = writable(false), ConfigSync
     if (o && u) {
       const g = deserialize(getDocData(o.data), {});
       g.documentPath = s.documentPath;
-      const m = deserialize(getDocData(u.data), {});
-      m.documentPath = r.documentPath;
-      return await this.showJSONMergeDialogAndMerge(o, u, g, m);
+      const _ = deserialize(getDocData(u.data), {});
+      _.documentPath = r.documentPath;
+      return await this.showJSONMergeDialogAndMerge(o, u, g, _);
     }
     return false;
   }
@@ -14475,17 +14421,17 @@ var pluginList = writable([]), pluginIsEnumerating = writable(false), ConfigSync
       ...o.files[0],
       ctime: o.files[0].mtime,
       _id: `${o.documentPath}`
-    }, m = u.files[0], _ = {
+    }, _ = u.files[0], m = {
       ...s,
       ...g
     }, b = {
       ...r,
-      ...m
+      ..._
     };
     return serialized("config:merge-data", (() => new Promise((s => {
       Logger("Opening data-merging dialog", LOG_LEVEL_VERBOSE);
-      const r = stripAllPrefixes(_.path.split("/").slice(-1).join("/"));
-      new JsonResolveModal(this.app, r, [ _, b ], (async (r, u) => {
+      const r = stripAllPrefixes(m.path.split("/").slice(-1).join("/"));
+      new JsonResolveModal(this.app, r, [ m, b ], (async (r, u) => {
         if (null == u) return s(false);
         try {
           s(await this.applyData(o, u));
@@ -14520,9 +14466,9 @@ var pluginList = writable([]), pluginIsEnumerating = writable(false), ConfigSync
           Logger(r, LOG_LEVEL_VERBOSE);
         }
       }
-      const m = `${o}/${g.files[0].filename}`;
-      await this.storeCustomizationFiles(m);
-      await this.updatePluginList(true, m);
+      const _ = `${o}/${g.files[0].filename}`;
+      await this.storeCustomizationFiles(_);
+      await this.updatePluginList(true, _);
       await delay(100);
       Logger(`Config ${s.displayName || s.name} has been applied`, LOG_LEVEL_NOTICE);
       if ("PLUGIN_DATA" == s.category || "PLUGIN_MAIN" == s.category) {
@@ -14603,9 +14549,9 @@ var pluginList = writable([]), pluginIsEnumerating = writable(false), ConfigSync
     let o, u;
     if (!r) return false;
     const g = await this.app.vault.adapter.readBinary(s);
-    let m;
+    let _;
     try {
-      m = await encodeBinary(g, this.settings.useV1);
+      _ = await arrayBufferToBase64(g);
       if (s.toLowerCase().endsWith("/manifest.json")) {
         const r = readString(new Uint8Array(g));
         try {
@@ -14621,11 +14567,11 @@ var pluginList = writable([]), pluginIsEnumerating = writable(false), ConfigSync
       Logger(r, LOG_LEVEL_VERBOSE);
       return false;
     }
-    const _ = r.mtime;
+    const m = r.mtime;
     return {
       filename: s.substring(this.app.vault.configDir.length + 1),
-      data: m,
-      mtime: _,
+      data: _,
+      mtime: m,
       size: r.size,
       version: o,
       displayName: u
@@ -14645,17 +14591,17 @@ var pluginList = writable([]), pluginIsEnumerating = writable(false), ConfigSync
     return await serialized(`plugin-${u}`, (async () => {
       const r = this.getFileCategory(s);
       let u = 0, g = [];
-      const m = "CONFIG" == r || "SNIPPET" == r ? s.split("/").reverse()[0] : s.split("/").reverse()[1], _ = s.split("/").slice(0, -1).join("/"), b = this.filenameToUnifiedKey(s, o), w = await this.path2id(b), E = {
+      const _ = "CONFIG" == r || "SNIPPET" == r ? s.split("/").reverse()[0] : s.split("/").reverse()[1], m = s.split("/").slice(0, -1).join("/"), b = this.filenameToUnifiedKey(s, o), w = await this.path2id(b), E = {
         category: r,
         files: [],
-        name: m,
+        name: _,
         mtime: 0,
         term: o
       };
       if ("CONFIG" == r || "SNIPPET" == r || "PLUGIN_ETC" == r || "PLUGIN_DATA" == r) {
         g = [ s ];
         if ("PLUGIN_ETC" == r) E.displayName = s.split("/").slice(-1).join("/");
-      } else if ("PLUGIN_MAIN" == r) g = [ "manifest.json", "main.js", "styles.css" ].map((s => `${_}/${s}`)); else if ("THEME" == r) g = [ "manifest.json", "theme.css" ].map((s => `${_}/${s}`));
+      } else if ("PLUGIN_MAIN" == r) g = [ "manifest.json", "main.js", "styles.css" ].map((s => `${m}/${s}`)); else if ("THEME" == r) g = [ "manifest.json", "theme.css" ].map((s => `${m}/${s}`));
       for (const s of g) {
         const r = await this.makeEntryFromFile(s);
         if (false != r) {
@@ -14672,7 +14618,7 @@ var pluginList = writable([]), pluginIsEnumerating = writable(false), ConfigSync
         await this.updatePluginList(false, b);
         return;
       }
-      const S = serialize(E);
+      const S = createTextBlob(serialize(E));
       try {
         const s = await this.localDatabase.getDBEntryMeta(b, null, false);
         let r;
@@ -14683,7 +14629,7 @@ var pluginList = writable([]), pluginIsEnumerating = writable(false), ConfigSync
           mtime: u,
           ctime: u,
           datatype: "newnote",
-          size: S.length,
+          size: S.size,
           children: [],
           deleted: false,
           type: "newnote"
@@ -14693,7 +14639,7 @@ var pluginList = writable([]), pluginIsEnumerating = writable(false), ConfigSync
             ...s,
             data: S,
             mtime: u,
-            size: S.length,
+            size: S.size,
             datatype: "newnote",
             children: [],
             deleted: false,
@@ -14803,7 +14749,7 @@ function get_each_context2(s, r, o) {
 }
 
 function create_else_block_3(s) {
-  let r, o, u, g, m, _, b;
+  let r, o, u, g, _, m, b;
   return {
     c() {
       r = element("span");
@@ -14811,13 +14757,13 @@ function create_else_block_3(s) {
       u = element("span");
       u.textContent = "All the same or non-existent";
       g = space();
-      m = element("button");
-      _ = space();
+      _ = element("button");
+      m = space();
       b = element("button");
       attr(r, "class", "spacer svelte-tsbdtg");
       attr(u, "class", "message even svelte-tsbdtg");
-      m.disabled = true;
-      attr(m, "class", "svelte-tsbdtg");
+      _.disabled = true;
+      attr(_, "class", "svelte-tsbdtg");
       b.disabled = true;
       attr(b, "class", "svelte-tsbdtg");
     },
@@ -14826,8 +14772,8 @@ function create_else_block_3(s) {
       insert(s, o, w);
       insert(s, u, w);
       insert(s, g, w);
-      insert(s, m, w);
       insert(s, _, w);
+      insert(s, m, w);
       insert(s, b, w);
     },
     p: noop,
@@ -14837,8 +14783,8 @@ function create_else_block_3(s) {
         detach(o);
         detach(u);
         detach(g);
-        detach(m);
         detach(_);
+        detach(m);
         detach(b);
       }
     }
@@ -14855,11 +14801,11 @@ function create_if_block2(s) {
       u = empty();
       attr(r, "class", "spacer svelte-tsbdtg");
     },
-    m(s, m) {
-      insert(s, r, m);
-      insert(s, o, m);
-      if (g) g.m(s, m);
-      insert(s, u, m);
+    m(s, _) {
+      insert(s, r, _);
+      insert(s, o, _);
+      if (g) g.m(s, _);
+      insert(s, u, _);
     },
     p(s, r) {
       if (!s[0]) if (g) g.p(s, r); else {
@@ -14883,7 +14829,7 @@ function create_if_block2(s) {
 }
 
 function create_if_block_12(s) {
-  let r, o, u, g, m, _, b, w, E, S, L, O, D, k, C, T, I, A, x = ensure_array_like(s[8]), R = [];
+  let r, o, u, g, _, m, b, w, E, S, L, O, D, k, C, T, I, A, x = ensure_array_like(s[8]), R = [];
   for (let r = 0; r < x.length; r += 1) R[r] = create_each_block2(get_each_context2(s, x, r));
   function select_block_type_1(s, r) {
     if (s[6] || s[1] && "" != s[2]) return create_if_block_42; else return create_else_block_2;
@@ -14895,8 +14841,8 @@ function create_if_block_12(s) {
       o = element("span");
       u = text(s[3]);
       g = space();
-      m = element("span");
-      _ = text(s[4]);
+      _ = element("span");
+      m = text(s[4]);
       b = space();
       w = element("span");
       E = text(s[5]);
@@ -14911,7 +14857,7 @@ function create_if_block_12(s) {
       if (B) B.c();
       T = empty();
       attr(o, "class", "message svelte-tsbdtg");
-      attr(m, "class", "message svelte-tsbdtg");
+      attr(_, "class", "message svelte-tsbdtg");
       attr(w, "class", "message svelte-tsbdtg");
       attr(r, "class", "messages svelte-tsbdtg");
       O.__value = D = "";
@@ -14923,8 +14869,8 @@ function create_if_block_12(s) {
       append(r, o);
       append(o, u);
       append(r, g);
-      append(r, m);
-      append(m, _);
+      append(r, _);
+      append(_, m);
       append(r, b);
       append(r, w);
       append(w, E);
@@ -14945,7 +14891,7 @@ function create_if_block_12(s) {
     },
     p(s, r) {
       if (8 & r[0]) set_data(u, s[3]);
-      if (16 & r[0]) set_data(_, s[4]);
+      if (16 & r[0]) set_data(m, s[4]);
       if (32 & r[0]) set_data(E, s[5]);
       if (256 & r[0]) {
         x = ensure_array_like(s[8]);
@@ -15010,9 +14956,9 @@ function create_each_block2(s) {
       insert(s, r, u);
       append(r, o);
     },
-    p(s, m) {
-      if (256 & m[0] && g !== (g = s[30] + "")) set_data(o, g);
-      if (256 & m[0] && u !== (u = s[30])) {
+    p(s, _) {
+      if (256 & _[0] && g !== (g = s[30] + "")) set_data(o, g);
+      if (256 & _[0] && u !== (u = s[30])) {
         r.__value = u;
         set_input_value(r, r.__value);
       }
@@ -15056,31 +15002,31 @@ function create_if_block_42(s) {
   function select_block_type_2(s, r) {
     if (s[7]) return create_if_block_5; else return create_else_block_12;
   }
-  let m = select_block_type_2(s), _ = m(s);
+  let _ = select_block_type_2(s), m = _(s);
   return {
     c() {
-      _.c();
+      m.c();
       r = space();
       o = element("button");
       o.textContent = "✓";
       attr(o, "class", "svelte-tsbdtg");
     },
-    m(m, b) {
-      _.m(m, b);
-      insert(m, r, b);
-      insert(m, o, b);
+    m(_, b) {
+      m.m(_, b);
+      insert(_, r, b);
+      insert(_, o, b);
       if (!u) {
         g = listen(o, "click", s[9]);
         u = true;
       }
     },
     p(s, o) {
-      if (m === (m = select_block_type_2(s)) && _) _.p(s, o); else {
-        _.d(1);
-        _ = m(s);
-        if (_) {
-          _.c();
-          _.m(r.parentNode, r);
+      if (_ === (_ = select_block_type_2(s)) && m) m.p(s, o); else {
+        m.d(1);
+        m = _(s);
+        if (m) {
+          m.c();
+          m.m(r.parentNode, r);
         }
       }
     },
@@ -15089,7 +15035,7 @@ function create_if_block_42(s) {
         detach(r);
         detach(o);
       }
-      _.d(s);
+      m.d(s);
       u = false;
       g();
     }
@@ -15122,8 +15068,8 @@ function create_if_block_5(s) {
       r.textContent = "🔍";
       attr(r, "class", "svelte-tsbdtg");
     },
-    m(g, m) {
-      insert(g, r, m);
+    m(g, _) {
+      insert(g, r, _);
       if (!o) {
         u = listen(r, "click", s[10]);
         o = true;
@@ -15178,8 +15124,8 @@ function create_else_block2(s) {
       r.textContent = "📑";
       attr(r, "class", "svelte-tsbdtg");
     },
-    m(g, m) {
-      insert(g, r, m);
+    m(g, _) {
+      insert(g, r, _);
       if (!o) {
         u = listen(r, "click", s[12]);
         o = true;
@@ -15202,8 +15148,8 @@ function create_if_block_32(s) {
       r.textContent = "🗑️";
       attr(r, "class", "svelte-tsbdtg");
     },
-    m(g, m) {
-      insert(g, r, m);
+    m(g, _) {
+      insert(g, r, _);
       if (!o) {
         u = listen(r, "click", s[11]);
         o = true;
@@ -15253,50 +15199,50 @@ function create_fragment2(s) {
 }
 
 function instance2(s, r, o) {
-  let {list: u = []} = r, {thisTerm: g = ""} = r, {hideNotApplicable: m = false} = r, {selectNewest: _ = 0} = r, {applyAllPluse: b = 0} = r, {applyData: w} = r, {compareData: E} = r, {deleteData: S} = r, {hidden: L} = r, {plugin: O} = r, {isMaintenanceMode: D = false} = r;
+  let {list: u = []} = r, {thisTerm: g = ""} = r, {hideNotApplicable: _ = false} = r, {selectNewest: m = 0} = r, {applyAllPluse: b = 0} = r, {applyData: w} = r, {compareData: E} = r, {deleteData: S} = r, {hidden: L} = r, {plugin: O} = r, {isMaintenanceMode: D = false} = r;
   const k = O.addOnConfigSync;
   let C = "", T = "", I = "", A = "", x = false, R = false, P = 0, N = 0, B = [];
   async function comparePlugin(s, r) {
     var o, u;
-    let g = "", m = "", _ = false, b = false;
+    let g = "", _ = "", m = false, b = false;
     if (!s && !r) g = ""; else if (s && !r) g = "⚠ Local only"; else if (r && !s) {
       g = "✓ Remote only";
       b = true;
     } else {
-      const m = (null !== (o = null == s ? void 0 : s.mtime) && void 0 !== o ? o : 0) - (null !== (u = null == r ? void 0 : r.mtime) && void 0 !== u ? u : 0);
-      if (m / 1e3 < -10) {
+      const _ = (null !== (o = null == s ? void 0 : s.mtime) && void 0 !== o ? o : 0) - (null !== (u = null == r ? void 0 : r.mtime) && void 0 !== u ? u : 0);
+      if (_ / 1e3 < -10) {
         g = "✓ Newer";
         b = true;
-        _ = true;
-      } else if (m / 1e3 > 10) {
+        m = true;
+      } else if (_ / 1e3 > 10) {
         g = "⚠ Older";
         b = true;
-        _ = true;
+        m = true;
       } else {
         g = "⚖️ Same old";
         b = false;
-        _ = true;
+        m = true;
       }
     }
     const w = (null == s ? void 0 : s.version) || "0.0.0", E = (null == r ? void 0 : r.version) || "0.0.0";
     if ((null == s ? void 0 : s.version) || (null == r ? void 0 : r.version)) {
       const s = versionNumberString2Number(w), r = versionNumberString2Number(E);
-      if (s == r) m = "⚖️ Same ver."; else if (s > r) m = `⚠ Lower ${w} > ${E}`; else if (s < r) m = `✓ Higher ${w} < ${E}`;
+      if (s == r) _ = "⚖️ Same ver."; else if (s > r) _ = `⚠ Lower ${w} > ${E}`; else if (s < r) _ = `✓ Higher ${w} < ${E}`;
     }
-    if (_) {
-      const {canApply: o, equivalency: u, canCompare: _} = await async function checkEquivalency(s, r) {
+    if (m) {
+      const {canApply: o, equivalency: u, canCompare: m} = await async function checkEquivalency(s, r) {
         let o = "", u = false, g = false;
-        const m = [ ...new Set([ ...s.files.map((s => s.filename)), ...r.files.map((s => s.filename)) ]) ].map((o => {
+        const _ = [ ...new Set([ ...s.files.map((s => s.filename)), ...r.files.map((s => s.filename)) ]) ].map((o => {
           const u = s.files.find((s => s.filename == o)), g = r.files.find((s => s.filename == o));
           if (!u && !g) return 0; else if (u && !g) return 2; else if (!u && g) return 8; else if (getDocData(u.data) == getDocData(g.data)) return 4; else return 16;
         })).reduce(((s, r) => s | r), 0);
-        if (4 == m) {
+        if (4 == _) {
           o = "⚖️ Same";
           u = false;
-        } else if (m <= 4) {
+        } else if (_ <= 4) {
           o = "Same or local only";
           u = false;
-        } else if (16 == m) {
+        } else if (16 == _) {
           u = true;
           g = true;
           o = "≠ Different";
@@ -15315,15 +15261,15 @@ function instance2(s, r, o) {
         canApply: o,
         freshness: g,
         equivalency: u,
-        version: m,
-        canCompare: _
+        version: _,
+        canCompare: m
       };
     }
     return {
       canApply: b,
       freshness: g,
       equivalency: "",
-      version: m,
+      version: _,
       canCompare: false
     };
   }
@@ -15334,8 +15280,8 @@ function instance2(s, r, o) {
   s.$$set = s => {
     if ("list" in s) o(13, u = s.list);
     if ("thisTerm" in s) o(14, g = s.thisTerm);
-    if ("hideNotApplicable" in s) o(15, m = s.hideNotApplicable);
-    if ("selectNewest" in s) o(16, _ = s.selectNewest);
+    if ("hideNotApplicable" in s) o(15, _ = s.hideNotApplicable);
+    if ("selectNewest" in s) o(16, m = s.selectNewest);
     if ("applyAllPluse" in s) o(17, b = s.applyAllPluse);
     if ("applyData" in s) o(18, w = s.applyData);
     if ("compareData" in s) o(19, E = s.compareData);
@@ -15346,20 +15292,20 @@ function instance2(s, r, o) {
   };
   s.$$.update = () => {
     if (4268034 & s.$$.dirty[0]) {
-      const s = _ != P;
-      o(22, P = _);
+      const s = m != P;
+      o(22, P = m);
       (async function updateTerms(s, r, u) {
-        const _ = s.find((s => s.term == g));
+        const m = s.find((s => s.term == g));
         o(2, C = "");
-        if (u) o(8, B = [ ...new Set(s.map((s => s.term))) ]); else if (m) {
+        if (u) o(8, B = [ ...new Set(s.map((s => s.term))) ]); else if (_) {
           const r = [], u = [ ...new Set(s.map((s => s.term))) ];
           for (const o of u) {
             const u = s.find((s => s.term == o));
-            if ((await comparePlugin(_, u)).canApply) r.push(o);
+            if ((await comparePlugin(m, u)).canApply) r.push(o);
           }
           o(8, B = [ ...r ]);
         } else o(8, B = [ ...new Set(s.map((s => s.term))) ].filter((s => s != g)));
-        let b = _;
+        let b = m;
         if (r) {
           for (const r of B) {
             const o = s.find((s => s.term == r));
@@ -15383,14 +15329,14 @@ function instance2(s, r, o) {
         o(3, T = "This device");
         o(6, x = false);
       } else (async function performCompare(s, r) {
-        var u, g, m;
-        const _ = await comparePlugin(s, r);
-        o(6, x = _.canApply);
-        o(3, T = _.freshness);
-        o(4, I = _.equivalency);
-        o(5, A = _.version);
-        o(7, R = _.canCompare);
-        if (1 != (null == s ? void 0 : s.files.length) || !(null === (m = null === (g = null === (u = null == s ? void 0 : s.files) || void 0 === u ? void 0 : u.first()) || void 0 === g ? void 0 : g.filename) || void 0 === m ? void 0 : m.endsWith(".json"))) o(7, R = false);
+        var u, g, _;
+        const m = await comparePlugin(s, r);
+        o(6, x = m.canApply);
+        o(3, T = m.freshness);
+        o(4, I = m.equivalency);
+        o(5, A = m.version);
+        o(7, R = m.canCompare);
+        if (1 != (null == s ? void 0 : s.files.length) || !(null === (_ = null === (g = null === (u = null == s ? void 0 : s.files) || void 0 === u ? void 0 : u.first()) || void 0 === g ? void 0 : g.filename) || void 0 === _ ? void 0 : _.endsWith(".json"))) o(7, R = false);
       })(u.find((s => s.term == g)), u.find((s => s.term == C)));
     }
   };
@@ -15411,7 +15357,7 @@ function instance2(s, r, o) {
       await k.storeCustomizationFiles(o, r);
       await k.updatePluginList(false, k.filenameToUnifiedKey(o, r));
     }
-  }, u, g, m, _, b, w, E, S, O, P, N, function select_change_handler() {
+  }, u, g, _, m, b, w, E, S, O, P, N, function select_change_handler() {
     C = select_value(this);
     o(2, C);
     o(8, B);
@@ -15442,23 +15388,23 @@ function add_css3(s) {
 }
 
 function get_each_context3(s, r, o) {
-  var u, g, m;
-  const _ = s.slice();
-  _[48] = r[o][0];
-  _[49] = r[o][1];
-  const b = `${PREFIX_PLUGIN_ALL}/${_[48]}`;
-  _[50] = b;
-  const w = null != (u = _[4].get(_[50])) ? u : MODE_SELECTIVE;
-  _[51] = w;
-  const E = `${PREFIX_PLUGIN_MAIN}/${_[48]}`;
-  _[52] = E;
-  const S = null != (g = _[4].get(_[52])) ? g : MODE_SELECTIVE;
-  _[53] = S;
-  const L = `${PREFIX_PLUGIN_DATA}/${_[48]}`;
-  _[54] = L;
-  const O = null != (m = _[4].get(_[54])) ? m : MODE_SELECTIVE;
-  _[55] = O;
-  return _;
+  var u, g, _;
+  const m = s.slice();
+  m[48] = r[o][0];
+  m[49] = r[o][1];
+  const b = `${PREFIX_PLUGIN_ALL}/${m[48]}`;
+  m[50] = b;
+  const w = null != (u = m[4].get(m[50])) ? u : MODE_SELECTIVE;
+  m[51] = w;
+  const E = `${PREFIX_PLUGIN_MAIN}/${m[48]}`;
+  m[52] = E;
+  const S = null != (g = m[4].get(m[52])) ? g : MODE_SELECTIVE;
+  m[53] = S;
+  const L = `${PREFIX_PLUGIN_DATA}/${m[48]}`;
+  m[54] = L;
+  const O = null != (_ = m[4].get(m[54])) ? _ : MODE_SELECTIVE;
+  m[55] = O;
+  return m;
 }
 
 function get_each_context_12(s, r, o) {
@@ -15472,10 +15418,10 @@ function get_each_context_2(s, r, o) {
   var u;
   const g = s.slice();
   g[48] = r[o];
-  const m = `${g[58]}/${g[48]}`;
-  g[62] = m;
-  const _ = null != (u = g[4].get(g[62])) ? u : MODE_SELECTIVE;
-  g[63] = _;
+  const _ = `${g[58]}/${g[48]}`;
+  g[62] = _;
+  const m = null != (u = g[4].get(g[62])) ? u : MODE_SELECTIVE;
+  g[63] = m;
   return g;
 }
 
@@ -15487,8 +15433,8 @@ function create_if_block_7(s) {
       r.textContent = "Reload";
       attr(r, "class", "svelte-17wm1te");
     },
-    m(g, m) {
-      insert(g, r, m);
+    m(g, _) {
+      insert(g, r, _);
       if (!o) {
         u = listen(r, "click", s[25]);
         o = true;
@@ -15520,8 +15466,8 @@ function create_if_block_6(s) {
 }
 
 function create_else_block3(s) {
-  let r, o, u, g, m, _ = ensure_array_like(Object.entries(s[9]).filter(s[28])), b = [];
-  for (let r = 0; r < _.length; r += 1) b[r] = create_each_block_12(get_each_context_12(s, _, r));
+  let r, o, u, g, _, m = ensure_array_like(Object.entries(s[9]).filter(s[28])), b = [];
+  for (let r = 0; r < m.length; r += 1) b[r] = create_each_block_12(get_each_context_12(s, m, r));
   const out = s => transition_out(b[s], 1, 1, (() => {
     b[s] = null;
   }));
@@ -15541,21 +15487,21 @@ function create_else_block3(s) {
       for (let s = 0; s < E.length; s += 1) E[s].c();
       attr(u, "class", "svelte-17wm1te");
     },
-    m(s, _) {
-      for (let r = 0; r < b.length; r += 1) if (b[r]) b[r].m(s, _);
-      insert(s, r, _);
-      insert(s, o, _);
+    m(s, m) {
+      for (let r = 0; r < b.length; r += 1) if (b[r]) b[r].m(s, m);
+      insert(s, r, m);
+      insert(s, o, m);
       append(o, u);
       append(o, g);
       for (let s = 0; s < E.length; s += 1) if (E[s]) E[s].m(o, null);
-      m = true;
+      _ = true;
     },
     p(s, u) {
       if (115317 & u[0]) {
-        _ = ensure_array_like(Object.entries(s[9]).filter(s[28]));
+        m = ensure_array_like(Object.entries(s[9]).filter(s[28]));
         let o;
-        for (o = 0; o < _.length; o += 1) {
-          const g = get_each_context_12(s, _, o);
+        for (o = 0; o < m.length; o += 1) {
+          const g = get_each_context_12(s, m, o);
           if (b[o]) {
             b[o].p(g, u);
             transition_in(b[o], 1);
@@ -15567,7 +15513,7 @@ function create_else_block3(s) {
           }
         }
         group_outros();
-        for (o = _.length; o < b.length; o += 1) out(o);
+        for (o = m.length; o < b.length; o += 1) out(o);
         check_outros();
       }
       if (114773 & u[0]) {
@@ -15591,10 +15537,10 @@ function create_else_block3(s) {
       }
     },
     i(s) {
-      if (!m) {
-        for (let s = 0; s < _.length; s += 1) transition_in(b[s]);
+      if (!_) {
+        for (let s = 0; s < m.length; s += 1) transition_in(b[s]);
         for (let s = 0; s < w.length; s += 1) transition_in(E[s]);
-        m = true;
+        _ = true;
       }
     },
     o(s) {
@@ -15602,7 +15548,7 @@ function create_else_block3(s) {
       for (let s = 0; s < b.length; s += 1) transition_out(b[s]);
       E = E.filter(Boolean);
       for (let s = 0; s < E.length; s += 1) transition_out(E[s]);
-      m = false;
+      _ = false;
     },
     d(s) {
       if (s) {
@@ -15683,10 +15629,10 @@ function create_if_block_52(s) {
     },
     p(o, g) {
       s = o;
-      const m = 609 & g[0] ? get_spread_update(u, [ 64 & g[0] && get_spread_object(s[6]), 545 & g[0] && {
+      const _ = 609 & g[0] ? get_spread_update(u, [ 64 & g[0] && get_spread_object(s[6]), 545 & g[0] && {
         list: s[0].filter(func_1)
       }, u[2] ]) : {};
-      r.$set(m);
+      r.$set(_);
     },
     i(s) {
       if (!o) {
@@ -15705,7 +15651,7 @@ function create_if_block_52(s) {
 }
 
 function create_each_block_2(s) {
-  let r, o, u, g, m, _, b, w, E, S, L, O, D, k, C = s[16](s[63]) + "", T = s[48] + "";
+  let r, o, u, g, _, m, b, w, E, S, L, O, D, k, C = s[16](s[63]) + "", T = s[48] + "";
   function click_handler_6(...r) {
     return s[29](s[58], s[48], s[62], ...r);
   }
@@ -15721,13 +15667,13 @@ function create_each_block_2(s) {
       o = element("div");
       u = element("button");
       g = text(C);
-      m = space();
-      _ = element("span");
+      _ = space();
+      m = element("span");
       b = text(T);
       w = space();
       S.c();
       attr(u, "class", "status svelte-17wm1te");
-      attr(_, "class", "name");
+      attr(m, "class", "name");
       attr(o, "class", "title svelte-17wm1te");
       attr(r, "class", L = "labelrow " + (s[2] ? "hideeven" : "") + " svelte-17wm1te");
     },
@@ -15736,9 +15682,9 @@ function create_each_block_2(s) {
       append(r, o);
       append(o, u);
       append(u, g);
-      append(o, m);
       append(o, _);
-      append(_, b);
+      append(o, m);
+      append(m, b);
       append(r, w);
       A[E].m(r, null);
       O = true;
@@ -15751,12 +15697,12 @@ function create_each_block_2(s) {
       s = o;
       if ((!O || 48 & u[0]) && C !== (C = s[16](s[63]) + "")) set_data(g, C);
       if ((!O || 32 & u[0]) && T !== (T = s[48] + "")) set_data(b, T);
-      let m = E;
+      let _ = E;
       E = select_block_type_1(s);
-      if (E === m) A[E].p(s, u); else {
+      if (E === _) A[E].p(s, u); else {
         group_outros();
-        transition_out(A[m], 1, 1, (() => {
-          A[m] = null;
+        transition_out(A[_], 1, 1, (() => {
+          A[_] = null;
         }));
         check_outros();
         S = A[E];
@@ -15789,7 +15735,7 @@ function create_each_block_2(s) {
 }
 
 function create_each_block_12(s) {
-  let r, o, u, g, m, _ = s[59] + "", b = ensure_array_like(s[5][s[58]]), w = [];
+  let r, o, u, g, _, m = s[59] + "", b = ensure_array_like(s[5][s[58]]), w = [];
   for (let r = 0; r < b.length; r += 1) w[r] = create_each_block_2(get_each_context_2(s, b, r));
   const out = s => transition_out(w[s], 1, 1, (() => {
     w[s] = null;
@@ -15798,21 +15744,21 @@ function create_each_block_12(s) {
     c() {
       r = element("div");
       o = element("h3");
-      u = text(_);
+      u = text(m);
       g = space();
       for (let s = 0; s < w.length; s += 1) w[s].c();
       attr(o, "class", "svelte-17wm1te");
     },
-    m(s, _) {
-      insert(s, r, _);
+    m(s, m) {
+      insert(s, r, m);
       append(r, o);
       append(o, u);
       append(r, g);
       for (let s = 0; s < w.length; s += 1) if (w[s]) w[s].m(r, null);
-      m = true;
+      _ = true;
     },
     p(s, o) {
-      if ((!m || 32 & o[0]) && _ !== (_ = s[59] + "")) set_data(u, _);
+      if ((!_ || 32 & o[0]) && m !== (m = s[59] + "")) set_data(u, m);
       if (115317 & o[0]) {
         b = ensure_array_like(s[5][s[58]]);
         let u;
@@ -15834,15 +15780,15 @@ function create_each_block_12(s) {
       }
     },
     i(s) {
-      if (!m) {
+      if (!_) {
         for (let s = 0; s < b.length; s += 1) transition_in(w[s]);
-        m = true;
+        _ = true;
       }
     },
     o(s) {
       w = w.filter(Boolean);
       for (let s = 0; s < w.length; s += 1) transition_out(w[s]);
-      m = false;
+      _ = false;
     },
     d(s) {
       if (s) detach(r);
@@ -15894,24 +15840,24 @@ function create_if_block_43(s) {
 }
 
 function create_else_block_32(s) {
-  let r, o, u, g, m = s[15][s[51]] + "";
+  let r, o, u, g, _ = s[15][s[51]] + "";
   return {
     c() {
       r = element("div");
       o = element("div");
-      u = text(m);
+      u = text(_);
       g = space();
       attr(o, "class", "statusnote svelte-17wm1te");
       attr(r, "class", "noterow svelte-17wm1te");
     },
-    m(s, m) {
-      insert(s, r, m);
+    m(s, _) {
+      insert(s, r, _);
       append(r, o);
       append(o, u);
       append(r, g);
     },
     p(s, r) {
-      if (17 & r[0] && m !== (m = s[15][s[51]] + "")) set_data(u, m);
+      if (17 & r[0] && _ !== (_ = s[15][s[51]] + "")) set_data(u, _);
     },
     i: noop,
     o: noop,
@@ -15922,7 +15868,7 @@ function create_else_block_32(s) {
 }
 
 function create_if_block_13(s) {
-  let r, o, u, g, m, _, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P, N, B, F, M, V = s[16](s[53]) + "", G = s[16](s[55]) + "";
+  let r, o, u, g, _, m, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P, N, B, F, M, V = s[16](s[53]) + "", G = s[16](s[55]) + "";
   function click_handler_8(...r) {
     return s[32](s[48], s[52], ...r);
   }
@@ -15947,9 +15893,9 @@ function create_if_block_13(s) {
       o = element("div");
       u = element("button");
       g = text(V);
-      m = space();
-      _ = element("span");
-      _.textContent = "MAIN";
+      _ = space();
+      m = element("span");
+      m.textContent = "MAIN";
       b = space();
       E.c();
       L = space();
@@ -15964,7 +15910,7 @@ function create_if_block_13(s) {
       R.c();
       P = space();
       attr(u, "class", "status svelte-17wm1te");
-      attr(_, "class", "name");
+      attr(m, "class", "name");
       attr(o, "class", "filetitle svelte-17wm1te");
       attr(r, "class", S = "filerow " + (s[2] ? "hideeven" : "") + " svelte-17wm1te");
       attr(k, "class", "status svelte-17wm1te");
@@ -15977,8 +15923,8 @@ function create_if_block_13(s) {
       append(r, o);
       append(o, u);
       append(u, g);
-      append(o, m);
       append(o, _);
+      append(o, m);
       append(r, b);
       q[w].m(r, null);
       insert(s, L, E);
@@ -16000,12 +15946,12 @@ function create_if_block_13(s) {
     p(o, u) {
       s = o;
       if ((!B || 17 & u[0]) && V !== (V = s[16](s[53]) + "")) set_data(g, V);
-      let m = w;
+      let _ = w;
       w = select_block_type_3(s);
-      if (w === m) q[w].p(s, u); else {
+      if (w === _) q[w].p(s, u); else {
         group_outros();
-        transition_out(q[m], 1, 1, (() => {
-          q[m] = null;
+        transition_out(q[_], 1, 1, (() => {
+          q[_] = null;
         }));
         check_outros();
         E = q[w];
@@ -16018,12 +15964,12 @@ function create_if_block_13(s) {
       }
       if (!B || 4 & u[0] && S !== (S = "filerow " + (s[2] ? "hideeven" : "") + " svelte-17wm1te")) attr(r, "class", S);
       if ((!B || 17 & u[0]) && G !== (G = s[16](s[55]) + "")) set_data(C, G);
-      let _ = x;
+      let m = x;
       x = select_block_type_4(s);
-      if (x === _) z[x].p(s, u); else {
+      if (x === m) z[x].p(s, u); else {
         group_outros();
-        transition_out(z[_], 1, 1, (() => {
-          z[_] = null;
+        transition_out(z[m], 1, 1, (() => {
+          z[m] = null;
         }));
         check_outros();
         R = z[x];
@@ -16193,7 +16139,7 @@ function create_if_block_23(s) {
 }
 
 function create_each_block3(s) {
-  let r, o, u, g, m, _, b, w, E, S, L, O, D, k, C, T, I = s[16](s[51]) + "", A = s[48] + "";
+  let r, o, u, g, _, m, b, w, E, S, L, O, D, k, C, T, I = s[16](s[51]) + "", A = s[48] + "";
   function click_handler_7(...r) {
     return s[31](s[48], s[50], ...r);
   }
@@ -16210,8 +16156,8 @@ function create_each_block3(s) {
       o = element("div");
       u = element("button");
       g = text(I);
-      m = space();
-      _ = element("span");
+      _ = space();
+      m = element("span");
       b = text(A);
       w = space();
       if (x) x.c();
@@ -16219,7 +16165,7 @@ function create_each_block3(s) {
       O.c();
       D = empty();
       attr(u, "class", "status svelte-17wm1te");
-      attr(_, "class", "name");
+      attr(m, "class", "name");
       attr(o, "class", "title svelte-17wm1te");
       attr(r, "class", E = "labelrow " + (s[2] ? "hideeven" : "") + " svelte-17wm1te");
     },
@@ -16228,9 +16174,9 @@ function create_each_block3(s) {
       append(r, o);
       append(o, u);
       append(u, g);
-      append(o, m);
       append(o, _);
-      append(_, b);
+      append(o, m);
+      append(m, b);
       append(r, w);
       if (x) x.m(r, null);
       insert(s, S, E);
@@ -16262,12 +16208,12 @@ function create_each_block3(s) {
         check_outros();
       }
       if (!k || 4 & u[0] && E !== (E = "labelrow " + (s[2] ? "hideeven" : "") + " svelte-17wm1te")) attr(r, "class", E);
-      let m = L;
+      let _ = L;
       L = select_block_type_2(s);
-      if (L === m) P[L].p(s, u); else {
+      if (L === _) P[L].p(s, u); else {
         group_outros();
-        transition_out(P[m], 1, 1, (() => {
-          P[m] = null;
+        transition_out(P[_], 1, 1, (() => {
+          P[_] = null;
         }));
         check_outros();
         O = P[L];
@@ -16306,7 +16252,7 @@ function create_each_block3(s) {
 }
 
 function create_fragment3(s) {
-  let r, o, u, g, m, _, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P, N, B, F, M, V, G, j, q, U, z, W, H = s[1] && create_if_block_7(s), K = s[3] && create_if_block_6(s);
+  let r, o, u, g, _, m, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P, N, B, F, M, V, G, j, q, U, z, W, H = s[1] && create_if_block_7(s), K = s[3] && create_if_block_6(s);
   const Q = [ create_if_block3, create_else_block3 ], J = [];
   function select_block_type(s, r) {
     if (0 == s[0].length) return 0; else return 1;
@@ -16320,9 +16266,9 @@ function create_fragment3(s) {
       u = element("div");
       g = element("button");
       g.textContent = "Scan changes";
-      m = space();
-      _ = element("button");
-      _.textContent = "Sync once";
+      _ = space();
+      m = element("button");
+      m.textContent = "Sync once";
       b = space();
       w = element("button");
       w.textContent = "Refresh";
@@ -16353,7 +16299,7 @@ function create_fragment3(s) {
       j.textContent = "Maintenance mode";
       q = element("input");
       attr(g, "class", "svelte-17wm1te");
-      attr(_, "class", "svelte-17wm1te");
+      attr(m, "class", "svelte-17wm1te");
       attr(w, "class", "svelte-17wm1te");
       attr(L, "class", "svelte-17wm1te");
       attr(u, "class", "buttons svelte-17wm1te");
@@ -16374,8 +16320,8 @@ function create_fragment3(s) {
       append(r, o);
       append(o, u);
       append(u, g);
-      append(u, m);
       append(u, _);
+      append(u, m);
       append(u, b);
       append(u, w);
       append(u, E);
@@ -16404,7 +16350,7 @@ function create_fragment3(s) {
       q.checked = s[1];
       U = true;
       if (!z) {
-        W = [ listen(g, "click", s[22]), listen(_, "click", s[23]), listen(w, "click", s[24]), listen(L, "click", s[26]), listen(k, "click", s[27]), listen(F, "change", s[34]), listen(q, "change", s[35]) ];
+        W = [ listen(g, "click", s[22]), listen(m, "click", s[23]), listen(w, "click", s[24]), listen(L, "click", s[26]), listen(k, "click", s[27]), listen(F, "change", s[34]), listen(q, "change", s[35]) ];
         z = true;
       }
     },
@@ -16483,8 +16429,8 @@ function groupBy(s, r) {
 }
 
 function instance3(s, r, o) {
-  let u, g, m, {plugin: _} = r;
-  const b = _.addOnConfigSync;
+  let u, g, _, {plugin: m} = r;
+  const b = m.addOnConfigSync;
   let w = [], E = 0, S = false, L = false, O = 0, D = false;
   async function requestUpdate() {
     await b.updatePluginList(true);
@@ -16506,7 +16452,7 @@ function instance3(s, r, o) {
     await requestUpdate();
   }
   async function replicate2() {
-    await _.replicate(true);
+    await m.replicate(true);
   }
   function selectAllNewest() {
     o(18, E++, E);
@@ -16528,19 +16474,19 @@ function instance3(s, r, o) {
     const g = new import_obsidian3.Menu;
     g.addItem((s => s.setTitle(r).setIsLabel(true)));
     g.addSeparator();
-    const m = null !== (u = T.get(o)) && void 0 !== u ? u : MODE_SELECTIVE;
+    const _ = null !== (u = T.get(o)) && void 0 !== u ? u : MODE_SELECTIVE;
     for (const r of [ MODE_SELECTIVE, MODE_AUTOMATIC, MODE_PAUSED ]) g.addItem((u => {
       u.setTitle(`${getIcon(r)}:${C[r]}`).onClick((u => {
         if (r === MODE_AUTOMATIC) askOverwriteModeForAutomatic(s, o); else setMode(o, r);
-      })).setChecked(m == r).setDisabled(m == r);
+      })).setChecked(_ == r).setDisabled(_ == r);
     }));
     g.showAtMouseEvent(s);
   }
   function applyAutomaticSync(s, r) {
     var o, u;
     setMode(s, MODE_AUTOMATIC);
-    const g = normalizePath(_.app.vault.configDir), m = (null !== (u = null === (o = _.settings.pluginSyncExtendedSetting[s]) || void 0 === o ? void 0 : o.files) && void 0 !== u ? u : []).map((s => `${g}/${s}`));
-    _.addOnHiddenFileSync.syncInternalFilesAndDatabase(r, true, false, m);
+    const g = normalizePath(m.app.vault.configDir), _ = (null !== (u = null === (o = m.settings.pluginSyncExtendedSetting[s]) || void 0 === o ? void 0 : o.files) && void 0 !== u ? u : []).map((s => `${g}/${s}`));
+    m.addOnHiddenFileSync.syncInternalFilesAndDatabase(r, true, false, _);
   }
   function askOverwriteModeForAutomatic(s, r) {
     const o = new import_obsidian3.Menu;
@@ -16578,28 +16524,28 @@ function instance3(s, r, o) {
     const u = unique(w.filter((r => `${r.category}/${r.name}` == s)).map((s => s.files)).flat().map((s => s.filename)));
     T.set(s, r);
     o(4, I = T);
-    if (!(s in _.settings.pluginSyncExtendedSetting)) o(17, _.settings.pluginSyncExtendedSetting[s] = {
+    if (!(s in m.settings.pluginSyncExtendedSetting)) o(17, m.settings.pluginSyncExtendedSetting[s] = {
       key: s,
       mode: r,
       files: []
-    }, _);
-    o(17, _.settings.pluginSyncExtendedSetting[s].files = u, _);
-    o(17, _.settings.pluginSyncExtendedSetting[s].mode = r, _);
-    _.saveSettingData();
+    }, m);
+    o(17, m.settings.pluginSyncExtendedSetting[s].files = u, m);
+    o(17, m.settings.pluginSyncExtendedSetting[s].mode = r, m);
+    m.saveSettingData();
   }
   function getIcon(s) {
     if (s in k) return k[s];
   }
   let T = new Map, I = new Map;
-  for (const {key: s, mode: r} of Object.values(_.settings.pluginSyncExtendedSetting)) T.set(s, r);
+  for (const {key: s, mode: r} of Object.values(m.settings.pluginSyncExtendedSetting)) T.set(s, r);
   I = T;
   let A = {};
   s.$$set = s => {
-    if ("plugin" in s) o(17, _ = s.plugin);
+    if ("plugin" in s) o(17, m = s.plugin);
   };
   s.$$.update = () => {
-    if (131072 & s.$$.dirty[0]) o(21, g = _.deviceAndVaultName);
-    if (4063234 & s.$$.dirty[0]) o(6, m = {
+    if (131072 & s.$$.dirty[0]) o(21, g = m.deviceAndVaultName);
+    if (4063234 & s.$$.dirty[0]) o(6, _ = {
       thisTerm: g,
       hideNotApplicable: u,
       selectNewest: E,
@@ -16607,11 +16553,11 @@ function instance3(s, r, o) {
       applyData,
       compareData,
       deleteData,
-      plugin: _,
+      plugin: m,
       isMaintenanceMode: D
     });
     if (131073 & s.$$.dirty[0]) {
-      const s = Object.keys(_.settings.pluginSyncExtendedSetting);
+      const s = Object.keys(m.settings.pluginSyncExtendedSetting);
       o(5, A = [ ...w, ...s.map((s => `${s}///`.split("/"))).filter((s => s[0] && s[1])).map((s => ({
         category: s[0],
         name: s[1],
@@ -16629,11 +16575,11 @@ function instance3(s, r, o) {
     }
   };
   o(20, u = false);
-  return [ w, D, S, L, I, A, m, requestUpdate, requestReload, {
+  return [ w, D, S, L, I, A, _, requestUpdate, requestReload, {
     CONFIG: "Configuration",
     THEME: "Themes",
     SNIPPET: "Snippets"
-  }, scanAgain, replicate2, selectAllNewest, applyAll, askMode, C, getIcon, _, E, O, u, g, () => scanAgain(), () => replicate2(), () => requestUpdate(), () => requestReload(), () => selectAllNewest(), () => applyAll(), ([s, r]) => s in A, (s, r, o, u) => askMode(u, `${s}/${r}`, o), (s, r, o) => o.category == s && o.name == r, (s, r, o) => askMode(o, `${PREFIX_PLUGIN_ALL}/${s}`, r), (s, r, o) => askMode(o, `${PREFIX_PLUGIN_MAIN}/${s}/MAIN`, r), (s, r, o) => askMode(o, `${PREFIX_PLUGIN_DATA}/${s}`, r), function input0_change_handler() {
+  }, scanAgain, replicate2, selectAllNewest, applyAll, askMode, C, getIcon, m, E, O, u, g, () => scanAgain(), () => replicate2(), () => requestUpdate(), () => requestReload(), () => selectAllNewest(), () => applyAll(), ([s, r]) => s in A, (s, r, o, u) => askMode(u, `${s}/${r}`, o), (s, r, o) => o.category == s && o.name == r, (s, r, o) => askMode(o, `${PREFIX_PLUGIN_ALL}/${s}`, r), (s, r, o) => askMode(o, `${PREFIX_PLUGIN_MAIN}/${s}/MAIN`, r), (s, r, o) => askMode(o, `${PREFIX_PLUGIN_DATA}/${s}`, r), function input0_change_handler() {
     S = this.checked;
     o(2, S);
   }, function input1_change_handler() {
@@ -16675,12 +16621,12 @@ var PluginPane = class extends SvelteComponent {
     }
   }
 }, InputStringDialog = class extends import_obsidian.Modal {
-  constructor(s, r, o, u, g, m) {
+  constructor(s, r, o, u, g, _) {
     super(s);
     this.result = false;
     this.isManuallyClosed = false;
     this.isPassword = false;
-    this.onSubmit = m;
+    this.onSubmit = _;
     this.title = r;
     this.placeholder = u;
     this.key = o;
@@ -16731,7 +16677,7 @@ var PluginPane = class extends SvelteComponent {
     }), 100);
   }
 }, MessageBox = class extends import_obsidian.Modal {
-  constructor(s, r, o, u, g, m, _) {
+  constructor(s, r, o, u, g, _, m) {
     super(s.app);
     this.isManuallyClosed = false;
     this.timer = void 0;
@@ -16739,9 +16685,9 @@ var PluginPane = class extends SvelteComponent {
     this.title = r;
     this.contentMd = o;
     this.buttons = u;
-    this.onSubmit = _;
+    this.onSubmit = m;
     this.defaultAction = g;
-    this.timeout = m;
+    this.timeout = _;
     if (this.timeout) this.timer = setInterval((() => {
       this.timeout--;
       if (this.timeout < 0) {
@@ -16793,17 +16739,17 @@ var PluginPane = class extends SvelteComponent {
   }
 };
 
-function confirmWithMessage(s, r, o, u, g, m) {
-  return new Promise((_ => {
-    new MessageBox(s, r, o, u, g, m, (s => _(s))).open();
+function confirmWithMessage(s, r, o, u, g, _) {
+  return new Promise((m => {
+    new MessageBox(s, r, o, u, g, _, (s => m(s))).open();
   }));
 }
 
 async function path2id(s, r) {
   const o = s.split(":"), u = o.pop(), g = normalizePath(u);
   o.push(g);
-  const m = o.join(":");
-  return await path2id_base(m, r);
+  const _ = o.join(":");
+  return await path2id_base(_, r);
 }
 
 function id2path(s, r) {
@@ -16932,8 +16878,8 @@ function generatePatchUnorderedArray(s, r) {
 }
 
 function generatePatchObj(s, r) {
-  const o = Object.entries(s), u = new Map(o), g = {}, m = Object.entries(r);
-  for (const [s, r] of m) if (!u.has(s)) {
+  const o = Object.entries(s), u = new Map(o), g = {}, _ = Object.entries(r);
+  for (const [s, r] of _) if (!u.has(s)) {
     g[s] = r;
     u.delete(s);
   } else {
@@ -17009,12 +16955,12 @@ function flattenObject(s, r = []) {
   return u;
 }
 
-function modifyFile(s, r, o) {
-  if ("string" == typeof r) return app.vault.modify(s, r, o); else return app.vault.modifyBinary(s, r, o);
+function modifyFile(s, r, o, u) {
+  if ("string" == typeof o) return s.vault.modify(r, o, u); else return s.vault.modifyBinary(r, o, u);
 }
 
-function createFile(s, r, o) {
-  if ("string" == typeof r) return app.vault.create(s, r, o); else return app.vault.createBinary(s, r, o);
+function createFile(s, r, o, u) {
+  if ("string" == typeof o) return s.vault.create(r, o, u); else return s.vault.createBinary(r, o, u);
 }
 
 function isValidPath(s) {
@@ -17076,8 +17022,8 @@ var askYesNo = (s, r) => new Promise((o => {
   return new Promise((o => {
     new PopoverSelectString(s, r, "", getItemsFun, (s => o(s))).open();
   }));
-}, askString = (s, r, o, u, g) => new Promise((m => {
-  new InputStringDialog(s, r, o, u, g, (s => m(s))).open();
+}, askString = (s, r, o, u, g) => new Promise((_ => {
+  new InputStringDialog(s, r, o, u, g, (s => _(s))).open();
 })), PeriodicProcessor = class {
   constructor(s, r) {
     this._plugin = s;
@@ -17101,21 +17047,21 @@ var askYesNo = (s, r) => new Promise((o => {
     if (void 0 !== this._timer) window.clearInterval(this._timer);
     this._timer = void 0;
   }
-}, _requestToCouchDB = async (s, r, o, u, g, m, _) => {
+}, _requestToCouchDB = async (s, r, o, u, g, _, m) => {
   const b = String.fromCharCode.apply(null, [ ...writeString(`${r}:${o}`) ]), w = {
     url: `${s}/${g}`,
-    method: _ || (m ? "PUT" : "GET"),
+    method: m || (_ ? "PUT" : "GET"),
     headers: {
       authorization: "Basic " + window.btoa(b),
       origin: u
     },
     contentType: "application/json",
-    body: m ? JSON.stringify(m) : void 0
+    body: _ ? JSON.stringify(_) : void 0
   };
   return await (0, import_obsidian.requestUrl)(w);
-}, requestToCouchDB = async (s, r, o, u, g, m, _) => {
+}, requestToCouchDB = async (s, r, o, u, g, _, m) => {
   const b = "_node/_local/_config" + (g ? "/" + g : "");
-  return await _requestToCouchDB(s, r, o, u, b, m, _);
+  return await _requestToCouchDB(s, r, o, u, b, _, m);
 };
 
 async function performRebuildDB(s, r) {
@@ -17143,14 +17089,14 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
     });
     s.addClass("sls-setting");
     s.removeClass("isWizard");
-    const g = s.createDiv(""), m = {}, addScreenElement = (s, r) => {
-      if (!(s in m)) m[s] = [];
-      m[s].push(r);
+    const g = s.createDiv(""), _ = {}, addScreenElement = (s, r) => {
+      if (!(s in _)) _[s] = [];
+      _[s].push(r);
     };
     g.addClass("sls-setting-menu");
     g.innerHTML = "\n<label class='sls-setting-label c-100 wizardHidden'><input type='radio' name='disp' value='100' class='sls-setting-tab'><div class='sls-setting-menu-btn'>💬</div></label>\n<label class='sls-setting-label c-110'><input type='radio' name='disp' value='110' class='sls-setting-tab' ><div class='sls-setting-menu-btn'>🧙‍♂️</div></label>\n<label class='sls-setting-label c-20 wizardHidden'><input type='radio' name='disp' value='20' class='sls-setting-tab' ><div class='sls-setting-menu-btn'>⚙️</div></label>\n<label class='sls-setting-label c-0'><input type='radio' name='disp' value='0' class='sls-setting-tab' ><div class='sls-setting-menu-btn'>🛰️</div></label>\n<label class='sls-setting-label c-30'><input type='radio' name='disp' value='30' class='sls-setting-tab' ><div class='sls-setting-menu-btn'>🔁</div></label>\n<label class='sls-setting-label c-60 wizardHidden'><input type='radio' name='disp' value='60' class='sls-setting-tab' ><div class='sls-setting-menu-btn'>🔌</div></label>\n<label class='sls-setting-label c-50 wizardHidden'><input type='radio' name='disp' value='50' class='sls-setting-tab' ><div class='sls-setting-menu-btn'>🧰</div></label>\n<label class='sls-setting-label c-70 wizardHidden'><input type='radio' name='disp' value='70' class='sls-setting-tab' ><div class='sls-setting-menu-btn'>🎛️</div></label>\n        ";
-    const _ = g.querySelectorAll(".sls-setting-label"), changeDisplay = s => {
-      for (const r in m) if (r == s) m[r].forEach((s => s.removeClass("setting-collapsed"))); else m[r].forEach((s => s.addClass("setting-collapsed")));
+    const m = g.querySelectorAll(".sls-setting-label"), changeDisplay = s => {
+      for (const r in _) if (r == s) _[r].forEach((s => s.removeClass("setting-collapsed"))); else _[r].forEach((s => s.addClass("setting-collapsed")));
       g.querySelectorAll(".sls-setting-label").forEach((s => {
         s.removeClass("selected");
         s.querySelector("input[type=radio]").checked = false;
@@ -17161,10 +17107,10 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
       }));
       this.selectedScreen = s;
     };
-    _.forEach((s => {
+    m.forEach((s => {
       const r = s.querySelector(".sls-setting-tab");
       if (r) r.addEventListener("change", (r => {
-        _.forEach((s => s.removeClass("selected")));
+        m.forEach((s => s.removeClass("selected")));
         changeDisplay(r.currentTarget.value);
         s.addClass("selected");
       }));
@@ -17173,7 +17119,7 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
       text: "Updates"
     }), E = b.createEl("div", {
       text: ""
-    }), S = "0.20.7", L = ~~(versionNumberString2Number(S) / 1e3), O = createSpan();
+    }), S = "0.21.1", L = ~~(versionNumberString2Number(S) / 1e3), O = createSpan();
     O.addClass("sls-header-button");
     O.innerHTML = "<button> OK, I read all. </button>";
     if (L > this.plugin.settings.lastReadUpdates) {
@@ -17184,7 +17130,7 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
         s.remove();
       }));
     }
-    import_obsidian.MarkdownRenderer.render(this.plugin.app, "### 0.20.0\n\nAt 0.20.0, Self-hosted LiveSync has changed the binary file format and encrypting format, for efficient synchronisation.  \nThe dialogue will be shown and asks us to decide whether to keep v1 or use v2. Once we have enabled v2, all subsequent edits will be saved in v2. Therefore, devices running 0.19 or below cannot understand this and they might say that decryption error. Please update all devices.  \nThen we will have an impressive performance.\n\nOf course, these are very impactful changes. If you have any questions or troubled things, please feel free to open an issue and mention me.\n\nNote: if you want to roll it back to v1, please enable `Use binary and encryption version 1` on the `Hatch` pane and perform the `rebuild everything` once.\n\nExtra but notable information:\n\nThis format change gives us the ability to detect some `marks` in the binary files as same as text files. Therefore, we can split binary files and some specific sort of them (i.e., PDF files) at the specific character. It means that editing the middle of files could be detected with marks.\n\nNow only a few chunks are transferred, even if we add a comment to the PDF or put new files into the ZIP archives.\n\n#### Version history\n- 0.20.7\n  - Fixed\n    - To better replication, path obfuscation is now deterministic even if with E2EE.  \n      Note: Compatible with previous database without any conversion. Only new files will be obfuscated in deterministic. \n- 0.20.6\n  - Fixed\n    - Now empty file could be decoded.\n    - Local files are no longer pre-saved before fetching from a remote database.\n    - No longer deadlock while applying customisation sync.\n    - Configuration with multiple files is now able to be applied correctly.\n    - Deleting folder propagation now works without enabling the use of a trash bin.\n- 0.20.5\n  - Fixed\n    - Now the files which having digit or character prefixes in the path will not be ignored.\n- 0.20.4\n  - Fixed\n    - The text-input-dialogue is no longer broken.\n      - Finally, we can use the Setup URI again on mobile.\n- 0.20.3\n  - New feature:\n    - We can launch Customization sync from the Ribbon if we enabled it.\n  - Fixed:\n    - Setup URI is now back to the previous spec; be encrypted by V1.\n      - It may avoid the trouble with iOS 17.\n    - The Settings dialogue is now registered at the beginning of the start-up process.\n      - We can change the configuration even though LiveSync could not be launched in normal.\n  - Improved:\n    - Enumerating documents has been faster.\n- 0.20.2\n  - New feature:\n    - We can delete all data of customization sync from the `Delete all customization sync data` on the `Hatch` pane.\n  - Fixed:\n    - Prevent keep restarting on iOS by yielding microtasks.\n- 0.20.1 \n  - Fixed:\n    - No more UI freezing and keep restarting on iOS.\n    - Diff of Non-markdown documents are now shown correctly.\n  - Improved:\n    - Performance has been a bit improved.\n    - Customization sync has gotten faster.\n      - However, We lost forward compatibility again (only for this feature). Please update all devices.\n  - Misc\n    - Terser configuration has been more aggressive.\n- 0.20.0\n  - Improved:\n    - A New binary file handling implemented\n    - A new encrypted format has been implemented\n    - Now the chunk sizes will be adjusted for efficient sync\n  - Fixed:\n    - levels of exception in some logs have been fixed\n  - Tidied:\n    - Some Lint warnings have been suppressed.\n\n... To continue on to `updates_old.md`.\n", E, "/", this.plugin);
+    import_obsidian.MarkdownRenderer.render(this.plugin.app, "### 0.21.0\nThe E2EE encryption V2 format has been reverted. That was probably the cause of the glitch.\nInstead, to maintain efficiency, files are treated with Blob until just before saving. Along with this, the old-fashioned encryption format has also been discontinued.\nThere are both forward and backwards compatibilities, with recent versions. However, unfortunately, we lost compatibility with filesystem-livesync or some.\nIt will be addressed soon. Please be patient if you are using filesystem-livesync with E2EE.\n\n\n#### Version history\n- 0.21.1\n  - Fixed:\n    - No more infinity loops on larger files.\n    - Show message on decode error.\n  - Refactored:\n    - Fixed to avoid obsolete global variables.\n- 0.21.0\n  - Changes and performance improvements:\n    - Now the saving files are processed by Blob.\n    - The V2-Format has been reverted.\n    - New encoding format has been enabled in default.\n    - WARNING: Since this version, the compatibilities with older Filesystem LiveSync have been lost.\n\n... To continue on to `updates_old.md`.", E, "/", this.plugin);
     addScreenElement("100", b);
     const isAnySyncEnabled = () => {
       if (this.plugin.settings.liveSync) return true;
@@ -17315,7 +17261,7 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
     }))));
     new import_obsidian.Setting(C).setName("Check database configuration").addButton((s => s.setButtonText("Check").setDisabled(false).onClick((async () => {
       const checkConfig = async () => {
-        var s, r, o, u, g, m, _, b, w, E, S;
+        var s, r, o, u, g, _, m, b, w, E, S;
         Logger("Checking database configuration", LOG_LEVEL_INFO);
         const L = createDiv();
         L.innerHTML = "<span></span>";
@@ -17375,7 +17321,7 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
               addResult("❗ chttpd.max_http_request_size is low)");
               addConfigFixButton("Set chttpd.max_http_request_size", "chttpd/max_http_request_size", "4294967296");
             } else addResult("✔ chttpd.max_http_request_size is ok.");
-            if (Number(null != (_ = null == (m = null == L ? void 0 : L.couchdb) ? void 0 : m.max_document_size) ? _ : 0) < 5e7) {
+            if (Number(null != (m = null == (_ = null == L ? void 0 : L.couchdb) ? void 0 : _.max_document_size) ? m : 0) < 5e7) {
               addResult("❗ couchdb.max_document_size is low)");
               addConfigFixButton("Set couchdb.max_document_size", "couchdb/max_document_size", "50000000");
             } else addResult("✔ couchdb.max_document_size is ok.");
@@ -18083,30 +18029,30 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
     new import_obsidian.Setting(X).setName("Check and convert non-path-obfuscated files").setDesc("").addButton((s => s.setButtonText("Perform").setDisabled(false).setWarning().onClick((async () => {
       var s, r, o;
       for await (const u of this.plugin.localDatabase.findAllDocNames()) if (!u.startsWith("f:")) {
-        const g = await this.plugin.path2id(u), m = await this.plugin.localDatabase.getRaw(u);
-        if (!m) continue;
-        if ("newnote" != m.type && "plain" != m.type) continue;
-        if (null != (s = null == m ? void 0 : m.deleted) ? s : false) continue;
-        const _ = {
-          ...m
+        const g = await this.plugin.path2id(u), _ = await this.plugin.localDatabase.getRaw(u);
+        if (!_) continue;
+        if ("newnote" != _.type && "plain" != _.type) continue;
+        if (null != (s = null == _ ? void 0 : _.deleted) ? s : false) continue;
+        const m = {
+          ..._
         };
-        _._id = g;
-        _.path = u;
-        delete _._rev;
+        m._id = g;
+        m.path = u;
+        delete m._rev;
         try {
           const s = await this.plugin.localDatabase.getRaw(g, {
             revs_info: true
           });
           null == (r = s._revs_info) || r.shift();
           const b = null == (o = s._revs_info) ? void 0 : o.shift();
-          if (b) _._rev = b.rev; else _._rev = "1-" + `00000000000000000000000000000000${~~(1e9 * Math.random())}${~~(1e9 * Math.random())}${~~(1e9 * Math.random())}${~~(1e9 * Math.random())}`.slice(-32);
-          const w = await this.plugin.localDatabase.putRaw(_, {
+          if (b) m._rev = b.rev; else m._rev = "1-" + `00000000000000000000000000000000${~~(1e9 * Math.random())}${~~(1e9 * Math.random())}${~~(1e9 * Math.random())}${~~(1e9 * Math.random())}`.slice(-32);
+          const w = await this.plugin.localDatabase.putRaw(m, {
             force: true
           });
           if (w.ok) {
             Logger(`${u} has been converted as conflicted document`, LOG_LEVEL_NOTICE);
-            m._deleted = true;
-            if ((await this.plugin.localDatabase.putRaw(m)).ok) Logger(`Old ${u} has been deleted`, LOG_LEVEL_NOTICE);
+            _._deleted = true;
+            if ((await this.plugin.localDatabase.putRaw(_)).ok) Logger(`Old ${u} has been deleted`, LOG_LEVEL_NOTICE);
             await this.plugin.showIfConflicted(u);
           } else {
             Logger(`Converting ${u} Failed!`, LOG_LEVEL_NOTICE);
@@ -18114,10 +18060,10 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
           }
         } catch (s) {
           if (404 == (null == s ? void 0 : s.status)) {
-            if ((await this.plugin.localDatabase.putRaw(_)).ok) {
+            if ((await this.plugin.localDatabase.putRaw(m)).ok) {
               Logger(`${u} has been converted`, LOG_LEVEL_NOTICE);
-              m._deleted = true;
-              if ((await this.plugin.localDatabase.putRaw(m)).ok) Logger(`Old ${u} has been deleted`, LOG_LEVEL_NOTICE);
+              _._deleted = true;
+              if ((await this.plugin.localDatabase.putRaw(_)).ok) Logger(`Old ${u} has been deleted`, LOG_LEVEL_NOTICE);
             }
           } else {
             Logger(`Something went wrong on converting ${u}`, LOG_LEVEL_NOTICE);
@@ -18215,10 +18161,6 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
     })))).setClass("wizardHidden");
     new import_obsidian.Setting(X).setName("Fetch database with previous behaviour").setDesc("").addToggle((s => s.setValue(this.plugin.settings.doNotSuspendOnFetching).onChange((async s => {
       this.plugin.settings.doNotSuspendOnFetching = s;
-      await this.plugin.saveSettings();
-    }))));
-    new import_obsidian.Setting(X).setName("Use binary and encryption version 1").setDesc("Use the previous data format for other products which shares the remote database.").addToggle((s => s.setValue(this.plugin.settings.useV1).onChange((async s => {
-      this.plugin.settings.useV1 = s;
       await this.plugin.saveSettings();
     }))));
     addScreenElement("50", X);
@@ -18377,11 +18319,11 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
       if (this.showDiff) {
         const o = this.revs_info.length - 1 - (this.range.value / 1 - 1);
         if (o >= 0 && o < this.revs_info.length) {
-          const g = this.revs_info[o].rev, m = await r.getDBEntry(this.file, {
+          const g = this.revs_info[o].rev, _ = await r.getDBEntry(this.file, {
             rev: g
           }, false, false, true);
-          if (false != m) {
-            const r = new import_diff_match_patch.diff_match_patch, o = "plain" == m.datatype ? getDocData(m.data) : readString(new Uint8Array(decodeBinary(m.data))), g = r.diff_main(o, u);
+          if (false != _) {
+            const r = new import_diff_match_patch.diff_match_patch, o = "plain" == _.datatype ? getDocData(_.data) : readString(new Uint8Array(decodeBinary(_.data))), g = r.diff_main(o, u);
             r.diff_cleanupSemantic(g);
             for (const r of g) {
               const o = r[0], u = r[1];
@@ -18549,16 +18491,16 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
     let o = false;
     for (const u of s) {
       if (shouldBeIgnored(u.file.path)) continue;
-      const s = [ 0, 0, 0, 0, 0, 0 ].map((s => `${Math.floor(1e5 * Math.random())}`)).join("-"), g = u.type, m = u.file, _ = u.oldPath;
-      if (m instanceof import_obsidian.TFolder) continue;
-      if (!await this.plugin.isTargetFile(m.path)) continue;
+      const s = [ 0, 0, 0, 0, 0, 0 ].map((s => `${Math.floor(1e5 * Math.random())}`)).join("-"), g = u.type, _ = u.file, m = u.oldPath;
+      if (_ instanceof import_obsidian.TFolder) continue;
+      if (!await this.plugin.isTargetFile(_.path)) continue;
       if (this.plugin.settings.suspendFileWatching) continue;
       let b;
-      if (m instanceof import_obsidian.TFile && ("CREATE" == g || "CHANGED" == g)) {
-        if (recentlyTouched(m)) continue;
-        if (!isPlainText(m.name)) b = await this.plugin.app.vault.readBinary(m); else {
-          b = await this.plugin.app.vault.cachedRead(m);
-          if (!b) b = await this.plugin.app.vault.read(m);
+      if (_ instanceof import_obsidian.TFile && ("CREATE" == g || "CHANGED" == g)) {
+        if (recentlyTouched(_)) continue;
+        if (!isPlainText(_.name)) b = await this.plugin.app.vault.readBinary(_); else {
+          b = await this.plugin.app.vault.cachedRead(_);
+          if (!b) b = await this.plugin.app.vault.read(_);
         }
       }
       if ("DELETE" == g || "RENAME" == g) o = true;
@@ -18567,7 +18509,7 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
         e: for (;s >= 0; ) {
           s--;
           if (s < 0) break e;
-          if (this.watchedFileEventQueue[s].args.file.path == m.path) {
+          if (this.watchedFileEventQueue[s].args.file.path == _.path) {
             if (this.watchedFileEventQueue[s].type != g) break e;
             this.watchedFileEventQueue.remove(this.watchedFileEventQueue[s]);
             this.queuedFilesStore.apply((s => ({
@@ -18577,18 +18519,18 @@ var e, ObsidianLiveSyncSettingTab = class extends import_obsidian.PluginSettingT
           }
         }
       }
-      const w = m instanceof import_obsidian.TFile ? {
-        ctime: m.stat.ctime,
-        mtime: m.stat.mtime,
-        file: m,
-        path: m.path,
-        size: m.stat.size
-      } : m;
+      const w = _ instanceof import_obsidian.TFile ? {
+        ctime: _.stat.ctime,
+        mtime: _.stat.mtime,
+        file: _,
+        path: _.path,
+        size: _.stat.size
+      } : _;
       this.watchedFileEventQueue.push({
         type: g,
         args: {
           file: w,
-          oldPath: _,
+          oldPath: m,
           cache: b,
           ctx: r
         },
@@ -18639,8 +18581,8 @@ async function xxhash_wasm_default() {
   function c(r) {
     let u = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0, g = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 0;
     n(r, s, 8);
-    const m = new DataView(s.buffer);
-    return m.setUint32(0, u, true), m.setUint32(4, g, true), o(0, r.byteLength), m;
+    const _ = new DataView(s.buffer);
+    return _.setUint32(0, u, true), _.setUint32(4, g, true), o(0, r.byteLength), _;
   }
   return {
     h32: function(s) {
@@ -18665,7 +18607,7 @@ async function xxhash_wasm_default() {
 var t2 = new Uint8Array([ 0, 97, 115, 109, 1, 0, 0, 0, 1, 48, 8, 96, 3, 127, 127, 127, 0, 96, 3, 127, 127, 127, 1, 127, 96, 2, 127, 127, 0, 96, 2, 127, 126, 0, 96, 1, 127, 1, 127, 96, 1, 127, 1, 126, 96, 3, 127, 127, 126, 1, 126, 96, 3, 126, 127, 127, 1, 126, 3, 11, 10, 1, 1, 2, 0, 4, 6, 7, 3, 0, 5, 5, 3, 1, 0, 1, 7, 85, 9, 3, 109, 101, 109, 2, 0, 5, 120, 120, 104, 51, 50, 0, 0, 6, 105, 110, 105, 116, 51, 50, 0, 2, 8, 117, 112, 100, 97, 116, 101, 51, 50, 0, 3, 8, 100, 105, 103, 101, 115, 116, 51, 50, 0, 4, 5, 120, 120, 104, 54, 52, 0, 5, 6, 105, 110, 105, 116, 54, 52, 0, 7, 8, 117, 112, 100, 97, 116, 101, 54, 52, 0, 8, 8, 100, 105, 103, 101, 115, 116, 54, 52, 0, 9, 10, 211, 23, 10, 242, 1, 1, 4, 127, 32, 0, 32, 1, 106, 33, 3, 32, 1, 65, 16, 79, 4, 127, 32, 3, 65, 16, 107, 33, 6, 32, 2, 65, 168, 136, 141, 161, 2, 106, 33, 3, 32, 2, 65, 247, 148, 175, 175, 120, 106, 33, 4, 32, 2, 65, 177, 243, 221, 241, 121, 107, 33, 5, 3, 64, 32, 0, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 32, 3, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 3, 32, 0, 65, 4, 106, 34, 0, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 32, 4, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 4, 32, 0, 65, 4, 106, 34, 0, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 32, 2, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 2, 32, 0, 65, 4, 106, 34, 0, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 32, 5, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 5, 32, 0, 65, 4, 106, 34, 0, 32, 6, 77, 13, 0, 11, 32, 2, 65, 12, 119, 32, 5, 65, 18, 119, 106, 32, 4, 65, 7, 119, 106, 32, 3, 65, 1, 119, 106, 5, 32, 2, 65, 177, 207, 217, 178, 1, 106, 11, 32, 1, 106, 32, 0, 32, 1, 65, 15, 113, 16, 1, 11, 146, 1, 0, 32, 1, 32, 2, 106, 33, 2, 3, 64, 32, 1, 65, 4, 106, 32, 2, 75, 69, 4, 64, 32, 1, 40, 2, 0, 65, 189, 220, 202, 149, 124, 108, 32, 0, 106, 65, 17, 119, 65, 175, 214, 211, 190, 2, 108, 33, 0, 32, 1, 65, 4, 106, 33, 1, 12, 1, 11, 11, 3, 64, 32, 1, 32, 2, 79, 69, 4, 64, 32, 1, 45, 0, 0, 65, 177, 207, 217, 178, 1, 108, 32, 0, 106, 65, 11, 119, 65, 177, 243, 221, 241, 121, 108, 33, 0, 32, 1, 65, 1, 106, 33, 1, 12, 1, 11, 11, 32, 0, 65, 15, 118, 32, 0, 115, 65, 247, 148, 175, 175, 120, 108, 34, 0, 32, 0, 65, 13, 118, 115, 65, 189, 220, 202, 149, 124, 108, 34, 0, 32, 0, 65, 16, 118, 115, 11, 63, 0, 32, 0, 65, 8, 106, 32, 1, 65, 168, 136, 141, 161, 2, 106, 54, 2, 0, 32, 0, 65, 12, 106, 32, 1, 65, 247, 148, 175, 175, 120, 106, 54, 2, 0, 32, 0, 65, 16, 106, 32, 1, 54, 2, 0, 32, 0, 65, 20, 106, 32, 1, 65, 177, 243, 221, 241, 121, 107, 54, 2, 0, 11, 211, 4, 1, 6, 127, 32, 1, 32, 2, 106, 33, 6, 32, 0, 65, 24, 106, 33, 5, 32, 0, 65, 40, 106, 40, 2, 0, 33, 3, 32, 0, 32, 0, 40, 2, 0, 32, 2, 106, 54, 2, 0, 32, 0, 65, 4, 106, 34, 4, 32, 4, 40, 2, 0, 32, 2, 65, 16, 79, 32, 0, 40, 2, 0, 65, 16, 79, 114, 114, 54, 2, 0, 32, 2, 32, 3, 106, 65, 16, 73, 4, 64, 32, 3, 32, 5, 106, 32, 1, 32, 2, 252, 10, 0, 0, 32, 0, 65, 40, 106, 32, 2, 32, 3, 106, 54, 2, 0, 15, 11, 32, 3, 4, 64, 32, 3, 32, 5, 106, 32, 1, 65, 16, 32, 3, 107, 34, 2, 252, 10, 0, 0, 32, 0, 65, 8, 106, 34, 3, 40, 2, 0, 32, 5, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 4, 32, 3, 32, 4, 54, 2, 0, 32, 0, 65, 12, 106, 34, 3, 40, 2, 0, 32, 5, 65, 4, 106, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 4, 32, 3, 32, 4, 54, 2, 0, 32, 0, 65, 16, 106, 34, 3, 40, 2, 0, 32, 5, 65, 8, 106, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 4, 32, 3, 32, 4, 54, 2, 0, 32, 0, 65, 20, 106, 34, 3, 40, 2, 0, 32, 5, 65, 12, 106, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 4, 32, 3, 32, 4, 54, 2, 0, 32, 0, 65, 40, 106, 65, 0, 54, 2, 0, 32, 1, 32, 2, 106, 33, 1, 11, 32, 1, 32, 6, 65, 16, 107, 77, 4, 64, 32, 6, 65, 16, 107, 33, 8, 32, 0, 65, 8, 106, 40, 2, 0, 33, 2, 32, 0, 65, 12, 106, 40, 2, 0, 33, 3, 32, 0, 65, 16, 106, 40, 2, 0, 33, 4, 32, 0, 65, 20, 106, 40, 2, 0, 33, 7, 3, 64, 32, 1, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 32, 2, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 2, 32, 1, 65, 4, 106, 34, 1, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 32, 3, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 3, 32, 1, 65, 4, 106, 34, 1, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 32, 4, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 4, 32, 1, 65, 4, 106, 34, 1, 40, 2, 0, 65, 247, 148, 175, 175, 120, 108, 32, 7, 106, 65, 13, 119, 65, 177, 243, 221, 241, 121, 108, 33, 7, 32, 1, 65, 4, 106, 34, 1, 32, 8, 77, 13, 0, 11, 32, 0, 65, 8, 106, 32, 2, 54, 2, 0, 32, 0, 65, 12, 106, 32, 3, 54, 2, 0, 32, 0, 65, 16, 106, 32, 4, 54, 2, 0, 32, 0, 65, 20, 106, 32, 7, 54, 2, 0, 11, 32, 1, 32, 6, 73, 4, 64, 32, 5, 32, 1, 32, 6, 32, 1, 107, 34, 1, 252, 10, 0, 0, 32, 0, 65, 40, 106, 32, 1, 54, 2, 0, 11, 11, 97, 1, 1, 127, 32, 0, 65, 16, 106, 40, 2, 0, 33, 1, 32, 0, 65, 4, 106, 40, 2, 0, 4, 127, 32, 1, 65, 12, 119, 32, 0, 65, 20, 106, 40, 2, 0, 65, 18, 119, 106, 32, 0, 65, 12, 106, 40, 2, 0, 65, 7, 119, 106, 32, 0, 65, 8, 106, 40, 2, 0, 65, 1, 119, 106, 5, 32, 1, 65, 177, 207, 217, 178, 1, 106, 11, 32, 0, 40, 2, 0, 106, 32, 0, 65, 24, 106, 32, 0, 65, 40, 106, 40, 2, 0, 16, 1, 11, 157, 4, 2, 1, 127, 3, 126, 32, 0, 32, 1, 106, 33, 3, 32, 1, 65, 32, 79, 4, 126, 32, 3, 65, 32, 107, 33, 3, 32, 2, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 124, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 124, 33, 4, 32, 2, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 124, 33, 5, 32, 2, 66, 0, 124, 33, 6, 32, 2, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 125, 33, 2, 3, 64, 32, 0, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 32, 4, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 4, 32, 0, 65, 8, 106, 34, 0, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 32, 5, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 5, 32, 0, 65, 8, 106, 34, 0, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 32, 6, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 6, 32, 0, 65, 8, 106, 34, 0, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 32, 2, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 2, 32, 0, 65, 8, 106, 34, 0, 32, 3, 77, 13, 0, 11, 32, 6, 66, 12, 137, 32, 2, 66, 18, 137, 124, 32, 5, 66, 7, 137, 124, 32, 4, 66, 1, 137, 124, 32, 4, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 66, 0, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 133, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 66, 227, 220, 202, 149, 252, 206, 242, 245, 133, 127, 124, 32, 5, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 66, 0, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 133, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 66, 227, 220, 202, 149, 252, 206, 242, 245, 133, 127, 124, 32, 6, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 66, 0, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 133, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 66, 227, 220, 202, 149, 252, 206, 242, 245, 133, 127, 124, 32, 2, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 66, 0, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 133, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 66, 227, 220, 202, 149, 252, 206, 242, 245, 133, 127, 124, 5, 32, 2, 66, 197, 207, 217, 178, 241, 229, 186, 234, 39, 124, 11, 32, 1, 173, 124, 32, 0, 32, 1, 65, 31, 113, 16, 6, 11, 137, 2, 0, 32, 1, 32, 2, 106, 33, 2, 3, 64, 32, 1, 65, 8, 106, 32, 2, 77, 4, 64, 32, 1, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 66, 0, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 32, 0, 133, 66, 27, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 66, 227, 220, 202, 149, 252, 206, 242, 245, 133, 127, 124, 33, 0, 32, 1, 65, 8, 106, 33, 1, 12, 1, 11, 11, 32, 1, 65, 4, 106, 32, 2, 77, 4, 64, 32, 1, 53, 2, 0, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 32, 0, 133, 66, 23, 137, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 66, 249, 243, 221, 241, 153, 246, 153, 171, 22, 124, 33, 0, 32, 1, 65, 4, 106, 33, 1, 11, 3, 64, 32, 1, 32, 2, 73, 4, 64, 32, 1, 49, 0, 0, 66, 197, 207, 217, 178, 241, 229, 186, 234, 39, 126, 32, 0, 133, 66, 11, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 0, 32, 1, 65, 1, 106, 33, 1, 12, 1, 11, 11, 32, 0, 66, 33, 136, 32, 0, 133, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 34, 0, 32, 0, 66, 29, 136, 133, 66, 249, 243, 221, 241, 153, 246, 153, 171, 22, 126, 34, 0, 32, 0, 66, 32, 136, 133, 11, 88, 0, 32, 0, 65, 8, 106, 32, 1, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 124, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 124, 55, 3, 0, 32, 0, 65, 16, 106, 32, 1, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 124, 55, 3, 0, 32, 0, 65, 24, 106, 32, 1, 55, 3, 0, 32, 0, 65, 32, 106, 32, 1, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 125, 55, 3, 0, 11, 132, 5, 2, 3, 127, 4, 126, 32, 1, 32, 2, 106, 33, 5, 32, 0, 65, 40, 106, 33, 4, 32, 0, 65, 200, 0, 106, 40, 2, 0, 33, 3, 32, 0, 32, 0, 41, 3, 0, 32, 2, 173, 124, 55, 3, 0, 32, 2, 32, 3, 106, 65, 32, 73, 4, 64, 32, 3, 32, 4, 106, 32, 1, 32, 2, 252, 10, 0, 0, 32, 0, 65, 200, 0, 106, 32, 2, 32, 3, 106, 54, 2, 0, 15, 11, 32, 3, 4, 64, 32, 3, 32, 4, 106, 32, 1, 65, 32, 32, 3, 107, 34, 2, 252, 10, 0, 0, 32, 0, 65, 8, 106, 34, 3, 41, 3, 0, 32, 4, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 6, 32, 3, 32, 6, 55, 3, 0, 32, 0, 65, 16, 106, 34, 3, 41, 3, 0, 32, 4, 65, 8, 106, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 6, 32, 3, 32, 6, 55, 3, 0, 32, 0, 65, 24, 106, 34, 3, 41, 3, 0, 32, 4, 65, 16, 106, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 6, 32, 3, 32, 6, 55, 3, 0, 32, 0, 65, 32, 106, 34, 3, 41, 3, 0, 32, 4, 65, 24, 106, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 6, 32, 3, 32, 6, 55, 3, 0, 32, 0, 65, 200, 0, 106, 65, 0, 54, 2, 0, 32, 1, 32, 2, 106, 33, 1, 11, 32, 1, 65, 32, 106, 32, 5, 77, 4, 64, 32, 5, 65, 32, 107, 33, 2, 32, 0, 65, 8, 106, 41, 3, 0, 33, 6, 32, 0, 65, 16, 106, 41, 3, 0, 33, 7, 32, 0, 65, 24, 106, 41, 3, 0, 33, 8, 32, 0, 65, 32, 106, 41, 3, 0, 33, 9, 3, 64, 32, 1, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 32, 6, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 6, 32, 1, 65, 8, 106, 34, 1, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 32, 7, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 7, 32, 1, 65, 8, 106, 34, 1, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 32, 8, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 8, 32, 1, 65, 8, 106, 34, 1, 41, 3, 0, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 32, 9, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 33, 9, 32, 1, 65, 8, 106, 34, 1, 32, 2, 77, 13, 0, 11, 32, 0, 65, 8, 106, 32, 6, 55, 3, 0, 32, 0, 65, 16, 106, 32, 7, 55, 3, 0, 32, 0, 65, 24, 106, 32, 8, 55, 3, 0, 32, 0, 65, 32, 106, 32, 9, 55, 3, 0, 11, 32, 1, 32, 5, 73, 4, 64, 32, 4, 32, 1, 32, 5, 32, 1, 107, 34, 1, 252, 10, 0, 0, 32, 0, 65, 200, 0, 106, 32, 1, 54, 2, 0, 11, 11, 200, 2, 1, 5, 126, 32, 0, 65, 24, 106, 41, 3, 0, 33, 1, 32, 0, 41, 3, 0, 34, 2, 66, 32, 90, 4, 126, 32, 0, 65, 8, 106, 41, 3, 0, 34, 3, 66, 1, 137, 32, 0, 65, 16, 106, 41, 3, 0, 34, 4, 66, 7, 137, 124, 32, 1, 66, 12, 137, 32, 0, 65, 32, 106, 41, 3, 0, 34, 5, 66, 18, 137, 124, 124, 32, 3, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 66, 0, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 133, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 66, 227, 220, 202, 149, 252, 206, 242, 245, 133, 127, 124, 32, 4, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 66, 0, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 133, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 66, 227, 220, 202, 149, 252, 206, 242, 245, 133, 127, 124, 32, 1, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 66, 0, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 133, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 66, 227, 220, 202, 149, 252, 206, 242, 245, 133, 127, 124, 32, 5, 66, 207, 214, 211, 190, 210, 199, 171, 217, 66, 126, 66, 0, 124, 66, 31, 137, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 133, 66, 135, 149, 175, 175, 152, 182, 222, 155, 158, 127, 126, 66, 227, 220, 202, 149, 252, 206, 242, 245, 133, 127, 124, 5, 32, 1, 66, 197, 207, 217, 178, 241, 229, 186, 234, 39, 124, 11, 32, 2, 124, 32, 0, 65, 40, 106, 32, 2, 66, 31, 131, 167, 16, 6, 11 ]);
 
 async function e2() {
-  const {instance: {exports: {mem: s, xxh32: r, xxh64: o, init32: u, update32: g, digest32: m, init64: _, update64: b, digest64: w}}} = await WebAssembly.instantiate(t2);
+  const {instance: {exports: {mem: s, xxh32: r, xxh64: o, init32: u, update32: g, digest32: _, init64: m, update64: b, digest64: w}}} = await WebAssembly.instantiate(t2);
   let E = new Uint8Array(s.buffer);
   function c(r, o) {
     if (s.buffer.byteLength < r + o) {
@@ -18673,16 +18615,16 @@ async function e2() {
       s.grow(u), E = new Uint8Array(s.buffer);
     }
   }
-  function l(s, r, o, u, g, m) {
+  function l(s, r, o, u, g, _) {
     c(s);
-    const _ = new Uint8Array(s);
-    return E.set(_), o(0, r), _.set(E.slice(0, s)), {
+    const m = new Uint8Array(s);
+    return E.set(m), o(0, r), m.set(E.slice(0, s)), {
       update(r) {
         let o;
-        return E.set(_), "string" == typeof r ? (c(3 * r.length, s), o = L.encodeInto(r, E.subarray(s)).written) : (c(r.byteLength, s), 
-        E.set(r, s), o = r.byteLength), u(0, s, o), _.set(E.slice(0, s)), this;
+        return E.set(m), "string" == typeof r ? (c(3 * r.length, s), o = L.encodeInto(r, E.subarray(s)).written) : (c(r.byteLength, s), 
+        E.set(r, s), o = r.byteLength), u(0, s, o), m.set(E.slice(0, s)), this;
       },
-      digest: () => (E.set(_), m(g(0)))
+      digest: () => (E.set(m), _(g(0)))
     };
   }
   function d3(s) {
@@ -18711,7 +18653,7 @@ async function e2() {
       return c(s.byteLength, 0), E.set(s), d3(r(0, s.byteLength, o));
     },
     create32() {
-      return l(48, arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0, u, g, m, d3);
+      return l(48, arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0, u, g, _, d3);
     },
     h64: v,
     h64ToString(s) {
@@ -18722,7 +18664,7 @@ async function e2() {
       return c(s.byteLength, 0), E.set(s), y(o(0, s.byteLength, r));
     },
     create64() {
-      return l(88, arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : O, _, b, w, y);
+      return l(88, arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : O, m, b, w, y);
     }
   };
 }
@@ -18731,15 +18673,15 @@ async function putDBEntry(s, r, o) {
   var u;
   const g = s.id2path(r._id, r);
   if (!s.isTargetFile(g)) return false;
-  const m = stripAllPrefixes(g), _ = [];
+  const _ = stripAllPrefixes(g), m = [];
   let b = 0, w = 0, E = 0;
-  const S = Math.floor(MAX_DOC_SIZE_BIN * ((s.settings.customChunkSize || 0) * (s.settings.useV1 ? 1 : .1) + 1));
+  const S = Math.floor(MAX_DOC_SIZE_BIN * (1 * (s.settings.customChunkSize || 0) + 1));
   let L = false, O = 0;
   const D = s.settings.passphrase, k = s.h32Raw((new TextEncoder).encode(D)), C = s.settings.minimumChunkSize;
   if (!o && shouldSplitAsPlainText(g)) L = true;
-  const T = [], I = splitPieces2(r.data, S, L, C, g, s.settings.useV1), A = new Map;
+  const T = [], I = await splitPieces2(r.data, S, L, C, g), A = new Map;
   let x = true;
-  for (const r of I()) {
+  for await (const r of I()) {
     b++;
     let o = "", u = "";
     const g = s.hashCaches.revGet(r);
@@ -18756,11 +18698,11 @@ async function putDBEntry(s, r, o) {
     if (A.has(o)) {
       if (A.get(o) != r) {
         Logger(`Hash collided! If possible, please report the following string:${o}=>\nA:--${A.get(o)}--\nB:--${r}--`, LOG_LEVEL_NOTICE);
-        Logger(`This document could not be saved:${m}`, LOG_LEVEL_NOTICE);
+        Logger(`This document could not be saved:${_}`, LOG_LEVEL_NOTICE);
         x = false;
       }
     } else A.set(o, r);
-    _.push(o);
+    m.push(o);
   }
   const R = [ ...A.keys() ];
   do {
@@ -18791,7 +18733,7 @@ async function putDBEntry(s, r, o) {
         const r = s.doc;
         if ("leaf" == r.type && r.data == A.get(s.key)) E++; else if ("leaf" == r.type) {
           Logger(`Hash collided on saving! If possible, please report the following string\nA:--${A.get(s.key)}--\nB:--${r.data}--`, LOG_LEVEL_NOTICE);
-          Logger(`This document could not be saved:${m}`, LOG_LEVEL_NOTICE);
+          Logger(`This document could not be saved:${_}`, LOG_LEVEL_NOTICE);
           x = false;
         }
       }
@@ -18803,13 +18745,13 @@ async function putDBEntry(s, r, o) {
       const r = o.id, u = A.get(r);
       if ("undefined" == typeof u) {
         x = false;
-        Logger(`Save failed.: ${m} (${o.id} rev:${o.rev})`, LOG_LEVEL_NOTICE);
+        Logger(`Save failed.: ${_} (${o.id} rev:${o.rev})`, LOG_LEVEL_NOTICE);
         continue;
       }
       s.hashCaches.set(r, u);
       w++;
     } else if (409 == (null == o ? void 0 : o.status)) E++; else {
-      Logger(`Save failed..: ${m} (${o.id} rev:${o.rev})`, LOG_LEVEL_NOTICE);
+      Logger(`Save failed..: ${_} (${o.id} rev:${o.rev})`, LOG_LEVEL_NOTICE);
       Logger(o);
       x = false;
     }
@@ -18819,9 +18761,9 @@ async function putDBEntry(s, r, o) {
     x = false;
   }
   if (x) {
-    Logger(`Content saved:${m} ,chunks: ${b} (new:${w}, skip:${E}, cache:${O})`);
+    Logger(`Content saved:${_} ,chunks: ${b} (new:${w}, skip:${E}, cache:${O})`);
     const o = {
-      children: _,
+      children: m,
       _id: r._id,
       path: r.path,
       ctime: r.ctime,
@@ -18843,7 +18785,7 @@ async function putDBEntry(s, r, o) {
       if (u.ok) return u; else return false;
     }))) ? u : false;
   } else {
-    Logger(`note could not saved:${m}`);
+    Logger(`note could not saved:${_}`);
     return false;
   }
 }
@@ -18852,17 +18794,17 @@ async function getDBEntryMeta(s, r, o, u = false) {
   if (!s.isTargetFile(r)) return false;
   const g = await s.path2id(r);
   try {
-    let m = null;
-    if (o) m = await s.localDatabase.get(g, o); else m = await s.localDatabase.get(g);
-    const _ = "deleted" in m ? m.deleted : void 0;
-    if (!u && _) return false;
-    if (m.type && "leaf" == m.type) return false;
-    if (!m.type || m.type && "notes" == m.type || "newnote" == m.type || "plain" == m.type) {
-      const s = m;
+    let _ = null;
+    if (o) _ = await s.localDatabase.get(g, o); else _ = await s.localDatabase.get(g);
+    const m = "deleted" in _ ? _.deleted : void 0;
+    if (!u && m) return false;
+    if (_.type && "leaf" == _.type) return false;
+    if (!_.type || _.type && "notes" == _.type || "newnote" == _.type || "plain" == _.type) {
+      const s = _;
       let o = [], u = "plain";
-      if ("newnote" == m.type || "plain" == m.type) {
-        o = m.children;
-        u = m.type;
+      if ("newnote" == _.type || "plain" == _.type) {
+        o = _.children;
+        u = _.type;
       }
       return {
         data: "",
@@ -18871,11 +18813,11 @@ async function getDBEntryMeta(s, r, o, u = false) {
         ctime: s.ctime,
         mtime: s.mtime,
         size: s.size,
-        _rev: m._rev,
-        _conflicts: m._conflicts,
+        _rev: _._rev,
+        _conflicts: _._conflicts,
         children: o,
         datatype: u,
-        deleted: _,
+        deleted: m,
         type: u
       };
     }
@@ -18886,10 +18828,10 @@ async function getDBEntryMeta(s, r, o, u = false) {
   return false;
 }
 
-async function getDBEntryFromMeta(s, r, o, u = false, g = true, m = false) {
-  const _ = s.id2path(r._id, r);
-  if (!s.isTargetFile(_)) return false;
-  const b = stripAllPrefixes(_), w = "deleted" in r ? r.deleted : void 0;
+async function getDBEntryFromMeta(s, r, o, u = false, g = true, _ = false) {
+  const m = s.id2path(r._id, r);
+  if (!s.isTargetFile(m)) return false;
+  const b = stripAllPrefixes(m), w = "deleted" in r ? r.deleted : void 0;
   if (!r.type || r.type && "notes" == r.type) {
     const o = r, g = {
       data: o.data,
@@ -18917,12 +18859,12 @@ async function getDBEntryFromMeta(s, r, o, u = false, g = true, m = false) {
       Logger("Enhanced doc");
       Logger(r);
     }
-    let m = [];
-    const _ = Math.min(10, Math.ceil(r.children.length / 10)) + 1, E = s.settings.doNotPaceReplication ? () => {} : await globalConcurrencyController.acquire(_);
+    let _ = [];
+    const m = Math.min(10, Math.ceil(r.children.length / 10)) + 1, E = s.settings.doNotPaceReplication ? () => {} : await globalConcurrencyController.acquire(m);
     try {
       if (s.settings.readChunksOnline) {
         const u = await s.collectChunks(r.children, false, g);
-        if (u) for (const g of u) if (g && "leaf" == g.type) m.push(g.data); else {
+        if (u) for (const g of u) if (g && "leaf" == g.type) _.push(g.data); else {
           if (!o) {
             Logger(`Chunks of ${b} (${r._id}) are not valid.`, LOG_LEVEL_NOTICE);
             s.corruptedEntries[r._id] = r;
@@ -18934,10 +18876,10 @@ async function getDBEntryFromMeta(s, r, o, u = false, g = true, m = false) {
         }
       } else try {
         if (g) {
-          m = await Promise.all(r.children.map((r => s.getDBLeaf(r, g))));
+          _ = await Promise.all(r.children.map((r => s.getDBLeaf(r, g))));
           if (u) {
             Logger("Chunks:");
-            Logger(m);
+            Logger(_);
           }
         } else {
           const o = await s.localDatabase.allDocs({
@@ -18954,7 +18896,7 @@ async function getDBEntryFromMeta(s, r, o, u = false, g = true, m = false) {
             Logger(`Could not retrieve chunks of ${b}(${r._id}). corrupted chunks::${s}`, LOG_LEVEL_NOTICE);
             return false;
           }
-          m = o.rows.map((s => s.doc.data));
+          _ = o.rows.map((s => s.doc.data));
         }
       } catch (o) {
         Logger(`Something went wrong on reading chunks of ${b}(${r._id}) from database, see verbose info for detail.`, LOG_LEVEL_NOTICE);
@@ -18966,7 +18908,7 @@ async function getDBEntryFromMeta(s, r, o, u = false, g = true, m = false) {
       E();
     }
     const S = {
-      data: m,
+      data: _,
       path: r.path,
       _id: r._id,
       ctime: r.ctime,
@@ -18996,9 +18938,9 @@ async function getDBEntryFromMeta(s, r, o, u = false, g = true, m = false) {
   return false;
 }
 
-async function getDBEntry(s, r, o, u = false, g = true, m = false) {
-  const _ = await getDBEntryMeta(s, r, o, m);
-  if (_) return await getDBEntryFromMeta(s, _, o, u, g, m); else return false;
+async function getDBEntry(s, r, o, u = false, g = true, _ = false) {
+  const m = await getDBEntryMeta(s, r, o, _);
+  if (m) return await getDBEntryFromMeta(s, m, o, u, g, _); else return false;
 }
 
 async function deleteDBEntry(s, r, o) {
@@ -19009,25 +18951,25 @@ async function deleteDBEntry(s, r, o) {
     return null != (u = await serialized("file:" + r, (async () => {
       let u = null;
       if (o) u = await s.localDatabase.get(g, o); else u = await s.localDatabase.get(g);
-      const m = o && "" != ("rev" in o ? o.rev : "");
+      const _ = o && "" != ("rev" in o ? o.rev : "");
       if (u.type && "leaf" == u.type) return false;
       if (!u.type || u.type && "notes" == u.type) {
         u._deleted = true;
         const o = await s.localDatabase.put(u, {
-          force: !m
+          force: !_
         });
         Logger(`Entry removed:${r} (${u._id}-${o.rev})`);
         if ("undefined" != typeof s.corruptedEntries[u._id]) delete s.corruptedEntries[u._id];
         return true;
       }
       if ("newnote" == u.type || "plain" == u.type) {
-        if (m) u._deleted = true; else {
+        if (_) u._deleted = true; else {
           u.deleted = true;
           u.mtime = Date.now();
           if (s.settings.deleteMetadataOfDeletedFiles) u._deleted = true;
         }
         const o = await s.localDatabase.put(u, {
-          force: !m
+          force: !_
         });
         Logger(`Entry removed:${r} (${u._id}-${o.rev})`);
         if ("undefined" != typeof s.corruptedEntries[u._id]) delete s.corruptedEntries[u._id];
@@ -19044,14 +18986,14 @@ async function deleteDBEntryPrefix(s, r) {
   let o = 0, u = 0;
   const g = [];
   do {
-    const m = await s.localDatabase.allDocs({
+    const _ = await s.localDatabase.allDocs({
       include_docs: false,
       skip: o,
       limit: 100,
       conflicts: true
     });
-    u = m.rows.length;
-    if (u > 0) for (const o of m.rows) {
+    u = _.rows.length;
+    if (u > 0) for (const o of _.rows) {
       const u = s.id2path(o.id, o.doc);
       if (u.startsWith(r)) {
         if (s.isTargetFile(u)) g.push(o.id);
@@ -19059,7 +19001,7 @@ async function deleteDBEntryPrefix(s, r) {
     }
     o += u;
   } while (0 != u);
-  let m = 0, _ = 0;
+  let _ = 0, m = 0;
   for (const r of g) try {
     await serialized("file:" + r, (async () => {
       const o = await s.localDatabase.get(r);
@@ -19072,11 +19014,11 @@ async function deleteDBEntryPrefix(s, r) {
         force: true
       });
     }));
-    m++;
+    _++;
   } catch (s) {
-    if (isErrorOfMissingDoc(s)) _++; else throw s;
+    if (isErrorOfMissingDoc(s)) m++; else throw s;
   }
-  Logger(`deleteDBEntryPrefix:deleted ${m} items, skipped ${_}`);
+  Logger(`deleteDBEntryPrefix:deleted ${_} items, skipped ${m}`);
   return true;
 }
 
@@ -19090,31 +19032,31 @@ async function ensureDatabaseIsCompatible(s, r, o, u) {
     node_chunk_info: {
       [o]: u
     }
-  }, m = {
+  }, _ = {
     ...g,
     ...await resolveWithIgnoreKnownError(s.get(MILSTONE_DOCID), g)
   };
-  m.node_chunk_info = {
+  _.node_chunk_info = {
     ...g.node_chunk_info,
-    ...m.node_chunk_info
+    ..._.node_chunk_info
   };
-  if (m.node_chunk_info[o].min != u.min || m.node_chunk_info[o].max != u.max || "undefined" == typeof m._rev) {
-    m.node_chunk_info[o].min = u.min;
-    m.node_chunk_info[o].max = u.max;
-    await s.put(m);
+  if (_.node_chunk_info[o].min != u.min || _.node_chunk_info[o].max != u.max || "undefined" == typeof _._rev) {
+    _.node_chunk_info[o].min = u.min;
+    _.node_chunk_info[o].max = u.max;
+    await s.put(_);
   }
-  let _ = u.min, b = u.max;
-  for (const s of m.accepted_nodes) if (s != o) if (s in m.node_chunk_info) {
-    const r = m.node_chunk_info[s];
-    _ = Math.max(r.min, _);
+  let m = u.min, b = u.max;
+  for (const s of _.accepted_nodes) if (s != o) if (s in _.node_chunk_info) {
+    const r = _.node_chunk_info[s];
+    m = Math.max(r.min, m);
     b = Math.min(r.max, b);
   } else {
-    _ = 0;
+    m = 0;
     b = 0;
   }
-  if (b < _) if (!r.ignoreVersionCheck) return "INCOMPATIBLE";
-  if (m.locked) {
-    if (-1 == m.accepted_nodes.indexOf(o)) if (m.cleaned) return "NODE_CLEANED"; else return "NODE_LOCKED";
+  if (b < m) if (!r.ignoreVersionCheck) return "INCOMPATIBLE";
+  if (_.locked) {
+    if (-1 == _.accepted_nodes.indexOf(o)) if (_.cleaned) return "NODE_CLEANED"; else return "NODE_LOCKED";
     return "LOCKED";
   }
   return "OK";
@@ -19370,18 +19312,18 @@ var LiveSyncLocalDB = class {
     if (0 == u.length) return o.map((s => s.chunk));
     const g = await this.env.getReplicator().fetchRemoteChunks(u, r);
     if (false == g) return false;
-    const m = g.length;
+    const _ = g.length;
     g.forEach((s => this.hashCaches.set(s._id, s.data)));
     await this.localDatabase.bulkDocs(g, {
       new_edits: false
     });
-    let _ = 0;
+    let m = 0;
     return o.map((s => !s.chunk ? function findChunk(s) {
       if (!g) throw Error("Chunk collecting error");
-      const r = _;
-      for (let o = 0; o < m; o++) {
-        const u = (r + o) % m;
-        _ = o;
+      const r = m;
+      for (let o = 0; o < _; o++) {
+        const u = (r + o) % _;
+        m = o;
         if (g[u]._id == s) return g[u];
       }
       throw Error("Chunk collecting error");
@@ -19485,20 +19427,20 @@ var LiveSyncLocalDB = class {
       const s = await this.localDatabase.allDocs({
         keys: o.map((s => s.id)),
         include_docs: true
-      }), u = s.rows.filter((s => !("error" in s))).map((s => s.doc)), g = s.rows.filter((s => "error" in s)).map((s => s.key)), m = (await this.localDatabase.allDocs({
+      }), u = s.rows.filter((s => !("error" in s))).map((s => s.doc)), g = s.rows.filter((s => "error" in s)).map((s => s.key)), _ = (await this.localDatabase.allDocs({
         keys: g.map((s => `_local/${s}`)),
         include_docs: true
       })).rows.filter((s => !("error" in s))).map((s => ({
         ...s.doc,
         _id: s.id.substring(7)
-      }))), _ = [ ...u, ...m ].reduce(((s, r) => ({
+      }))), m = [ ...u, ..._ ].reduce(((s, r) => ({
         ...s,
         [r._id]: r.data
       })), {});
       for (const s of u) this.hashCaches.set(s._id, s.data);
       return r.map((s => ({
         id: s.id,
-        chunk: false !== s.chunk ? s.chunk : s.id in _ ? _[s.id] : false
+        chunk: false !== s.chunk ? s.chunk : s.id in m ? m[s.id] : false
       }))).map((s => ({
         id: s.id,
         chunk: false !== s.chunk ? {
@@ -19642,8 +19584,8 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
         this.docArrived += s.change.docs.length;
       } else this.docSent += s.change.docs.length;
       if (r) {
-        const s = this.maxPullSeq, r = this.maxPushSeq, g = this.lastSyncPullSeq, m = this.lastSyncPushSeq, _ = 0 == m ? "" : m >= r ? " (LIVE)" : ` (${r - m})`, b = 0 == g ? "" : g >= s ? " (LIVE)" : ` (${s - g})`;
-        Logger(`↑${this.docSent - o}${_} ↓${this.docArrived - u}${b}`, LOG_LEVEL_NOTICE, "sync");
+        const s = this.maxPullSeq, r = this.maxPushSeq, g = this.lastSyncPullSeq, _ = this.lastSyncPushSeq, m = 0 == _ ? "" : _ >= r ? " (LIVE)" : ` (${r - _})`, b = 0 == g ? "" : g >= s ? " (LIVE)" : ` (${s - g})`;
+        Logger(`↑${this.docSent - o}${m} ↓${this.docArrived - u}${b}`, LOG_LEVEL_NOTICE, "sync");
       }
       this.updateInfo();
     } catch (s) {
@@ -19676,13 +19618,13 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
     this.updateInfo();
     Logger("Replication paused", LOG_LEVEL_VERBOSE, "sync");
   }
-  async processSync(s, r, o, u, g, m, _ = true) {
+  async processSync(s, r, o, u, g, _, m = true) {
     const b = new AbortController;
     if (this.controller) this.controller.abort();
     this.controller = b;
     const w = genReplication(s, b.signal);
     try {
-      for await (const [s, _] of w) {
+      for await (const [s, m] of w) {
         const b = await globalConcurrencyController.tryAcquire(1, REPLICATION_BUSY_TIMEOUT);
         if (false === b) {
           Logger("Replication stopped for busy.", r ? LOG_LEVEL_NOTICE : LOG_LEVEL_INFO, "sync");
@@ -19691,24 +19633,24 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
         b();
         switch (s) {
          case "change":
-          if ("direction" in _) {
-            if ("pull" == _.direction) this.lastSyncPullSeq = Number(`${_.change.last_seq}`.split("-")[0]); else this.lastSyncPushSeq = Number(`${_.change.last_seq}`.split("-")[0]);
-            await this.replicationChangeDetected(_, r, o, u);
+          if ("direction" in m) {
+            if ("pull" == m.direction) this.lastSyncPullSeq = Number(`${m.change.last_seq}`.split("-")[0]); else this.lastSyncPushSeq = Number(`${m.change.last_seq}`.split("-")[0]);
+            await this.replicationChangeDetected(m, r, o, u);
           } else if ("pullOnly" == g) {
-            this.lastSyncPullSeq = Number(`${_.last_seq}`.split("-")[0]);
+            this.lastSyncPullSeq = Number(`${m.last_seq}`.split("-")[0]);
             await this.replicationChangeDetected({
               direction: "pull",
-              change: _
+              change: m
             }, r, o, u);
           } else if ("pushOnly" == g) {
-            this.lastSyncPushSeq = Number(`${_.last_seq}`.split("-")[0]);
+            this.lastSyncPushSeq = Number(`${m.last_seq}`.split("-")[0]);
             this.updateInfo();
             await this.replicationChangeDetected({
               direction: "push",
-              change: _
+              change: m
             }, r, o, u);
           }
-          if (m) if (this.docSent - o + (this.docArrived - u) > 2 * this.originalSetting.batch_size) return "NEED_RESURRECT";
+          if (_) if (this.docSent - o + (this.docArrived - u) > 2 * this.originalSetting.batch_size) return "NEED_RESURRECT";
           break;
 
          case "complete":
@@ -19720,21 +19662,21 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
           break;
 
          case "denied":
-          this.replicationDenied(_);
+          this.replicationDenied(m);
           return "FAILED";
 
          case "error":
-          this.replicationErrored(_);
+          this.replicationErrored(m);
           Logger("Replication stopped.", r ? LOG_LEVEL_NOTICE : LOG_LEVEL_INFO, "sync");
           if (this.env.getLastPostFailedBySize()) {
-            if (_ && 413 == (null == _ ? void 0 : _.status)) {
+            if (m && 413 == (null == m ? void 0 : m.status)) {
               Logger("Self-hosted LiveSync has detected some remote-database-incompatible chunks that exist in the local database. It means synchronization with the server had been no longer possible.\n\nThe problem may be caused by chunks that were created with the faulty version or by switching platforms of the database.\nTo solve the circumstance, configure the remote database correctly or we have to rebuild both local and remote databases.", LOG_LEVEL_NOTICE);
               return;
             }
             return "NEED_RETRY";
           } else {
             Logger("Replication error", LOG_LEVEL_NOTICE, "sync");
-            Logger(_);
+            Logger(m);
           }
           return "FAILED";
 
@@ -19746,10 +19688,10 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
           break;
 
          default:
-          Logger(`Unexpected synchronization status:${JSON.stringify(_)}`);
+          Logger(`Unexpected synchronization status:${JSON.stringify(m)}`);
         }
       }
-      if (_) return "DONE"; else return "CANCELLED";
+      if (m) return "DONE"; else return "CANCELLED";
     } catch (s) {
       Logger("Unexpected synchronization exception");
       Logger(s, LOG_LEVEL_VERBOSE);
@@ -19763,33 +19705,33 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
       Logger("Replication is already in progress.", r ? LOG_LEVEL_NOTICE : LOG_LEVEL_INFO, "sync");
       return false;
     }
-    const m = this.env.getDatabase();
+    const _ = this.env.getDatabase();
     Logger(`OneShot Sync begin... (${u})`);
-    const _ = await this.checkReplicationConnectivity(s, false, o, r, g);
-    if (false === _) {
+    const m = await this.checkReplicationConnectivity(s, false, o, r, g);
+    if (false === m) {
       Logger("Could not connect to server.", r ? LOG_LEVEL_NOTICE : LOG_LEVEL_INFO, "sync");
       return false;
     }
-    this.maxPullSeq = Number(`${_.info.update_seq}`.split("-")[0]);
-    this.maxPushSeq = Number(`${(await m.info()).update_seq}`.split("-")[0]);
+    this.maxPullSeq = Number(`${m.info.update_seq}`.split("-")[0]);
+    this.maxPushSeq = Number(`${(await _.info()).update_seq}`.split("-")[0]);
     if (r) Logger("Looking for the point last synchronized point.", LOG_LEVEL_NOTICE, "sync");
-    const {db: b, syncOptionBase: w} = _;
+    const {db: b, syncOptionBase: w} = m;
     this.syncStatus = "STARTED";
     this.updateInfo();
     const E = this.docArrived, S = this.docSent;
     if (!o) this.originalSetting = s;
     this.terminateSync();
     let L;
-    if ("sync" == u) L = m.sync(b, {
+    if ("sync" == u) L = _.sync(b, {
       checkpoint: "target",
       ...w
-    }); else if ("pullOnly" == u) L = m.replicate.from(b, {
+    }); else if ("pullOnly" == u) L = _.replicate.from(b, {
       checkpoint: "target",
       ...w,
       ...s.readChunksOnline ? {
         filter: "replicate/pull"
       } : {}
-    }); else if ("pushOnly" == u) L = m.replicate.to(b, {
+    }); else if ("pushOnly" == u) L = _.replicate.to(b, {
       checkpoint: "target",
       ...w,
       ...s.readChunksOnline ? {
@@ -19829,26 +19771,26 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
       Logger("Open settings and check message, please.", LOG_LEVEL_NOTICE);
       return false;
     }
-    const m = s.couchDB_URI + ("" == s.couchDB_DBNAME ? "" : "/" + s.couchDB_DBNAME);
+    const _ = s.couchDB_URI + ("" == s.couchDB_DBNAME ? "" : "/" + s.couchDB_DBNAME);
     if (null != this.controller) {
       Logger("Another replication running.");
       return false;
     }
-    const _ = await this.connectRemoteCouchDBWithSetting(s, this.env.getIsMobile(), true);
-    if ("string" == typeof _) {
-      Logger(`Could not connect to ${m}: ${_}`, u ? LOG_LEVEL_NOTICE : LOG_LEVEL_INFO);
+    const m = await this.connectRemoteCouchDBWithSetting(s, this.env.getIsMobile(), true);
+    if ("string" == typeof m) {
+      Logger(`Could not connect to ${_}: ${m}`, u ? LOG_LEVEL_NOTICE : LOG_LEVEL_INFO);
       return false;
     }
     if (!o) {
-      await putDesignDocuments(_.db);
-      if (!await checkRemoteVersion(_.db, this.migrate.bind(this), VER)) {
+      await putDesignDocuments(m.db);
+      if (!await checkRemoteVersion(m.db, this.migrate.bind(this), VER)) {
         Logger("Remote database is newer or corrupted, make sure to latest version of self-hosted-livesync installed", LOG_LEVEL_NOTICE);
         return false;
       }
       this.remoteCleaned = false;
       this.remoteLocked = false;
       this.remoteLockedAndDeviceNotAccepted = false;
-      const r = await ensureDatabaseIsCompatible(_.db, s, this.nodeid, currentVersionRange);
+      const r = await ensureDatabaseIsCompatible(m.db, s, this.nodeid, currentVersionRange);
       if ("INCOMPATIBLE" == r) {
         Logger("The remote database has no compatibility with the running version. Please upgrade the plugin.", LOG_LEVEL_NOTICE);
         return false;
@@ -19886,8 +19828,8 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
       ...b
     };
     return {
-      db: _.db,
-      info: _.info,
+      db: m.db,
+      info: m.info,
       syncOptionBase: b,
       syncOption: w
     };
@@ -19907,7 +19849,7 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
         return false;
       }
       if (r) Logger("Looking for the point last synchronized point.", LOG_LEVEL_NOTICE, "sync");
-      const {db: m, syncOption: _} = g;
+      const {db: _, syncOption: m} = g;
       this.syncStatus = "STARTED";
       this.maxPullSeq = Number(`${g.info.update_seq}`.split("-")[0]);
       this.maxPushSeq = Number(`${(await u.info()).update_seq}`.split("-")[0]);
@@ -19915,8 +19857,8 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
       const b = this.docArrived, w = this.docSent;
       if (!o) this.originalSetting = s;
       this.terminateSync();
-      const E = u.sync(m, {
-        ..._,
+      const E = u.sync(_, {
+        ...m,
         pull: {
           checkpoint: "target"
         },
@@ -19979,7 +19921,7 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
       Logger("Remote database is newer or corrupted, make sure to latest version of self-hosted-livesync installed", LOG_LEVEL_NOTICE);
       return;
     }
-    const m = {
+    const _ = {
       _id: MILSTONE_DOCID,
       type: "milestoneinfo",
       created: new Date / 1,
@@ -19989,19 +19931,19 @@ var idbProxyableTypes, cursorAdvanceMethods, LiveSyncDBReplicator = class {
       node_chunk_info: {
         [this.nodeid]: currentVersionRange
       }
-    }, _ = {
-      ...m,
-      ...await resolveWithIgnoreKnownError(g.db.get(MILSTONE_DOCID), m)
+    }, m = {
+      ..._,
+      ...await resolveWithIgnoreKnownError(g.db.get(MILSTONE_DOCID), _)
     };
-    _.node_chunk_info = {
-      ...m.node_chunk_info,
-      ..._.node_chunk_info
+    m.node_chunk_info = {
+      ..._.node_chunk_info,
+      ...m.node_chunk_info
     };
-    _.accepted_nodes = [ this.nodeid ];
-    _.locked = r;
-    _.cleaned = _.cleaned || o;
+    m.accepted_nodes = [ this.nodeid ];
+    m.locked = r;
+    m.cleaned = m.cleaned || o;
     if (r) Logger("Lock remote database to prevent data corruption", LOG_LEVEL_NOTICE); else Logger("Unlock remote database to prevent data corruption", LOG_LEVEL_NOTICE);
-    await g.db.put(_);
+    await g.db.put(m);
   }
   async markRemoteResolved(s) {
     const r = s.couchDB_URI + ("" == s.couchDB_DBNAME ? "" : "/" + s.couchDB_DBNAME), o = await this.connectRemoteCouchDBWithSetting(s, this.env.getIsMobile(), true);
@@ -20166,14 +20108,14 @@ function wrap(s) {
 
 var unwrap = s => reverseTransformCache.get(s);
 
-function openDB(s, r, {blocked: o, upgrade: u, blocking: g, terminated: m} = {}) {
-  const _ = indexedDB.open(s, r), b = wrap(_);
-  if (u) _.addEventListener("upgradeneeded", (s => {
-    u(wrap(_.result), s.oldVersion, s.newVersion, wrap(_.transaction), s);
+function openDB(s, r, {blocked: o, upgrade: u, blocking: g, terminated: _} = {}) {
+  const m = indexedDB.open(s, r), b = wrap(m);
+  if (u) m.addEventListener("upgradeneeded", (s => {
+    u(wrap(m.result), s.oldVersion, s.newVersion, wrap(m.transaction), s);
   }));
-  if (o) _.addEventListener("blocked", (s => o(s.oldVersion, s.newVersion, s)));
+  if (o) m.addEventListener("blocked", (s => o(s.oldVersion, s.newVersion, s)));
   b.then((s => {
-    if (m) s.addEventListener("close", (() => m()));
+    if (_) s.addEventListener("close", (() => _()));
     if (g) s.addEventListener("versionchange", (s => g(s.oldVersion, s.newVersion, s)));
   })).catch((() => {}));
   return b;
@@ -20193,10 +20135,10 @@ function getMethod(s, r) {
   const o = r.replace(/FromIndex$/, ""), u = r !== o, g = writeMethods.includes(o);
   if (!(o in (u ? IDBIndex : IDBObjectStore).prototype) || !(g || readMethods.includes(o))) return;
   const method = async function(s, ...r) {
-    const m = this.transaction(s, g ? "readwrite" : "readonly");
-    let _ = m.store;
-    if (u) _ = _.index(r.shift());
-    return (await Promise.all([ _[o](...r), g && m.done ]))[0];
+    const _ = this.transaction(s, g ? "readwrite" : "readonly");
+    let m = _.store;
+    if (u) m = m.index(r.shift());
+    return (await Promise.all([ m[o](...r), g && _.done ]))[0];
   };
   cachedMethods.set(r, method);
   return method;
@@ -20323,8 +20265,8 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
     const u = ~~((o && o.mtime || 0) / 1e3), g = `${s}-${u}`;
     if (this.recentProcessedInternalFiles.contains(g)) return;
     this.recentProcessedInternalFiles = [ g, ...this.recentProcessedInternalFiles ].slice(0, 100);
-    const m = addPrefix(s, ICHeader), _ = await this.localDatabase.getDBEntryMeta(m);
-    if (~~((_ && _.mtime || 0) / 1e3) != u) if (0 == u) await this.deleteInternalFileOnDatabase(s); else await this.storeInternalFileToDatabase({
+    const _ = addPrefix(s, ICHeader), m = await this.localDatabase.getDBEntryMeta(_);
+    if (~~((m && m.mtime || 0) / 1e3) != u) if (0 == u) await this.deleteInternalFileOnDatabase(s); else await this.storeInternalFileToDatabase({
       path: s,
       ...o
     });
@@ -20344,9 +20286,9 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
       if (!("_conflicts" in g)) return false;
       if (0 == g._conflicts.length) return false;
       Logger(`Hidden file conflicted:${s}`);
-      const m = g._conflicts.sort(((s, r) => Number(s.split("-")[0]) - Number(r.split("-")[0]))), _ = g._rev, b = m[0];
+      const _ = g._conflicts.sort(((s, r) => Number(s.split("-")[0]) - Number(r.split("-")[0]))), m = g._rev, b = _[0];
       if (s.endsWith(".json")) {
-        const w = m[0], E = Number(w.split("-")[0]), S = null != (o = null == (r = (await this.localDatabase.getRaw(u, {
+        const w = _[0], E = Number(w.split("-")[0]), S = null != (o = null == (r = (await this.localDatabase.getRaw(u, {
           revs_info: true
         }))._revs_info.filter((s => "available" == s.status && Number(s.rev.split("-")[0]) < E)).first()) ? void 0 : r.rev) ? o : "", L = await this.plugin.mergeObject(s, S, g._rev, w);
         if (L) {
@@ -20364,7 +20306,7 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
           return this.resolveConflictOnInternalFile(s);
         } else Logger("Object merge is not applicable.", LOG_LEVEL_VERBOSE);
         const O = await this.localDatabase.getDBEntry(s, {
-          rev: _
+          rev: m
         }), D = await this.localDatabase.getDBEntry(s, {
           rev: b
         });
@@ -20378,7 +20320,7 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
       }
       const w = await this.localDatabase.getRaw(u, {
         rev: b
-      }), E = ("mtime" in g && g.mtime || 0) < ("mtime" in w && w.mtime || 0) ? _ : b;
+      }), E = ("mtime" in g && g.mtime || 0) < ("mtime" in w && w.mtime || 0) ? m : b;
       await this.localDatabase.removeRaw(u, E);
       Logger(`Older one has been deleted:${s}`);
       return this.resolveConflictOnInternalFile(s);
@@ -20392,9 +20334,9 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
     await this.resolveConflictOnInternalFiles();
     const g = r ? LOG_LEVEL_NOTICE : LOG_LEVEL_INFO;
     Logger("Scanning hidden files.", g, "sync_internal");
-    const m = this.settings.syncInternalFilesIgnorePatterns.replace(/\n| /g, "").split(",").filter((s => s)).map((s => new RegExp(s, "i"))), _ = normalizePath(this.app.vault.configDir);
+    const _ = this.settings.syncInternalFilesIgnorePatterns.replace(/\n| /g, "").split(",").filter((s => s)).map((s => new RegExp(s, "i"))), m = normalizePath(this.app.vault.configDir);
     let b = o ? o : await this.scanInternalFiles();
-    const w = !this.settings.usePluginSync ? [] : Object.values(this.settings.pluginSyncExtendedSetting).filter((s => s.mode == MODE_SELECTIVE || s.mode == MODE_PAUSED)).map((s => s.files)).flat().map((s => `${_}/${s}`.toLowerCase()));
+    const w = !this.settings.usePluginSync ? [] : Object.values(this.settings.pluginSyncExtendedSetting).filter((s => s.mode == MODE_SELECTIVE || s.mode == MODE_PAUSED)).map((s => s.files)).flat().map((s => `${m}/${s}`.toLowerCase()));
     b = b.filter((s => w.every((r => !s.path.toLowerCase().startsWith(r)))));
     const E = (await this.localDatabase.allDocsRaw({
       startkey: ICHeader,
@@ -20427,22 +20369,22 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
       O++;
       if (O % 100 == 0) Logger(`Hidden file: ${O}/${L}`, g, "sync_internal");
       if (!r) continue;
-      if (m.some((s => r.match(s)))) continue;
+      if (_.some((s => r.match(s)))) continue;
       if (await this.plugin.isIgnoredByIgnoreFiles(r)) continue;
-      const o = r in T ? T[r] : void 0, u = r in I ? I[r] : void 0, _ = r in C ? C[r] : {
+      const o = r in T ? T[r] : void 0, u = r in I ? I[r] : void 0, m = r in C ? C[r] : {
         storageMtime: 0,
         docMtime: 0
       };
       await A.wait(5);
       const proc = async (o, u) => {
         if (o && u) {
-          if ("pullForce" != s && "pushForce" != s && u.mtime == _.docMtime && o.mtime == _.storageMtime) return;
+          if ("pullForce" != s && "pushForce" != s && u.mtime == m.docMtime && o.mtime == m.storageMtime) return;
           const g = ~~(o.mtime / 1e3) - ~~(u.mtime / 1e3);
           if (g > 0 || "pushForce" == s) await this.storeInternalFileToDatabase(o);
           if (g < 0 || "pullForce" == s) if (!await this.extractInternalFileFromDatabase(r)) return;
-          _.docMtime = u.mtime;
-          _.storageMtime = o.mtime;
-          C[r] = _;
+          m.docMtime = u.mtime;
+          m.storageMtime = o.mtime;
+          C[r] = m;
           countUpdatedFolder(r);
         } else if (!o && u) {
           if ("push" == s || "pushForce" == s) {
@@ -20460,8 +20402,8 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
     }
     await A.all();
     await this.kvDB.set("diff-caches-internal", C);
-    if (("pull" == s || "pullForce" == s) && 0 != D) if (_ in k) {
-      let s = k[_];
+    if (("pull" == s || "pullForce" == s) && 0 != D) if (m in k) {
+      let s = k[m];
       try {
         const r = Object.values(this.app.plugins.manifests), o = this.app.plugins.enabledPlugins, u = r.filter((s => o.has(s.id)));
         for (const r of u) if (r.dir in k) {
@@ -20493,15 +20435,15 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
   async storeInternalFileToDatabase(s, r = false) {
     if (await this.plugin.isIgnoredByIgnoreFiles(s.path)) return;
     const o = await this.path2id(s.path, ICHeader), u = addPrefix(s.path, ICHeader), g = await this.app.vault.adapter.readBinary(s.path);
-    let m;
+    let _;
     try {
-      m = await encodeBinary(g, this.settings.useV1);
+      _ = createBinaryBlob(g);
     } catch (r) {
       Logger(`The file ${s.path} could not be encoded`);
       Logger(r, LOG_LEVEL_VERBOSE);
       return false;
     }
-    const _ = s.mtime;
+    const m = s.mtime;
     return await serialized("file-" + u, (async () => {
       try {
         const g = await this.localDatabase.getDBEntry(u, null, false, false);
@@ -20509,20 +20451,20 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
         if (false === g) b = {
           _id: o,
           path: u,
-          data: m,
-          mtime: _,
-          ctime: _,
+          data: _,
+          mtime: m,
+          ctime: m,
           datatype: "newnote",
           size: s.size,
           children: [],
           deleted: false,
           type: "newnote"
         }; else {
-          if (isDocContentSame(g.data, m) && !r) return;
+          if (isDocContentSame(g.data, _) && !r) return;
           b = {
             ...g,
-            data: m,
-            mtime: _,
+            data: _,
+            mtime: m,
             size: s.size,
             datatype: "newnote",
             children: [],
@@ -20545,8 +20487,8 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
     if (!await this.plugin.isIgnoredByIgnoreFiles(s)) await serialized("file-" + u, (async () => {
       try {
         const r = await this.localDatabase.getDBEntryMeta(u, null, true);
-        let m;
-        if (false === r) m = {
+        let _;
+        if (false === r) _ = {
           _id: o,
           path: u,
           mtime: g,
@@ -20560,7 +20502,7 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
             Logger(`STORAGE -x> DB:${s}: (hidden) already deleted`);
             return;
           }
-          m = {
+          _ = {
             ...r,
             mtime: g,
             size: 0,
@@ -20569,7 +20511,7 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
             type: "newnote"
           };
         }
-        await this.localDatabase.putRaw(m);
+        await this.localDatabase.putRaw(_);
         Logger(`STORAGE -x> DB:${s}: (hidden) Done`);
       } catch (r) {
         Logger(`STORAGE -x> DB:${s}: (hidden) Failed`);
@@ -20583,15 +20525,15 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
     if (!await this.plugin.isIgnoredByIgnoreFiles(s)) return await serialized("file-" + u, (async () => {
       var g;
       try {
-        const m = await this.localDatabase.getDBEntry(u, {
+        const _ = await this.localDatabase.getDBEntry(u, {
           conflicts: true
         }, false, true);
-        if (false === m) throw new Error(`File not found on database.:${s}`);
-        if (null == (g = null == m ? void 0 : m._conflicts) ? void 0 : g.length) {
+        if (false === _) throw new Error(`File not found on database.:${s}`);
+        if (null == (g = null == _ ? void 0 : _._conflicts) ? void 0 : g.length) {
           Logger(`Hidden file ${s} has conflicted revisions, to keep in safe, writing to storage has been prevented`, LOG_LEVEL_INFO);
           return;
         }
-        if ("deleted" in m ? m.deleted : false) {
+        if ("deleted" in _ ? _.deleted : false) {
           if (!o) Logger(`STORAGE <x- DB:${s}: deleted (hidden) Deleted on DB, but the file is  already not found on storage.`); else {
             Logger(`STORAGE <x- DB:${s}: deleted (hidden).`);
             await this.app.vault.adapter.remove(s);
@@ -20606,9 +20548,9 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
         }
         if (!o) {
           await this.ensureDirectoryEx(s);
-          await this.app.vault.adapter.writeBinary(s, decodeBinary(m.data), {
-            mtime: m.mtime,
-            ctime: m.ctime
+          await this.app.vault.adapter.writeBinary(s, decodeBinary(_.data), {
+            mtime: _.mtime,
+            ctime: _.ctime
           });
           try {
             await this.app.vault.adapter.reconcileInternalFile(s);
@@ -20620,10 +20562,10 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
           return true;
         } else {
           const o = await this.app.vault.adapter.readBinary(s);
-          if (isDocContentSame(await encodeBinary(o, this.settings.useV1), m.data) && !r) return true;
-          await this.app.vault.adapter.writeBinary(s, decodeBinary(m.data), {
-            mtime: m.mtime,
-            ctime: m.ctime
+          if (isDocContentSame(await encodeBinary(o), _.data) && !r) return true;
+          await this.app.vault.adapter.writeBinary(s, decodeBinary(_.data), {
+            mtime: _.mtime,
+            ctime: _.ctime
           });
           try {
             await this.app.vault.adapter.reconcileInternalFile(s);
@@ -20647,38 +20589,38 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
       const u = [ s, r ], g = stripAllPrefixes(s.path);
       new JsonResolveModal(this.app, g, [ s, r ], (async (s, r) => {
         try {
-          const m = g;
-          let _ = false;
+          const _ = g;
+          let m = false;
           if (!r && !s) {
-            Logger(`Skipped merging: ${m}`);
+            Logger(`Skipped merging: ${_}`);
             o(false);
             return;
           }
           if (r || s) for (const r of u) if (r._rev != s) if (await this.localDatabase.deleteDBEntry(this.getPath(r), {
             rev: r._rev
           })) {
-            Logger(`Conflicted revision has been deleted: ${m}`);
-            _ = true;
+            Logger(`Conflicted revision has been deleted: ${_}`);
+            m = true;
           }
           if (!s && r) {
-            if (!await this.app.vault.adapter.exists(m)) await this.ensureDirectoryEx(m);
-            await this.app.vault.adapter.write(m, r);
-            const s = await this.app.vault.adapter.stat(m);
+            if (!await this.app.vault.adapter.exists(_)) await this.ensureDirectoryEx(_);
+            await this.app.vault.adapter.write(_, r);
+            const s = await this.app.vault.adapter.stat(_);
             await this.storeInternalFileToDatabase({
-              path: m,
+              path: _,
               ...s
             }, true);
             try {
-              await this.app.vault.adapter.reconcileInternalFile(m);
+              await this.app.vault.adapter.reconcileInternalFile(_);
             } catch (s) {
               Logger("Failed to call internal API(reconcileInternalFile)", LOG_LEVEL_VERBOSE);
               Logger(s, LOG_LEVEL_VERBOSE);
             }
-            Logger(`STORAGE <-- DB:${m}: written (hidden,merged)`);
+            Logger(`STORAGE <-- DB:${_}: written (hidden,merged)`);
           }
-          if (_) {
-            await this.extractInternalFileFromDatabase(m, false);
-            Logger(`STORAGE --\x3e DB:${m}: extracted (hidden,merged)`);
+          if (m) {
+            await this.extractInternalFileFromDatabase(_, false);
+            Logger(`STORAGE --\x3e DB:${_}: extracted (hidden,merged)`);
           }
           o(true);
         } catch (s) {
@@ -20693,25 +20635,25 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
     const s = normalizePath(this.app.vault.configDir), r = this.settings.syncInternalFilesIgnorePatterns.replace(/\n| /g, "").split(",").filter((s => s)).map((s => new RegExp(s, "i"))), o = !this.settings.usePluginSync ? [] : Object.values(this.settings.pluginSyncExtendedSetting).filter((s => s.mode == MODE_SELECTIVE || s.mode == MODE_PAUSED)).map((s => s.files)).flat().map((r => `${s}/${r}`.toLowerCase())), u = this.app.vault.getRoot().path, g = (await this.getFiles(u, [], null, r)).filter((s => s.startsWith("."))).filter((s => !s.startsWith(".trash"))).filter((s => o.every((r => !s.toLowerCase().startsWith(r))))).map((async s => ({
       path: s,
       stat: await this.app.vault.adapter.stat(s)
-    }))), m = [];
+    }))), _ = [];
     for (const s of g) {
       const r = await s;
-      if (!await this.plugin.isIgnoredByIgnoreFiles(r.path)) m.push({
+      if (!await this.plugin.isIgnoredByIgnoreFiles(r.path)) _.push({
         ...r,
         ...r.stat
       });
     }
-    return m;
+    return _;
   }
   async getFiles(s, r, o, u) {
-    const g = await this.app.vault.adapter.list(s), m = [ ...g.files.filter((s => !r.some((r => s.endsWith(r))))).filter((s => !o || o.some((r => s.match(r))))).filter((s => !u || u.every((r => !s.match(r))))) ];
-    let _ = [];
-    for (const s of m) if (!await this.plugin.isIgnoredByIgnoreFiles(s)) _.push(s);
+    const g = await this.app.vault.adapter.list(s), _ = [ ...g.files.filter((s => !r.some((r => s.endsWith(r))))).filter((s => !o || o.some((r => s.match(r))))).filter((s => !u || u.every((r => !s.match(r))))) ];
+    let m = [];
+    for (const s of _) if (!await this.plugin.isIgnoredByIgnoreFiles(s)) m.push(s);
     e: for (const s of g.folders) {
       for (const o of r) if (s.endsWith(o)) continue e;
-      if (!u || !u.some((r => s.match(r)))) if (!await this.plugin.isIgnoredByIgnoreFiles(s)) _ = _.concat(await this.getFiles(s, r, o, u));
+      if (!u || !u.some((r => s.match(r)))) if (!await this.plugin.isIgnoredByIgnoreFiles(s)) m = m.concat(await this.getFiles(s, r, o, u));
     }
-    return _;
+    return m;
   }
 }, SetupLiveSync = class extends LiveSyncCommands {
   onunload() {}
@@ -20757,8 +20699,8 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
     if (s) delete o.pluginSyncExtendedSetting;
     const u = Object.keys(o);
     for (const s of u) if (JSON.stringify(s in o ? o[s] : "") == JSON.stringify(s in DEFAULT_SETTINGS ? DEFAULT_SETTINGS[s] : "*")) delete o[s];
-    const g = encodeURIComponent(await encrypt(JSON.stringify(o), r, false, true)), m = `${configURIBase}${g}`;
-    await navigator.clipboard.writeText(m);
+    const g = encodeURIComponent(await encrypt(JSON.stringify(o), r, false)), _ = `${configURIBase}${g}`;
+    await navigator.clipboard.writeText(_);
     Logger("Setup URI copied to clipboard", LOG_LEVEL_NOTICE);
   }
   async command_copySetupURIFull() {
@@ -20769,7 +20711,7 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
       configPassphraseStore: "",
       encryptedCouchDBConnection: "",
       encryptedPassphrase: ""
-    }, o = encodeURIComponent(await encrypt(JSON.stringify(r), s, false, true)), u = `${configURIBase}${o}`;
+    }, o = encodeURIComponent(await encrypt(JSON.stringify(r), s, false)), u = `${configURIBase}${o}`;
     await navigator.clipboard.writeText(u);
     Logger("Setup URI copied to clipboard", LOG_LEVEL_NOTICE);
   }
@@ -20801,11 +20743,11 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
           s.configPassphraseStore = "";
           s.encryptedPassphrase = "";
           s.encryptedCouchDBConnection = "";
-          const o = "Just import setting", g = "Set it up as secondary or subsequent device", m = "Secondary device but try keeping local changes", _ = "Reconfigure and reconstitute the data", b = "Leave everything to me";
+          const o = "Just import setting", g = "Set it up as secondary or subsequent device", _ = "Secondary device but try keeping local changes", m = "Reconfigure and reconstitute the data", b = "Leave everything to me";
           s.syncInternalFiles = false;
           s.usePluginSync = false;
           if (!s.useIndexedDBAdapter) s.useIndexedDBAdapter = true;
-          const w = await askSelectString(this.app, "How would you like to set it up?", [ g, _, m, o, b ]);
+          const w = await askSelectString(this.app, "How would you like to set it up?", [ g, m, _, o, b ]);
           if (w == o) {
             this.plugin.settings = s;
             this.plugin.usedPassphrase = "";
@@ -20814,11 +20756,11 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
             this.plugin.settings = s;
             this.plugin.usedPassphrase = "";
             await this.fetchLocal();
-          } else if (w == m) {
+          } else if (w == _) {
             this.plugin.settings = s;
             this.plugin.usedPassphrase = "";
             await this.fetchLocalWithKeepLocal();
-          } else if (w == _) {
+          } else if (w == m) {
             const r = "I know this operation will rebuild all my databases with files on this device, and files that are on the remote database and I didn't synchronize to any other devices will be lost and want to proceed indeed.";
             if (await askSelectString(this.app, "Do you really want to do this?", [ "Cancel", r ]) != r) return;
             this.plugin.settings = s;
@@ -20877,13 +20819,13 @@ var databaseCache = {}, OpenKeyValueDatabase = async s => {
   }
   async askHiddenFileConfiguration(s) {
     this.plugin.addOnSetup.suspendExtraSync();
-    const r = `Would you like to enable \`Hidden File Synchronization\` or \`Customization sync\`?\n${s.enableFetch ? " - Fetch: Use files stored from other devices. \n" : ""}${s.enableOverwrite ? "- Overwrite: Use files from this device. \n" : ""}- Custom: Synchronize only customization files with a dedicated interface.\n- Keep them disabled: Do not use hidden file synchronization.\nOf course, we are able to disable these features.`, o = "Fetch", u = "Overwrite", g = "Custom", m = "keep them disabled", _ = [];
-    if (null == s ? void 0 : s.enableFetch) _.push(o);
-    if (null == s ? void 0 : s.enableOverwrite) _.push(u);
-    _.push(g);
-    _.push(m);
-    const b = await confirmWithMessage(this.plugin, "Hidden file sync", r, _, m, 40);
-    if (b == o) await this.configureHiddenFileSync("FETCH"); else if (b == u) await this.configureHiddenFileSync("OVERWRITE"); else if (b == m) await this.configureHiddenFileSync("DISABLE"); else if (b == g) await this.configureHiddenFileSync("CUSTOMIZE");
+    const r = `Would you like to enable \`Hidden File Synchronization\` or \`Customization sync\`?\n${s.enableFetch ? " - Fetch: Use files stored from other devices. \n" : ""}${s.enableOverwrite ? "- Overwrite: Use files from this device. \n" : ""}- Custom: Synchronize only customization files with a dedicated interface.\n- Keep them disabled: Do not use hidden file synchronization.\nOf course, we are able to disable these features.`, o = "Fetch", u = "Overwrite", g = "Custom", _ = "keep them disabled", m = [];
+    if (null == s ? void 0 : s.enableFetch) m.push(o);
+    if (null == s ? void 0 : s.enableOverwrite) m.push(u);
+    m.push(g);
+    m.push(_);
+    const b = await confirmWithMessage(this.plugin, "Hidden file sync", r, m, _, 40);
+    if (b == o) await this.configureHiddenFileSync("FETCH"); else if (b == u) await this.configureHiddenFileSync("OVERWRITE"); else if (b == _) await this.configureHiddenFileSync("DISABLE"); else if (b == g) await this.configureHiddenFileSync("CUSTOMIZE");
   }
   async configureHiddenFileSync(s) {
     this.plugin.addOnSetup.suspendExtraSync();
@@ -21086,8 +21028,8 @@ function create_else_block_23(s) {
       attr(o, "class", "svelte-1vjy5r1");
       attr(r, "class", "svelte-1vjy5r1");
     },
-    m(m, _) {
-      insert(m, r, _);
+    m(_, m) {
+      insert(_, r, m);
       append(r, o);
       if (!u) {
         g = listen(o, "click", s[17]);
@@ -21139,18 +21081,18 @@ function create_else_block_14(s) {
 }
 
 function create_if_block_24(s) {
-  let r, o, u, g, m = s[26].rev + "";
+  let r, o, u, g, _ = s[26].rev + "";
   function click_handler_2() {
     return s[19](s[26]);
   }
   return {
     c() {
       r = element("a");
-      o = text(m);
+      o = text(_);
       attr(r, "class", "svelte-1vjy5r1");
     },
-    m(s, m) {
-      insert(s, r, m);
+    m(s, _) {
+      insert(s, r, _);
       append(r, o);
       if (!u) {
         g = listen(r, "click", click_handler_2);
@@ -21159,7 +21101,7 @@ function create_if_block_24(s) {
     },
     p(r, u) {
       s = r;
-      if (32 & u && m !== (m = s[26].rev + "")) set_data(o, m);
+      if (32 & u && _ !== (_ = s[26].rev + "")) set_data(o, _);
     },
     d(s) {
       if (s) detach(r);
@@ -21191,7 +21133,7 @@ function create_if_block_14(s) {
 }
 
 function create_each_block4(s) {
-  let r, o, u, g, m, _, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P, N, B = s[26].mtimeDisp + "", F = s[26].dirname.split("/").join("​/") + "", M = s[26].filename + "", V = s[26].changes + "";
+  let r, o, u, g, _, m, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P, N, B = s[26].mtimeDisp + "", F = s[26].dirname.split("/").join("​/") + "", M = s[26].filename + "", V = s[26].changes + "";
   function click_handler_1() {
     return s[18](s[26]);
   }
@@ -21205,8 +21147,8 @@ function create_each_block4(s) {
       o = element("td");
       u = text(B);
       g = space();
-      m = element("td");
-      _ = element("div");
+      _ = element("td");
+      m = element("div");
       b = element("span");
       w = text("/");
       E = text(F);
@@ -21227,8 +21169,8 @@ function create_each_block4(s) {
       attr(b, "class", "path svelte-1vjy5r1");
       attr(O, "class", "svelte-1vjy5r1");
       attr(L, "class", "filename svelte-1vjy5r1");
-      attr(_, "class", "filenames svelte-1vjy5r1");
-      attr(m, "class", "path svelte-1vjy5r1");
+      attr(m, "class", "filenames svelte-1vjy5r1");
+      attr(_, "class", "path svelte-1vjy5r1");
       attr(T, "class", "rev svelte-1vjy5r1");
       attr(C, "class", "svelte-1vjy5r1");
       attr(A, "class", "svelte-1vjy5r1");
@@ -21239,13 +21181,13 @@ function create_each_block4(s) {
       append(r, o);
       append(o, u);
       append(r, g);
-      append(r, m);
-      append(m, _);
-      append(_, b);
+      append(r, _);
+      append(_, m);
+      append(m, b);
       append(b, w);
       append(b, E);
-      append(_, S);
-      append(_, L);
+      append(m, S);
+      append(m, L);
       append(L, O);
       append(O, D);
       append(r, k);
@@ -21305,8 +21247,8 @@ function create_else_block4(s) {
       attr(o, "class", "svelte-1vjy5r1");
       attr(r, "class", "svelte-1vjy5r1");
     },
-    m(m, _) {
-      insert(m, r, _);
+    m(_, m) {
+      insert(_, r, m);
       append(r, o);
       if (!u) {
         g = listen(o, "click", s[20]);
@@ -21340,7 +21282,7 @@ function create_if_block4(s) {
 }
 
 function create_fragment4(s) {
-  let r, o, u, g, m, _, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P, N, B, F, M, V, G, j, q, U, z, W, H, K, Q, J, Y, X, Z, ee, te, ne, ie, se, ae, re, oe, le = s[6] && create_if_block_53(s), ce = s[1] && create_if_block_44(s);
+  let r, o, u, g, _, m, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P, N, B, F, M, V, G, j, q, U, z, W, H, K, Q, J, Y, X, Z, ee, te, ne, ie, se, ae, re, oe, le = s[6] && create_if_block_53(s), ce = s[1] && create_if_block_44(s);
   function select_block_type(s, r) {
     if (s[6]) return create_if_block_34; else return create_else_block_23;
   }
@@ -21357,9 +21299,9 @@ function create_fragment4(s) {
       o.textContent = "Vault history";
       u = space();
       g = element("div");
-      m = element("div");
-      _ = element("label");
-      _.textContent = "From:";
+      _ = element("div");
+      m = element("label");
+      m.textContent = "From:";
       b = element("input");
       w = space();
       E = element("div");
@@ -21414,12 +21356,12 @@ function create_fragment4(s) {
       ae = element("td");
       ge.c();
       attr(o, "class", "svelte-1vjy5r1");
-      attr(_, "for", "");
-      attr(_, "class", "svelte-1vjy5r1");
+      attr(m, "for", "");
+      attr(m, "class", "svelte-1vjy5r1");
       attr(b, "type", "date");
       b.disabled = s[6];
       attr(b, "class", "svelte-1vjy5r1");
-      attr(m, "class", "row svelte-1vjy5r1");
+      attr(_, "class", "row svelte-1vjy5r1");
       attr(S, "for", "");
       attr(S, "class", "svelte-1vjy5r1");
       attr(L, "type", "date");
@@ -21464,9 +21406,9 @@ function create_fragment4(s) {
       append(r, o);
       append(r, u);
       append(r, g);
-      append(g, m);
-      append(m, _);
-      append(m, b);
+      append(g, _);
+      append(_, m);
+      append(_, b);
       set_input_value(b, s[3]);
       append(g, w);
       append(g, E);
@@ -21598,7 +21540,7 @@ function mtimeToDate(s) {
 }
 
 function instance4(s, r, o) {
-  let {plugin: u} = r, g = false, m = false, _ = false, b = Date.now() - 6048e5, w = Date.now() + 1728e5;
+  let {plugin: u} = r, g = false, _ = false, m = false, b = Date.now() - 6048e5, w = Date.now() + 1728e5;
   const E = (new Date).getTimezoneOffset();
   let S = new Date(b - E).toISOString().split("T")[0], L = new Date(w - E).toISOString().split("T")[0], O = [], D = false;
   async function getHistory(s, r, E) {
@@ -21617,7 +21559,7 @@ function instance4(s, r, o) {
             revs_info: true
           }))._revs_info.reverse(), C = -1, T = 0, I = 1;
           for (const A of k) if ("available" == A.status) {
-            const k = !O && g || _ && A.rev == S._rev ? await o.getDBEntry(L, {
+            const k = !O && g || m && A.rev == S._rev ? await o.getDBEntry(L, {
               rev: A.rev
             }, false, false, true) : await o.getDBEntryMeta(L, {
               rev: A.rev
@@ -21650,7 +21592,7 @@ function instance4(s, r, o) {
             }
             const N = k._deleted || (null == k ? void 0 : k.deleted) || false;
             if (N) P += " 🗑️";
-            if (x == S._rev) if (_) {
+            if (x == S._rev) if (m) {
               const s = u.app.vault.getAbstractFileByPath(stripAllPrefixes(u.getPath(S)));
               if (s instanceof import_obsidian.TFile) {
                 let r = false;
@@ -21663,11 +21605,11 @@ function instance4(s, r, o) {
             }
             const B = u.getPath(k), [F, ...M] = B.split("/").reverse();
             let V = "";
-            if (m) {
+            if (_) {
               const r = null !== (s = null == k ? void 0 : k.children) && void 0 !== s ? s : [], u = await o.allDocsRaw({
                 keys: [ ...r ]
-              }), g = u.rows.length, m = u.rows.filter((s => "error" in s)).length;
-              if (0 == m) V = `✅ ${g}`; else V = `🔎 ${m} ✅ ${g}`;
+              }), g = u.rows.length, _ = u.rows.filter((s => "error" in s)).length;
+              if (0 == _) V = `✅ ${g}`; else V = `🔎 ${_} ✅ ${g}`;
             }
             E.push({
               id: k._id,
@@ -21719,7 +21661,7 @@ function instance4(s, r, o) {
       getHistory();
     }
   };
-  return [ g, m, _, S, L, O, D, nextWeek, prevWeek, showHistory, openFile, u, function input0_input_handler() {
+  return [ g, _, m, S, L, O, D, nextWeek, prevWeek, showHistory, openFile, u, function input0_input_handler() {
     S = this.value;
     o(3, S);
   }, function input1_input_handler() {
@@ -21729,11 +21671,11 @@ function instance4(s, r, o) {
     g = this.checked;
     o(0, g);
   }, function input3_change_handler() {
-    m = this.checked;
-    o(1, m);
-  }, function input4_change_handler() {
     _ = this.checked;
-    o(2, _);
+    o(1, _);
+  }, function input4_change_handler() {
+    m = this.checked;
+    o(2, m);
   }, () => nextWeek(), s => openFile(s.path), s => showHistory(s.path, s.rev), () => prevWeek() ];
 }
 
@@ -21805,7 +21747,7 @@ function create_each_block5(s) {
 }
 
 function create_fragment5(s) {
-  let r, o, u, g, m, _, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P = ensure_array_like(s[0]), N = [];
+  let r, o, u, g, _, m, b, w, E, S, L, O, D, k, C, T, I, A, x, R, P = ensure_array_like(s[0]), N = [];
   for (let r = 0; r < P.length; r += 1) N[r] = create_each_block5(get_each_context5(s, P, r));
   return {
     c() {
@@ -21813,8 +21755,8 @@ function create_fragment5(s) {
       o = comment(" <h1>Self-hosted LiveSync Log</h1> ");
       u = space();
       g = element("div");
-      m = element("div");
-      _ = element("label");
+      _ = element("div");
+      m = element("label");
       b = element("input");
       w = element("span");
       w.textContent = "Wrap";
@@ -21834,7 +21776,7 @@ function create_fragment5(s) {
       attr(b, "type", "checkbox");
       attr(b, "class", "svelte-1j0mkaj");
       attr(w, "class", "svelte-1j0mkaj");
-      attr(_, "class", "svelte-1j0mkaj");
+      attr(m, "class", "svelte-1j0mkaj");
       attr(L, "type", "checkbox");
       attr(L, "class", "svelte-1j0mkaj");
       attr(O, "class", "svelte-1j0mkaj");
@@ -21843,7 +21785,7 @@ function create_fragment5(s) {
       attr(C, "class", "svelte-1j0mkaj");
       attr(T, "class", "svelte-1j0mkaj");
       attr(k, "class", "svelte-1j0mkaj");
-      attr(m, "class", "row svelte-1j0mkaj");
+      attr(_, "class", "row svelte-1j0mkaj");
       attr(g, "class", "control svelte-1j0mkaj");
       attr(A, "class", "log svelte-1j0mkaj");
       attr(r, "class", "logpane svelte-1j0mkaj");
@@ -21853,18 +21795,18 @@ function create_fragment5(s) {
       append(r, o);
       append(r, u);
       append(r, g);
-      append(g, m);
-      append(m, _);
-      append(_, b);
+      append(g, _);
+      append(_, m);
+      append(m, b);
       b.checked = s[1];
-      append(_, w);
-      append(m, E);
-      append(m, S);
+      append(m, w);
+      append(_, E);
+      append(_, S);
       append(S, L);
       L.checked = s[2];
       append(S, O);
-      append(m, D);
-      append(m, k);
+      append(_, D);
+      append(_, k);
       append(k, C);
       C.checked = s[3];
       append(k, T);
@@ -21909,11 +21851,11 @@ function create_fragment5(s) {
 }
 
 function instance5(s, r, o) {
-  let u, g, m = [], _ = false, b = true, w = false;
+  let u, g, _ = [], m = false, b = true, w = false;
   onMount((async () => {
     u = logMessageStore.observe((s => {
       if (!w) {
-        o(0, m = [ ...s ]);
+        o(0, _ = [ ...s ]);
         if (b) if (g) o(4, g.scrollTop = g.scrollHeight, g);
       }
     }));
@@ -21925,9 +21867,9 @@ function instance5(s, r, o) {
   onDestroy((() => {
     if (u) u();
   }));
-  return [ m, _, b, w, g, function input0_change_handler() {
-    _ = this.checked;
-    o(1, _);
+  return [ _, m, b, w, g, function input0_change_handler() {
+    m = this.checked;
+    o(1, m);
   }, function input1_change_handler() {
     b = this.checked;
     o(2, b);
@@ -22054,7 +21996,7 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
   getIsMobile() {
     return this.isMobile;
   }
-  async connectRemoteCouchDB(s, r, o, u, g, m, _) {
+  async connectRemoteCouchDB(s, r, o, u, g, _, m) {
     if (!isValidRemoteCouchDBURI(s)) return "Remote URI is not valid";
     if (s.toLowerCase() != s) return "Remote URI and database name could not contain capital letters.";
     if (-1 !== s.indexOf(" ")) return "Remote URI and database name could not contain spaces.";
@@ -22066,10 +22008,10 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     const w = new index_es_default(s, {
       adapter: "http",
       auth: r,
-      skip_setup: !m,
+      skip_setup: !_,
       fetch: async (r, u) => {
-        var g, m;
-        let _ = "";
+        var g, _;
+        let m = "";
         const w = r.toString().substring(s.length), E = null != (g = null == u ? void 0 : u.method) ? g : "GET";
         if (null == u ? void 0 : u.body) {
           const r = u.body.toString().length;
@@ -22078,9 +22020,9 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
             Logger("This request should fail on IBM Cloudant.", LOG_LEVEL_VERBOSE);
             throw new Error("This request should fail on IBM Cloudant.");
           }
-          _ = ` (${r})`;
+          m = ` (${r})`;
         }
-        if (!o && "string" == typeof r && "string" == typeof (null != (m = null == u ? void 0 : u.body) ? m : "")) {
+        if (!o && "string" == typeof r && "string" == typeof (null != (_ = null == u ? void 0 : u.body) ? _ : "")) {
           const s = null == u ? void 0 : u.body, o = {
             ...null == u ? void 0 : u.headers
           };
@@ -22099,14 +22041,14 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
           try {
             const s = await fetchByAPI(g);
             if ("POST" == E || "PUT" == E) this.last_successful_post = s.status - s.status % 100 == 200; else this.last_successful_post = true;
-            Logger(`HTTP:${E}${_} to:${w} -> ${s.status}`, LOG_LEVEL_DEBUG);
+            Logger(`HTTP:${E}${m} to:${w} -> ${s.status}`, LOG_LEVEL_DEBUG);
             return new Response(s.arrayBuffer, {
               headers: s.headers,
               status: s.status,
               statusText: `${s.status}`
             });
           } catch (s) {
-            Logger(`HTTP:${E}${_} to:${w} -> failed`, LOG_LEVEL_VERBOSE);
+            Logger(`HTTP:${E}${m} to:${w} -> failed`, LOG_LEVEL_VERBOSE);
             if (-1 !== r.toString().indexOf("_bulk_docs")) this.last_successful_post = false;
             Logger(s);
             throw s;
@@ -22115,18 +22057,18 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
         try {
           const s = await fetch(r, u);
           if ("POST" == E || "PUT" == E) this.last_successful_post = s.ok; else this.last_successful_post = true;
-          Logger(`HTTP:${E}${_} to:${w} -> ${s.status}`, LOG_LEVEL_DEBUG);
+          Logger(`HTTP:${E}${m} to:${w} -> ${s.status}`, LOG_LEVEL_DEBUG);
           return s;
         } catch (s) {
-          Logger(`HTTP:${E}${_} to:${w} -> failed`, LOG_LEVEL_VERBOSE);
+          Logger(`HTTP:${E}${m} to:${w} -> failed`, LOG_LEVEL_VERBOSE);
           if (-1 !== r.toString().indexOf("_bulk_docs")) this.last_successful_post = false;
           Logger(s);
           throw s;
         }
       }
     });
-    if ("false" !== u && "string" == typeof u) enableEncryption(w, u, g, false, this.settings.useV1);
-    if (_) return {
+    if ("false" !== u && "string" == typeof u) enableEncryption(w, u, g, false);
+    if (m) return {
       db: w,
       info: {
         db_name: "",
@@ -22288,10 +22230,6 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     }
   }
   async onLayoutReady() {
-    if (void 0 === this.settings.useV1) {
-      this.settings.useV1 = await this.askEnableV2();
-      await this.saveSettingData();
-    }
     this.registerFileWatchEvents();
     if (this.localDatabase.isReady) try {
       if (this.isRedFlagRaised() || this.isRedFlag2Raised() || this.isRedFlag3Raised()) {
@@ -22395,9 +22333,9 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     this.addCommand({
       id: "livesync-dump",
       name: "Dump information of this doc ",
-      editorCallback: (s, r) => {
-        const o = r.file;
-        if (o) this.localDatabase.getDBEntry(getPathFromTFile(o), {}, true, false);
+      callback: () => {
+        const s = this.app.workspace.getActiveFile();
+        if (s) this.localDatabase.getDBEntry(getPathFromTFile(s), {}, true, false);
       }
     });
     this.addCommand({
@@ -22502,7 +22440,7 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     Logger("loading plugin");
     this.addSettingTab(new ObsidianLiveSyncSettingTab(this.app, this));
     this.addUIs();
-    const s = "0.20.7", r = "0.20.7";
+    const s = "0.21.1", r = "0.21.1";
     this.manifestVersion = s;
     this.packageVersion = r;
     Logger(`Self-hosted LiveSync v${s} ${r} `);
@@ -22602,13 +22540,13 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     }
   }
   async encryptConfigurationItem(s, r) {
-    if ("" != this.usedPassphrase) return await encrypt(s, this.usedPassphrase + SALT_OF_PASSPHRASE, false, true);
+    if ("" != this.usedPassphrase) return await encrypt(s, this.usedPassphrase + SALT_OF_PASSPHRASE, false);
     const o = await this.getPassphrase(r);
     if (false === o) {
       Logger("Could not determine passphrase to save data.json! You probably make the configuration sure again!", LOG_LEVEL_URGENT);
       return "";
     }
-    const u = await encrypt(s, o + SALT_OF_PASSPHRASE, false, true);
+    const u = await encrypt(s, o + SALT_OF_PASSPHRASE, false);
     if (u) {
       this.usedPassphrase = o;
       return u;
@@ -22789,11 +22727,11 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
               Logger(`File has been already scanned on ${s.type}, skip: ${r.path}`, LOG_LEVEL_VERBOSE);
               continue;
             }
-            const m = s.args.cache;
+            const _ = s.args.cache;
             if ("CREATE" == s.type || "CHANGED" == s.type) {
               const u = `file-last-proc-DELETED-${r.path}`;
               await this.kvDB.set(u, g);
-              if (!await this.updateIntoDB(o, false, m)) {
+              if (!await this.updateIntoDB(o, false, _)) {
                 Logger(`DB -> STORAGE: failed, cancel the relative operations: ${o.path}`, LOG_LEVEL_INFO);
                 this.vaultManager.cancelRelativeEvent(s);
                 continue;
@@ -22839,14 +22777,14 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     if (r == LOG_LEVEL_DEBUG && !isDebug) return;
     if (r < LOG_LEVEL_INFO && this.settings && this.settings.lessInformationInLog) return;
     if (this.settings && !this.settings.showVerboseLog && r == LOG_LEVEL_VERBOSE) return;
-    const m = this.getVaultName(), _ = new Date, b = _.toLocaleString(), w = "string" == typeof s ? s : s instanceof Error ? `${s.name}:${s.message}` : JSON.stringify(s, null, 2);
+    const _ = this.getVaultName(), m = new Date, b = m.toLocaleString(), w = "string" == typeof s ? s : s instanceof Error ? `${s.name}:${s.message}` : JSON.stringify(s, null, 2);
     if (s instanceof Error) console.dir(s.stack);
     const E = b + "->" + w;
-    console.log(m + ":" + E);
+    console.log(_ + ":" + E);
     if (null == (u = this.settings) ? void 0 : u.writeLogToTheFile) {
-      const s = _.toISOString().split("T")[0], r = `${PREFIXMD_LOGFILE}${s}.md`;
+      const s = m.toISOString().split("T")[0], r = `${PREFIXMD_LOGFILE}${s}.md`;
       if (!this.app.vault.getAbstractFileByPath(normalizePath(r))) this.app.vault.adapter.append(normalizePath(r), "```\n");
-      this.app.vault.adapter.append(normalizePath(r), m + ":" + E + "\n");
+      this.app.vault.adapter.append(normalizePath(r), _ + ":" + E + "\n");
     }
     logMessageStore.apply((s => [ ...s, E ].slice(-100)));
     this.setStatusBarText(null, w);
@@ -22898,59 +22836,59 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
   }
   async doc2storage(s, r, o) {
     var u;
-    const g = null == r ? "create" : "modify", m = this.getPath(s);
-    if (shouldBeIgnored(m)) return;
-    if (!await this.isTargetFile(m)) return;
+    const g = null == r ? "create" : "modify", _ = this.getPath(s);
+    if (shouldBeIgnored(_)) return;
+    if (!await this.isTargetFile(_)) return;
     if (s._deleted || s.deleted) {
-      const s = await this.localDatabase.getDBEntry(m, {
+      const s = await this.localDatabase.getDBEntry(_, {
         conflicts: true
       });
-      if (m != r.path) Logger(`delete skipped: ${r.path} :Not exactly matched`, LOG_LEVEL_VERBOSE);
+      if (_ != r.path) Logger(`delete skipped: ${r.path} :Not exactly matched`, LOG_LEVEL_VERBOSE);
       if (false === s) await this.deleteVaultItem(r); else if (s._conflicts) if (this.settings.writeDocumentsIfConflicted) {
         Logger(`Delete: ${r.path}: Conflicted revision has been deleted, but there were more conflicts. `, LOG_LEVEL_INFO);
-        await this.pullFile(m, null, true);
+        await this.pullFile(_, null, true);
       } else {
         Logger(`Delete: ${r.path}: Conflicted revision has been deleted, but there were more conflicts...`);
         this.queueConflictedOnlyActiveFile(r);
       } else {
         Logger(`Delete: ${r.path}: Conflict revision has been deleted and resolved`);
-        await this.pullFile(m, null, true);
+        await this.pullFile(_, null, true);
       }
       return;
     }
-    const _ = ~~(((null == (u = null == r ? void 0 : r.stat) ? void 0 : u.mtime) || 0) / 1e3), b = ~~(s.mtime / 1e3), w = await this.localDatabase.getDBEntry(m, {
+    const m = ~~(((null == (u = null == r ? void 0 : r.stat) ? void 0 : u.mtime) || 0) / 1e3), b = ~~(s.mtime / 1e3), w = await this.localDatabase.getDBEntry(_, {
       rev: s._rev
     });
     if (false === w) return;
     const E = `DB -> STORAGE (${g}${o ? ",force" : ""},${w.datatype}) `;
     if ("newnote" != w.datatype && "plain" != w.datatype) {
-      Logger(E + "ERROR, Invalid datatype: " + m + "(" + w.datatype + ")", LOG_LEVEL_NOTICE);
+      Logger(E + "ERROR, Invalid datatype: " + _ + "(" + w.datatype + ")", LOG_LEVEL_NOTICE);
       return;
     }
-    if (!o && _ >= b) return;
-    if (!isValidPath(m)) {
-      Logger(E + "ERROR, invalid path: " + m, LOG_LEVEL_NOTICE);
+    if (!o && m >= b) return;
+    if (!isValidPath(_)) {
+      Logger(E + "ERROR, invalid path: " + _, LOG_LEVEL_NOTICE);
       return;
     }
     const S = "newnote" == w.datatype ? decodeBinary(w.data) : getDocData(w.data);
-    await this.ensureDirectoryEx(m);
+    await this.ensureDirectoryEx(_);
     try {
       let s;
-      if ("create" == g) s = await createFile(normalizePath(m), S, {
+      if ("create" == g) s = await createFile(this.app, normalizePath(_), S, {
         ctime: w.ctime,
         mtime: w.mtime
       }); else {
-        await modifyFile(r, S, {
+        await modifyFile(this.app, r, S, {
           ctime: w.ctime,
           mtime: w.mtime
         });
         s = getAbstractFileByPath(getPathFromTFile(r));
       }
-      Logger(E + m);
+      Logger(E + _);
       touch(s);
       this.app.vault.trigger(g, s);
     } catch (s) {
-      Logger(E + "ERROR, Could not write: " + m, LOG_LEVEL_NOTICE);
+      Logger(E + "ERROR, Could not write: " + _, LOG_LEVEL_NOTICE);
       Logger(s, LOG_LEVEL_VERBOSE);
     }
   }
@@ -23170,7 +23108,7 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     const s = observeStores(this.queuedFilesStore, lockStore);
     observeStores(s, this.replicationStat).observe((s => {
       var r;
-      const o = s.sent, u = s.arrived, g = s.maxPullSeq, m = s.maxPushSeq, _ = s.lastSyncPullSeq, b = s.lastSyncPushSeq;
+      const o = s.sent, u = s.arrived, g = s.maxPullSeq, _ = s.maxPushSeq, m = s.lastSyncPullSeq, b = s.lastSyncPushSeq;
       let w = "", E = "", S = "";
       switch (s.syncStatus) {
        case "CLOSED":
@@ -23189,8 +23127,8 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
 
        case "CONNECTED":
         S = "⚡";
-        w = 0 == b ? "" : b >= m ? " (LIVE)" : ` (${m - b})`;
-        E = 0 == _ ? "" : _ >= g ? " (LIVE)" : ` (${g - _})`;
+        w = 0 == b ? "" : b >= _ ? " (LIVE)" : ` (${_ - b})`;
+        E = 0 == m ? "" : m >= g ? " (LIVE)" : ` (${g - m})`;
         break;
 
        case "ERRORED":
@@ -23260,9 +23198,9 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     if (!r) if (this.replicator.remoteLockedAndDeviceNotAccepted) if (this.replicator.remoteCleaned && this.settings.useIndexedDBAdapter) {
       Logger("The remote database has been cleaned.", s ? LOG_LEVEL_NOTICE : LOG_LEVEL_INFO);
       await skipIfDuplicated("cleanup", (async () => {
-        const r = `The remote database has been cleaned up.\nTo synchronize, this device must be also cleaned up. ${await purgeUnreferencedChunks(this.localDatabase.localDatabase, true)} chunk(s) will be erased from this device.\nHowever, If there are many chunks to be deleted, maybe fetching again is faster.\nWe will lose the history of this device if we fetch the remote database again.\nEven if you choose to clean up, you will see this option again if you exit Obsidian and then synchronise again.`, o = "Fetch again", u = "Cleanup", g = "Dismiss", m = await confirmWithMessage(this, "Cleaned", r, [ o, u, g ], g, 30);
-        if (m == o) await performRebuildDB(this, "localOnly");
-        if (m == u) {
+        const r = `The remote database has been cleaned up.\nTo synchronize, this device must be also cleaned up. ${await purgeUnreferencedChunks(this.localDatabase.localDatabase, true)} chunk(s) will be erased from this device.\nHowever, If there are many chunks to be deleted, maybe fetching again is faster.\nWe will lose the history of this device if we fetch the remote database again.\nEven if you choose to clean up, you will see this option again if you exit Obsidian and then synchronise again.`, o = "Fetch again", u = "Cleanup", g = "Dismiss", _ = await confirmWithMessage(this, "Cleaned", r, [ o, u, g ], g, 30);
+        if (_ == o) await performRebuildDB(this, "localOnly");
+        if (_ == u) {
           const r = await this.getReplicator().connectRemoteCouchDBWithSetting(this.settings, this.getIsMobile(), true);
           if ("string" == typeof r) {
             Logger(r, LOG_LEVEL_NOTICE);
@@ -23326,21 +23264,21 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     for (const s of o) if (await this.isTargetFile(s.path)) u.push(s);
     const g = u.map((s => s.path));
     Logger("Collecting local files on the DB", LOG_LEVEL_VERBOSE);
-    const m = [];
-    let _ = 0;
+    const _ = [];
+    let m = 0;
     for await (const r of this.localDatabase.findAllNormalDocs()) {
-      _++;
-      if (_ % 25 == 0) Logger(`Collecting local files on the DB: ${_}`, s ? LOG_LEVEL_NOTICE : LOG_LEVEL_INFO, "syncAll");
+      m++;
+      if (m % 25 == 0) Logger(`Collecting local files on the DB: ${m}`, s ? LOG_LEVEL_NOTICE : LOG_LEVEL_INFO, "syncAll");
       const o = getPath2(r);
-      if (isValidPath(o) && await this.isTargetFile(o)) m.push(o);
+      if (isValidPath(o) && await this.isTargetFile(o)) _.push(o);
     }
     Logger("Opening the key-value database", LOG_LEVEL_VERBOSE);
     const b = await this.kvDB.get("initialized") || false;
-    if (0 == m.length && !b) {
+    if (0 == _.length && !b) {
       r = true;
       Logger("Database looks empty, save files as initial sync data");
     }
-    const w = u.filter((s => -1 == m.indexOf(getPathFromTFile(s)))), E = m.filter((s => -1 == g.indexOf(s))), S = w.map((s => s.path)), L = u.filter((s => -1 == S.indexOf(s.path)));
+    const w = u.filter((s => -1 == _.indexOf(getPathFromTFile(s)))), E = _.filter((s => -1 == g.indexOf(s))), S = w.map((s => s.path)), L = u.filter((s => -1 == S.indexOf(s.path)));
     Logger("Updating database by new files");
     this.setStatusBarText("UPDATE DATABASE");
     const runAll = async (s, r, o) => {
@@ -23356,9 +23294,9 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
           return false;
         }
       }));
-      let g = 0, m = 0;
-      for await (const s of processAllTasksWithConcurrencyLimit(10, u)) if ("ok" in s && s.ok) g++; else m++;
-      Logger(`${s}: PASS:${g}, FAILED:${m}`);
+      let g = 0, _ = 0;
+      for await (const s of processAllTasksWithConcurrencyLimit(10, u)) if ("ok" in s && s.ok) g++; else _++;
+      Logger(`${s}: PASS:${g}, FAILED:${_}`);
     };
     await runAll("UPDATE DATABASE", w, (async s => {
       Logger(`UPDATE DATABASE ${s.path}`);
@@ -23376,18 +23314,18 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
       let s = {};
       s = await this.kvDB.get("diff-caches") || {};
       const o = [ ...arrayToChunkedArray(L, 100) ].map(((o, u, g) => async () => {
-        const m = (await mapAllTasksWithConcurrencyLimit(10, o.map((s => async () => ({
+        const _ = (await mapAllTasksWithConcurrencyLimit(10, o.map((s => async () => ({
           file: s,
           id: await this.path2id(getPathFromTFile(s))
-        }))))).map((s => "ok" in s ? s.ok : void 0)).filter((s => s)), _ = (await this.localDatabase.allDocsRaw({
-          keys: m.map((s => s.id)),
+        }))))).map((s => "ok" in s ? s.ok : void 0)).filter((s => s)), m = (await this.localDatabase.allDocsRaw({
+          keys: _.map((s => s.id)),
           include_docs: true
         })).rows.reduce(((s, r) => ({
           ...s,
           [r.id]: r.doc
-        })), {}), b = m.map((s => ({
+        })), {}), b = _.map((s => ({
           file: s.file,
-          doc: _[s.id]
+          doc: m[s.id]
         })));
         await runAll(`CHECK FILE STATUS:${u + 1}/${g.length}`, b, (async o => {
           s = await this.syncFileBetweenDBandStorage(o.file, o.doc, r, s);
@@ -23422,7 +23360,7 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     return false;
   }
   async mergeSensibly(s, r, o, u) {
-    var g, m, _, b;
+    var g, _, m, b;
     const w = await this.getConflictedDoc(s, r), E = await this.getConflictedDoc(s, o), S = await this.getConflictedDoc(s, u);
     let L = false;
     if (false == w || false == E || false == S) return false;
@@ -23464,12 +23402,12 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     L = true;
     e: do {
       if (R >= I.length && x >= A.length) break e;
-      const s = null != (g = I[R]) ? g : [ 0, "" ], r = null != (m = A[x]) ? m : [ 0, "" ];
+      const s = null != (g = I[R]) ? g : [ 0, "" ], r = null != (_ = A[x]) ? _ : [ 0, "" ];
       R++;
       x++;
       if (s[0] != import_diff_match_patch.DIFF_EQUAL || r[0] != import_diff_match_patch.DIFF_EQUAL || s[1] != r[1]) {
         if (s[0] == import_diff_match_patch.DIFF_DELETE && r[0] == import_diff_match_patch.DIFF_DELETE && s[1] == r[1]) {
-          const r = R, o = x, [u, g] = [ null != (_ = I[r]) ? _ : [ 0, "" ], null != (b = A[o]) ? b : [ 0, "" ] ];
+          const r = R, o = x, [u, g] = [ null != (m = I[r]) ? m : [ 0, "" ], null != (b = A[o]) ? b : [ 0, "" ] ];
           if (u[0] == import_diff_match_patch.DIFF_INSERT && g[0] == import_diff_match_patch.DIFF_INSERT && u[1] != g[1]) {
             L = false;
             break;
@@ -23528,22 +23466,22 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
   }
   async mergeObject(s, r, o, u) {
     try {
-      const g = await this.getConflictedDoc(s, r), m = await this.getConflictedDoc(s, o), _ = await this.getConflictedDoc(s, u);
-      if (false == g || false == m || false == _) return false;
+      const g = await this.getConflictedDoc(s, r), _ = await this.getConflictedDoc(s, o), m = await this.getConflictedDoc(s, u);
+      if (false == g || false == _ || false == m) return false;
       const b = {
         data: tryParseJSON(g.data, {})
       }, w = {
-        data: tryParseJSON(m.data, {})
-      }, E = {
         data: tryParseJSON(_.data, {})
+      }, E = {
+        data: tryParseJSON(m.data, {})
       }, S = generatePatchObj(b, w), L = generatePatchObj(b, E), O = new Map(flattenObject(S)), D = new Map(flattenObject(L));
       for (const [s, r] of O) if (D.has(s)) if (D.get(s) == r) D.delete(s);
       for (const [s, r] of D) if (O.has(s) && O.get(s) != r) return false;
       const k = [ {
-        mtime: m.mtime,
+        mtime: _.mtime,
         patch: S
       }, {
-        mtime: _.mtime,
+        mtime: m.mtime,
         patch: L
       } ].sort(((s, r) => s.mtime - r.mtime));
       let C = {
@@ -23569,19 +23507,19 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     if (0 == u._conflicts.length) return false;
     const g = u._conflicts.sort(((s, r) => Number(s.split("-")[0]) - Number(r.split("-")[0])));
     if ((isSensibleMargeApplicable(s) || isObjectMargeApplicable(s)) && !this.settings.disableMarkdownAutoMerge) {
-      const m = g[0], _ = Number(m.split("-")[0]), b = null != (o = null == (r = (await this.localDatabase.getRaw(await this.path2id(s), {
+      const _ = g[0], m = Number(_.split("-")[0]), b = null != (o = null == (r = (await this.localDatabase.getRaw(await this.path2id(s), {
         revs_info: true
-      }))._revs_info.filter((s => "available" == s.status && Number(s.rev.split("-")[0]) < _)).first()) ? void 0 : r.rev) ? o : "";
+      }))._revs_info.filter((s => "available" == s.status && Number(s.rev.split("-")[0]) < m)).first()) ? void 0 : r.rev) ? o : "";
       let w;
       if (b) {
         if (isSensibleMargeApplicable(s)) {
-          const r = await this.mergeSensibly(s, b, u._rev, m);
+          const r = await this.mergeSensibly(s, b, u._rev, _);
           if (r) {
             w = r.filter((s => s[0] != import_diff_match_patch.DIFF_DELETE)).map((s => s[1])).join("");
             Logger(`Sensible merge:${s}`, LOG_LEVEL_INFO);
           } else Logger("Sensible merge is not applicable.", LOG_LEVEL_VERBOSE);
         } else if (isObjectMargeApplicable(s)) {
-          const r = await this.mergeObject(s, b, u._rev, m);
+          const r = await this.mergeObject(s, b, u._rev, _);
           if (r) {
             Logger(`Object merge:${s}`, LOG_LEVEL_INFO);
             w = r;
@@ -23589,7 +23527,7 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
         }
         if (null != w) {
           await this.localDatabase.deleteDBEntry(s, {
-            rev: m
+            rev: _
           });
           const r = getAbstractFileByPath(stripAllPrefixes(s));
           if (r) {
@@ -23605,12 +23543,12 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
         }
       }
     }
-    const m = await this.getConflictedDoc(s, u._rev), _ = await this.getConflictedDoc(s, g[0]);
-    if (false == m) {
+    const _ = await this.getConflictedDoc(s, u._rev), m = await this.getConflictedDoc(s, g[0]);
+    if (false == _) {
       Logger(`could not get current revisions:${s}`, LOG_LEVEL_NOTICE);
       return false;
     }
-    if (false == _) {
+    if (false == m) {
       await this.localDatabase.deleteDBEntry(s, {
         rev: g[0]
       });
@@ -23618,10 +23556,10 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
       Logger(`could not get old revisions, automatically used newer one:${s}`, LOG_LEVEL_NOTICE);
       return true;
     }
-    const b = m.data == _.data && m.deleted == _.deleted, w = !isPlainText(s), E = this.settings.resolveConflictsByNewerFile;
+    const b = _.data == m.data && _.deleted == m.deleted, w = !isPlainText(s), E = this.settings.resolveConflictsByNewerFile;
     if (b || w || E) {
-      let r = m;
-      if (~~(m.mtime / 1e3) > ~~(_.mtime / 1e3)) r = _;
+      let r = _;
+      if (~~(_.mtime / 1e3) > ~~(m.mtime / 1e3)) r = m;
       await this.localDatabase.deleteDBEntry(s, {
         rev: r.rev
       });
@@ -23629,12 +23567,12 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
       Logger(`Automatically merged (${b ? "same," : ""}${w ? "binary," : ""}${E ? "alwaysNewer" : ""}) :${s}`, LOG_LEVEL_NOTICE);
       return true;
     }
-    const S = new import_diff_match_patch.diff_match_patch, L = S.diff_main(m.data, _.data);
+    const S = new import_diff_match_patch.diff_match_patch, L = S.diff_main(_.data, m.data);
     S.diff_cleanupSemantic(L);
     Logger(`conflict(s) found:${s}`);
     return {
-      left: m,
-      right: _,
+      left: _,
+      right: m,
       diff: L
     };
   }
@@ -23653,8 +23591,8 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
           Logger("Nothing have to do with this conflict", LOG_LEVEL_VERBOSE);
           return o(true);
         }
-        const m = u, _ = r.left.rev != m ? r.left.rev : r.right.rev;
-        if ("" == m) {
+        const _ = u, m = r.left.rev != _ ? r.left.rev : r.right.rev;
+        if ("" == _) {
           const o = r.diff.map((s => s[1])).join("");
           await this.localDatabase.deleteDBEntry(s, {
             rev: g._conflicts[0]
@@ -23673,11 +23611,11 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
           setTimeout((() => {
             this.showIfConflicted(s);
           }), 50);
-        } else if (null == m) Logger("Leave it still conflicted"); else {
+        } else if (null == _) Logger("Leave it still conflicted"); else {
           await this.localDatabase.deleteDBEntry(s, {
-            rev: m
+            rev: _
           });
-          await this.pullFile(s, null, true, _);
+          await this.pullFile(s, null, true, m);
           Logger(`Conflict resolved:${s}`);
           if (this.settings.syncAfterMerge && !this.suspended) await this.replicate();
           setTimeout((() => {
@@ -23714,8 +23652,8 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     }));
   }
   async pullFile(s, r, o, u, g = true) {
-    const m = getAbstractFileByPath(stripAllPrefixes(s));
-    if (await this.isTargetFile(s)) if (null == m) {
+    const _ = getAbstractFileByPath(stripAllPrefixes(s));
+    if (await this.isTargetFile(s)) if (null == _) {
       const r = await this.localDatabase.getDBEntry(s, u ? {
         rev: u
       } : null, false, g);
@@ -23724,15 +23662,15 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
         return;
       }
       await this.doc2storage(r, void 0, o);
-    } else if (m instanceof import_obsidian.TFile) {
-      const r = m, _ = await this.localDatabase.getDBEntry(s, u ? {
+    } else if (_ instanceof import_obsidian.TFile) {
+      const r = _, m = await this.localDatabase.getDBEntry(s, u ? {
         rev: u
       } : null, false, g);
-      if (false === _) {
+      if (false === m) {
         Logger(`${s} Skipped`);
         return;
       }
-      await this.doc2storage(_, r, o);
+      await this.doc2storage(m, r, o);
     } else Logger(`target files:${s} is exists as the folder`);
   }
   async syncFileBetweenDBandStorage(s, r, o, u) {
@@ -23741,92 +23679,92 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
       const r = getAbstractFileByPath(s.path);
       if (r instanceof import_obsidian.TFile) s = r; else throw new Error(`Missing file:${s.path}`);
     }
-    const g = ~~(s.stat.mtime / 1e3), m = ~~(r.mtime / 1e3), _ = `${s.path}-diff`, b = _ in u ? u[_] : {
+    const g = ~~(s.stat.mtime / 1e3), _ = ~~(r.mtime / 1e3), m = `${s.path}-diff`, b = m in u ? u[m] : {
       storageMtime: 0,
       docMtime: 0
     };
-    if (b.docMtime == m && b.storageMtime == g) {
-      u[_] = {
+    if (b.docMtime == _ && b.storageMtime == g) {
+      u[m] = {
         storageMtime: g,
-        docMtime: m
+        docMtime: _
       };
       return u;
     }
-    if (g > m) {
+    if (g > _) {
       Logger("STORAGE -> DB :" + s.path);
-      Logger(`${g} > ${m}`);
+      Logger(`${g} > ${_}`);
       await this.updateIntoDB(s, o);
-      u[_] = {
+      u[m] = {
         storageMtime: g,
-        docMtime: m
+        docMtime: _
       };
       return u;
-    } else if (g < m) {
+    } else if (g < _) {
       Logger("STORAGE <- DB :" + s.path);
-      Logger(`${g} < ${m}`);
+      Logger(`${g} < ${_}`);
       const r = await this.localDatabase.getDBEntry(getPathFromTFile(s), null, false, false);
       if (false != r) await this.doc2storage(r, s); else Logger("STORAGE <- DB :" + s.path + " Skipped");
-      u[_] = {
+      u[m] = {
         storageMtime: g,
-        docMtime: m
+        docMtime: _
       };
       return u;
     }
     Logger("STORAGE == DB :" + s.path, LOG_LEVEL_VERBOSE);
-    u[_] = {
+    u[m] = {
       storageMtime: g,
-      docMtime: m
+      docMtime: _
     };
     return u;
   }
   async updateIntoDB(s, r, o, u) {
     if (!await this.isTargetFile(s)) return true;
     if (shouldBeIgnored(s.path)) return true;
-    let g, m = "newnote";
+    let g, _ = "newnote";
     if (!o) if (!isPlainText(s.name)) {
       Logger(`Reading   : ${s.path}`, LOG_LEVEL_VERBOSE);
       const r = await this.app.vault.readBinary(s);
       Logger(`Processing: ${s.path}`, LOG_LEVEL_VERBOSE);
       try {
-        g = await encodeBinary(r, this.settings.useV1);
+        g = createBinaryBlob(r);
       } catch (r) {
         Logger(`The file ${s.path} could not be encoded`);
         Logger(r, LOG_LEVEL_VERBOSE);
         return false;
       }
-      m = "newnote";
+      _ = "newnote";
     } else {
-      g = await this.app.vault.read(s);
-      m = "plain";
+      g = createTextBlob(await this.app.vault.read(s));
+      _ = "plain";
     } else if (o instanceof ArrayBuffer) {
       Logger(`Processing: ${s.path}`, LOG_LEVEL_VERBOSE);
       try {
-        g = await encodeBinary(o, this.settings.useV1);
+        g = createBinaryBlob(o);
       } catch (r) {
         Logger(`The file ${s.path} could not be encoded`);
         Logger(r, LOG_LEVEL_VERBOSE);
         return false;
       }
-      m = "newnote";
+      _ = "newnote";
     } else {
-      g = o;
-      m = "plain";
+      g = createTextBlob(o);
+      _ = "plain";
     }
-    const _ = getPathFromTFile(s), b = {
-      _id: await this.path2id(_),
+    const m = getPathFromTFile(s), b = {
+      _id: await this.path2id(m),
       path: getPathFromTFile(s),
       data: g,
       ctime: s.stat.ctime,
       mtime: s.stat.mtime,
       size: s.stat.size,
       children: [],
-      datatype: m,
-      type: m
-    }, w = `DB <- STORAGE (${m}) `;
-    if (await serialized("file-" + _, (async () => {
+      datatype: _,
+      type: _
+    }, w = `DB <- STORAGE (${_}) `;
+    if (await serialized("file-" + m, (async () => {
       if (recentlyTouched(s)) return true;
       try {
-        const s = await this.localDatabase.getDBEntry(_, null, false, false);
+        const s = await this.localDatabase.getDBEntry(m, null, false, false);
         if (false !== s) {
           const r = {
             data: s.data,
@@ -23837,11 +23775,11 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
           };
           if (r.deleted != o.deleted) return false;
           if (!isDocContentSame(s.data, o.data)) return false;
-          Logger(w + "Skipped (not changed) " + _ + (b._deleted || b.deleted ? " (deleted)" : ""), LOG_LEVEL_VERBOSE);
+          Logger(w + "Skipped (not changed) " + m + (b._deleted || b.deleted ? " (deleted)" : ""), LOG_LEVEL_VERBOSE);
           return true;
         }
       } catch (s) {
-        if (u) Logger(w + "Error, Could not check the diff for the old one." + (u ? "force writing." : "") + _ + (b._deleted || b.deleted ? " (deleted)" : ""), LOG_LEVEL_VERBOSE); else Logger(w + "Error, Could not check the diff for the old one." + _ + (b._deleted || b.deleted ? " (deleted)" : ""), LOG_LEVEL_VERBOSE);
+        if (u) Logger(w + "Error, Could not check the diff for the old one." + (u ? "force writing." : "") + m + (b._deleted || b.deleted ? " (deleted)" : ""), LOG_LEVEL_VERBOSE); else Logger(w + "Error, Could not check the diff for the old one." + m + (b._deleted || b.deleted ? " (deleted)" : ""), LOG_LEVEL_VERBOSE);
         return !u;
       }
       return false;
@@ -23853,7 +23791,7 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
         done: true
       } : {}
     })));
-    Logger(w + _);
+    Logger(w + m);
     if (this.settings.syncOnSave && !this.suspended) await this.replicate();
     return false != E;
   }
@@ -23912,9 +23850,9 @@ var ObsidianLiveSyncPlugin = class extends import_obsidian.Plugin {
     if (!("_conflicts" in o)) return false;
     if (0 == o._conflicts.length) return false;
     Logger(`Hidden file conflicted:${this.getPath(o)}`);
-    const u = o._conflicts.sort(((s, r) => Number(s.split("-")[0]) - Number(r.split("-")[0]))), g = o._rev, m = u[0], _ = await this.localDatabase.getRaw(r, {
-      rev: m
-    }), b = ("mtime" in o && o.mtime || 0) < ("mtime" in _ && _.mtime || 0) ? g : m;
+    const u = o._conflicts.sort(((s, r) => Number(s.split("-")[0]) - Number(r.split("-")[0]))), g = o._rev, _ = u[0], m = await this.localDatabase.getRaw(r, {
+      rev: _
+    }), b = ("mtime" in o && o.mtime || 0) < ("mtime" in m && m.mtime || 0) ? g : _;
     await this.localDatabase.removeRaw(r, b);
     Logger(`Older one has been deleted:${this.getPath(o)}`);
     return true;
