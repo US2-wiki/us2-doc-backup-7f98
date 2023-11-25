@@ -254,6 +254,7 @@
 	- [[Hack Reset]]
 - [[Tutorial]]
 - Other
+	- [[Particle Accelerator]]
 	- [[Achievement List|Achievement]]
 		- [[Journey to Innovation]] 
 		- [[Back on the Job]]
