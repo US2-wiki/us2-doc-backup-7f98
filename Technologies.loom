@@ -5,7 +5,7 @@
         "id": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
         "sortDir": "default",
         "isVisible": true,
-        "width": "123px",
+        "width": "164px",
         "type": "text",
         "numberPrefix": "",
         "numberSuffix": "",
@@ -116,6 +116,31 @@
             "id": "f3599547-7dea-4bfb-ae99-16632e62513e",
             "content": "Science A",
             "color": "purple"
+          },
+          {
+            "id": "b60171ae-2e97-418f-a650-b9e4383e71e0",
+            "content": "Module Score",
+            "color": "gray"
+          },
+          {
+            "id": "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8",
+            "content": "Science C",
+            "color": "green"
+          },
+          {
+            "id": "18c994ec-8b3b-4966-94ee-39b2a89ebbca",
+            "content": "Science D",
+            "color": "yellow"
+          },
+          {
+            "id": "e76a0840-cfbe-412d-bfd7-35264d499ab9",
+            "content": "Hacking Level",
+            "color": "light gray"
+          },
+          {
+            "id": "261b6469-65ab-4bcc-a524-f1356fe0328f",
+            "content": "Science B",
+            "color": "pink"
           }
         ],
         "calculationType": "none",
@@ -229,6 +254,21 @@
             "id": "a4d1db2e-b697-4cfd-8673-f735a77f9ed5",
             "content": "SF/Milestones",
             "color": "brown"
+          },
+          {
+            "id": "cef6f8ca-621e-4981-b61b-7668e2599b88",
+            "content": "SF/Manufactory",
+            "color": "light gray"
+          },
+          {
+            "id": "e5428068-383b-4b4b-9b71-f31f70472ad3",
+            "content": "SF/Robot",
+            "color": "green"
+          },
+          {
+            "id": "6a64e432-2b1e-4998-847d-d2ff79b5bbbc",
+            "content": "SF/Shaper",
+            "color": "yellow"
           }
         ],
         "calculationType": "none",
@@ -897,14 +937,14 @@
         "index": 9,
         "sourceId": null,
         "creationDateTime": "2023-11-21T18:00:56.889Z",
-        "lastEditedDateTime": "2023-11-24T17:13:26.858Z",
+        "lastEditedDateTime": "2023-11-24T22:40:45.186Z",
         "cells": [
           {
             "id": "a03a25f4-3e96-406c-9c23-a4eb5688a91a",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Steam]]\n![[res/icons/steam.png|steam]]",
+            "content": "[[Steam Power]]\n![[res/icons/steam.png|steam]]",
             "tagIds": []
           },
           {
@@ -957,7 +997,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "f6d4ea51-fef0-4dc7-9509-9c5872673d4a",
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20"
+            ]
           }
         ]
       },
@@ -966,7 +1010,7 @@
         "index": 10,
         "sourceId": null,
         "creationDateTime": "2023-11-21T20:29:18.265Z",
-        "lastEditedDateTime": "2023-11-24T22:14:14.508Z",
+        "lastEditedDateTime": "2023-11-24T22:41:36.591Z",
         "cells": [
           {
             "id": "cc0443fa-af25-4a74-8834-28883fb7c2f6",
@@ -1026,7 +1070,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815"
+            ]
           }
         ]
       },
@@ -1035,7 +1082,7 @@
         "index": 11,
         "sourceId": null,
         "creationDateTime": "2023-11-22T20:27:11.792Z",
-        "lastEditedDateTime": "2023-11-24T22:13:20.394Z",
+        "lastEditedDateTime": "2023-11-24T22:41:50.561Z",
         "cells": [
           {
             "id": "5583b3b2-5563-433e-9f3d-6cf8622206fe",
@@ -1095,7 +1142,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
+            ]
           }
         ]
       },
@@ -1104,14 +1155,14 @@
         "index": 12,
         "sourceId": null,
         "creationDateTime": "2023-11-22T20:33:12.609Z",
-        "lastEditedDateTime": "2023-11-24T17:19:46.602Z",
+        "lastEditedDateTime": "2023-11-24T22:43:12.540Z",
         "cells": [
           {
             "id": "c7b69b29-e70c-4fee-ab1b-f3f6904c61d3",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Injection]]\n![[res/icons/shuffle.png|shuffle]]",
+            "content": "[[Overwork]]\n![[res/icons/shuffle.png|shuffle]]",
             "tagIds": []
           },
           {
@@ -1147,7 +1198,7 @@
             "isExternalLink": false,
             "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
             "dateTime": null,
-            "content": "100% production speed, 100% less mining power",
+            "content": "Unlocks the Overwork modification for the manufactory",
             "tagIds": []
           },
           {
@@ -1164,7 +1215,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "cef6f8ca-621e-4981-b61b-7668e2599b88"
+            ]
           }
         ]
       },
@@ -1173,7 +1228,7 @@
         "index": 13,
         "sourceId": null,
         "creationDateTime": "2023-11-22T20:38:46.059Z",
-        "lastEditedDateTime": "2023-11-24T22:13:30.477Z",
+        "lastEditedDateTime": "2023-11-24T22:43:23.344Z",
         "cells": [
           {
             "id": "5a67ea4e-f0e2-45d3-93a0-ff6febebb617",
@@ -1224,7 +1279,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Nuclear Fusion]]",
+            "content": "[[Nuclear Fission]]",
             "tagIds": []
           },
           {
@@ -1233,7 +1288,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
+            ]
           }
         ]
       },
@@ -1242,14 +1301,14 @@
         "index": 14,
         "sourceId": null,
         "creationDateTime": "2023-11-24T19:17:55.596Z",
-        "lastEditedDateTime": "2023-11-24T19:43:20.941Z",
+        "lastEditedDateTime": "2023-11-24T22:43:32.434Z",
         "cells": [
           {
             "id": "6be358b0-89df-4c88-90f4-7a1cf868b9bb",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": " [[Tier 2 (Research Unlock)]]\n![[res/icons/atom2.png|atom2]]",
+            "content": " [[Tier 2 (Research Unlock)|Tier 2]]\n![[res/icons/atom2.png|atom2]]",
             "tagIds": []
           },
           {
@@ -1293,7 +1352,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Manufactory (Research)]]",
+            "content": "[[Manufactory (Research)|Manufactory]]",
             "tagIds": []
           },
           {
@@ -1302,7 +1361,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815",
+              "56e05225-7cfb-403e-aab9-e1a37f616be0"
+            ]
           }
         ]
       },
@@ -1311,7 +1373,7 @@
         "index": 15,
         "sourceId": null,
         "creationDateTime": "2023-11-24T19:36:38.676Z",
-        "lastEditedDateTime": "2023-11-24T20:11:07.583Z",
+        "lastEditedDateTime": "2023-11-24T22:43:55.552Z",
         "cells": [
           {
             "id": "1168206c-723c-4046-978e-81ce67186270",
@@ -1346,7 +1408,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "261b6469-65ab-4bcc-a524-f1356fe0328f"
             ]
           },
           {
@@ -1362,7 +1424,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 2]]",
+            "content": "[[Tier 2 (Research Unlock)|Tier 2]]",
             "tagIds": []
           },
           {
@@ -1371,7 +1433,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815"
+            ]
           }
         ]
       },
@@ -1380,7 +1445,7 @@
         "index": 16,
         "sourceId": null,
         "creationDateTime": "2023-11-24T19:44:16.728Z",
-        "lastEditedDateTime": "2023-11-24T19:49:01.560Z",
+        "lastEditedDateTime": "2023-11-24T22:44:03.342Z",
         "cells": [
           {
             "id": "e52b030d-1991-4b26-bcd8-23172b998cca",
@@ -1415,7 +1480,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "261b6469-65ab-4bcc-a524-f1356fe0328f"
             ]
           },
           {
@@ -1431,7 +1496,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 2]]",
+            "content": "[[Tier 2 (Research Unlock)|Tier 2]]",
             "tagIds": []
           },
           {
@@ -1440,7 +1505,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "17b16d0a-b746-4332-bdd1-5a869add16d5",
+              "feee6666-cd1e-4d2d-a557-01e34cca14b0"
+            ]
           }
         ]
       },
@@ -1449,14 +1518,14 @@
         "index": 17,
         "sourceId": null,
         "creationDateTime": "2023-11-24T19:49:03.926Z",
-        "lastEditedDateTime": "2023-11-24T19:52:42.170Z",
+        "lastEditedDateTime": "2023-11-24T22:44:15.738Z",
         "cells": [
           {
             "id": "d4f4ea9a-940b-4d60-8084-804cbcec1b03",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Dyson Sphere]]\n![[res/icons/sphere.png|sphere]]",
+            "content": "[[Sun Power]]\n![[res/icons/sphere.png|sphere]]",
             "tagIds": []
           },
           {
@@ -1484,7 +1553,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "261b6469-65ab-4bcc-a524-f1356fe0328f"
             ]
           },
           {
@@ -1500,7 +1569,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 2]]",
+            "content": "[[Tier 2 (Research Unlock)|Tier 2]]",
             "tagIds": []
           },
           {
@@ -1509,7 +1578,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
+            ]
           }
         ]
       },
@@ -1518,7 +1591,7 @@
         "index": 18,
         "sourceId": null,
         "creationDateTime": "2023-11-24T19:53:03.814Z",
-        "lastEditedDateTime": "2023-11-24T19:56:17.999Z",
+        "lastEditedDateTime": "2023-11-24T22:44:32.134Z",
         "cells": [
           {
             "id": "049480ab-8fff-4be4-923d-5194e50542c0",
@@ -1553,7 +1626,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "261b6469-65ab-4bcc-a524-f1356fe0328f"
             ]
           },
           {
@@ -1569,7 +1642,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 2]]",
+            "content": "[[Field Modulation (Research)|Field Modulation]]",
             "tagIds": []
           },
           {
@@ -1578,7 +1651,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
+            ]
           }
         ]
       },
@@ -1587,7 +1664,7 @@
         "index": 19,
         "sourceId": null,
         "creationDateTime": "2023-11-24T19:56:56.221Z",
-        "lastEditedDateTime": "2023-11-24T20:37:24.443Z",
+        "lastEditedDateTime": "2023-11-24T22:46:22.558Z",
         "cells": [
           {
             "id": "35b435b5-def5-46df-8591-a52f6e32d8c2",
@@ -1622,7 +1699,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "261b6469-65ab-4bcc-a524-f1356fe0328f"
             ]
           },
           {
@@ -1638,7 +1715,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Dyson Sphere]]\n",
+            "content": "[[Sun Power]]",
             "tagIds": []
           },
           {
@@ -1647,7 +1724,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
+            ]
           }
         ]
       },
@@ -1656,14 +1737,14 @@
         "index": 20,
         "sourceId": null,
         "creationDateTime": "2023-11-24T20:38:44.526Z",
-        "lastEditedDateTime": "2023-11-24T20:42:53.161Z",
+        "lastEditedDateTime": "2023-11-24T22:46:33.830Z",
         "cells": [
           {
             "id": "2acc349f-f748-4029-826f-313dca80cf32",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Drivers]]\n![[res/icons/disc.png|disc]]",
+            "content": "[[Drivers (Research)|Drivers]]\n![[res/icons/disc.png|disc]]",
             "tagIds": []
           },
           {
@@ -1691,7 +1772,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "261b6469-65ab-4bcc-a524-f1356fe0328f"
             ]
           },
           {
@@ -1707,7 +1788,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Field modulation]]",
+            "content": "[[Field Modulation (Research)|Field Modulation]]",
             "tagIds": []
           },
           {
@@ -1716,7 +1797,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "17b16d0a-b746-4332-bdd1-5a869add16d5"
+            ]
           }
         ]
       },
@@ -1725,14 +1809,14 @@
         "index": 21,
         "sourceId": null,
         "creationDateTime": "2023-11-24T20:42:59.296Z",
-        "lastEditedDateTime": "2023-11-24T20:44:33.168Z",
+        "lastEditedDateTime": "2023-11-24T22:47:01.413Z",
         "cells": [
           {
             "id": "32b5d101-0bbe-49ee-9f46-d8c1a872cc6c",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Robotics]]\n![[res/icons/robot.png|robot]]",
+            "content": "[[Logistic Robots]]\n![[res/icons/robot.png|robot]]",
             "tagIds": []
           },
           {
@@ -1760,7 +1844,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "261b6469-65ab-4bcc-a524-f1356fe0328f"
             ]
           },
           {
@@ -1776,7 +1860,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Field modulation]]",
+            "content": "[[Field Modulation (Research)|Field Modulation]]",
             "tagIds": []
           },
           {
@@ -1785,7 +1869,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "feee6666-cd1e-4d2d-a557-01e34cca14b0",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815"
+            ]
           }
         ]
       },
@@ -1794,14 +1882,14 @@
         "index": 22,
         "sourceId": null,
         "creationDateTime": "2023-11-24T20:44:37.066Z",
-        "lastEditedDateTime": "2023-11-24T20:49:39.190Z",
+        "lastEditedDateTime": "2023-11-24T22:51:53.739Z",
         "cells": [
           {
             "id": "e2ab6cdb-91a5-4246-8890-8f2350d9deb8",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Advanced Lab]]\n![[res/icons/advanced_lab.png|advanced_lab]]",
+            "content": "[[Advanced Laboratory]]\n![[res/icons/advanced_lab.png|advanced_lab]]",
             "tagIds": []
           },
           {
@@ -1829,7 +1917,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "261b6469-65ab-4bcc-a524-f1356fe0328f"
             ]
           },
           {
@@ -1854,7 +1942,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815"
+            ]
           }
         ]
       },
@@ -1863,14 +1954,14 @@
         "index": 23,
         "sourceId": null,
         "creationDateTime": "2023-11-24T20:47:35.256Z",
-        "lastEditedDateTime": "2023-11-24T20:52:34.552Z",
+        "lastEditedDateTime": "2023-11-24T22:47:32.954Z",
         "cells": [
           {
             "id": "469a35b4-bdff-43f7-a56c-482d18ab6e10",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": " [[Tier 3 (Research Unlock)]]\n![[res/icons/frame.png|frame]]",
+            "content": "[[Tier 3 (Research Unlock)|Tier 3]]\n![[res/icons/frame.png|frame]]",
             "tagIds": []
           },
           {
@@ -1898,7 +1989,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "261b6469-65ab-4bcc-a524-f1356fe0328f"
             ]
           },
           {
@@ -1914,7 +2005,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Advanced Lab]]\n",
+            "content": "[[Advanced Laboratory]]",
             "tagIds": []
           },
           {
@@ -1923,7 +2014,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815"
+            ]
           }
         ]
       },
@@ -1932,7 +2026,7 @@
         "index": 24,
         "sourceId": null,
         "creationDateTime": "2023-11-24T20:50:32.534Z",
-        "lastEditedDateTime": "2023-11-24T20:52:41.826Z",
+        "lastEditedDateTime": "2023-11-24T22:49:42.572Z",
         "cells": [
           {
             "id": "908be292-cf1e-4050-b930-d6b75db4a3db",
@@ -1967,7 +2061,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8"
             ]
           },
           {
@@ -1983,7 +2077,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 3]]",
+            "content": "[[Tier 3 (Research Unlock)|Tier 3]]",
             "tagIds": []
           },
           {
@@ -1992,7 +2086,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815"
+            ]
           }
         ]
       },
@@ -2001,14 +2098,14 @@
         "index": 25,
         "sourceId": null,
         "creationDateTime": "2023-11-24T20:52:53.097Z",
-        "lastEditedDateTime": "2023-11-24T20:54:30.932Z",
+        "lastEditedDateTime": "2023-11-24T22:49:52.803Z",
         "cells": [
           {
             "id": "50bd3531-8757-49d8-806e-e793086dbd14",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Enhance]]\n![[res/icons/belt_lane.png|belt_lane]]",
+            "content": "[[Logistics]]\n![[res/icons/belt_lane.png|belt_lane]]",
             "tagIds": []
           },
           {
@@ -2036,7 +2133,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8"
             ]
           },
           {
@@ -2052,7 +2149,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 3]]",
+            "content": "[[Tier 3 (Research Unlock)|Tier 3]]",
             "tagIds": []
           },
           {
@@ -2061,16 +2158,92 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "cef6f8ca-621e-4981-b61b-7668e2599b88"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "04664b4f-9b2d-4408-901b-e4eb393cf408",
+        "index": 26,
+        "sourceId": null,
+        "creationDateTime": "2023-11-24T20:58:54.066Z",
+        "lastEditedDateTime": "2023-11-24T22:49:58.216Z",
+        "cells": [
+          {
+            "id": "bc1ed08a-dcff-41cb-87df-629554f1ba86",
+            "isExternalLink": false,
+            "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
+            "dateTime": null,
+            "content": "[[Perks]]\n![[res/icons/shine.png|shine]]",
             "tagIds": []
+          },
+          {
+            "id": "0f4c240b-f088-4747-bc41-90d495bf87e3",
+            "isExternalLink": false,
+            "columnId": "cb1684e7-d2ab-480d-bb72-9ca7205f3f2a",
+            "dateTime": null,
+            "content": "",
+            "tagIds": [
+              "35ce3d1b-e236-46f7-bc9b-c743b90c5dc0"
+            ]
+          },
+          {
+            "id": "bbbb370e-4f99-4743-9c7f-95ef8be6b43e",
+            "isExternalLink": false,
+            "columnId": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
+            "dateTime": null,
+            "content": "1e6",
+            "tagIds": []
+          },
+          {
+            "id": "a753aa21-436f-4da3-8260-f15d0325c240",
+            "isExternalLink": false,
+            "columnId": "7caba6e3-43b6-4571-a48f-c385396558cd",
+            "dateTime": null,
+            "content": "",
+            "tagIds": [
+              "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8"
+            ]
+          },
+          {
+            "id": "46fdf4e0-3a06-4656-8ff7-5640fa8fb2e1",
+            "isExternalLink": false,
+            "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
+            "dateTime": null,
+            "content": "Unlocks a new set of limited upgrades in the talents tab\n",
+            "tagIds": []
+          },
+          {
+            "id": "c16bdffb-70e9-43a5-8141-e26e6b1ddc1c",
+            "isExternalLink": false,
+            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
+            "dateTime": null,
+            "content": "[[Tier 3 (Research Unlock)|Tier 3]]",
+            "tagIds": []
+          },
+          {
+            "id": "0687d789-ea1f-438d-8281-8156672fc5b8",
+            "isExternalLink": false,
+            "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
+            "dateTime": null,
+            "content": "",
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "17b16d0a-b746-4332-bdd1-5a869add16d5"
+            ]
           }
         ]
       },
       {
         "id": "2db42a45-25a2-4003-857c-36e390690e10",
-        "index": 26,
+        "index": 27,
         "sourceId": null,
         "creationDateTime": "2023-11-24T20:56:06.014Z",
-        "lastEditedDateTime": "2023-11-24T20:58:50.174Z",
+        "lastEditedDateTime": "2023-11-24T22:50:21.259Z",
         "cells": [
           {
             "id": "d4ddea09-a804-49e1-afa1-aa815fe2f17d",
@@ -2105,7 +2278,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8"
             ]
           },
           {
@@ -2121,7 +2294,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 3]]",
+            "content": "[[Logistics]]",
             "tagIds": []
           },
           {
@@ -2130,76 +2303,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
-          }
-        ]
-      },
-      {
-        "id": "04664b4f-9b2d-4408-901b-e4eb393cf408",
-        "index": 27,
-        "sourceId": null,
-        "creationDateTime": "2023-11-24T20:58:54.066Z",
-        "lastEditedDateTime": "2023-11-24T21:00:15.463Z",
-        "cells": [
-          {
-            "id": "bc1ed08a-dcff-41cb-87df-629554f1ba86",
-            "isExternalLink": false,
-            "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
-            "dateTime": null,
-            "content": "[[Passives]]\n![[res/icons/shine.png|shine]]",
-            "tagIds": []
-          },
-          {
-            "id": "0f4c240b-f088-4747-bc41-90d495bf87e3",
-            "isExternalLink": false,
-            "columnId": "cb1684e7-d2ab-480d-bb72-9ca7205f3f2a",
-            "dateTime": null,
-            "content": "",
             "tagIds": [
-              "35ce3d1b-e236-46f7-bc9b-c743b90c5dc0"
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "e5428068-383b-4b4b-9b71-f31f70472ad3"
             ]
-          },
-          {
-            "id": "bbbb370e-4f99-4743-9c7f-95ef8be6b43e",
-            "isExternalLink": false,
-            "columnId": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
-            "dateTime": null,
-            "content": "1e6",
-            "tagIds": []
-          },
-          {
-            "id": "a753aa21-436f-4da3-8260-f15d0325c240",
-            "isExternalLink": false,
-            "columnId": "7caba6e3-43b6-4571-a48f-c385396558cd",
-            "dateTime": null,
-            "content": "",
-            "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
-            ]
-          },
-          {
-            "id": "46fdf4e0-3a06-4656-8ff7-5640fa8fb2e1",
-            "isExternalLink": false,
-            "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
-            "dateTime": null,
-            "content": "Unlocks a new set of limited upgrades in the talents tab\n",
-            "tagIds": []
-          },
-          {
-            "id": "c16bdffb-70e9-43a5-8141-e26e6b1ddc1c",
-            "isExternalLink": false,
-            "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
-            "dateTime": null,
-            "content": "[[Tier 3]]",
-            "tagIds": []
-          },
-          {
-            "id": "0687d789-ea1f-438d-8281-8156672fc5b8",
-            "isExternalLink": false,
-            "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
-            "dateTime": null,
-            "content": "",
-            "tagIds": []
           }
         ]
       },
@@ -2208,14 +2316,14 @@
         "index": 28,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:03:11.195Z",
-        "lastEditedDateTime": "2023-11-24T21:05:47.758Z",
+        "lastEditedDateTime": "2023-11-24T22:50:35.096Z",
         "cells": [
           {
             "id": "1c84f2d2-e0ea-4f9e-b84c-d1992fee3cdb",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Space Warp]]\n![[res/icons/galaxy.png|galaxy]]",
+            "content": "[[Space Condenser]]\n![[res/icons/galaxy.png|galaxy]]",
             "tagIds": []
           },
           {
@@ -2243,7 +2351,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8"
             ]
           },
           {
@@ -2259,7 +2367,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 3]]",
+            "content": "[[Space Shaper]]",
             "tagIds": []
           },
           {
@@ -2268,7 +2376,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "6a64e432-2b1e-4998-847d-d2ff79b5bbbc"
+            ]
           }
         ]
       },
@@ -2277,7 +2389,7 @@
         "index": 29,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:06:33.390Z",
-        "lastEditedDateTime": "2023-11-24T21:09:40.916Z",
+        "lastEditedDateTime": "2023-11-24T22:50:49.811Z",
         "cells": [
           {
             "id": "e68ee2b6-429b-4566-8830-57fe88fe491b",
@@ -2312,7 +2424,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8"
             ]
           },
           {
@@ -2328,7 +2440,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 3]]",
+            "content": "[[Space Shaper]]",
             "tagIds": []
           },
           {
@@ -2337,7 +2449,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "e5428068-383b-4b4b-9b71-f31f70472ad3"
+            ]
           }
         ]
       },
@@ -2346,7 +2462,7 @@
         "index": 30,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:09:47.667Z",
-        "lastEditedDateTime": "2023-11-24T21:12:13.329Z",
+        "lastEditedDateTime": "2023-11-24T22:50:59.316Z",
         "cells": [
           {
             "id": "a6709345-1857-4552-9053-9901397d916b",
@@ -2381,7 +2497,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8"
             ]
           },
           {
@@ -2406,7 +2522,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "f6d4ea51-fef0-4dc7-9509-9c5872673d4a"
+            ]
           }
         ]
       },
@@ -2415,7 +2535,7 @@
         "index": 31,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:12:18.211Z",
-        "lastEditedDateTime": "2023-11-24T21:13:59.086Z",
+        "lastEditedDateTime": "2023-11-24T22:51:10.510Z",
         "cells": [
           {
             "id": "4187b443-652f-45c8-a760-782cfc39ea40",
@@ -2450,7 +2570,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8"
             ]
           },
           {
@@ -2475,7 +2595,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "e5428068-383b-4b4b-9b71-f31f70472ad3"
+            ]
           }
         ]
       },
@@ -2484,14 +2608,14 @@
         "index": 32,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:14:02.548Z",
-        "lastEditedDateTime": "2023-11-24T21:16:40.303Z",
+        "lastEditedDateTime": "2023-11-24T22:51:15.453Z",
         "cells": [
           {
             "id": "9756ebe1-0599-4540-9bec-5fd235d25d7c",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Hack Specialist]]\n![[res/icons/hack.png|hack]]",
+            "content": "[[[SPECIAL] Hack Specialization|Hack Specialization]]![[res/icons/hack.png|hack]]",
             "tagIds": []
           },
           {
@@ -2519,7 +2643,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "e76a0840-cfbe-412d-bfd7-35264d499ab9"
             ]
           },
           {
@@ -2535,7 +2659,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Space Warp]]\n",
+            "content": "[[Space Condenser]]",
             "tagIds": []
           },
           {
@@ -2544,7 +2668,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "17b16d0a-b746-4332-bdd1-5a869add16d5"
+            ]
           }
         ]
       },
@@ -2553,14 +2680,14 @@
         "index": 33,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:17:09.024Z",
-        "lastEditedDateTime": "2023-11-24T21:18:31.399Z",
+        "lastEditedDateTime": "2023-11-24T22:51:19.634Z",
         "cells": [
           {
             "id": "e6f998cc-ff7c-4b19-af92-938d7dfe034b",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Hack Mastery]]\n![[res/icons/hack.png|hack]]",
+            "content": "[[[SPECIAL] Hack Mastery|Hack Mastery]]\n![[res/icons/hack.png|hack]]",
             "tagIds": []
           },
           {
@@ -2588,7 +2715,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "e76a0840-cfbe-412d-bfd7-35264d499ab9"
             ]
           },
           {
@@ -2604,7 +2731,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Hack Specialist]]\n",
+            "content": "[[[SPECIAL] Hack Specialization|Hack Specialization]]",
             "tagIds": []
           },
           {
@@ -2613,7 +2740,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "17b16d0a-b746-4332-bdd1-5a869add16d5"
+            ]
           }
         ]
       },
@@ -2622,14 +2752,14 @@
         "index": 34,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:18:53.516Z",
-        "lastEditedDateTime": "2023-11-24T21:22:04.837Z",
+        "lastEditedDateTime": "2023-11-24T22:51:24.770Z",
         "cells": [
           {
             "id": "9d972598-aff2-4ff9-aba7-01605ac0d569",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Module Specialist]]\n![[res/icons/cubes.png|cubes]]",
+            "content": "[[[SPECIAL] Module Specialization|Module Specialization]]\n![[res/icons/cubes.png|cubes]]",
             "tagIds": []
           },
           {
@@ -2657,7 +2787,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "b60171ae-2e97-418f-a650-b9e4383e71e0"
             ]
           },
           {
@@ -2673,7 +2803,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Space Warp]]\n",
+            "content": "[[Space Condenser]]",
             "tagIds": []
           },
           {
@@ -2682,7 +2812,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "17b16d0a-b746-4332-bdd1-5a869add16d5"
+            ]
           }
         ]
       },
@@ -2691,14 +2824,14 @@
         "index": 35,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:22:06.843Z",
-        "lastEditedDateTime": "2023-11-24T21:26:02.989Z",
+        "lastEditedDateTime": "2023-11-24T22:51:37.246Z",
         "cells": [
           {
             "id": "47dde89f-80cd-46cd-800a-ab83e580a96b",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Ultimate Lab]]\n![[res/icons/ultimate_lab.png|ultimate_lab]]",
+            "content": "[[Ultimate Laboratory]]\n![[res/icons/ultimate_lab.png|ultimate_lab]]",
             "tagIds": []
           },
           {
@@ -2726,7 +2859,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8"
             ]
           },
           {
@@ -2742,7 +2875,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Space Warp]]\n",
+            "content": "[[Space Condenser]]",
             "tagIds": []
           },
           {
@@ -2751,7 +2884,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815"
+            ]
           }
         ]
       },
@@ -2760,14 +2896,14 @@
         "index": 36,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:32:04.577Z",
-        "lastEditedDateTime": "2023-11-24T21:36:40.615Z",
+        "lastEditedDateTime": "2023-11-24T22:52:12.118Z",
         "cells": [
           {
             "id": "3d9e2c6f-4bfa-4815-9017-de2e6b83dfb5",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Tier 4]]\n![[res/icons/dna.png|dna]]",
+            "content": "[[Tier 4 (Research Unlock)|Tier 4]]\n![[res/icons/dna.png|dna]]",
             "tagIds": []
           },
           {
@@ -2795,7 +2931,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "d07fa1e0-d15a-4e7d-88d8-1e0deabd81e8"
             ]
           },
           {
@@ -2811,7 +2947,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Ultimate Lab]]\n",
+            "content": "[[Ultimate Laboratory]]",
             "tagIds": []
           },
           {
@@ -2820,7 +2956,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815"
+            ]
           }
         ]
       },
@@ -2829,7 +2968,7 @@
         "index": 37,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:33:59.338Z",
-        "lastEditedDateTime": "2023-11-24T21:36:56.039Z",
+        "lastEditedDateTime": "2023-11-24T22:52:27.980Z",
         "cells": [
           {
             "id": "b4d3cbe7-2546-4b55-969b-38db97ca1749",
@@ -2864,7 +3003,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "18c994ec-8b3b-4966-94ee-39b2a89ebbca"
             ]
           },
           {
@@ -2880,7 +3019,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 4]]",
+            "content": "[[Tier 4 (Research Unlock)|Tier 4]]",
             "tagIds": []
           },
           {
@@ -2889,7 +3028,12 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815",
+              "a4d1db2e-b697-4cfd-8673-f735a77f9ed5"
+            ]
           }
         ]
       },
@@ -2898,7 +3042,7 @@
         "index": 38,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:36:58.615Z",
-        "lastEditedDateTime": "2023-11-24T21:38:56.314Z",
+        "lastEditedDateTime": "2023-11-24T22:52:36.055Z",
         "cells": [
           {
             "id": "98070eb5-2b5e-44d6-95d2-168e1325f962",
@@ -2933,7 +3077,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "18c994ec-8b3b-4966-94ee-39b2a89ebbca"
             ]
           },
           {
@@ -2949,7 +3093,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 4]]",
+            "content": "[[Tier 4 (Research Unlock)|Tier 4]]",
             "tagIds": []
           },
           {
@@ -2958,7 +3102,11 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "8d3f523e-3250-4c4c-8ef1-2bba33fa4a20",
+              "e5428068-383b-4b4b-9b71-f31f70472ad3"
+            ]
           }
         ]
       },
@@ -2967,14 +3115,14 @@
         "index": 39,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:38:58.632Z",
-        "lastEditedDateTime": "2023-11-24T21:40:24.709Z",
+        "lastEditedDateTime": "2023-11-24T22:52:49.020Z",
         "cells": [
           {
             "id": "4196953b-714d-4838-ad2b-7205ae49bfb4",
             "isExternalLink": false,
             "columnId": "c935f782-1e70-4ed2-8077-dba559a6b0bc",
             "dateTime": null,
-            "content": "[[Uber Lab]]\n![[res/icons/space_station.png|space_station]]",
+            "content": "[[Uber Laboratory]]\n![[res/icons/space_station.png|space_station]]",
             "tagIds": []
           },
           {
@@ -3002,7 +3150,7 @@
             "dateTime": null,
             "content": "",
             "tagIds": [
-              "f3599547-7dea-4bfb-ae99-16632e62513e"
+              "18c994ec-8b3b-4966-94ee-39b2a89ebbca"
             ]
           },
           {
@@ -3018,7 +3166,7 @@
             "isExternalLink": false,
             "columnId": "b3da429e-c8eb-4afa-9cdd-73556e9c34cb",
             "dateTime": null,
-            "content": "[[Tier 4]]",
+            "content": "[[Infinity Milestones]]",
             "tagIds": []
           },
           {
@@ -3027,7 +3175,10 @@
             "columnId": "60fe4254-fe8e-46b4-ae34-faa2f4a9c2be",
             "dateTime": null,
             "content": "",
-            "tagIds": []
+            "tagIds": [
+              "56e05225-7cfb-403e-aab9-e1a37f616be0",
+              "fef7ac0e-9f63-41bb-9c15-5142acdcc815"
+            ]
           }
         ]
       }
