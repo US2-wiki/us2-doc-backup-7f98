@@ -1,0 +1,7 @@
+- [[Full index|Full index.md]] 
+	- deleted.user0 - 100%
+- [[Technologies.loom]] + [[Technologies Table|Technologies Table.md]]
+	- Cayman - 80% Creation
+	- deleted.user0 - 20% Creation/ 100% Checking/ 100% Reformatting
+- [[Diamond|Diamond.md]]
+	- deleted.user0 - 100%
