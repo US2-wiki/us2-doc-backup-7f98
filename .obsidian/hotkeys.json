@@ -1,1 +1,11 @@
-{}
+{
+  "notion-like-tables:export-markdown": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": " "
+    }
+  ]
+}

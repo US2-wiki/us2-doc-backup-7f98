@@ -1,0 +1,43 @@
+{
+  "inlineCSS": false,
+  "inlineJS": false,
+  "inlineImages": false,
+  "includePluginCSS": "notion-like-tables",
+  "includeSvelteCSS": true,
+  "makeNamesWebStyle": true,
+  "allowFoldingHeadings": true,
+  "sidebarsAlwaysCollapsible": false,
+  "addFilenameTitle": true,
+  "minifyHTML": true,
+  "customLineWidth": "",
+  "contentWidth": "",
+  "sidebarWidth": "",
+  "startOutlineCollapsed": false,
+  "logLevel": "warning",
+  "incrementalExport": true,
+  "deleteOldExportedFiles": true,
+  "addDarkModeToggle": true,
+  "includeOutline": true,
+  "includeGraphView": true,
+  "includeFileTree": true,
+  "exportPreset": "website",
+  "openAfterExport": true,
+  "graphAttractionForce": 1,
+  "graphLinkLength": 10,
+  "graphRepulsionForce": 150,
+  "graphCentralForce": 3,
+  "graphEdgePruning": 100,
+  "graphMinNodeSize": 3,
+  "graphMaxNodeSize": 7,
+  "exportPath": "C:\\Users\\user\\Documents\\NoteValut\\Game\\export",
+  "filesToExport": [
+    [
+      "Q&A/How to reach us.md",
+      "Q&A/Transfer save between Android and PC.md",
+      "Diamond.md",
+      "Full index.md",
+      "Technologies.loom",
+      "Technologies Table.md"
+    ]
+  ]
+}

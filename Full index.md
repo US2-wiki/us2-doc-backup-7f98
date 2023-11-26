@@ -2,7 +2,7 @@
 - [[Currency]]
 	- [[Credits]]
 	- [[Data]]
-	- [[Diamonds]]
+	- [[Diamond]]
 	- [[Power]]
 	- [[Electronics]]
 	- [[Science A]]
@@ -86,8 +86,11 @@
 		- [[Power Field]]
 		- [[Electronics Field]]
 - [[Research]]
-	- [[Technologies]] ([[Technologies.loom|Technologies Table]])
+	- [[Technologies]] ([[Technologies Table]])
 		- [[Tier 1]]
+			- [[[SPECIAL] Hack Specialization]]
+			- [[[SPECIAL] Module Specialization]]
+			- [[[SPECIAL] Hack Mastery]]
 			- [[Bulk Purchase]]
 			- [[Modules (Research)|Modules]]
 			- [[Overclocking (Research)|Overclocking]]
@@ -123,9 +126,6 @@
 			- [[Perpetual Motion]]
 			- [[Builder Robot]]
 			- [[Ultimate Laboratory]]
-			- [[[SPECIAL] Hack Specialization]]
-			- [[[SPECIAL] Module Specialization]]
-			- [[[SPECIAL] Hack Mastery]]
 			- [[Tier 4 (Research Unlock)|Tier 4]]
 		- [[Tier 4]]
 			- [[Infinity Milestones]]
@@ -321,6 +321,6 @@
 	- [[Transfer save between Android and PC]]
 	- [[How to reach us]]
 - Table of content
-	- [[Technologies.loom]]
-		![[Technologies.loom]]
+	- [[Technologies Table]]
+		![[Technologies Table]]
 		

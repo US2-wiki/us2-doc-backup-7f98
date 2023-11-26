@@ -2316,7 +2316,7 @@
         "index": 28,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:03:11.195Z",
-        "lastEditedDateTime": "2023-11-24T22:50:35.096Z",
+        "lastEditedDateTime": "2023-11-26T09:33:10.062Z",
         "cells": [
           {
             "id": "1c84f2d2-e0ea-4f9e-b84c-d1992fee3cdb",
@@ -2359,7 +2359,7 @@
             "isExternalLink": false,
             "columnId": "364b4b6f-3538-4502-9f2f-3e9fbca85da2",
             "dateTime": null,
-            "content": "Unlocks a machine capable of condensing space over time, increasing the time speed\nresearch_ultimate_lab\tUltimate Laboratory",
+            "content": "Unlocks a machine capable of condensing space over time, increasing the time speed",
             "tagIds": []
           },
           {

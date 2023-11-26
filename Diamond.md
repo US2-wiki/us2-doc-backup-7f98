@@ -8,7 +8,7 @@ Diamonds is a premium currency which can be contain in multiple way:
 		- Diamond capacity is directly related to the amount of Particle accelerator you have. This is calculated by equation by:
 			  $1000000*(1+PA)$
 			  $PA$ = Amount of [[Particle Accelerator]]
-		 Click [[Diamonds#^table-capacity-mobile|here]] to check result of different amount of $PA$
+		 Click bottom to check result of different amount of $PA$ 
 - Watch AD (Mobile Only)
 	- You can gain a specific amount of diamond base on the amount of [[Particle Accelerator]] you have. It is calculated by:
 		$120000*(1+PA)$
