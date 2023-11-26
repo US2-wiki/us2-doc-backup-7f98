@@ -6,7 +6,7 @@
   "includeSvelteCSS": true,
   "makeNamesWebStyle": true,
   "allowFoldingHeadings": true,
-  "sidebarsAlwaysCollapsible": false,
+  "sidebarsAlwaysCollapsible": true,
   "addFilenameTitle": true,
   "minifyHTML": true,
   "customLineWidth": "",
@@ -14,7 +14,7 @@
   "sidebarWidth": "",
   "startOutlineCollapsed": false,
   "logLevel": "warning",
-  "incrementalExport": true,
+  "incrementalExport": false,
   "deleteOldExportedFiles": true,
   "addDarkModeToggle": true,
   "includeOutline": true,
@@ -32,12 +32,12 @@
   "exportPath": "C:\\Users\\user\\Documents\\NoteValut\\Game\\export",
   "filesToExport": [
     [
+      "Currency/Diamond.md",
       "Q&A/How to reach us.md",
       "Q&A/Transfer save between Android and PC.md",
-      "Diamond.md",
       "Full index.md",
-      "Technologies.loom",
-      "Technologies Table.md"
+      "Technologies Table.md",
+      "Wiki Credit.md"
     ]
   ]
 }

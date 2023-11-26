@@ -14,7 +14,7 @@ Diamonds is a premium currency which can be contain in multiple way:
 		$120000*(1+PA)$
 		$PA$ = Amount of [[Particle Accelerator]]
 - Leave a Review (Single Time Reward) ([[Mobile]] Only)
-	- You can gain 500k (500000) [[diamond]]s by giving a Play Store Review via the game interface. This only work once per game save and would otherwise display as `Claimed` when you completed.
+	- You can gain 500k (500000) [[Diamond]]s by giving a Play Store Review via the game interface. This only work once per game save and would otherwise display as `Claimed` when you completed.
 
 
 | $PA$  | Capacity |
