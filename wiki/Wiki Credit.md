@@ -5,3 +5,7 @@
 	- deleted.user0 - 20% Creation/ 100% Checking/ 100% Reformatting
 - [[Diamond|Diamond.md]]
 	- deleted.user0 - 100%
+- [[How to reach us]]
+	- deleted.user0 - 100%
+- [[Transfer save between Android and PC]]
+	- deleted.user0 - 100%
