@@ -311,7 +311,7 @@
 			- [[Laplace's Demon]]
 			- [[Dimensional Traveler]] (in development, expected term from v1.5 via translation sourced from translation key)
 	- [[Statistic]]
-	- [[Universes]]
+	- [[Universes]] 
 		- [[Default Universe]]
 		- [[Download Sim Universe]]
 		- [[Gamer Universe]]
