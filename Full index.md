@@ -311,12 +311,18 @@
 			- [[Laplace's Demon]]
 			- [[Dimensional Traveler]] (in development, expected term from v1.5 via translation sourced from translation key)
 	- [[Statistic]]
-	- [[Teleport]] (in development -> expected v1.5 feature via translation)
-		- [[Universe]] (in development, expected concept word from v1.5 via translation)
-			- [[Power/Curiosity]]
-			- [[Permanent Hacks]]
-			- [[10 Upload Slots]]
-			- [[100% Performance]]
+	- [[Universes]]
+		- [[Default Universe]]
+		- [[Download Sim Universe]]
+		- [[Gamer Universe]]
+		- [[Hacker Universe]]
+		- [[Infected Universe]]
+		- [[Hardcore Universe]]
+		- [[Misfortune Universe]]
+		- [[Hellish]]
+	- Platform Difference
+		- [[Mobile]]
+		- [[PC]]
 - [[Q&A]]
 	- [[Transfer save between Android and PC]]
 	- [[How to reach us]]
