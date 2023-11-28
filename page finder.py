@@ -1,4 +1,5 @@
-import os, pathlib
+import os, pathlib, pyclip
+copy = ''
 with open(pathlib.Path(os.getcwd())/'wiki'/'Full index.md', 'r') as rfp:
     content = rfp.read()
     index = 0
@@ -13,6 +14,8 @@ with open(pathlib.Path(os.getcwd())/'wiki'/'Full index.md', 'r') as rfp:
         end_bracket = content.find(']]', location)
         if not attachment:
             print(content[location+2:end_bracket])
+            copy += content[location+2:end_bracket] + '\n'
         index = end_bracket
+pyclip.copy(copy)
 input()
         
