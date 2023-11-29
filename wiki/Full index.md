@@ -172,7 +172,7 @@
 		- [[Purchase Shaper Machines]]
 	- [[Assistant Robot]]
 		- [[Click Artifacts]]
-- [[Talents]]
+- [[Upgrades]]
 	- [[Talents]]
 		- [[Mining Power]]
 		- [[Upload Speed]]
