@@ -16,13 +16,13 @@ Talents can be refunded via shop using 240k [[Diamond|Diamonds]].
 |        [[Antivirus]]![[res/icons/virus.png\|100]]        | 5     | 1        | Reduces virus spawn rate chance by 100%                         | 16             |                                           |
 |        [[Hack Slot]] ![[res/icons/hack.png\|100]]        | 5     | 2        | Increases the slot capacity of hacks by 1                       | 18             |                                           |
 |          [[Luck]] ![[res/icons/star.png\|100]]           | 2     | 10       | Increases spawn rate of artifacts by 10%                        | 20             |                                           |
-|      [[Module Slot]] ![[res/icons/cubes.png\\|100]]      | 5     | 3        | Increases the slot capacity of modules by 1                     | 0              | [[Modules (Research)\|Modules]]           |
-|      [[Crafting Speed]]![[res/icons/pcb.png\\|100]]      | 2     | 10       | Increases production of module parts by 2%                      | 0              | [[Modules (Research)\|Modules]]           |
+|      [[Module Slot]] ![[res/icons/cubes.png\|100]]      | 5     | 3        | Increases the slot capacity of modules by 1                     | 0              | [[Modules (Research)\|Modules]]           |
+|      [[Crafting Speed]]![[res/icons/pcb.png\|100]]      | 2     | 10       | Increases production of module parts by 2%                      | 0              | [[Modules (Research)\|Modules]]           |
 |        [[Charisma]] ![[res/icons/money.png\|100]]        | 2     | 10       | Components are 2% cheaper                                       | 23             |                                           |
 |       [[Compression]]![[res/icons/data.png\|100]]        | 2     | 10       | Reduces file size by 2%                                         | 27             |                                           |
 |    [[Power Generation]]![[res/icons/energy.png\|100]]    | 1     | Infinite | Increases power generation by 20%                               | 0              |                                           |
-|       [[Cooling]]![[res/icons/cooling.png\\|100]]        | 2     | 10       | Increases the maximum heat threshold by 20%                     | 0              | [[Overclocking (Research)\|Overclocking]] |
-| [[Production Speed]]![[res/icons/electronics.png\\|100]] | 1     | Infinite | Increases the fabricator speed by 20%                           | 0              | [[Manufactory (Research)\|Manufactory]]   |
+|       [[Cooling]]![[res/icons/cooling.png|100]]        | 2     | 10       | Increases the maximum heat threshold by 20%                     | 0              | [[Overclocking (Research)\|Overclocking]] |
+| [[Production Speed]]![[res/icons/electronics.png|100]] | 1     | Infinite | Increases the fabricator speed by 20%                           | 0              | [[Manufactory (Research)\|Manufactory]]   |
 |    [[Additional Robot]]![[res/icons/robot.png\|100]]     | 2     | Infinite | Increases the number of robot workers by 1                      | 0              | [[Logistic Robots]]                       |
 |   [[Graviton Production]]![[res/icons/atom2.png\|100]]   | 1     | Infinite | Increases graviton production by 20%                            | 0              | [[Space Shaper]]                          |
 
