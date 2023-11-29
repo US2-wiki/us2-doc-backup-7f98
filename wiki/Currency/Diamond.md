@@ -6,12 +6,12 @@ Diamonds is a premium currency which can be contain in multiple way:
 		![[example_expand.png]]
 	- [[Mobile]]:
 		- Diamond capacity is directly related to the amount of Particle accelerator you have. This is calculated by equation by:
-			  $1000000*(1+PA)$
+			  $1000000\times(1+PA)$
 			  $PA$ = Amount of [[Particle Accelerator]]
 		 Click bottom to check result of different amount of $PA$ 
 - Watch AD ([[Mobile]] Only)
 	- You can gain a specific amount of diamond base on the amount of [[Particle Accelerator]] you have. It is calculated by:
-		$120000*(1+PA)$
+		$120000\times(1+PA)$
 		$PA$ = Amount of [[Particle Accelerator]]
 - Leave a Review (Single Time Reward) ([[Mobile]] Only)
 	- You can gain 500k (500000) [[Diamond]]s by giving a Play Store Review via the game interface. This only work once per game save and would otherwise display as `Claimed` when you completed.
