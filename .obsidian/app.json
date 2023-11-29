@@ -1,5 +1,7 @@
 {
   "attachmentFolderPath": "res",
   "showUnsupportedFiles": true,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "wiki"
 }
