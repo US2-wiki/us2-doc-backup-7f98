@@ -9,3 +9,5 @@
 	- deleted.user0 - 100%
 - [[Transfer save between Android and PC]]
 	- deleted.user0 - 100%
+- [[File Type]]
+	- deleted.user0 - 100%
