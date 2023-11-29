@@ -14,7 +14,7 @@
   "sidebarWidth": "",
   "startOutlineCollapsed": false,
   "logLevel": "warning",
-  "incrementalExport": false,
+  "incrementalExport": true,
   "deleteOldExportedFiles": true,
   "addDarkModeToggle": true,
   "includeOutline": true,
@@ -35,6 +35,7 @@
       "wiki/Currency/Diamond.md",
       "wiki/Q&A/How to reach us.md",
       "wiki/Q&A/Transfer save between Android and PC.md",
+      "wiki/File Type.md",
       "wiki/Full index.md",
       "wiki/Technologies Table.md",
       "wiki/Wiki Credit.md"
