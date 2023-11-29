@@ -14,6 +14,7 @@
 	- [[Time]]
 - [[Basic]]
 	- [[Experience]]
+	- [[Level]]
 	- [[Hack Exp]]
 - [[Upgrade Point]]
 	- [[Hack Point]]
