@@ -335,7 +335,7 @@
 - [[Q&A]]
 	- [[Transfer save between Android and PC]]
 	- [[How to reach us]]
-- Table of content
+- Table of contents
 	- [[Technologies Table]]
 		![[Technologies Table]]
 - [[Wiki Credit]]

@@ -1,20 +1,20 @@
-Diamonds is a premium currency which can be contain in multiple way:
+Diamonds are a premium currency which can be obtained in multiple ways:
 - [[Particle Accelerator]]
-	- You can gain 100 diamond per [[Particle Accelerator]] every seconds. This is passive generation and would be limit by diamond capacity.
+	- You can gain 100 diamonds per [[Particle Accelerator]] every second. This is passive generation and is limited by diamond capacity.
 	- [[PC]]:
-		- Diamond capacity is counted by the amount of `Expand` Upgrade you have on [[Shop]] page. 
+		- Diamond capacity is determined by the number of `Expand` Upgrades you have on the [[Shop]] page. 
 		![[example_expand.png]]
 	- [[Mobile]]:
-		- Diamond capacity is directly related to the amount of Particle accelerator you have. This is calculated by equation by:
+		- Diamond capacity is directly related to the number of Particle accelerators you have. This is calculated by equation by:
 			  $1000000\times(1+PA)$
-			  $PA$ = Amount of [[Particle Accelerator]]
+			  $PA$ = Number of [[Particle Accelerator|Particle Accelerators]]
 		 Click bottom to check result of different amount of $PA$ 
-- Watch AD ([[Mobile]] Only)
-	- You can gain a specific amount of diamond base on the amount of [[Particle Accelerator]] you have. It is calculated by:
+- Watch Ad ([[Mobile]] Only)
+	- You can gain a specific amount of diamonds based on the number of [[Particle Accelerator|Particle Accelerators]] you have. It is calculated by:
 		$120000\times(1+PA)$
 		$PA$ = Amount of [[Particle Accelerator]]
 - Leave a Review (Single Time Reward) ([[Mobile]] Only)
-	- You can gain 500k (500000) [[Diamond]]s by giving a Play Store Review via the game interface. This only work once per game save and would otherwise display as `Claimed` when you completed.
+	- You can gain 500k (500000) Diamonds by giving a Play Store Review via the game interface. This only works once per game save and will be displayed as `Claimed` once completed.
 
 
 | $PA$  | Capacity |
