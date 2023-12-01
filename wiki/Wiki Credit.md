@@ -4,7 +4,8 @@
 	- Cayman - 80% Creation
 	- deleted.user0 - 20% Creation/ 100% Checking/ 100% Reformatting
 - [[Diamond|Diamond.md]]
-	- deleted.user0 - 100%
+	- deleted.user0 - 100% Creation
+	- Bubs - 100% Proofreading and editing grammar error 
 - [[How to reach us]]
 	- deleted.user0 - 100%
 - [[Transfer save between Android and PC]]
