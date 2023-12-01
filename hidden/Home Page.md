@@ -1,5 +1,5 @@
 # Welcome to the Upload Simulator Wiki!
-This is the the wiki for the game Upload Simulator Silicon made by EnegmaDev. 
+This is the the wiki for the game Upload Simulator Silicon made by EnigmaDev. 
 
 Click the below link to navigate to the index of pages. It is a comprehensive list of every planned page in the wiki.
 
