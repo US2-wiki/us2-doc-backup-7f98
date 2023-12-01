@@ -75,7 +75,7 @@ ___
 ![[EmbeddedImage.jpg]]
 ```
 [[Internal Link]]
-[[Internal Link|Internal Link but Renamed]]
+[[Internal Link|Internal Link but Renamed]] 
 
 [External Link](https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#Internal%20links)
 
@@ -283,6 +283,7 @@ Biology --> Chemistry
 class Biology,Chemistry internal-link;
 ```
 ## Math
+LaTex is used as a plugin where `$$` can \be used for block LaTex equation and `$` can be used an singular line LaTex equation
 ```
 $$
 \begin{vmatrix}a & b\\
