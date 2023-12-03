@@ -1,0 +1,1 @@
+Credits are one of the primary currencies in Upload Simulator 2. It can be obtained mainly through mining and by uploading [[Image|images]] files. It can be used to purchase and upgrade [[Components|components]], the overclocker and the fabricator.
