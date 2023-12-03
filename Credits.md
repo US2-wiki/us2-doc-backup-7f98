@@ -1,0 +1,1 @@
+Credits are one of the most important resources in the game. They are used to upgrade your components. You can collect them by using 

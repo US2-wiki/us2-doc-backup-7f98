@@ -13,20 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Full index.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "490310cb796dd291",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Full index.md",
+                "file": "Credits.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -99,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Full index.md",
+                "file": "Credits.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Full index.md",
+                "file": "Credits.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Full index.md"
+                "file": "Credits.md"
               }
             }
           }
@@ -164,10 +151,12 @@
   },
   "active": "c59e635d664caa6e",
   "lastOpenFiles": [
-    "Currency.md",
     "Full index.md",
     "Credits.md",
     "Technologies.loom",
+    "Science C.md",
+    "Data.md",
+    "Currency.md",
     "Tier 3.md",
     "Photovoltaics.md",
     "Overclocking (Research).md",
