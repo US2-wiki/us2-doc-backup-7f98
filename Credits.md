@@ -1,1 +1,1 @@
-Credits are one of the most important resources in the game. They are used to upgrade your components. You can collect them by using hack called Print or from GPU that produce them. 
+**Credits** are one of the most important resources in the game. They are used to upgrade your components. You can collect them by using hack  [[Print]] or from GPU that produce them. 

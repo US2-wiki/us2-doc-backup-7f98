@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Credits.md",
+                "file": "Data.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Credits.md",
+                "file": "Data.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Credits.md",
+                "file": "Data.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Credits.md"
+                "file": "Data.md"
               }
             }
           }
@@ -153,10 +153,11 @@
   "lastOpenFiles": [
     "Full index.md",
     "Credits.md",
+    "Currency.md",
+    "Print.md",
     "Technologies.loom",
     "Science C.md",
     "Data.md",
-    "Currency.md",
     "Tier 3.md",
     "Photovoltaics.md",
     "Overclocking (Research).md",
