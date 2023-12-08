@@ -32,10 +32,13 @@
   "exportPath": "C:\\Users\\user\\Documents\\NoteValut\\Game\\export",
   "filesToExport": [
     [
+      "wiki/Currency/Credits.md",
       "wiki/Currency/Diamond.md",
+      "wiki/Files/File Type.md",
+      "wiki/Files/Image.md",
       "wiki/Q&A/How to reach us.md",
       "wiki/Q&A/Transfer save between Android and PC.md",
-      "wiki/File Type.md",
+      "wiki/Components.md",
       "wiki/Full index.md",
       "wiki/Talents.md",
       "wiki/Technologies Table.md",

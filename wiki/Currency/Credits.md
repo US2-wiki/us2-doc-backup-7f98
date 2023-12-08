@@ -7,7 +7,7 @@ It can be obtained mainly through [[GPU]] mining and by uploading [[Image|images
 - [[Print]] hack
 - [[Bulk Print]] hack
 
-#### How to get more [[Credits|credit]]
+#### How to get more credit
 - Purchase/Upgrade [[GPU]] to increase mining income
 - Purchase/Upgrade [[CPU]] to increase boost to [[components]]
 - Purchase/Upgrade [[Network]] with downloading [[Image|images]] files
