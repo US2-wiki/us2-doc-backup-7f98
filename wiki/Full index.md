@@ -16,6 +16,7 @@
 	- [[Experience]]
 	- [[Level]]
 	- [[Hack Exp]]
+	- [[Battery]]
 - [[Upgrade Point]]
 	- [[Hack Point]]
 	- [[Talents Point]]
