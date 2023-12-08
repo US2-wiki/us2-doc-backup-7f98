@@ -14,3 +14,10 @@
 	- deleted.user0 - 100%
 - [[Talents]]
 	- sirtodd - 100%
+- [[Credits]]
+	- sirtodd
+	- deleted.user0
+- [[Image]]
+	- sirtodd - 100%
+- [[Components]]
+	- sirtodd - 100%
