@@ -1,0 +1,1 @@
+Power is one of the main resurces in the game. its used to 
