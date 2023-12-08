@@ -1,0 +1,1 @@
+Diamonds are used to buy items from shop
