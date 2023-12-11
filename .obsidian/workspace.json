@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Diamonds.md",
+                "file": "Data.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Diamonds.md",
+                "file": "Data.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Diamonds.md",
+                "file": "Data.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Diamonds.md"
+                "file": "Data.md"
               }
             }
           }
@@ -151,9 +151,9 @@
   },
   "active": "c59e635d664caa6e",
   "lastOpenFiles": [
+    "Diamonds.md",
     "Power.md",
     "Full index.md",
-    "Diamonds.md",
     "Data.md",
     "Credits.md",
     "Currency.md",

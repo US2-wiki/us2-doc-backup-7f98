@@ -1,0 +1,1 @@
+Data is one of the main resources in the game. 
