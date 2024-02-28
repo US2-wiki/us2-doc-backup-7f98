@@ -1,0 +1,5 @@
+<style>
+.sidebar-section-header {
+  text-transform:none
+}
+</style>
