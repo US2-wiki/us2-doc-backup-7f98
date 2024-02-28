@@ -319,11 +319,11 @@
 			- [[Endgame]]
 		- Endgame
 			- [[Laplace's Demon]]
-			- [[Dimensional Traveler]] (in development, expected term from v1.5 via translation sourced from translation key)
+			- [[Dimensional Traveler]] 
 	- [[Statistic]]
 	- [[Universes]] 
 		- [[Default Universe]]
-		- [[Download Sim Universe]]
+		- [[Classic Universe]]
 		- [[Gamer Universe]]
 		- [[Hacker Universe]]
 		- [[Infected Universe]]
@@ -340,3 +340,6 @@
 	- [[Technologies Table]]
 		![[Technologies Table]]
 - [[Wiki Credit]]
+
+Built: 
+Wed, 28 Feb 2024 17:39:04 for US2 version 1.5.0.20 public releases
