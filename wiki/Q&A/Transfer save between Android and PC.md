@@ -1,3 +1,15 @@
+---
+tags:
+  - QnA
+---
+Main method:
+1. On device(Android/PC), open Setting from the menu in the top left corner in-game
+2. Click Share Save
+3. Click Export and copy the 6 digit share code
+4. On another device, also open Setting and click Share Save
+5. Type in the 6 digit code
+6. Click Import
+Alternative method:
 1. Export your android save
 2. Copy the save file from Android 
 	   Path: ``/storage/emulated/0/Android/data/com.enigmadev.uploadsimulator2/files`` 
