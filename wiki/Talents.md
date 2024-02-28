@@ -1,3 +1,9 @@
+---
+tags:
+  - Main
+  - Data
+---
+
 Talents (also known as "Upgrades"), are upgrades that requires points gained through leveling to be purchased. Some talents are focused in giving raw attributes, and others more focused towards quality of life, such as removing viruses.
 
 Talents can be refunded via shop using 240k [[Diamond|Diamonds]].

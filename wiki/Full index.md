@@ -1,3 +1,11 @@
+---
+tags:
+  - Main
+aliases:
+  - index
+  - main
+---
+
  ![[uploadsimsi.png|100|80]]![[silicon_textlogo.png|100|300]]
 - [[Currency]]
 	- [[Credits]]

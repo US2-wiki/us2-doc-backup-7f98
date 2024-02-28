@@ -1,3 +1,6 @@
+---
+tags: Currency
+---
 Diamonds are a premium currency which can be obtained in multiple ways:
 - [[Particle Accelerator]]
 	- You can gain 100 diamonds per [[Particle Accelerator]] every second. This is passive generation and is limited by diamond capacity.

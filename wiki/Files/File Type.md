@@ -1,3 +1,10 @@
+---
+tags:
+  - Main
+aliases:
+  - file
+  - filetype
+---
 There are a few different file type in the game:
 - [[Image]]
 - [[Music]]

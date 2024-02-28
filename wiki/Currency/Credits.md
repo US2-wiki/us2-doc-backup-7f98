@@ -1,3 +1,7 @@
+---
+tags:
+  - Currency
+---
 Credits are one of the primary currencies in Upload Simulator 2. which can be obtain and used in variety of way.
 
 ### How to Obtain

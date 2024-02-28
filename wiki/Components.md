@@ -1,3 +1,8 @@
+---
+tags:
+  - Main
+---
+
 Components are the primary source of progression in Upload Simulator 2.
 
 Components can be either purchased or upgraded. Purchasing components will add to the component count, scaling its rewarding attribute linearly. Upgrading will add to the component level, scaling its attributes exponentially, but causing the component count to reset back to 1.

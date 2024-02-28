@@ -1,3 +1,17 @@
+---
+tags:
+  - Main
+  - Data
+  - Research
+  - Technologies
+aliases:
+  - Research
+  - Tech
+  - Technologies
+---
+
+
+
 | Name                                                                                    | Tier   | Price        | Unit          | Description                                                                                                    | Required                                               | Type                                            |
 | --------------------------------------------------------------------------------------- | ------ | ------------ | ------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------------------------------------------- |
 | [[[SPECIAL] Hack Specialization\|Hack Specialization]]![[res/icons/hack.png\|100]]      | Tier 1 | 60           | Hacking Level | Increases battery recharge rate by 100% WARNING: Resets your hack progress                                     |                                                        | Extended Feature,Feature                        |
