@@ -22,7 +22,7 @@ It can be obtained mainly through [[GPU]] mining and by uploading [[Image|images
 - Use & Upgrade [[Overheat]] hack
 	- Use to boost mining power
 - Overclock [[GPU]] with [[Power]] to increase boost
-- Upgrade [[Circuit Fabricator]] to increase speed of [[Assembly|GPU Assembler]] 
+- Upgrade [[Assembly|GPU Assembler]] by using [[Electronics]]
 - [[Field Modulation]] $\Rightarrow$ [[Credits Flow]]
 	- Increase multiplier to earning of [[Credits|credits]] 
 - [[Drivers]] $\Rightarrow$ Increase permanent multiplier to [[GPU]]

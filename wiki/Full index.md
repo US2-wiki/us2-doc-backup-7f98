@@ -350,4 +350,4 @@ aliases:
 - [[Wiki Credit]]
 
 Built: 
-Wed, 28 Feb 2024 19:25:26 for US2 version 1.5.0.20 public releases
+Fri, 17 May 2024 18:38:26 UTC for US2 version 1.6.0.2 public releases
