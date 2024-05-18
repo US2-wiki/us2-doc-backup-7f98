@@ -14,7 +14,7 @@
   "allowFoldingHeadings": true,
   "allowFoldingLists": true,
   "allowResizingSidebars": true,
-  "logLevel": "warning",
+  "logLevel": "all",
   "minifyHTML": true,
   "makeNamesWebStyle": true,
   "onlyExportModified": true,
@@ -26,7 +26,7 @@
   "addGraphView": true,
   "addTitle": true,
   "addRSSFeed": true,
-  "siteURL": "",
+  "siteURL": "https://us2-wiki.enigmadev.site/",
   "authorName": "",
   "vaultTitle": "US2_Wiki",
   "exportPreset": "website",
@@ -46,7 +46,8 @@
   "exportPath": "C:\\Users\\user\\Documents\\NoteValut\\Game\\export",
   "filesToExport": [
     [
-      "wiki"
+      "wiki",
+      "version"
     ]
   ],
   "inlineCSS": false,
