@@ -85,6 +85,18 @@
 		"attributes":{
 		}
 	},
+	"drivers":{
+		"name": "research_drivers",
+		"icon": "disc.png",
+		"script": "ResearchTech.gd",
+		"description": "research_drivers_desc",
+		"tier": 1,
+		"requirement": "overclocker",
+		"price": 1,
+		"price_e": 10,
+		"attributes":{
+		}
+	},
 	"coal_power":{
 		"name": "research_coal_power",
 		"icon": "coal.png",
@@ -93,19 +105,7 @@
 		"tier": 1,
 		"requirement": "overclocker",
 		"price": 1,
-		"price_e": 11,
-		"attributes":{
-		}
-	},
-	"moore_law":{
-		"name": "research_moore_law",
-		"icon": "server.png",
-		"script": "ResearchTech.gd",
-		"description": "research_moore_law_desc",
-		"tier": 1,
-		"requirement": "overclocker",
-		"price": 1,
-		"price_e": 13,
+		"price_e": 12,
 		"attributes":{
 		}
 	},
@@ -127,10 +127,11 @@
 		"script": "ResearchTech.gd",
 		"description": "research_manufactory_desc",
 		"tier": 1,
-		"requirement": "moore_law",
+		"requirement": "drivers",
 		"price": 1,
 		"price_e": 17,
 		"attributes":{
+			"assembler_slots": 3
 		}
 	},
 	"fission":{
@@ -145,15 +146,15 @@
 		"attributes":{
 		}
 	},
-	"injection":{
-		"name": "research_injection",
-		"icon": "shuffle.png",
+	"lithography":{
+		"name": "research_lithography",
+		"icon": "cpu.png",
 		"script": "ResearchTech.gd",
-		"description": "research_injection_desc",
+		"description": "research_lithography_desc",
 		"tier": 1,
 		"requirement": "manufactory",
 		"price": 1,
-		"price_e": 29,
+		"price_e": 30,
 		"attributes":{
 		}
 	},
@@ -219,18 +220,6 @@
 		"attributes":{
 		}
 	},
-	"turbo":{
-		"name": "research_turbo",
-		"icon": "energy.png",
-		"script": "ResearchTech.gd",
-		"description": "research_turbo_desc",
-		"tier": 2,
-		"requirement": "field_modulation",
-		"price": 1,
-		"price_e": 9,
-		"attributes":{
-		}
-	},
 	"cryogenics":{
 		"name": "research_cryogenics",
 		"icon": "cooling.png",
@@ -243,15 +232,15 @@
 		"attributes":{
 		}
 	},
-	"drivers":{
-		"name": "research_drivers",
-		"icon": "disc.png",
+	"moore_law":{
+		"name": "research_moore_law",
+		"icon": "server.png",
 		"script": "ResearchTech.gd",
-		"description": "research_drivers_desc",
+		"description": "research_moore_law_desc",
 		"tier": 2,
 		"requirement": "field_modulation",
 		"price": 1,
-		"price_e": 12,
+		"price_e": 13,
 		"attributes":{
 		}
 	},
@@ -301,31 +290,7 @@
 		"price": 1,
 		"price_e": 0,
 		"attributes":{
-			"graviton_production": 1
-		}
-	},
-	"enhance":{
-		"name": "research_enhance",
-		"icon": "belt_lane.png",
-		"script": "ResearchTech.gd",
-		"description": "research_enhance_desc",
-		"tier": 3,
-		"requirement": "tier3",
-		"price": 1,
-		"price_e": 3,
-		"attributes":{
-		}
-	},
-	"engineer_robot":{
-		"name": "research_engineer_robot",
-		"icon": "robot.png",
-		"script": "ResearchTech.gd",
-		"description": "research_engineer_robot_desc",
-		"tier": 3,
-		"requirement": "enhance",
-		"price": 1,
-		"price_e": 9,
-		"attributes":{
+			"graviton_production": 1,
 		}
 	},
 	"passives":{
@@ -395,7 +360,7 @@
 		"script": "ResearchHackSpec.gd",
 		"description": "research_hack_specialist_desc",
 		"tier": 3,
-		"requirement": "space_warp",
+		"requirement": "",
 		"price": 60,
 		"price_e": 0,
 		"attributes":{
@@ -408,8 +373,8 @@
 		"script": "ResearchHackSpec.gd",
 		"description": "research_hack_mastery_desc",
 		"tier": 3,
-		"requirement": "hack_specialist",
-		"price": 100,
+		"requirement": "",
+		"price": 60,
 		"price_e": 0,
 		"attributes":{
 			"battery": 1
@@ -421,7 +386,7 @@
 		"script": "ResearchModuleSpec.gd",
 		"description": "research_module_specialist_desc",
 		"tier": 3,
-		"requirement": "space_warp",
+		"requirement": "",
 		"price": 1000,
 		"price_e": 0,
 		"attributes":{

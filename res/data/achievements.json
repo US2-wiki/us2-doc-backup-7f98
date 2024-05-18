@@ -262,10 +262,11 @@
 		"script": "AchievementEngineer.gd",
 		"gp_id": "",
 		"steam_id": "",
-		"reward": "",
-		"reward_value": 0,
-		"reward_icon": "",
+		"reward": "+#%",
+		"reward_value": 5,
+		"reward_icon": "electronics.png",
 		"attributes":{
+			"production": 0.05
 		}
 	},
 	"hackerman":{
@@ -651,6 +652,19 @@
 		"statistic_value": 1,
 		"gp_id": "",
 		"steam_id": "laplace",
+		"reward": "",
+		"reward_value": 0,
+		"reward_icon": "",
+		"attributes":{
+		}
+	},
+	"traveler":{
+		"name": "achievement_traveler",
+		"icon": "wormhole.png",
+		"description": "achievement_traveler_desc",
+		"script": "AchievementTraveler.gd",
+		"gp_id": "",
+		"steam_id": "traveler",
 		"reward": "",
 		"reward_value": 0,
 		"reward_icon": "",

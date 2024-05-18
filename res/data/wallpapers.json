@@ -1,62 +1,62 @@
 {
 	"waves":{
 		"name": "wallpaper_waves",
-		"platform": 1,
+		"platform": [1],
 		"image": "mobile/waves.jpg"
 	},
 	"nebulae":{
 		"name": "wallpaper_nebulae",
-		"platform": 1,
+		"platform": [1],
 		"image": "mobile/nebulae.jpg"
 	},
 	"nebulae_pc":{
 		"name": "wallpaper_nebulae",
-		"platform": 0,
+		"platform": [0],
 		"image": "pc/nebulae.jpg"
 	},
 	"neutron_star":{
 		"name": "wallpaper_neutron_star",
-		"platform": 1,
+		"platform": [1],
 		"image": "mobile/neutron_star.jpg"
 	},
 	"classic":{
 		"name": "wallpaper_classic",
-		"platform": -1,
+		"platform": [0, 1],
 		"image": "classic.jpg"
 	},
 	"silicon":{
 		"name": "wallpaper_silicon",
-		"platform": 1,
+		"platform": [1],
 		"image": "mobile/silicon.jpg"
 	},
 	"silicon_pc":{
 		"name": "wallpaper_silicon",
-		"platform": 0,
+		"platform": [0],
 		"image": "pc/silicon.jpg"
 	},
 	"nova":{
 		"name": "wallpaper_nova",
-		"platform": 1,
+		"platform": [1],
 		"image": "mobile/nova.jpg"
 	},
 	"riverside":{
 		"name": "wallpaper_riverside",
-		"platform": 1,
+		"platform": [1],
 		"image": "mobile/riverside.jpg"
 	},
 	"riverside_pc":{
 		"name": "wallpaper_riverside",
-		"platform": 0,
+		"platform": [0],
 		"image": "pc/riverside.jpg"
 	},
 	"jungle_sunset":{
 		"name": "wallpaper_jungle_sunset",
-		"platform": 1,
+		"platform": [1],
 		"image": "mobile/jungle_sunset.jpg"
 	},
 	"flare":{
 		"name": "wallpaper_flare",
-		"platform": 1,
+		"platform": [1],
 		"image": "mobile/flare.jpg"
 	}
 }

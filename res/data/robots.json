@@ -79,16 +79,6 @@
 		"buff":{
 		}
 	},
-	"bot_engineer":{
-		"name": "bot_engineer",
-		"icon": "tools.png",
-		"requirement": "engineer_robot",
-		"type": "industrial",
-		"work_time": 60,
-		"emit": "automate_modifications",
-		"buff":{
-		}
-	},
 	"bot_clicker":{
 		"name": "bot_clicker",
 		"icon": "star.png",

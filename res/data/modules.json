@@ -118,7 +118,7 @@
 		"description": "module_autoclicker_desc",
 		"script": "",
 		"scene": "ModuleAutoClicker.tscn",
-		"limit": 1,
+		"limit": 4,
 		"requirement": "",
 		"cost":{
 			"wire": 8,
@@ -150,7 +150,7 @@
 		"description": "module_eliminator_desc",
 		"script": "",
 		"scene": "ModuleEliminator.tscn",
-		"limit": 1,
+		"limit": 4,
 		"requirement": "",
 		"cost":{
 			"wire": 6,

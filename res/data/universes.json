@@ -1,0 +1,193 @@
+{
+	"default":{
+		"name": "universe_default",
+		"icon": "wormhole.png",
+		"script": "UniverseUploader.gd",
+		"description": "universe_default_desc",
+		"attributes": {
+		},
+		"requirement": [],
+		"exclude_components": [],
+		"exclude_upgrades": [],
+		"exclude_uploads": [],
+		"exclude_perks": [],
+		"exclude_robots": [],
+		"rewards": {
+			"description": "reward_power_curiosity",
+			"icon": "explosion.png",
+			"attributes": {
+			},
+			"research": []
+		}
+	},
+	"downloader":{
+		"name": "universe_downloader",
+		"icon": "star.png",
+		"script": "UniverseUploader.gd",
+		"description": "universe_downloader_desc",
+		"attributes": {
+			"mining": -1,
+		},
+		"requirement": ["default"],
+		"exclude_components": ["gpu"],
+		"exclude_upgrades": ["mining"],
+		"exclude_uploads": ["gpu_driver"],
+		"exclude_perks": ["mining_power", "infinity_mining_power"],
+		"exclude_robots": ["bot_gpu", "bot_overclock_gpu"],
+		"rewards": {
+			"description": "reward_performance",
+			"icon": "server.png",
+			"attributes": {
+				"performance": 1
+			},
+			"research": []
+		}
+	},
+	"gamer":{
+		"name": "universe_gamer",
+		"icon": "game.png",
+		"script": "UniverseGamer.gd",
+		"description": "universe_gamer_desc",
+		"attributes": {
+			"slots": 30,
+		},
+		"requirement": ["default"],
+		"exclude_components": [],
+		"exclude_upgrades": [],
+		"exclude_uploads": ["image", "music", "video"],
+		"exclude_perks": [],
+		"exclude_robots": [],
+		"rewards": {
+			"description": "reward_upload_slots",
+			"icon": "bars.png",
+			"attributes": {
+				"slots": 10
+			},
+			"research": []
+		}
+	},
+	"hacker":{
+		"name": "universe_hacker",
+		"icon": "hack.png",
+		"script": "",
+		"description": "universe_hacker_desc",
+		"attributes": {
+			"hack_slots": -2,
+			"battery": 9,
+			"battery_recharge": 9
+		},
+		"requirement": ["default"],
+		"exclude_components": [],
+		"exclude_upgrades": ["hack_slots"],
+		"exclude_uploads": [],
+		"exclude_perks": [],
+		"exclude_robots": [],
+		"rewards": {
+			"description": "reward_permanent_hacks",
+			"icon": "hack.png",
+			"attributes": {
+			},
+			"research": ["hack_specialist", "hack_mastery"]
+		}
+	},
+	"infected":{
+		"name": "universe_infected",
+		"icon": "virus.png",
+		"script": "UniverseInfected.gd",
+		"description": "universe_infected_desc",
+		"attributes": {
+			"virus_protection": -1,
+		},
+		"requirement": ["default"],
+		"exclude_components": [],
+		"exclude_upgrades": ["anti_virus"],
+		"exclude_uploads": [],
+		"exclude_perks": [],
+		"exclude_robots": [],
+		"rewards": {
+			"description": "reward_permanent_modules",
+			"icon": "cubes.png",
+			"attributes": {
+			},
+			"research": ["module_specialist"]
+		}
+	},
+	"hardcore":{
+		"name": "universe_hardcore",
+		"icon": "death.png",
+		"script": "",
+		"description": "universe_hardcore_desc",
+		"attributes": {
+			"discount": -1,
+			"virus_protection": -1,
+			"signal": -1,
+			"artifact_duration": -0.5
+		},
+		"requirement": ["infected"],
+		"exclude_components": [],
+		"exclude_upgrades": [],
+		"exclude_uploads": [],
+		"exclude_perks": [],
+		"exclude_robots": [],
+		"rewards": {
+			"description": "reward_module_slot",
+			"icon": "cubes.png",
+			"attributes": {
+				"module_slots": 1
+			},
+			"research": []
+		}
+	},
+	"unlucky":{
+		"name": "universe_unlucky",
+		"icon": "panic.png",
+		"script": "",
+		"description": "universe_unlucky_desc",
+		"attributes": {
+			"upgrade_chance": -0.25,
+			"luck": -0.5
+		},
+		"requirement": ["infected"],
+		"exclude_components": [],
+		"exclude_upgrades": [],
+		"exclude_uploads": [],
+		"exclude_perks": [],
+		"exclude_robots": [],
+		"rewards": {
+			"description": "reward_module_slot",
+			"icon": "cubes.png",
+			"attributes": {
+				"module_slots": 1
+			},
+			"research": []
+		}
+	},
+	"hardcore_unlucky":{
+		"name": "universe_unlucky_hardcore",
+		"icon": "death.png",
+		"script": "",
+		"description": "universe_unlucky_hardcore_desc",
+		"attributes": {
+			"discount": -1,
+			"virus_protection": -1,
+			"signal": -1,
+			"artifact_duration": -0.5,
+			"upgrade_chance": -0.25,
+			"luck": -0.5
+		},
+		"requirement": ["hardcore", "unlucky"],
+		"exclude_components": [],
+		"exclude_upgrades": [],
+		"exclude_uploads": [],
+		"exclude_perks": [],
+		"exclude_robots": [],
+		"rewards": {
+			"description": "reward_module_slot",
+			"icon": "cubes.png",
+			"attributes": {
+				"module_slots": 1
+			},
+			"research": []
+		}
+	}
+}

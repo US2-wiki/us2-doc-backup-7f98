@@ -598,7 +598,7 @@
 				"description": "hack_upgrade_economy_desc",
 				"limit": 2,
 				"attributes":{
-					"cost_multiplier": -0.25
+					"cost_reduction": -0.25
 				}
 			},
 			"power":{

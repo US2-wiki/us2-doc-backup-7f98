@@ -31,20 +31,20 @@
 			"speed_x2": 1
 		}
 	},
-	"clock":{
-		"name": "perk_clock_speed",
-		"icon": "server.png",
-		"script": "PerkPercentage.gd",
+	"assembler_slots":{
+		"name": "perk_assembler_slots",
+		"icon": "robot_arm.png",
+		"script": "PerkPlus.gd",
 		"currency": "points",
 		"tier": 1,
-		"limit": 10,
+		"limit": 7,
 		"price": 1,
-		"price_e": 13,
-		"price_inc": 100,
-		"requirement": "moore_law",
+		"price_e": 20,
+		"price_inc": 1000,
+		"requirement": "manufactory",
 		"base": 1,
 		"attributes":{
-			"clock_increase": 1
+			"assembler_slots": 1
 		}
 	},
 	"flux":{
@@ -61,6 +61,22 @@
 		"base": 2,
 		"attributes":{
 			"flux_x2": 1
+		}
+	},
+	"clock":{
+		"name": "perk_clock_speed",
+		"icon": "server.png",
+		"script": "PerkPercentage.gd",
+		"currency": "points2",
+		"tier": 2,
+		"limit": 10,
+		"price": 1,
+		"price_e": 13,
+		"price_inc": 100,
+		"requirement": "moore_law",
+		"base": 1,
+		"attributes":{
+			"clock_increase": 1
 		}
 	},
 	"graviton":{
