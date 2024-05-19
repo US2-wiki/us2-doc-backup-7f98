@@ -46,8 +46,7 @@
   "exportPath": "C:\\Users\\user\\Documents\\NoteValut\\Game\\export",
   "filesToExport": [
     [
-      "wiki",
-      "version"
+      "wiki"
     ]
   ],
   "inlineCSS": false,

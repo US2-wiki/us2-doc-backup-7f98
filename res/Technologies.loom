@@ -2461,7 +2461,7 @@
         "index": 30,
         "sourceId": null,
         "creationDateTime": "2023-11-24T21:17:09.024Z",
-        "lastEditedDateTime": "2023-11-24T22:51:19.634Z",
+        "lastEditedDateTime": "2024-05-19T07:25:05.879Z",
         "cells": [
           {
             "id": "e6f998cc-ff7c-4b19-af92-938d7dfe034b",
@@ -2486,7 +2486,7 @@
             "isExternalLink": false,
             "columnId": "4b8bbc2e-6444-4176-92ae-bb319b6a73c7",
             "dateTime": null,
-            "content": "100",
+            "content": "60",
             "tagIds": []
           },
           {
