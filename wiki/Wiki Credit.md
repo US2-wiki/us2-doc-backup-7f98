@@ -28,3 +28,5 @@ aliases:
 	- sirtodd - 100%
 - [[Components]]
 	- sirtodd - 100%
+- [[List of Module]]
+	- deleted.user0 - 100%

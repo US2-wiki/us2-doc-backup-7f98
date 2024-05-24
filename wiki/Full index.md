@@ -246,6 +246,7 @@ aliases:
 		- [[Mining Power]]
 		- [[Performance]]
 		- [[Upload Speed]]
+		- [[Parts Production]] (Not in additional attribute)
 - [[Shop]]
 	- [[Speed Boost]]
 	- [[Battery Boost]]
@@ -267,6 +268,7 @@ aliases:
 		- [[Requests Artifacts]]
 		- [[Electronics Artifacts]]
 		- [[Power Artifacts]]
+		- [[Virus Artifacts]]
 	- [[Achievement List|Achievement]]
 		- [[Journey to Innovation]] 
 		- [[Back on the Job]]

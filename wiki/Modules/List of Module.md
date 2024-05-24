@@ -1,0 +1,83 @@
+- [[RGB Lights]] 
+	- Cost: $5$ [[Wire]], $2$ [[Transistor]] / level
+	- Level: $1=>5$
+	- Attribute: $+10\%$ [[Performance]] / level
+- [[Breadboard]]
+	- Cost: $6$ [[Wire]], $3$ [[Transistor]] / level
+	- Level: $1=>5$
+	- Attribute: $+10\%$ [[Parts Production]] / level
+- [[Lithium Battery]]
+	- Cost: $6$ [[Wire]], $1$ [[Wafer]] / level
+	- Level: $1=>5$
+	- Attribute: $+15\%$ [[Maximum Battery]] / level
+ - [[Power Charger]]
+	 - Cost: $8$ [[Wire]], $2$ [[Transistor]] / level
+	- Level: $1=>5$
+	- Attribute: $+10\%$ [[Battery Recharge]] / level
+- [[Nano-Lens]]
+	- Cost: $4$ [[Wire]], $12$ [[Transistor]], $1$ [[Wafer]] / level
+	- Level: $1=>5$
+	- Attribute: $+10\%$ [[Luck]] / level
+- [[Zip License]]
+	- Cost: $16$ [[Transistor]] / level
+	- Level: $1=>5$
+	- Attribute: $+5\%$ compression / level
+- [[DDR6 RAM]]
+	- Cost: $4$ [[Wire]], $12$ [[Transistor]], $2$ [[Wafer]] / level
+	- Level: $1=>2$
+	- Attribute: $+1$ [[Upload Slot]] / level
+- [[Autoclicker]]
+	- Cost: $8$ [[Wire]], $12$ [[Transistor]], $1$ [[PCB]] / level
+	- Level: $1=>4$
+	- Feature: Automatically collect [[Artifacts]] and [[Modules Material|Parts]] 
+	- Upgrade effect: Increase the rate of collection
+- [[Packager]]
+	- Cost: $24$ [[Transistor]], $1$ [[PCB]] 
+	- Attribute: $+100\%$ [[Upload Speed]]
+	- Side-Effect: [[File Type|Uploads]] are periodically corrupted ($10s$)
+- [[Eliminator]]
+	- Cost: $6$ [[Wire]], $6$ [[Transistor]], $2$ [[Wafer]], 1 [[PCB]] / level
+	- Level: $1=>4$
+	- Feature: Neutralizes [[Virus Artifacts|virus]] and recharge $20\%$ of [[Battery Capacity]] for each eliminated [[Virus Artifacts|virus]]
+	- Upgrade effect: Increase the rate of elimination
+- [[Discharger]]
+	- Cost: $5$ [[Wire]], $15$ [[Transistor]], $3$ [[Wafer]] 
+	- Feature: Refill [[Battery]] every $60s$
+	- Side-Effect: [[Battery Recharge]] $= 0$
+- [[Infected Charger]]
+	- Cost: $16$ [[Wire]], $2$ [[Wafer]], $1$ [[PCB]] 
+	- Attribute: $+100\%$ [[Battery Recharge]]
+	- Side-Effect: [[Virus Artifacts|Virus]] spawn chance increase by $100\%$
+- [[Heavy Battery]]
+	- Cost: $21$ [[Wire]], $1$ [[Wafer]], $1$ [[PCB]] 
+	- Attribute: $+150\%$ [[Maximum Battery]]
+	- Side-Effect: [[Battery Recharge]] $-50\%$
+- [[Corrupted Lens]]
+	- Cost: $16$ [[Wire]], $2$ [[Wafer]], $1$ [[PCB]] 
+	- Attribute: $+100\%$ [[Luck]]
+	- Side-Effect: Collecting [[Artifacts|artifacts]] destroy all other artifacts and [[Virus Artifacts|viruses]]
+- [[Midas Touch]]
+	- Cost: $16$ [[Transistor]], $2$ [[Wafer]], $1$ [[PCB]] 
+	- Attribute: Convert all [[Artifacts|artifacts]] into [[Credit Artifacts]]
+- [[Charge Booster]]
+	- Cost: $10$ [[Wire]], $3$ [[Wafer]], $1$ [[PCB]] 
+	- Attribute: Increase [[Performance]] based on your [[Maximum Battery]]
+	- Side-Effect: [[Battery Recharge]] $-50\%$
+- [[Greed]]
+	- Cost: $10$ [[Wire]], $3$ [[Wafer]], $1$ [[PCB]] 
+	- Attribute: $+100\%$ [[Battery Recharge]]
+	- Side-Effect: Consumes all [[Battery]] while on full battery
+- [[Power Lens]]
+	- Cost: $4$ [[Wire]], $10$ [[Transistor]], $3$ [[Wafer]], $1$ [[PCB]] 
+	- Attribute: $+100\%$ [[Luck]]
+	- Side-Effect: $-40$ [[Battery Recharge]]
+- [[Equalizer]]
+	- Cost: $5$ [[Wire]], $12$ [[Transistor]], $2$ [[PCB]] 
+	- Attribute: $+50\%$ [[Performance]] / unused [[Module Slot]]
+- [[Hack Equalizer]]
+	- Cost: $5$ [[Wire]], $12$ [[Transistor]], $2$ [[PCB]]
+	- Attribute: $+25\%$ [[Battery Recharge]] / unused [[Hack Slot]]
+- [[Idle Catalyst]]
+	- Cost: $5$ [[Wire]], $12$ [[Transistor]], $2$ [[PCB]]
+	- Attribute: $+500\%$ [[Performance]]
+	- Side-Effect: [[Battery Recharge]] $= 0$, [[Battery Capacity]] $= 0$, [[Luck]] $= 0$
