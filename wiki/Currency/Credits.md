@@ -21,8 +21,9 @@ It can be obtained mainly through [[GPU]] mining and by uploading [[Image|images
 	- You should also look to increase [[Battery]] Recharge rate and [[Battery]] Capacity to increase efficiency of earning
 - Use & Upgrade [[Overheat]] hack
 	- Use to boost mining power
+- Collect [[Credit Artifacts]]
 - Overclock [[GPU]] with [[Power]] to increase boost
-- Upgrade [[Assembly|GPU Assembler]] by using [[Electronics]]
+- Upgrade/Purchase [[GPU Assembler]]/[[CPU Assembler]] by using [[Electronics]]
 - [[Field Modulation]] $\Rightarrow$ [[Credits Flow]]
 	- Increase multiplier to earning of [[Credits|credits]] 
 - [[Drivers]] $\Rightarrow$ Increase permanent multiplier to [[GPU]]
@@ -32,6 +33,7 @@ It can be obtained mainly through [[GPU]] mining and by uploading [[Image|images
 	- [[Infinity Mining Power x2]]
 - [[Space Shaper]]
 	- Increase [[Time]] multiplier as a global currency multiplier
+- Increase [[Performance]] through [[Modules]] (Module list [[List of Module|here]])
 
 
 ### How to use credit
