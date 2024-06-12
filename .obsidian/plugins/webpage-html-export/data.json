@@ -43,7 +43,7 @@
   "defaultFileIcon": "lucide//file",
   "defaultFolderIcon": "lucide//folder",
   "defaultMediaIcon": "lucide//file-image",
-  "exportPath": "C:\\Users\\user\\Documents\\NoteValut\\Game\\export",
+  "exportPath": "/Users/user/GameDoc/US2/export",
   "filesToExport": [
     [
       "wiki"
